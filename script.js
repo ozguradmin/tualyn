@@ -592,7 +592,7 @@
     ["S", "kupon defterindeki ilk kupon", ["sarılma"]],
     ["T", "bu derginin tek okuru", ["tuana"]],
     ["Y", "cicikuşların rengi", ["yeşil"]],
-    ["31", "dünyanın en komik esprisi", ["31", "otuzbir"], "rakamla yazılır"],
+    ["?", "dünyanın en komik esprisi", ["31", "otuzbir"], "rakamla yazılır"],
   ];
   const pzWheel = document.getElementById("pzWheel");
   if (pzWheel) {
@@ -725,10 +725,9 @@
 
   /* ── Kazı kazan kuponlar ── */
   const COUPONS = [
-    { title: "Bi sarılma", desc: "ne zaman istersen, ne kadar istersen", c: "#ff48b0" },
-    { title: "Bi öpücük", desc: "yeri ve zamanı sen seç", c: "#e8475f" },
+    { title: "Bi sarılma", desc: "yanına geldiğim zaman, ne kadar istersen", c: "#ff48b0" },
     { title: "Tam şu an bi fotoğrafını çekip bana yolla", desc: "evet şu an. bekliyorum", c: "#0078bf" },
-    { title: "Bi yemek benden", desc: "nereyi istersen, ne istersen", c: "#00a95c" },
+    { title: "Bi yemek benden", desc: "canın ne çekerse söyle, kapına yollayayım", c: "#00a95c" },
     { title: "Bi gün her dediğin olur", desc: "bütün gün hayır yok, sadece evet", c: "#8a5a3c" },
   ];
   const couponGrid = document.getElementById("couponGrid");

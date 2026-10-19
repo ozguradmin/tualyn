@@ -9,7 +9,7 @@ Build adımı yok: `index.html`, `style.css`, `script.js`.
 2. **Proje brief'i**: "onaylıyorum" butonuna basınca ONAYLANDI damgası vuruluyor.
 3. **Renk kartelası**: Pantone tarzı kartlar. Dokununca arkaları dönüyor.
 4. **Cicikuşlar**: İki muhabbet kuşu (biri fiyonklu). Okşanınca seviniyorlar, dürtülünce eziliyorlar, çok dürtülünce küsüyorlar, biri sevilince öbürü kıskanıyor, 16 saniye kimse ilgilenmezse uyuyorlar. Atıştırmalıklar sürüklenebiliyor. Mutluluk dolunca dans edip T.C. kimliği çıkarıyorlar.
-5. **Parolla (parol değil)**: 16 harf + 1 bonus (31) soruluk, Tuana'ya özel soru çemberi. Doğru, yanlış ve pas; paslananlar turun sonunda geri geliyor.
+5. **Parolla (parol değil)**: 16 harf + 1 bonus ("?") soruluk, Tuana'ya özel soru çemberi. Doğru, yanlış ve pas; paslananlar turun sonunda geri geliyor.
 6. **Kupon defteri**: Kazı kazan kuponlar (canvas).
 7. **Çıkartma sayfası**: Sürüklenebilir çıkartmalar. İki kez dokununca dönüyorlar; klavyede ok tuşları ve R de çalışıyor.
 8. **Kalp kavanozu**: Küçük bir fizik motoru. Dokun: kalp düşer, basılı tut: döker, sürükle: sallanır. Dolunca kapağı kapanıyor.
