@@ -4,9 +4,9 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Tuana — Sayı 01</title>
-<meta name="description" content="Tek baskı, tek okur. Tuana için basılmış küçük bir aşk zini." />
+<meta name="description" content="Tuana için yaptığım küçük bir dergi." />
 <meta property="og:title" content="Tuana — Sayı 01" />
-<meta property="og:description" content="Tek baskı, tek okur." />
+<meta property="og:description" content="Tuana için yaptığım küçük bir dergi." />
 <meta property="og:locale" content="tr_TR" />
 <meta name="theme-color" content="#f3ede2" />
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 90%22><path fill=%22%23ff48b0%22 d=%22M50 86C20 64 2 46 2 26 2 12 13 2 27 2c10 0 18 6 23 14C55 8 63 2 73 2c14 0 25 10 25 24 0 20-18 38-48 60z%22/></svg>" />
@@ -16,13 +16,6 @@
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-<div class="slug" aria-hidden="true">
-  <div class="slug-track">
-    <span>TUANA · SAYI 01 · TEK BASKI · TEK OKUR · FLORESAN PEMBE + MAVİ + SARI · KALBE BASILMIŞTIR ·&nbsp;</span>
-    <span>TUANA · SAYI 01 · TEK BASKI · TEK OKUR · FLORESAN PEMBE + MAVİ + SARI · KALBE BASILMIŞTIR ·&nbsp;</span>
-  </div>
-</div>
 
 <main>
 
@@ -50,19 +43,17 @@
         <span class="ink ink-blue" aria-hidden="true">Tuana</span>
         <span class="ink ink-pink" aria-hidden="true">Tuana</span>
       </h1>
-
-      <p class="cover-note hand">← bu sensin</p>
     </div>
 
     <div class="cover-foot">
-      <p class="cover-lede">Bir aşk zini.<br />Tek baskı, tek okur.</p>
+      <p class="cover-lede">Senin için yaptığım<br />küçük bir dergi.</p>
       <div class="barcode-wrap">
         <div class="barcode" id="barcode" aria-hidden="true"></div>
         <span class="mono">TU-ANA · 2026 · 1/1</span>
       </div>
     </div>
 
-    <a class="turn" href="#brief"><span>sayfayı çevir</span> <b aria-hidden="true">↓</b></a>
+    <a class="turn" href="#brief"><span>aşağı kaydır</span> <b aria-hidden="true">↓</b></a>
   </section>
 
   <!-- BRIEF -->
@@ -71,7 +62,7 @@
     <header class="page-head reveal">
       <span class="folio">s. 02</span>
       <h2>Proje <em>brief'i</em></h2>
-      <p class="page-sub">Her güzel iş bir brief'le başlar. Bu da öyle.</p>
+      <p class="page-sub">Tasarımcıya iş verirken brief yazılıyormuş. Ben de sana yazdım.</p>
     </header>
 
     <div class="brief-sheet reveal">
@@ -110,64 +101,102 @@
     <i class="crop tl"></i><i class="crop tr"></i><i class="crop bl"></i><i class="crop br"></i>
     <header class="page-head reveal">
       <span class="folio">s. 03</span>
-      <h2>Tuana <em>renk sistemi</em></h2>
-      <p class="page-sub">Senden çektiğim renkler. Kartelaya dokun, arkasında ne yazdığına bak.</p>
+      <h2>Tuana <em>renk kartelası</em></h2>
+      <p class="page-sub">Sana bakınca aklıma gelen renkler. Kartlara dokun, arkalarında not var.</p>
     </header>
 
     <div class="swatch-grid" id="swatchGrid"></div>
   </section>
 
-  <!-- YAZI KARAKTERİ -->
-  <section class="specimen page" id="font">
+  <!-- CİCİKUŞ -->
+  <section class="pet page" id="cicikus">
     <i class="crop tl"></i><i class="crop tr"></i><i class="crop bl"></i><i class="crop br"></i>
     <header class="page-head reveal">
       <span class="folio">s. 04</span>
-      <h2>Yazı karakteri <em>örneği</em></h2>
-      <p class="page-sub">Tuana Display. Değişken font. Tek ekseni var: sevgi.</p>
+      <h2>Bu <em>cicikuş</em> senin</h2>
+      <p class="page-sub">Üstünü okşa, dürt, karnını doyur. Yeterince mutlu olunca sana bir şey söyleyecek.</p>
     </header>
 
-    <div class="specimen-sheet reveal">
-      <div class="spec-row">
-        <div class="spec-aa" aria-hidden="true">Aa</div>
-        <div class="spec-info mono">
-          <p><span>Aile</span> Tuana Display</p>
-          <p><span>Tasarım</span> Özgür, sevgiyle</p>
-          <p><span>Kullanım</span> her şey, her gün</p>
-          <p><span>Lisans</span> sadece Tuana</p>
+    <div class="pet-layout reveal">
+      <div class="pet-stage" id="petStage">
+        <p class="bubble" id="bubble" aria-live="polite"></p>
+        <div class="zzz" aria-hidden="true"><span>z</span><span>z</span><span>z</span></div>
+
+        <svg class="bird" id="bird" viewBox="0 0 240 230" role="img" aria-label="Cicikuş. Okşamak için üstünde parmağını gezdir, dürtmek için dokun.">
+          <ellipse class="bird-shadow" cx="120" cy="214" rx="72" ry="9" />
+          <g class="bird-dance">
+            <g class="bird-squish">
+              <g class="bird-breathe">
+                <path class="foot" d="M98 196v12M92 210l6-3 6 3M142 196v12M136 210l6-3 6 3" />
+                <ellipse class="wing wing-l" cx="40" cy="132" rx="22" ry="34" />
+                <ellipse class="wing wing-r" cx="200" cy="132" rx="22" ry="34" />
+                <path class="tuft" d="M114 46c-10-14-4-28 8-26-6 8-4 16 2 22 2-12 12-20 22-14-10 4-14 12-14 20z" />
+                <ellipse class="body" cx="120" cy="124" rx="90" ry="80" />
+                <ellipse class="belly" cx="120" cy="156" rx="56" ry="42" />
+                <ellipse class="blush" cx="68" cy="132" rx="15" ry="8.5" />
+                <ellipse class="blush" cx="172" cy="132" rx="15" ry="8.5" />
+                <g class="eyes" id="eyes">
+                  <g class="eyes-open">
+                    <ellipse cx="88" cy="110" rx="9.5" ry="12.5" class="pupil" />
+                    <circle cx="91.5" cy="105" r="3.6" class="shine" />
+                    <ellipse cx="152" cy="110" rx="9.5" ry="12.5" class="pupil" />
+                    <circle cx="155.5" cy="105" r="3.6" class="shine" />
+                  </g>
+                  <g class="eyes-happy"><path d="M77 113q11-14 22 0M141 113q11-14 22 0" /></g>
+                  <g class="eyes-closed"><path d="M78 110q10 9 20 0M142 110q10 9 20 0" /></g>
+                  <g class="eyes-pout"><path d="M80 103l15 8-15 8M160 103l-15 8 15 8" /></g>
+                </g>
+                <g class="beak-closed"><path d="M110 124h20l-10 11z" /></g>
+                <g class="beak-open">
+                  <path d="M109 121h22l-11 7z" />
+                  <ellipse cx="120" cy="132" rx="7" ry="4.5" class="mouth" />
+                  <path d="M112 136h16l-8 8z" />
+                </g>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </div>
+
+      <div class="pet-panel">
+        <div class="meter">
+          <span class="mono meter-label">mutluluk</span>
+          <div class="meter-hearts" id="meter" aria-live="polite" aria-label="Mutluluk: 0 / 5"></div>
+        </div>
+
+        <div class="treats">
+          <span class="mono meter-label">atıştırmalıklar</span>
+          <p class="treat-tip">Birini kuşun üstüne sürükle ya da dokun.</p>
+          <div class="treat-row" id="treats"></div>
+        </div>
+
+        <div class="secret" id="secret" hidden>
+          <span class="mono meter-label">cicikuşun mesajı</span>
+          <p class="hand">Özgür sana söylememi istedi: seni çok seviyormuş. Her gün söyleyeceğim, söz.</p>
         </div>
       </div>
-
-      <p class="spec-live" id="specLive" contenteditable="true" spellcheck="false">Seni seviyorum.</p>
-      <p class="spec-hint hand">↑ yazıya dokunup değiştirebilirsin</p>
-
-      <div class="axes">
-        <label class="axis">
-          <span class="axis-name mono">Sevgi <b id="wghtVal">400</b></span>
-          <input type="range" id="wght" min="100" max="900" value="400" />
-        </label>
-        <label class="axis">
-          <span class="axis-name mono">Yumuşaklık <b id="softVal">50</b></span>
-          <input type="range" id="soft" min="0" max="100" value="50" />
-        </label>
-        <p class="axis-verdict" id="verdict" aria-live="polite">&nbsp;</p>
-      </div>
-
-      <div class="glyphs" aria-label="Türk alfabesi">
-        ABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜVYZ<br />
-        abcçdefgğhıijklmnoöprsştuüvyz<br />
-        0123456789 &amp; ♥ ! ? “ ”
-      </div>
-      <p class="pangram">Pijamalı hasta yağız şoföre çabucak güvendi.<span class="mono">— her Türk tasarımcının bildiği o cümle</span></p>
     </div>
   </section>
 
-  <!-- ÇIKARTMA SAYFASI -->
-  <section class="stickers page" id="cikartma">
+  <!-- KUPONLAR -->
+  <section class="coupons page" id="kuponlar">
     <i class="crop tl"></i><i class="crop tr"></i><i class="crop bl"></i><i class="crop br"></i>
     <header class="page-head reveal">
       <span class="folio">s. 05</span>
+      <h2>Kupon <em>defteri</em></h2>
+      <p class="page-sub">Parmağınla kazı. Çıkanı istediğin zaman kullanabilirsin, son kullanma tarihi yok.</p>
+    </header>
+
+    <div class="coupon-grid" id="couponGrid"></div>
+  </section>
+
+  <!-- ÇIKARTMALAR -->
+  <section class="stickers page" id="cikartma">
+    <i class="crop tl"></i><i class="crop tr"></i><i class="crop bl"></i><i class="crop br"></i>
+    <header class="page-head reveal">
+      <span class="folio">s. 06</span>
       <h2>Çıkartma <em>sayfası</em></h2>
-      <p class="page-sub">Bu sayfanın tasarımı sende. Çıkartmaları sürükle, istediğin yere yapıştır.</p>
+      <p class="page-sub">Bu sayfayı sen tasarla. Çıkartmaları sürükle, istediğin yere yapıştır.</p>
     </header>
 
     <div class="board reveal" id="board">
@@ -176,6 +205,25 @@
     <div class="board-tools">
       <button type="button" class="chip" id="shuffleBtn">karıştır</button>
       <span class="hand board-tip">ipucu: çıkartmaya iki kez dokunursan döner</span>
+    </div>
+  </section>
+
+  <!-- KAVANOZ -->
+  <section class="jar-page page" id="kavanoz">
+    <i class="crop tl"></i><i class="crop tr"></i><i class="crop bl"></i><i class="crop br"></i>
+    <header class="page-head reveal">
+      <span class="folio">s. 07</span>
+      <h2>Kalp <em>kavanozu</em></h2>
+      <p class="page-sub">Kavanoza dokun, kalp düşsün. Basılı tutarsan döker, sağa sola çekersen sallanır. Doldurmayı dene.</p>
+    </header>
+
+    <div class="jar-wrap reveal">
+      <canvas class="jar" id="jar" aria-label="Kalp kavanozu. Dokununca içine kalp düşer."></canvas>
+      <div class="jar-info">
+        <span class="mono" id="jarCount">kavanozda 0 kalp var</span>
+        <button type="button" class="chip" id="jarReset">boşalt</button>
+      </div>
+      <p class="jar-msg hand" id="jarMsg" hidden>Kavanoz doldu. Bende daha çok var ama.</p>
     </div>
   </section>
 
@@ -188,7 +236,7 @@
         <span class="ink ink-blue" aria-hidden="true">İyi ki<br />varsın.</span>
         <span class="ink ink-pink">İyi ki<br />varsın.</span>
       </h2>
-      <p class="closing-sign hand">— Özgür</p>
+      <p class="closing-sign hand">Özgür</p>
     </div>
 
     <footer class="colophon reveal">
@@ -199,7 +247,7 @@
         <div><dt>Kâğıt</dt><dd>1 adet kalp, 120 g/m²</dd></div>
         <div><dt>Tiraj</dt><dd>1 (tek okur: Tuana)</dd></div>
         <div><dt>Hazırlayan</dt><dd>Özgür</dd></div>
-        <div><dt>Haklar</dt><dd>Bu zinin tüm hakları cicikuşlara aittir.</dd></div>
+        <div><dt>Haklar</dt><dd>Bu derginin tüm hakları cicikuşlara aittir.</dd></div>
       </dl>
       <p class="next mono">Sayı 02 hazırlanıyor. Aklıma geldikçe ekleyeceğim.</p>
     </footer>

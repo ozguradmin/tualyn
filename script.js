@@ -1,5 +1,7 @@
 (() => {
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const rnd = (a, b) => a + Math.random() * (b - a);
+  const pick = (arr) => arr[Math.floor(Math.random() * arr.length)];
   const HEART = "M50 86C20 64 2 46 2 26 2 12 13 2 27 2c10 0 18 6 23 14C55 8 63 2 73 2c14 0 25 10 25 24 0 20-18 38-48 60z";
 
   /* ── Barkod: "TUANA" harflerinden türetilir, her seferinde aynı ── */
@@ -91,42 +93,6 @@
       grid.appendChild(btn);
     });
   }
-
-  /* ── Yazı karakteri eksenleri ── */
-  const specSheet = document.querySelector(".specimen-sheet");
-  const wght = document.getElementById("wght");
-  const soft = document.getElementById("soft");
-  const wghtVal = document.getElementById("wghtVal");
-  const softVal = document.getElementById("softVal");
-  const verdict = document.getElementById("verdict");
-  const updateAxes = () => {
-    const w = +wght.value;
-    const s = +soft.value;
-    specSheet.style.setProperty("--wght", w);
-    specSheet.style.setProperty("--soft", s);
-    wghtVal.textContent = w;
-    softVal.textContent = s;
-    let text;
-    if (w < 250) text = "fazla ince. bu kadar az sevemem.";
-    else if (w < 500) text = "hâlâ az. sağa çek.";
-    else if (w < 750) text = "yaklaşıyoruz…";
-    else if (w < 900) text = "biraz daha…";
-    else text = "en kalın hâli bu ama yine yetmiyor. font bu kadarını çizemiyor.";
-    if (s === 100 && w >= 900) text = "maksimum sevgi, maksimum yumuşaklık. yani sana bakarkenki hâlim.";
-    verdict.textContent = text;
-  };
-  if (wght && soft) {
-    wght.addEventListener("input", updateAxes);
-    soft.addEventListener("input", updateAxes);
-  }
-  // Yazılabilir alan: Enter satır eklemesin, boş kalırsa geri gelsin
-  const specLive = document.getElementById("specLive");
-  specLive?.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") { e.preventDefault(); specLive.blur(); }
-  });
-  specLive?.addEventListener("blur", () => {
-    if (!specLive.textContent.trim()) specLive.textContent = "Seni seviyorum.";
-  });
 
   /* ── Çıkartmalar ── */
   const STICKERS = [
@@ -251,6 +217,687 @@
     el.style.setProperty("--r", `${cur + deg}deg`);
   }
 
+  /* ── Kapak harfleri: dokununca ya da üstünden geçince zıplar ── */
+  document.querySelectorAll(".cover-title .ink").forEach((layer) => {
+    layer.innerHTML = [...layer.textContent].map((c) => `<span class="ch">${c}</span>`).join("");
+  });
+  const pinkChars = document.querySelectorAll(".cover-title .ink-pink .ch");
+  const blueChars = document.querySelectorAll(".cover-title .ink-blue .ch");
+  const boing = (i) => {
+    [pinkChars[i], blueChars[i]].forEach((el) => {
+      el.classList.remove("boing");
+      void el.offsetWidth;
+      el.classList.add("boing");
+    });
+  };
+  pinkChars.forEach((el, i) => {
+    el.addEventListener("pointerenter", () => boing(i));
+    el.addEventListener("click", () => boing(i));
+  });
+  if (!reduceMotion) pinkChars.forEach((_, i) => setTimeout(() => boing(i), 700 + i * 110));
+
+  /* ── Cicikuş ── */
+  const bird = document.getElementById("bird");
+  if (bird) {
+    const stage = document.getElementById("petStage");
+    const bubble = document.getElementById("bubble");
+    const eyes = document.getElementById("eyes");
+    const squishG = bird.querySelector(".bird-squish");
+    const danceG = bird.querySelector(".bird-dance");
+    const meter = document.getElementById("meter");
+    const secret = document.getElementById("secret");
+
+    let happy = 0;
+    let celebrated = false;
+    let asleep = false;
+    let visible = false;
+    let lastAct = Date.now();
+    let lastPet = 0;
+    let petCount = 0;
+    let rub = 0;
+    let pokes = [];
+    let moodTimer, bubbleTimer, talkTimer;
+
+    meter.innerHTML = Array.from({ length: 5 }, () => `<svg viewBox="-4 -4 108 98"><path d="${HEART}"/></svg>`).join("");
+    const renderMeter = () => {
+      [...meter.children].forEach((h, i) => h.classList.toggle("on", i < happy));
+      meter.setAttribute("aria-label", `Mutluluk: ${happy} / 5`);
+    };
+
+    const restart = (el, cls) => {
+      el.classList.remove(cls);
+      void el.getBoundingClientRect();
+      el.classList.add(cls);
+    };
+
+    const say = (text, ms = 1800) => {
+      bubble.textContent = text;
+      bubble.classList.add("is-on");
+      bird.classList.add("is-talking");
+      clearTimeout(bubbleTimer);
+      clearTimeout(talkTimer);
+      talkTimer = setTimeout(() => bird.classList.remove("is-talking"), 450);
+      bubbleTimer = setTimeout(() => bubble.classList.remove("is-on"), ms);
+    };
+
+    const setMood = (name, ms) => {
+      bird.classList.remove("is-happy", "is-pout", "is-sleep");
+      clearTimeout(moodTimer);
+      if (name) bird.classList.add(`is-${name}`);
+      if (name && ms) moodTimer = setTimeout(() => setMood(null), ms);
+    };
+
+    const wake = () => {
+      lastAct = Date.now();
+      if (!asleep) return false;
+      asleep = false;
+      stage.classList.remove("sleeping");
+      setMood(null);
+      restart(squishG, "squish");
+      say("uyandım! cik?", 1500);
+      return true;
+    };
+
+    const birdPoint = (fx, fy) => {
+      const r = bird.getBoundingClientRect();
+      return { x: r.left + r.width * fx, y: r.top + r.height * fy };
+    };
+
+    const celebrate = () => {
+      celebrated = true;
+      restart(danceG, "dance");
+      setMood("happy", 2600);
+      const p = birdPoint(0.5, 0.45);
+      burst(p.x, p.y, 18);
+      say("cik cik! sana bir şey söyleyeceğim…", 2400);
+      setTimeout(() => {
+        secret.hidden = false;
+        say("Özgür seni çok seviyormuş ♥", 3600);
+      }, 2500);
+    };
+
+    const addHappy = (n) => {
+      happy = Math.min(5, happy + n);
+      renderMeter();
+      if (happy === 5 && !celebrated) setTimeout(celebrate, 700);
+    };
+
+    const pet = (x, y) => {
+      const now = Date.now();
+      if (now - lastPet < 550) return;
+      lastPet = now;
+      wake();
+      setMood("happy", 1400);
+      burst(x, y, 4);
+      say(pick(["cik cik ♥", "tam orası", "biraz daha…", "mırr… pardon, ben kuşum", "en güzel sen seviyorsun"]), 1600);
+      if (++petCount % 2 === 0) addHappy(1);
+    };
+
+    const poke = () => {
+      if (wake()) return;
+      const now = Date.now();
+      restart(squishG, "squish");
+      pokes = pokes.filter((t) => now - t < 3000);
+      pokes.push(now);
+      if (pokes.length >= 4) {
+        pokes = [];
+        setMood("pout", 2200);
+        say(pick(["dürtme beniii", "hıh. küstüm.", "off yaa"]), 2000);
+      } else {
+        say(pick(["cik!", "hı?", "gıdıklanıyorum", "bir daha yap", "cik cik"]), 1200);
+      }
+    };
+
+    // Dokun, okşa
+    let down = null;
+    let hover = null;
+    bird.addEventListener("pointerdown", (e) => {
+      bird.setPointerCapture(e.pointerId);
+      down = { t: Date.now(), moved: 0, x: e.clientX, y: e.clientY };
+    });
+    bird.addEventListener("pointermove", (e) => {
+      const last = down || hover;
+      if (last) {
+        const d = Math.hypot(e.clientX - last.x, e.clientY - last.y);
+        if (down) down.moved += d;
+        rub += d;
+        if (rub > 240) {
+          rub = 0;
+          pet(e.clientX, e.clientY);
+        }
+      }
+      if (down) Object.assign(down, { x: e.clientX, y: e.clientY });
+      if (e.pointerType === "mouse") hover = { x: e.clientX, y: e.clientY };
+    });
+    bird.addEventListener("pointerleave", () => { hover = null; rub = 0; });
+    bird.addEventListener("pointerup", () => {
+      if (down && down.moved < 10 && Date.now() - down.t < 450) poke();
+      down = null;
+    });
+    bird.addEventListener("pointercancel", () => { down = null; });
+
+    // Gözler imleci takip eder
+    let eyeFrame = 0;
+    window.addEventListener("pointermove", (e) => {
+      if (eyeFrame || asleep) return;
+      eyeFrame = requestAnimationFrame(() => {
+        eyeFrame = 0;
+        const c = birdPoint(0.5, 0.47);
+        const dx = e.clientX - c.x;
+        const dy = e.clientY - c.y;
+        const d = Math.hypot(dx, dy) || 1;
+        const k = Math.min(1, d / 260);
+        eyes.style.transform = `translate(${(dx / d) * 7 * k}px, ${(dy / d) * 6 * k}px)`;
+      });
+    });
+
+    // Göz kırpma ve uyuma
+    const blinkLoop = () => {
+      if (!asleep) restart(bird, "blink");
+      setTimeout(blinkLoop, rnd(2400, 5200));
+    };
+    setTimeout(blinkLoop, 2000);
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(([en]) => { visible = en.isIntersecting; if (visible) lastAct = Date.now(); }).observe(stage);
+    }
+    setInterval(() => {
+      if (!asleep && visible && Date.now() - lastAct > 16000) {
+        asleep = true;
+        setMood("sleep");
+        stage.classList.add("sleeping");
+        eyes.style.transform = "";
+        bubble.classList.remove("is-on");
+      }
+    }, 1000);
+
+    // Atıştırmalıklar
+    const TREATS = [
+      { name: "çilek", line: "çilek en sevdiğim!", svg: `<svg viewBox="0 0 60 60"><path fill="#e8475f" d="M30 56C14 46 8 32 10 22c2-8 10-10 20-10s18 2 20 10c2 10-4 24-20 34z"/><path fill="#00a95c" d="M18 14l12 7 12-7-5-6-7 4-7-4z"/><g fill="#ffd23f"><ellipse cx="22" cy="28" rx="1.6" ry="2.4"/><ellipse cx="34" cy="26" rx="1.6" ry="2.4"/><ellipse cx="28" cy="36" rx="1.6" ry="2.4"/><ellipse cx="38" cy="36" rx="1.6" ry="2.4"/><ellipse cx="20" cy="38" rx="1.6" ry="2.4"/><ellipse cx="30" cy="46" rx="1.6" ry="2.4"/></g></svg>` },
+      { name: "kurabiye", line: "nom nom nom", svg: `<svg viewBox="0 0 60 60"><path fill="#d9a066" d="M54 22a24 24 0 1 1-16-16 8 8 0 0 0 9 9 8 8 0 0 0 7 7z"/><g fill="#5a3a2a"><circle cx="20" cy="24" r="3"/><circle cx="32" cy="34" r="3.2"/><circle cx="22" cy="42" r="2.6"/><circle cx="40" cy="44" r="2.4"/><circle cx="30" cy="18" r="2.2"/></g></svg>` },
+      { name: "tohum", line: "klasik ama güzel", svg: `<svg viewBox="0 0 60 60"><g fill="#c8a26b" stroke="#8a5a3c" stroke-width="1.5"><ellipse cx="22" cy="40" rx="6" ry="9" transform="rotate(-30 22 40)"/><ellipse cx="38" cy="40" rx="6" ry="9" transform="rotate(25 38 40)"/><ellipse cx="30" cy="26" rx="6" ry="9" transform="rotate(5 30 26)"/></g></svg>` },
+      { name: "kahve", line: "kahve mi?! uyumam artık", svg: `<svg viewBox="0 0 60 60"><path d="M24 6c-3 4 3 6 0 10M32 6c-3 4 3 6 0 10" stroke="#5d5466" stroke-width="2.5" fill="none" stroke-linecap="round"/><path fill="#fff" stroke="#2a2233" stroke-width="3" d="M10 22h34v16c0 10-8 16-17 16S10 48 10 38z"/><path d="M44 27c9 0 9 12 0 12" stroke="#2a2233" stroke-width="3" fill="none"/><ellipse cx="27" cy="23" rx="15" ry="3" fill="#8a5a3c"/><path fill="#ff48b0" transform="translate(21 32) scale(.12)" d="${HEART}"/></svg>` },
+    ];
+    const treatRow = document.getElementById("treats");
+
+    const eat = (t) => {
+      wake();
+      bird.classList.add("is-eating");
+      restart(squishG, "squish");
+      say(t.line, 1800);
+      [250, 450, 700].forEach((ms, i) => setTimeout(() => bird.classList.toggle("is-eating", i === 1), ms));
+      if (t.name === "kahve") setTimeout(() => restart(danceG, "dance"), 600);
+      else setTimeout(() => setMood("happy", 1200), 750);
+      addHappy(1);
+    };
+
+    const flyToBird = (ghost, from, t) => {
+      const to = birdPoint(0.5, 0.56);
+      const anim = ghost.animate([
+        { left: `${from.x}px`, top: `${from.y}px`, transform: "translate(-50%, -50%) scale(1) rotate(0deg)" },
+        { left: `${(from.x + to.x) / 2}px`, top: `${Math.min(from.y, to.y) - 90}px`, transform: "translate(-50%, -50%) scale(1.1) rotate(180deg)", offset: 0.5 },
+        { left: `${to.x}px`, top: `${to.y}px`, transform: "translate(-50%, -50%) scale(.3) rotate(360deg)" },
+      ], { duration: reduceMotion ? 1 : 650, easing: "ease-in-out" });
+      anim.onfinish = () => { ghost.remove(); eat(t); };
+    };
+
+    TREATS.forEach((t) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "treat";
+      btn.innerHTML = `${t.svg}<span>${t.name}</span>`;
+      btn.setAttribute("aria-label", `Cicikuşa ${t.name} ver`);
+      treatRow.appendChild(btn);
+
+      btn.addEventListener("click", (e) => {
+        if (e.detail !== 0) return; // klavyeyle basıldığında
+        const r = btn.getBoundingClientRect();
+        const ghost = makeGhost(t, r.left + r.width / 2, r.top + r.height / 2);
+        flyToBird(ghost, { x: r.left + r.width / 2, y: r.top + r.height / 2 }, t);
+      });
+
+      btn.addEventListener("pointerdown", (e) => {
+        e.preventDefault();
+        btn.setPointerCapture(e.pointerId);
+        const start = { x: e.clientX, y: e.clientY };
+        let moved = false;
+        const ghost = makeGhost(t, e.clientX, e.clientY);
+        const overBird = (ev) => {
+          const r = bird.getBoundingClientRect();
+          return ev.clientX > r.left && ev.clientX < r.right && ev.clientY > r.top && ev.clientY < r.bottom;
+        };
+        const move = (ev) => {
+          if (Math.hypot(ev.clientX - start.x, ev.clientY - start.y) > 8) moved = true;
+          ghost.style.left = `${ev.clientX}px`;
+          ghost.style.top = `${ev.clientY}px`;
+          bird.classList.toggle("is-eating", overBird(ev));
+        };
+        const up = (ev) => {
+          btn.removeEventListener("pointermove", move);
+          btn.removeEventListener("pointerup", up);
+          btn.removeEventListener("pointercancel", up);
+          if (!moved) flyToBird(ghost, start, t);
+          else if (ev.type === "pointerup" && overBird(ev)) { ghost.remove(); eat(t); }
+          else {
+            bird.classList.remove("is-eating");
+            ghost.animate([{ opacity: 1 }, { opacity: 0, transform: "translate(-50%, -50%) scale(.5)" }], { duration: 250 }).onfinish = () => ghost.remove();
+          }
+        };
+        btn.addEventListener("pointermove", move);
+        btn.addEventListener("pointerup", up);
+        btn.addEventListener("pointercancel", up);
+      });
+    });
+
+    function makeGhost(t, x, y) {
+      const g = document.createElement("div");
+      g.className = "treat-ghost";
+      g.innerHTML = t.svg;
+      g.style.left = `${x}px`;
+      g.style.top = `${y}px`;
+      document.body.appendChild(g);
+      return g;
+    }
+
+    renderMeter();
+  }
+
+  /* ── Kazı kazan kuponlar ── */
+  const COUPONS = [
+    { title: "Bir sarılma", desc: "İstediğin an, istediğin kadar uzun.", c: "#ff48b0" },
+    { title: "Film gecesi, film senden", desc: "İtiraz etmeyeceğim. En azından deneyeceğim.", c: "#0078bf" },
+    { title: "Bir tartışmayı kazanma hakkı", desc: "Haklı olmasan bile. Bir kereye mahsus.", c: "#00a95c" },
+    { title: "Bir kahve benden", desc: "Nerede istersen, ne zaman istersen.", c: "#8a5a3c" },
+  ];
+  const couponGrid = document.getElementById("couponGrid");
+  if (couponGrid) {
+    COUPONS.forEach((cp, i) => {
+      const card = document.createElement("article");
+      card.className = "coupon reveal";
+      card.style.setProperty("--c", cp.c);
+      card.style.setProperty("--tilt", `${[-1, 0.8, 0.6, -0.8][i]}deg`);
+      card.innerHTML = `
+        <div class="coupon-stub"><span>kupon no ${String(i + 1).padStart(2, "0")}</span></div>
+        <div class="coupon-body">
+          <h3>${cp.title}</h3>
+          <p>${cp.desc}</p>
+          <p class="coupon-fine">son kullanma tarihi yok · devredilemez · sadece Tuana</p>
+          <canvas aria-label="Kazınacak alan. Parmağınla ya da fareyle sürterek kazı."></canvas>
+        </div>`;
+      couponGrid.appendChild(card);
+      setupScratch(card, cp.c);
+    });
+  }
+
+  function setupScratch(card, color) {
+    const cv = card.querySelector("canvas");
+    const ctx = cv.getContext("2d");
+    let touched = false;
+    let done = false;
+    let last = null;
+    let strokes = 0;
+
+    const paint = () => {
+      const r = cv.getBoundingClientRect();
+      if (!r.width) return;
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      cv.width = Math.round(r.width * dpr);
+      cv.height = Math.round(r.height * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.globalCompositeOperation = "source-over";
+      ctx.fillStyle = color;
+      ctx.fillRect(0, 0, r.width, r.height);
+      ctx.fillStyle = "rgba(255, 255, 255, .2)";
+      for (let y = 4, row = 0; y < r.height; y += 9, row++) {
+        for (let x = row % 2 ? 8.5 : 4; x < r.width; x += 9) {
+          ctx.beginPath();
+          ctx.arc(x, y, 1.7, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+      ctx.fillStyle = "#fff";
+      ctx.textAlign = "center";
+      ctx.font = "700 12px 'Space Mono', monospace";
+      ctx.fillText("K A Z I   K A Z A N", r.width / 2, r.height / 2 - 6);
+      ctx.font = "700 26px Caveat, cursive";
+      ctx.fillText("buraya sürt ♥", r.width / 2, r.height / 2 + 24);
+      ctx.globalCompositeOperation = "destination-out";
+      ctx.lineCap = "round";
+      ctx.lineJoin = "round";
+      ctx.lineWidth = 38;
+    };
+    (document.fonts ? document.fonts.ready : Promise.resolve()).then(paint);
+    window.addEventListener("resize", () => { if (!touched) paint(); });
+
+    const progress = () => {
+      const { data } = ctx.getImageData(0, 0, cv.width, cv.height);
+      let clear = 0, total = 0;
+      for (let i = 3; i < data.length; i += 4 * 23) { total++; if (data[i] === 0) clear++; }
+      return clear / total;
+    };
+
+    const point = (e) => {
+      const r = cv.getBoundingClientRect();
+      return { x: e.clientX - r.left, y: e.clientY - r.top };
+    };
+    cv.addEventListener("pointerdown", (e) => {
+      if (done) return;
+      cv.setPointerCapture(e.pointerId);
+      touched = true;
+      last = point(e);
+      ctx.beginPath();
+      ctx.arc(last.x, last.y, 19, 0, Math.PI * 2);
+      ctx.fill();
+    });
+    cv.addEventListener("pointermove", (e) => {
+      if (!last || done) return;
+      const p = point(e);
+      ctx.beginPath();
+      ctx.moveTo(last.x, last.y);
+      ctx.lineTo(p.x, p.y);
+      ctx.stroke();
+      last = p;
+      if (++strokes % 8 === 0 && progress() > 0.5) {
+        done = true;
+        card.classList.add("revealed");
+        const r = card.getBoundingClientRect();
+        burst(r.left + r.width / 2, r.top + r.height / 2, 12);
+      }
+    });
+    const stop = () => { last = null; };
+    cv.addEventListener("pointerup", stop);
+    cv.addEventListener("pointercancel", stop);
+  }
+
+  /* ── Kalp kavanozu (küçük bir fizik motoru) ── */
+  const jar = document.getElementById("jar");
+  if (jar) {
+    const ctx = jar.getContext("2d");
+    const heartPath = new Path2D(HEART);
+    const HEART_COLORS = ["#ff48b0", "#ff48b0", "#ff8cc6", "#e8475f", "#0078bf", "#ffd23f"];
+    const countEl = document.getElementById("jarCount");
+    const msg = document.getElementById("jarMsg");
+    const bodies = [];
+    const J = {};
+    let W = 0, H = 0;
+    let full = false;
+    let lid = null;
+    let shake = 0;
+    let running = false;
+    let visible = false;
+
+    const layout = () => {
+      const r = jar.getBoundingClientRect();
+      if (!r.width) return;
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      if (W) bodies.forEach((b) => { b.x *= r.width / W; b.y *= r.height / H; b.r *= r.width / W; });
+      W = r.width;
+      H = r.height;
+      jar.width = Math.round(W * dpr);
+      jar.height = Math.round(H * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      Object.assign(J, {
+        u: W / 420,
+        L: W * 0.1, R: W * 0.9, B: H * 0.94,
+        top: H * 0.12, neckL: W * 0.27, neckR: W * 0.73,
+        shoulder: H * 0.26, rad: W * 0.13,
+      });
+      J.max = Math.floor(((J.R - J.L) * (J.B - J.shoulder) * 0.85) / (Math.PI * (16 * J.u) ** 2));
+      draw();
+    };
+
+    const updateCount = () => {
+      countEl.textContent = `kavanozda ${bodies.length} kalp var`;
+    };
+
+    const spawn = () => {
+      if (full) return;
+      const r = rnd(12, 20) * J.u;
+      bodies.push({
+        x: rnd(J.neckL + r, J.neckR - r), y: J.top - r * 1.5,
+        vx: rnd(-60, 60) * J.u, vy: rnd(0, 80) * J.u,
+        r, a: rnd(-0.5, 0.5), color: pick(HEART_COLORS),
+      });
+      updateCount();
+      if (bodies.length >= J.max) {
+        full = true;
+        lid = { y: -60 * J.u, vy: 0 };
+        setTimeout(() => { msg.hidden = false; }, 900);
+      }
+      wakeLoop();
+    };
+
+    const constrain = (b) => {
+      const { L, R, B, rad, neckL, neckR, shoulder } = J;
+      if (b.y < shoulder) {
+        if (b.x - b.r < neckL) { b.x = neckL + b.r; b.vx = Math.abs(b.vx) * 0.3; }
+        if (b.x + b.r > neckR) { b.x = neckR - b.r; b.vx = -Math.abs(b.vx) * 0.3; }
+      } else {
+        if (b.y - b.r < shoulder && (b.x < neckL || b.x > neckR)) { b.y = shoulder + b.r; b.vy = Math.abs(b.vy) * 0.2; }
+        if (b.x - b.r < L) { b.x = L + b.r; b.vx = Math.abs(b.vx) * 0.3; }
+        if (b.x + b.r > R) { b.x = R - b.r; b.vx = -Math.abs(b.vx) * 0.3; }
+      }
+      if (b.y + b.r > B) { b.y = B - b.r; b.vy = -Math.abs(b.vy) * 0.25; b.vx *= 0.96; }
+      // yuvarlak alt köşeler
+      for (const cx of [L + rad, R - rad]) {
+        const cy = B - rad;
+        const inCorner = cx < W / 2 ? b.x < cx : b.x > cx;
+        if (inCorner && b.y > cy) {
+          const dx = b.x - cx, dy = b.y - cy, d = Math.hypot(dx, dy);
+          if (d > rad - b.r) {
+            const nx = dx / d, ny = dy / d;
+            b.x = cx + nx * (rad - b.r);
+            b.y = cy + ny * (rad - b.r);
+            const vn = b.vx * nx + b.vy * ny;
+            if (vn > 0) { b.vx -= 1.3 * vn * nx; b.vy -= 1.3 * vn * ny; }
+          }
+        }
+      }
+    };
+
+    const step = (dt) => {
+      const g = 1500 * J.u;
+      for (const b of bodies) {
+        b.vy += g * dt;
+        b.vx *= 0.995;
+        b.x += b.vx * dt;
+        b.y += b.vy * dt;
+        b.a += (b.vx * dt) / b.r * 0.5;
+      }
+      for (let it = 0; it < 2; it++) {
+        for (let i = 0; i < bodies.length; i++) {
+          const a = bodies[i];
+          for (let j = i + 1; j < bodies.length; j++) {
+            const b = bodies[j];
+            const dx = b.x - a.x, dy = b.y - a.y, m = a.r + b.r, d2 = dx * dx + dy * dy;
+            if (d2 >= m * m || d2 < 1e-6) continue;
+            const d = Math.sqrt(d2), nx = dx / d, ny = dy / d, o = (m - d) / 2;
+            a.x -= nx * o; a.y -= ny * o; b.x += nx * o; b.y += ny * o;
+            const rv = (b.vx - a.vx) * nx + (b.vy - a.vy) * ny;
+            if (rv < 0) {
+              const k = -0.6 * rv;
+              a.vx -= k * nx; a.vy -= k * ny; b.vx += k * nx; b.vy += k * ny;
+            }
+          }
+        }
+        bodies.forEach(constrain);
+      }
+      if (lid) {
+        const target = J.top - 22 * J.u;
+        lid.vy += g * dt;
+        lid.y += lid.vy * dt;
+        if (lid.y > target) { lid.y = target; lid.vy = Math.abs(lid.vy) > 60 ? -lid.vy * 0.35 : 0; }
+      }
+      shake *= 0.85;
+    };
+
+    const jarPath = () => {
+      const { L, R, B, top, neckL, neckR, shoulder, rad } = J;
+      const p = new Path2D();
+      p.moveTo(neckL, top);
+      p.lineTo(neckL, shoulder - H * 0.07);
+      p.quadraticCurveTo(L, shoulder - H * 0.06, L, shoulder + H * 0.03);
+      p.lineTo(L, B - rad);
+      p.arcTo(L, B, L + rad, B, rad);
+      p.lineTo(R - rad, B);
+      p.arcTo(R, B, R, B - rad, rad);
+      p.lineTo(R, shoulder + H * 0.03);
+      p.quadraticCurveTo(R, shoulder - H * 0.06, neckR, shoulder - H * 0.07);
+      p.lineTo(neckR, top);
+      return p;
+    };
+
+    const roundRect = (x, y, w, h, r) => {
+      ctx.beginPath();
+      ctx.moveTo(x + r, y);
+      ctx.arcTo(x + w, y, x + w, y + h, r);
+      ctx.arcTo(x + w, y + h, x, y + h, r);
+      ctx.arcTo(x, y + h, x, y, r);
+      ctx.arcTo(x, y, x + w, y, r);
+      ctx.closePath();
+    };
+
+    function draw() {
+      const { u, L, R, top, neckL, neckR, shoulder } = J;
+      ctx.clearRect(0, 0, W, H);
+      ctx.save();
+      ctx.translate(Math.sin(shake * 3) * shake, 0);
+      const glass = jarPath();
+
+      // cam (arka)
+      ctx.fillStyle = "rgba(255, 253, 248, .75)";
+      ctx.fill(glass);
+
+      // kalpler
+      for (const b of bodies) {
+        ctx.save();
+        ctx.translate(b.x, b.y);
+        ctx.rotate(b.a);
+        const s = (b.r * 2.2) / 100;
+        ctx.scale(s, s);
+        ctx.translate(-50, -46);
+        ctx.fillStyle = b.color;
+        ctx.fill(heartPath);
+        ctx.fillStyle = "rgba(255, 255, 255, .45)";
+        ctx.beginPath();
+        ctx.ellipse(27, 22, 10, 6, -0.6, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      }
+
+      // cam (ön) + parlama
+      ctx.lineWidth = 3 * u;
+      ctx.strokeStyle = "#2a2233";
+      ctx.stroke(glass);
+      ctx.strokeStyle = "rgba(255, 255, 255, .8)";
+      ctx.lineWidth = 7 * u;
+      ctx.lineCap = "round";
+      ctx.beginPath();
+      ctx.moveTo(L + 22 * u, shoulder + 30 * u);
+      ctx.lineTo(L + 22 * u, shoulder + 120 * u);
+      ctx.stroke();
+
+      // ağız halkası
+      ctx.fillStyle = "#fffdf8";
+      roundRect(neckL - 8 * u, top - 6 * u, neckR - neckL + 16 * u, 14 * u, 5 * u);
+      ctx.fill();
+      ctx.lineWidth = 3 * u;
+      ctx.strokeStyle = "#2a2233";
+      ctx.stroke();
+
+      // etiket
+      ctx.save();
+      ctx.translate(W / 2, shoulder + 40 * u);
+      ctx.rotate(-0.04);
+      ctx.fillStyle = "#fffdf8";
+      roundRect(-62 * u, -20 * u, 124 * u, 40 * u, 4 * u);
+      ctx.fill();
+      ctx.lineWidth = 1.5 * u;
+      ctx.stroke();
+      ctx.fillStyle = "#2a2233";
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.font = `700 ${24 * u}px Caveat, cursive`;
+      ctx.fillText("Tuana'nın kalpleri", 0, 1 * u, 116 * u);
+      ctx.restore();
+
+      // kapak
+      if (lid) {
+        const w = neckR - neckL + 28 * u;
+        ctx.fillStyle = "#0078bf";
+        roundRect(neckL - 14 * u, lid.y, w, 26 * u, 7 * u);
+        ctx.fill();
+        ctx.stroke();
+        ctx.save();
+        ctx.translate(W / 2, lid.y - 2 * u);
+        ctx.scale(0.18 * u, 0.18 * u);
+        ctx.translate(-50, -60);
+        ctx.fillStyle = "#ff48b0";
+        ctx.fill(heartPath);
+        ctx.restore();
+      }
+      ctx.restore();
+    }
+
+    let prev = 0;
+    const loop = (t) => {
+      if (!visible) { running = false; return; }
+      const dt = Math.min(0.032, (t - (prev || t)) / 1000) || 0.016;
+      prev = t;
+      const sub = 3;
+      for (let i = 0; i < sub; i++) step(dt / sub);
+      draw();
+      requestAnimationFrame(loop);
+    };
+    function wakeLoop() {
+      if (running || !visible) return;
+      running = true;
+      prev = 0;
+      requestAnimationFrame(loop);
+    }
+
+    // Dokun: bir kalp. Basılı tut: dök. Sürükle: salla.
+    let pour = null;
+    let lastX = null;
+    jar.addEventListener("pointerdown", (e) => {
+      jar.setPointerCapture(e.pointerId);
+      lastX = e.clientX;
+      spawn();
+      pour = setTimeout(function again() { spawn(); pour = setTimeout(again, 70); }, 300);
+    });
+    jar.addEventListener("pointermove", (e) => {
+      if (lastX === null) return;
+      const dx = e.clientX - lastX;
+      lastX = e.clientX;
+      if (Math.abs(dx) > 2) {
+        clearTimeout(pour);
+        shake = Math.min(14, shake + Math.abs(dx) * 0.3);
+        bodies.forEach((b) => { b.vx += dx * 14 * J.u; b.vy -= Math.abs(dx) * 4 * J.u; });
+        wakeLoop();
+      }
+    });
+    const release = () => { clearTimeout(pour); lastX = null; };
+    jar.addEventListener("pointerup", release);
+    jar.addEventListener("pointercancel", release);
+
+    document.getElementById("jarReset").addEventListener("click", () => {
+      bodies.length = 0;
+      full = false;
+      lid = null;
+      msg.hidden = true;
+      updateCount();
+      draw();
+    });
+
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(([en]) => { visible = en.isIntersecting; if (visible) wakeLoop(); }).observe(jar);
+    } else {
+      visible = true;
+    }
+    (document.fonts ? document.fonts.ready : Promise.resolve()).then(layout);
+    window.addEventListener("resize", layout);
+    layout();
+  }
+
   /* ── Tıklayınca riso kalpleri ── */
   const COLORS = ["#ff48b0", "#0078bf", "#ffd23f"];
   function burst(x, y, count = 5) {
@@ -274,7 +921,7 @@
     }
   }
   document.addEventListener("click", (e) => {
-    if (e.target.closest("button, a, input, label, [contenteditable], .board")) return;
+    if (e.target.closest("button, a, input, label, canvas, .board, .bird, .coupon, .cover-title")) return;
     burst(e.clientX, e.clientY);
   });
 
