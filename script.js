@@ -53,12 +53,12 @@
 
   /* ── Renk kartelası ── */
   const swatches = [
-    { name: "Gülüş Pembesi", code: "14-0412", hex: "#ff6fa8", note: "gülünce ben de istemeden gülüyorum" },
+    { name: "Gülüş Pembesi", code: "14-0412", hex: "#ff6fa8", note: "güldüğünde ben de istemeden gülüyorum" },
     { name: "Ses Mavisi", code: "17-1105", hex: "#4f86e8", note: "sesini duyunca içim rahatlıyo" },
-    { name: "Sabah Kahvesi", code: "18-0203", hex: "#8a5a3c", note: "sabah kahvesi kadar sıcacıksın" },
-    { name: "Somurtma Şeftalisi", code: "13-2201", hex: "#ffae85", note: "somurtunca bile tatlısın, haksızlık bu" },
-    { name: "Lale", code: "16-0119", hex: "#e8475f", note: "lale görünce aklıma sen geliyosun" },
-    { name: "Cicikuş Yeşili", code: "15-0343", hex: "#7cc243", note: "tüm haklar onlarda, biliyosun" },
+    { name: "Sabah Kahvesi", code: "18-0203", hex: "#8a5a3c", note: "seni her şeyden çok seviyorum" },
+    { name: "Somurtma Şeftalisi", code: "13-2201", hex: "#ffae85", note: "aşırı güzelsin, aşığım sana" },
+    { name: "Lale", code: "16-0119", hex: "#e8475f", note: "her an aklımdasın fıstık" },
+    { name: "Cicikuş Yeşili", code: "15-0343", hex: "#7cc243", note: "keşke sabah akşam sana baksam" },
   ];
   const grid = document.getElementById("swatchGrid");
   if (grid) {
@@ -105,6 +105,7 @@
     { label: "yüzde yüz tatlı rozeti", size: 104, svg: `<svg viewBox="0 0 100 100"><path fill="#00a95c" d="M50 2l9 8 12-3 4 12 12 4-3 12 8 9-8 9 3 12-12 4-4 12-12-3-9 8-9-8-12 3-4-12-12-4 3-12-8-9 8-9-3-12 12-4 4-12 12 3z"/><text x="50" y="50" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="22" fill="#fff">%100</text><text x="50" y="68" text-anchor="middle" font-family="Space Mono, monospace" font-size="11" letter-spacing="1.5" fill="#fff">TATLI</text></svg>` },
     { label: "papatya", size: 92, svg: `<svg viewBox="0 0 100 100"><g fill="#fff" stroke="#2a2233" stroke-width="2.5">${Array.from({ length: 8 }, (_, i) => `<ellipse cx="50" cy="22" rx="11" ry="20" transform="rotate(${i * 45} 50 50)"/>`).join("")}</g><circle cx="50" cy="50" r="15" fill="#ffd23f" stroke="#2a2233" stroke-width="2.5"/><circle cx="45" cy="48" r="2" fill="#2a2233"/><circle cx="55" cy="48" r="2" fill="#2a2233"/><path d="M45 55q5 4 10 0" stroke="#2a2233" stroke-width="2" fill="none" stroke-linecap="round"/></svg>` },
     { label: "Ö artı T", size: 96, svg: `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="#fff" stroke="#0078bf" stroke-width="5" stroke-dasharray="6 5"/><text x="50" y="62" text-anchor="middle" font-family="Caveat, cursive" font-weight="700" font-size="36" fill="#0078bf">Ö+T</text><path fill="#ff48b0" transform="translate(41 70) scale(.18)" d="${HEART}"/></svg>` },
+    { label: "parol kutusu", size: 112, svg: `<svg viewBox="0 0 120 84"><rect x="4" y="4" width="112" height="76" rx="8" fill="#fff" stroke="#2a2233" stroke-width="3"/><path fill="#0078bf" d="M4 58h112v14a8 8 0 0 1-8 8H12a8 8 0 0 1-8-8z"/><path fill="#e8475f" d="M4 50h112v8H4z"/><text x="60" y="34" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="22" fill="#0078bf">parol</text><circle cx="48" cy="42" r="2.4" fill="#2a2233"/><circle cx="72" cy="42" r="2.4" fill="#2a2233"/><path d="M56 45q4 4 8 0" stroke="#2a2233" stroke-width="2" fill="none" stroke-linecap="round"/><ellipse cx="42" cy="46" rx="4" ry="2.4" fill="#ff8cc6"/><ellipse cx="78" cy="46" rx="4" ry="2.4" fill="#ff8cc6"/><text x="60" y="73" text-anchor="middle" font-family="Space Mono, monospace" font-size="8" fill="#fff">BAŞ AĞRISINA BİREBİR</text></svg>` },
   ];
 
   const board = document.getElementById("board");
@@ -112,7 +113,7 @@
   const rand = (a, b) => a + Math.random() * (b - a);
 
   // Çıkartmalar üst üste binmesin diye kaba bir ızgaraya, biraz oynatarak dağıtılır
-  const SLOTS = [[18, 22], [50, 18], [82, 24], [22, 52], [52, 50], [80, 54], [18, 80], [50, 82], [82, 80]];
+  const SLOTS = [[16, 20], [44, 16], [76, 20], [90, 50], [18, 50], [48, 48], [70, 56], [16, 82], [44, 82], [80, 84]];
   const place = (el, i) => {
     const [x, y] = SLOTS[i % SLOTS.length];
     el.style.left = `${x + rand(-5, 5)}%`;
@@ -586,17 +587,18 @@
     ["L", "bu dergide açan çiçek", ["lale"]],
     ["M", "cicikuşlar aslında ne kuşu", ["muhabbet", "muhabbet kuşu"]],
     ["Ö", "bu dergiyi yapan çocuk", ["özgür"]],
-    ["P", "şu an oynadığın oyun", ["parolla"]],
+    ["P", "başın ağrıyınca ilk sarıldığın şey (benden sonra tabii)", ["parol"]],
     ["R", "bu derginin baskı tekniği, pembe mavi sarı mürekkepli", ["risograf", "riso", "risografi"]],
     ["S", "kupon defterindeki ilk kupon", ["sarılma"]],
     ["T", "bu derginin tek okuru", ["tuana"]],
     ["Y", "cicikuşların rengi", ["yeşil"]],
+    ["31", "dünyanın en komik esprisi", ["31", "otuzbir"], "rakamla yazılır"],
   ];
   const pzWheel = document.getElementById("pzWheel");
   if (pzWheel) {
     const fold = (s) => s.toLocaleLowerCase("tr")
       .replace(/[çğıöşüâî]/g, (c) => ({ ç: "c", ğ: "g", ı: "i", ö: "o", ş: "s", ü: "u", â: "a", î: "i" })[c])
-      .replace(/[^a-z]/g, "");
+      .replace(/[^a-z0-9]/g, "");
     const els = {
       now: document.getElementById("pzNow"),
       hint: document.getElementById("pzHint"),
@@ -641,10 +643,10 @@
       counts();
     };
     const show = () => {
-      const [l, clue] = PZ[cur];
+      const [l, clue, , hint] = PZ[cur];
       els.now.textContent = l;
       restart2(els.now, "pz-pop");
-      els.hint.textContent = `${l} ile başlar`;
+      els.hint.textContent = hint || `${l} ile başlar`;
       els.clue.textContent = clue;
       els.input.value = "";
       els.fb.innerHTML = "&nbsp;";
@@ -658,12 +660,13 @@
       els.play.hidden = true;
       els.end.hidden = false;
       els.final.textContent = r;
+      document.getElementById("pzTotal").textContent = `/${PZ.length}`;
       els.endMsg.textContent =
         r === PZ.length ? "hepsini bildin. tabii bilcektin zaten" :
-        r >= 12 ? "baya iyi ya, beni en iyi sen tanıyosun" :
-        r >= 8 ? "fena değil ama bi daha oyna bence" :
+        r >= PZ.length - 4 ? "baya iyi ya, beni en iyi sen tanıyosun" :
+        r >= PZ.length / 2 ? "fena değil ama bi daha oyna bence" :
         "ciddi misin tuana :( bi daha oyna";
-      if (r >= 12) {
+      if (r >= PZ.length - 4) {
         const b = pzWheel.getBoundingClientRect();
         burst(b.left + b.width / 2, b.top + b.height / 2, 16);
       }
@@ -723,9 +726,10 @@
   /* ── Kazı kazan kuponlar ── */
   const COUPONS = [
     { title: "Bi sarılma", desc: "ne zaman istersen, ne kadar istersen", c: "#ff48b0" },
-    { title: "Film gecesi, film senden", desc: "itiraz etmicem. en azından deneyeceğim", c: "#0078bf" },
-    { title: "Doku ödevine yardım", desc: "kesmesi, yapıştırması, gece kahvesi benden", c: "#00a95c" },
-    { title: "Bi kahve benden", desc: "nerde istersen, ne zaman istersen", c: "#8a5a3c" },
+    { title: "Bi öpücük", desc: "yeri ve zamanı sen seç", c: "#e8475f" },
+    { title: "Tam şu an bi fotoğrafını çekip bana yolla", desc: "evet şu an. bekliyorum", c: "#0078bf" },
+    { title: "Bi yemek benden", desc: "nereyi istersen, ne istersen", c: "#00a95c" },
+    { title: "Bi gün her dediğin olur", desc: "bütün gün hayır yok, sadece evet", c: "#8a5a3c" },
   ];
   const couponGrid = document.getElementById("couponGrid");
   if (couponGrid) {
@@ -733,7 +737,7 @@
       const card = document.createElement("article");
       card.className = "coupon reveal";
       card.style.setProperty("--c", cp.c);
-      card.style.setProperty("--tilt", `${[-1, 0.8, 0.6, -0.8][i]}deg`);
+      card.style.setProperty("--tilt", `${[-1, 0.8, 0.6, -0.8, 0.4][i % 5]}deg`);
       card.innerHTML = `
         <div class="coupon-stub"><span>kupon no ${String(i + 1).padStart(2, "0")}</span></div>
         <div class="coupon-body">

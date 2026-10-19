@@ -1047,7 +1047,14 @@ button { font: inherit; color: inherit; cursor: pointer; }
   .closing-title { font-size: 23vw; }
   .cover-meta span:nth-child(2) { display: none; }
   .cover-foot { flex-direction: column; align-items: flex-start; }
-  
+  .brief-list > div { grid-template-columns: 1fr; gap: 2px; }
+  .stamp { width: 150px; height: 150px; top: 46%; }
+  .stamp span { font-size: 1.25rem; }
+  .swatch-grid { grid-template-columns: repeat(2, 1fr); }
+  .swatch-back { padding: 14px; }
+  .colophon dl > div { grid-template-columns: 1fr; gap: 0; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
@@ -1064,4 +1071,5 @@ button { font: inherit; color: inherit; cursor: pointer; }
           background-clip: text;
 }
 .coupon.reveal.is-in { transform: rotate(var(--tilt, 0deg)); }
+.coupon:last-child:nth-child(odd) { grid-column: 1 / -1; }
 main { overflow-x: clip; }
