@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Tuana — Sayı 01</title>
+<meta name="description" content="Tek baskı, tek okur. Tuana için basılmış küçük bir aşk zini." />
+<meta property="og:title" content="Tuana — Sayı 01" />
+<meta property="og:description" content="Tek baskı, tek okur." />
+<meta property="og:locale" content="tr_TR" />
+<meta name="theme-color" content="#f3ede2" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 90%22><path fill=%22%23ff48b0%22 d=%22M50 86C20 64 2 46 2 26 2 12 13 2 27 2c10 0 18 6 23 14C55 8 63 2 73 2c14 0 25 10 25 24 0 20-18 38-48 60z%22/></svg>" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,100..900,0..100,0..1;1,9..144,100..900,0..100,0..1&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="slug" aria-hidden="true">
+  <div class="slug-track">
+    <span>TUANA · SAYI 01 · TEK BASKI · TEK OKUR · FLORESAN PEMBE + MAVİ + SARI · KALBE BASILMIŞTIR ·&nbsp;</span>
+    <span>TUANA · SAYI 01 · TEK BASKI · TEK OKUR · FLORESAN PEMBE + MAVİ + SARI · KALBE BASILMIŞTIR ·&nbsp;</span>
+  </div>
+</div>
+
+<main>
+
+  <!-- KAPAK -->
+  <section class="cover page" id="kapak">
+    <i class="crop tl"></i><i class="crop tr"></i><i class="crop bl"></i><i class="crop br"></i>
+
+    <div class="cover-meta">
+      <span>Sayı 01</span>
+      <span>Ekim 2026</span>
+      <span>Fiyatı: bir sarılma</span>
+    </div>
+
+    <div class="cover-art">
+      <svg class="halftone-heart" viewBox="0 0 100 90" aria-hidden="true">
+        <defs>
+          <pattern id="dots" width="3.2" height="3.2" patternUnits="userSpaceOnUse" patternTransform="rotate(18)">
+            <circle cx="1.6" cy="1.6" r="1.05" />
+          </pattern>
+        </defs>
+        <path fill="url(#dots)" d="M50 86C20 64 2 46 2 26 2 12 13 2 27 2c10 0 18 6 23 14C55 8 63 2 73 2c14 0 25 10 25 24 0 20-18 38-48 60z" />
+      </svg>
+
+      <h1 class="cover-title" aria-label="Tuana">
+        <span class="ink ink-blue" aria-hidden="true">Tuana</span>
+        <span class="ink ink-pink" aria-hidden="true">Tuana</span>
+      </h1>
+
+      <p class="cover-note hand">← bu sensin</p>
+    </div>
+
+    <div class="cover-foot">
+      <p class="cover-lede">Bir aşk zini.<br />Tek baskı, tek okur.</p>
+      <div class="barcode-wrap">
+        <div class="barcode" id="barcode" aria-hidden="true"></div>
+        <span class="mono">TU-ANA · 2026 · 1/1</span>
+      </div>
+    </div>
+
+    <a class="turn" href="#brief"><span>sayfayı çevir</span> <b aria-hidden="true">↓</b></a>
+  </section>
+
+  <!-- BRIEF -->
+  <section class="brief page" id="brief">
+    <i class="crop tl"></i><i class="crop tr"></i><i class="crop bl"></i><i class="crop br"></i>
+    <header class="page-head reveal">
+      <span class="folio">s. 02</span>
+      <h2>Proje <em>brief'i</em></h2>
+      <p class="page-sub">Her güzel iş bir brief'le başlar. Bu da öyle.</p>
+    </header>
+
+    <div class="brief-sheet reveal">
+      <div class="brief-top mono">
+        <span>İŞ NO: 001</span>
+        <span>DURUM: <b id="briefStatus">müşteri onayı bekleniyor</b></span>
+      </div>
+
+      <dl class="brief-list">
+        <div><dt>Müşteri</dt><dd>Özgür</dd></div>
+        <div><dt>Proje</dt><dd>Tuana'ya, onu ne kadar sevdiğimi anlatmak</dd></div>
+        <div><dt>Hedef kitle</dt><dd>Tek kişi. <span class="hl">(Sen.)</span></dd></div>
+        <div><dt>Ton</dt><dd>Tatlı, biraz utangaç, fazlasıyla samimi</dd></div>
+        <div><dt>Bütçe</dt><dd>Kalbimin tamamı</dd></div>
+        <div><dt>Teslim</dt><dd>Bugün. Yarın. Ve bundan sonraki bütün günler.</dd></div>
+        <div><dt>Revizyon</dt><dd>Sınırsız <span class="aside hand">ama sende değiştirecek bir şey bulamadım</span></dd></div>
+      </dl>
+
+      <div class="brief-sign">
+        <div class="sig">
+          <span class="sig-name hand">Özgür</span>
+          <span class="sig-line mono">müşteri imzası</span>
+        </div>
+        <button class="approve" id="approveBtn" type="button">Onaylıyorum ♥</button>
+      </div>
+
+      <div class="stamp" id="stamp" aria-hidden="true">
+        <span>ONAYLANDI</span>
+        <small>♥ ömür boyu ♥</small>
+      </div>
+    </div>
+  </section>
+
+  <!-- RENK KARTELASI -->
+  <section class="swatches page" id="renkler">
+    <i class="crop tl"></i><i class="crop tr"></i><i class="crop bl"></i><i class="crop br"></i>
+    <header class="page-head reveal">
+      <span class="folio">s. 03</span>
+      <h2>Tuana <em>renk sistemi</em></h2>
+      <p class="page-sub">Senden çektiğim renkler. Kartelaya dokun, arkasında ne yazdığına bak.</p>
+    </header>
+
+    <div class="swatch-grid" id="swatchGrid"></div>
+  </section>
+
+  <!-- YAZI KARAKTERİ -->
+  <section class="specimen page" id="font">
+    <i class="crop tl"></i><i class="crop tr"></i><i class="crop bl"></i><i class="crop br"></i>
+    <header class="page-head reveal">
+      <span class="folio">s. 04</span>
+      <h2>Yazı karakteri <em>örneği</em></h2>
+      <p class="page-sub">Tuana Display. Değişken font. Tek ekseni var: sevgi.</p>
+    </header>
+
+    <div class="specimen-sheet reveal">
+      <div class="spec-row">
+        <div class="spec-aa" aria-hidden="true">Aa</div>
+        <div class="spec-info mono">
+          <p><span>Aile</span> Tuana Display</p>
+          <p><span>Tasarım</span> Özgür, sevgiyle</p>
+          <p><span>Kullanım</span> her şey, her gün</p>
+          <p><span>Lisans</span> sadece Tuana</p>
+        </div>
+      </div>
+
+      <p class="spec-live" id="specLive" contenteditable="true" spellcheck="false">Seni seviyorum.</p>
+      <p class="spec-hint hand">↑ yazıya dokunup değiştirebilirsin</p>
+
+      <div class="axes">
+        <label class="axis">
+          <span class="axis-name mono">Sevgi <b id="wghtVal">400</b></span>
+          <input type="range" id="wght" min="100" max="900" value="400" />
+        </label>
+        <label class="axis">
+          <span class="axis-name mono">Yumuşaklık <b id="softVal">50</b></span>
+          <input type="range" id="soft" min="0" max="100" value="50" />
+        </label>
+        <p class="axis-verdict" id="verdict" aria-live="polite">&nbsp;</p>
+      </div>
+
+      <div class="glyphs" aria-label="Türk alfabesi">
+        ABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜVYZ<br />
+        abcçdefgğhıijklmnoöprsştuüvyz<br />
+        0123456789 &amp; ♥ ! ? “ ”
+      </div>
+      <p class="pangram">Pijamalı hasta yağız şoföre çabucak güvendi.<span class="mono">— her Türk tasarımcının bildiği o cümle</span></p>
+    </div>
+  </section>
+
+  <!-- ÇIKARTMA SAYFASI -->
+  <section class="stickers page" id="cikartma">
+    <i class="crop tl"></i><i class="crop tr"></i><i class="crop bl"></i><i class="crop br"></i>
+    <header class="page-head reveal">
+      <span class="folio">s. 05</span>
+      <h2>Çıkartma <em>sayfası</em></h2>
+      <p class="page-sub">Bu sayfanın tasarımı sende. Çıkartmaları sürükle, istediğin yere yapıştır.</p>
+    </header>
+
+    <div class="board reveal" id="board">
+      <p class="board-ghost" aria-hidden="true">senin<br />sayfan</p>
+    </div>
+    <div class="board-tools">
+      <button type="button" class="chip" id="shuffleBtn">karıştır</button>
+      <span class="hand board-tip">ipucu: çıkartmaya iki kez dokunursan döner</span>
+    </div>
+  </section>
+
+  <!-- KAPANIŞ -->
+  <section class="closing page" id="son">
+    <i class="crop tl"></i><i class="crop tr"></i><i class="crop bl"></i><i class="crop br"></i>
+    <div class="closing-inner reveal">
+      <p class="mono kicker">son sayfa</p>
+      <h2 class="closing-title">
+        <span class="ink ink-blue" aria-hidden="true">İyi ki<br />varsın.</span>
+        <span class="ink ink-pink">İyi ki<br />varsın.</span>
+      </h2>
+      <p class="closing-sign hand">— Özgür</p>
+    </div>
+
+    <footer class="colophon reveal">
+      <h3 class="mono">Künye</h3>
+      <dl>
+        <div><dt>Yazı karakterleri</dt><dd>Fraunces, Space Grotesk, Space Mono, Caveat</dd></div>
+        <div><dt>Mürekkepler</dt><dd><i class="dot" style="--c:var(--pink)"></i>Floresan Pembe <i class="dot" style="--c:var(--blue)"></i>Mavi <i class="dot" style="--c:var(--yellow)"></i>Sarı</dd></div>
+        <div><dt>Kâğıt</dt><dd>1 adet kalp, 120 g/m²</dd></div>
+        <div><dt>Tiraj</dt><dd>1 (tek okur: Tuana)</dd></div>
+        <div><dt>Hazırlayan</dt><dd>Özgür</dd></div>
+        <div><dt>Haklar</dt><dd>Bu zinin tüm hakları cicikuşlara aittir.</dd></div>
+      </dl>
+      <p class="next mono">Sayı 02 hazırlanıyor. Aklıma geldikçe ekleyeceğim.</p>
+    </footer>
+  </section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
