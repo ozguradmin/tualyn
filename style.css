@@ -24,6 +24,7 @@
 }
 
 * { box-sizing: border-box; }
+[hidden] { display: none !important; }
 
 html { scroll-behavior: smooth; }
 
@@ -531,45 +532,56 @@ button { font: inherit; color: inherit; cursor: pointer; }
   100% { transform: none; }
 }
 
-/* ── Cicikuş ────────────────────────────────── */
+/* ── Cicikuşlar (muhabbet kuşları) ───────────── */
 .pet-layout {
   display: grid;
-  grid-template-columns: 1.25fr 1fr;
+  grid-template-columns: 1.3fr 1fr;
   gap: clamp(20px, 4vw, 48px);
   align-items: stretch;
 }
 .pet-stage {
   position: relative;
-  display: grid;
-  place-items: end center;
-  min-height: 440px;
-  padding: 90px 20px 24px;
+  min-height: 460px;
   border-radius: 6px;
   background:
-    radial-gradient(circle at 50% 110%, color-mix(in srgb, var(--yellow) 35%, transparent), transparent 60%),
+    radial-gradient(ellipse at 50% 100%, color-mix(in srgb, var(--green) 14%, transparent), transparent 65%),
     radial-gradient(circle, rgba(42, 34, 51, .12) 1px, transparent 1.2px) 0 0 / 20px 20px,
     #fffdf8;
   box-shadow: inset 0 0 0 1px var(--rule), 0 24px 50px -32px rgba(42, 34, 51, .4);
   overflow: hidden;
 }
+.branch {
+  position: absolute;
+  left: 0; right: 0;
+  bottom: 70px;
+  width: 100%;
+  height: 60px;
+}
+.birds {
+  position: absolute;
+  left: 50%;
+  bottom: 96px;
+  display: flex;
+  align-items: flex-end;
+  gap: 0;
+  width: min(440px, 92%);
+  transform: translateX(-50%);
+}
 .bird {
-  width: min(330px, 86%);
+  flex: 1;
+  min-width: 0;
   overflow: visible;
   touch-action: none;
   cursor: grab;
   user-select: none;
   -webkit-user-select: none;
 }
-.bird .body { fill: var(--yellow); }
-.bird .belly { fill: #fff3c2; }
-.bird .wing, .bird .tuft { fill: #f2b705; }
-.bird .foot { fill: none; stroke: #ff9a3c; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
-.bird .blush { fill: #ff8cc6; opacity: .75; transition: opacity .3s, transform .3s; transform-box: fill-box; transform-origin: center; }
-.bird .pupil, .bird .mouth { fill: var(--ink); }
-.bird .shine { fill: #fff; }
-.bird .eyes path { fill: none; stroke: var(--ink); stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
-.bird .beak-closed path, .bird .beak-open path { fill: #ff9a3c; }
-.bird-shadow { fill: rgba(42, 34, 51, .12); }
+.bird + .bird { margin-left: -6%; }
+.bird .o { stroke: #3b2a35; stroke-width: 3.5; stroke-linejoin: round; stroke-linecap: round; }
+.bird .ln { fill: none; stroke: #3b2a35; stroke-width: 2.6; stroke-linecap: round; }
+.bird .foot { fill: none; stroke: #e7a1a8; stroke-width: 6; stroke-linecap: round; }
+.bird .blush { opacity: .55; transition: opacity .3s, transform .3s; transform-box: fill-box; transform-origin: center; }
+.bird .eyes path { fill: none; stroke: #3b2a35; stroke-width: 4.5; stroke-linecap: round; stroke-linejoin: round; }
 
 .bird .eyes { transition: transform .15s ease-out; }
 .bird .eyes-happy, .bird .eyes-closed, .bird .eyes-pout, .bird .beak-open { display: none; }
@@ -579,8 +591,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .bird.is-pout .eyes-pout { display: inline; }
 .bird.is-eating .beak-closed, .bird.is-talking .beak-closed { display: none; }
 .bird.is-eating .beak-open, .bird.is-talking .beak-open { display: inline; }
-.bird.is-happy .blush { opacity: 1; transform: scale(1.25); }
-.bird.is-pout .blush { opacity: 1; }
+.bird.is-happy .blush, .bird.is-pout .blush { opacity: 1; transform: scale(1.2); }
 
 .bird .eyes-open { transform-box: fill-box; transform-origin: center; }
 .bird.blink .eyes-open { animation: blink .18s ease-in-out; }
@@ -588,35 +599,52 @@ button { font: inherit; color: inherit; cursor: pointer; }
 
 .bird-breathe, .bird-squish, .bird-dance { transform-box: fill-box; transform-origin: 50% 100%; }
 .bird-breathe { animation: breathe 3.2s ease-in-out infinite; }
+.bird:nth-child(2) .bird-breathe { animation-delay: -1.4s; }
 @keyframes breathe { 50% { transform: scale(1.015, .985); } }
 .bird.is-sleep .bird-breathe { animation-duration: 5s; }
 .bird-squish.squish { animation: squish .55s cubic-bezier(.3, 1.4, .5, 1); }
 @keyframes squish {
   0% { transform: none; }
-  30% { transform: scale(1.18, .8); }
-  55% { transform: scale(.92, 1.1); }
-  78% { transform: scale(1.04, .97); }
+  30% { transform: scale(1.16, .82); }
+  55% { transform: scale(.93, 1.08); }
+  78% { transform: scale(1.03, .98); }
   100% { transform: none; }
 }
 .bird-dance.dance { animation: dance .42s ease-in-out 6 alternate; }
 @keyframes dance {
-  from { transform: rotate(-7deg) translateY(0); }
-  to { transform: rotate(7deg) translateY(-14px); }
+  from { transform: rotate(-6deg) translateY(0); }
+  to { transform: rotate(6deg) translateY(-14px); }
 }
+.bird .head-tilt { transform-box: view-box; transform-origin: 100px 150px; transition: transform .4s cubic-bezier(.3, 1.4, .5, 1); }
+.bird.curious .head-tilt { transform: rotate(-9deg); }
 .bird .wing { transform-box: fill-box; }
-.bird .wing-l { transform-origin: 90% 30%; }
-.bird .wing-r { transform-origin: 10% 30%; }
-.bird.is-happy .wing-l { animation: flapL .18s ease-in-out 6 alternate; }
-.bird.is-happy .wing-r { animation: flapR .18s ease-in-out 6 alternate; }
-@keyframes flapL { to { transform: rotate(28deg); } }
-@keyframes flapR { to { transform: rotate(-28deg); } }
+.bird .wing-l { transform-origin: 85% 15%; }
+.bird .wing-r { transform-origin: 15% 15%; }
+.bird.is-happy .wing-l { animation: flapL .16s ease-in-out 6 alternate; }
+.bird.is-happy .wing-r { animation: flapR .16s ease-in-out 6 alternate; }
+@keyframes flapL { to { transform: rotate(24deg); } }
+@keyframes flapR { to { transform: rotate(-24deg); } }
+
+.tc-card {
+  position: absolute;
+  left: 50%;
+  bottom: 70px;
+  width: min(230px, 52%);
+  opacity: 0;
+  transform: translate(-50%, 240%) rotate(-4deg);
+  transition: transform .8s cubic-bezier(.3, 1.4, .5, 1), opacity .3s;
+  filter: drop-shadow(0 8px 12px rgba(42, 34, 51, .25));
+  pointer-events: none;
+}
+.tc-card.is-up { opacity: 1; transform: translate(-50%, 0) rotate(-4deg); }
 
 .bubble {
   position: absolute;
   top: 22px;
-  left: 50%;
+  left: var(--bx, 50%);
   margin: 0;
-  max-width: min(320px, 86%);
+  width: max-content;
+  max-width: min(300px, 80%);
   padding: 8px 16px 10px;
   background: var(--ink);
   color: var(--paper);
@@ -716,6 +744,110 @@ button { font: inherit; color: inherit; cursor: pointer; }
   animation: boing .7s cubic-bezier(.3, 1.6, .5, 1);
 }
 .secret p { margin: 0; font-size: 1.6rem; line-height: 1.15; color: var(--ink); }
+
+/* ── Parolla ────────────────────────────────── */
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.pz {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(24px, 5vw, 64px);
+  align-items: center;
+}
+.pz-wheel {
+  position: relative;
+  width: min(440px, 100%);
+  aspect-ratio: 1;
+  margin: 0 auto;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, transparent 58%, color-mix(in srgb, var(--blue) 8%, transparent) 58.5%, transparent 72%),
+    radial-gradient(circle, rgba(42, 34, 51, .1) 1px, transparent 1.2px) 0 0 / 16px 16px;
+}
+.pz-l {
+  position: absolute;
+  left: calc(50% + var(--x) * 43%);
+  top: calc(50% + var(--y) * 43%);
+  display: grid;
+  place-items: center;
+  width: clamp(30px, 9.5%, 44px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--pink);
+  color: #fff;
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: clamp(13px, 3.4vw, 17px);
+  box-shadow: 0 2px 0 var(--ink);
+  transition: background .3s, transform .3s cubic-bezier(.3, 1.5, .5, 1), box-shadow .3s;
+}
+.pz-l.now { background: var(--blue); transform: translate(-50%, -50%) scale(1.25); box-shadow: 0 0 0 4px var(--paper), 0 0 0 6px var(--blue); }
+.pz-l.right { background: var(--green); }
+.pz-l.wrong { background: #e8475f; }
+.pz-l.passed { background: var(--yellow); color: var(--ink); }
+.pz-l.right, .pz-l.wrong { animation: boingL .6s cubic-bezier(.3, 1.6, .5, 1); }
+@keyframes boingL {
+  30% { transform: translate(-50%, -50%) scale(1.35); }
+  100% { transform: translate(-50%, -50%) scale(1); }
+}
+.pz-now {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-family: var(--serif);
+  font-weight: 800;
+  font-size: clamp(5rem, 20vw, 9rem);
+  line-height: 1;
+  color: var(--blue);
+  font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 144;
+  pointer-events: none;
+}
+.pz-now.pz-pop { animation: boing .6s cubic-bezier(.3, 1.6, .5, 1); }
+.pz-panel { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+.pz-hint { margin: 0; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--pink); }
+.pz-clue {
+  margin: 6px 0 0;
+  font-family: var(--serif);
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  line-height: 1.15;
+  font-variation-settings: "SOFT" 100;
+  min-height: 2.4em;
+  text-wrap: balance;
+}
+.pz-form { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+.pz-form input {
+  flex: 1 1 180px;
+  min-width: 0;
+  padding: 12px 16px;
+  border: 2px solid var(--ink);
+  border-radius: 99px;
+  background: #fffdf8;
+  font: 500 1.05rem var(--sans);
+  color: var(--ink);
+  outline: none;
+}
+.pz-form input:focus { box-shadow: 0 0 0 3px color-mix(in srgb, var(--blue) 35%, transparent); }
+.pz-ok {
+  border: 2px solid var(--ink);
+  background: var(--blue);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 99px;
+  font-weight: 700;
+  box-shadow: 3px 3px 0 var(--ink);
+}
+.pz-ok:active { transform: translate(3px, 3px); box-shadow: none; }
+.pz-form .chip { padding: 10px 18px; }
+.pz-feedback { margin: 0; min-height: 1.4em; font-size: 1.7rem; line-height: 1.1; }
+.pz-feedback.good { color: var(--green); }
+.pz-feedback.bad { color: #e8475f; }
+.pz-score { margin: 0; font-size: 12px; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+.pz-end { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
+.pz-end-score { margin: 0; font-family: var(--serif); line-height: .9; font-variation-settings: "SOFT" 100, "WONK" 1; }
+.pz-end-score b { font-size: clamp(5rem, 14vw, 8rem); font-weight: 800; color: var(--pink); }
+.pz-end-score span { font-size: 2rem; color: var(--ink-soft); }
+.pz-end-msg { margin: 0 0 8px; font-size: 1.9rem; line-height: 1.1; }
 
 /* ── Kuponlar ───────────────────────────────── */
 .coupon-grid {
@@ -832,6 +964,12 @@ button { font: inherit; color: inherit; cursor: pointer; }
   font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 144;
   padding: 0 .08em .1em 0;
 }
+.closing-to {
+  margin: 0 0 4px;
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  color: var(--blue);
+  transform: rotate(-4deg);
+}
 .closing-sign {
   margin: 18px 0 0;
   font-size: clamp(2rem, 4vw, 2.8rem);
@@ -901,6 +1039,8 @@ button { font: inherit; color: inherit; cursor: pointer; }
   .cover { min-height: auto; gap: 28px; }
   .cover-art { margin: 6vh 0 4vh; }
   .pet-layout { grid-template-columns: 1fr; }
+  .pet-stage { min-height: 400px; }
+  .pz { grid-template-columns: 1fr; }
   .coupon-grid { grid-template-columns: 1fr; }
   .treat-row { gap: 10px; }
   .cover-title { font-size: 31vw; }

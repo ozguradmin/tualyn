@@ -45,20 +45,20 @@
     stamp.classList.add("is-on");
     sheet.classList.add("shake");
     approveBtn.disabled = true;
-    approveBtn.textContent = "Onaylandı ✓";
-    briefStatus.textContent = "onaylandı, teslimat başladı";
+    approveBtn.textContent = "onaylandı ✓";
+    briefStatus.textContent = "onaylandı, başlıyoz";
     const r = approveBtn.getBoundingClientRect();
     burst(r.left + r.width / 2, r.top + r.height / 2, 14);
   });
 
   /* ── Renk kartelası ── */
   const swatches = [
-    { name: "Gülüş Pembesi", code: "14-0412", hex: "#ff6fa8", note: "Gülünce ben de istemeden gülümsüyorum." },
-    { name: "Ses Mavisi", code: "17-1105", hex: "#4f86e8", note: "Sesini duyduğum anda içim biraz daha rahat ediyor." },
-    { name: "Sabah Kahvesi", code: "18-0203", hex: "#8a5a3c", note: "Sabah kahvesi kadar sıcacıksın." },
-    { name: "Somurtma Şeftalisi", code: "13-2201", hex: "#ffae85", note: "Somurtman bile bu kadar tatlı, haksızlık bu." },
-    { name: "Lale", code: "16-0119", hex: "#e8475f", note: "Her lale gördüğümde aklıma sen geliyorsun." },
-    { name: "Cicikuş Sarısı", code: "12-1029", hex: "#ffd23f", note: "Bütün haklar onlarda. Bunu biz konuştuk." },
+    { name: "Gülüş Pembesi", code: "14-0412", hex: "#ff6fa8", note: "gülünce ben de istemeden gülüyorum" },
+    { name: "Ses Mavisi", code: "17-1105", hex: "#4f86e8", note: "sesini duyunca içim rahatlıyo" },
+    { name: "Sabah Kahvesi", code: "18-0203", hex: "#8a5a3c", note: "sabah kahvesi kadar sıcacıksın" },
+    { name: "Somurtma Şeftalisi", code: "13-2201", hex: "#ffae85", note: "somurtunca bile tatlısın, haksızlık bu" },
+    { name: "Lale", code: "16-0119", hex: "#e8475f", note: "lale görünce aklıma sen geliyosun" },
+    { name: "Cicikuş Yeşili", code: "15-0343", hex: "#7cc243", note: "tüm haklar onlarda, biliyosun" },
   ];
   const grid = document.getElementById("swatchGrid");
   if (grid) {
@@ -100,7 +100,7 @@
     { label: "lale", size: 90, svg: `<svg viewBox="0 0 80 130"><path d="M40 62v60" stroke="#00a95c" stroke-width="7" stroke-linecap="round"/><path fill="#00a95c" d="M40 104c-6-18-20-26-30-24 4 14 16 24 30 24zM40 96c6-14 18-20 28-18-4 12-15 18-28 18z"/><path fill="#ff48b0" d="M14 22c0 26 10 42 26 42s26-16 26-42L54 34 40 12 26 34z"/><path fill="#e8475f" d="M40 12 26 34l14 30 14-30z" opacity=".7"/></svg>` },
     { label: "yıldız", size: 96, svg: `<svg viewBox="0 0 100 100"><path fill="#ffd23f" d="M50 4l13 30 32 3-24 21 7 32-28-17-28 17 7-32L5 37l32-3z" stroke-linejoin="round"/><circle cx="40" cy="52" r="3.5" fill="#2a2233"/><circle cx="60" cy="52" r="3.5" fill="#2a2233"/><path d="M44 62q6 6 12 0" stroke="#2a2233" stroke-width="3" fill="none" stroke-linecap="round"/></svg>` },
     { label: "kedi", size: 118, svg: `<svg viewBox="0 0 120 104"><path fill="#0078bf" d="M14 10l26 20h40l26-20 4 46c0 28-22 44-50 44S10 84 10 56z"/><ellipse cx="34" cy="70" rx="9" ry="6" fill="#ff48b0" opacity=".85"/><ellipse cx="86" cy="70" rx="9" ry="6" fill="#ff48b0" opacity=".85"/><path d="M36 56q6-7 12 0M72 56q6-7 12 0" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M54 70q6 6 12 0" stroke="#fff" stroke-width="3.5" fill="none" stroke-linecap="round"/></svg>` },
-    { label: "cicikuşlar", size: 150, svg: `<svg viewBox="0 0 160 100"><path d="M8 92h144" stroke="#8a5a3c" stroke-width="5" stroke-linecap="round"/><circle cx="52" cy="58" r="30" fill="#ffd23f"/><path fill="#ff9a3c" d="M24 54l-12 6 12 4z"/><circle cx="40" cy="50" r="3.5" fill="#2a2233"/><path fill="#f2b705" d="M58 58c10 0 18 6 18 14-10 2-18-4-18-14z"/><circle cx="108" cy="58" r="30" fill="#ff8cc6"/><path fill="#ff9a3c" d="M136 54l12 6-12 4z"/><circle cx="120" cy="50" r="3.5" fill="#2a2233"/><path fill="#ff48b0" d="M102 58c-10 0-18 6-18 14 10 2 18-4 18-14z"/><path fill="#e8475f" transform="translate(70 12) scale(.2)" d="${HEART}"/></svg>` },
+    { label: "cicikuşlar", size: 150, svg: `<svg viewBox="0 0 160 100"><path d="M8 92h144" stroke="#8a5a3c" stroke-width="5" stroke-linecap="round"/><circle cx="52" cy="58" r="30" fill="#7cc243"/><circle cx="46" cy="50" r="16" fill="#ffe45c"/><path fill="#ff9a3c" d="M24 54l-12 6 12 4z"/><circle cx="40" cy="50" r="3.5" fill="#2a2233"/><path fill="#4f9a2c" d="M58 58c10 0 18 6 18 14-10 2-18-4-18-14z"/><circle cx="108" cy="58" r="30" fill="#c3e05a"/><circle cx="114" cy="50" r="16" fill="#fff07a"/><path fill="#ff9a3c" d="M136 54l12 6-12 4z"/><circle cx="120" cy="50" r="3.5" fill="#2a2233"/><path fill="#93b83a" d="M102 58c-10 0-18 6-18 14 10 2 18-4 18-14z"/><path fill="#e8475f" transform="translate(70 12) scale(.2)" d="${HEART}"/></svg>` },
     { label: "Tuana etiketi", size: 150, svg: `<svg viewBox="0 0 170 80"><rect x="3" y="3" width="164" height="74" rx="37" fill="#2a2233"/><text x="85" y="52" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-style="italic" font-weight="700" font-size="38" fill="#ffd23f">Tuana</text></svg>` },
     { label: "yüzde yüz tatlı rozeti", size: 104, svg: `<svg viewBox="0 0 100 100"><path fill="#00a95c" d="M50 2l9 8 12-3 4 12 12 4-3 12 8 9-8 9 3 12-12 4-4 12-12-3-9 8-9-8-12 3-4-12-12-4 3-12-8-9 8-9-3-12 12-4 4-12 12 3z"/><text x="50" y="50" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="22" fill="#fff">%100</text><text x="50" y="68" text-anchor="middle" font-family="Space Mono, monospace" font-size="11" letter-spacing="1.5" fill="#fff">TATLI</text></svg>` },
     { label: "papatya", size: 92, svg: `<svg viewBox="0 0 100 100"><g fill="#fff" stroke="#2a2233" stroke-width="2.5">${Array.from({ length: 8 }, (_, i) => `<ellipse cx="50" cy="22" rx="11" ry="20" transform="rotate(${i * 45} 50 50)"/>`).join("")}</g><circle cx="50" cy="50" r="15" fill="#ffd23f" stroke="#2a2233" stroke-width="2.5"/><circle cx="45" cy="48" r="2" fill="#2a2233"/><circle cx="55" cy="48" r="2" fill="#2a2233"/><path d="M45 55q5 4 10 0" stroke="#2a2233" stroke-width="2" fill="none" stroke-linecap="round"/></svg>` },
@@ -236,16 +236,68 @@
   });
   if (!reduceMotion) pinkChars.forEach((_, i) => setTimeout(() => boing(i), 700 + i * 110));
 
-  /* ── Cicikuş ── */
-  const bird = document.getElementById("bird");
-  if (bird) {
+  /* ── Cicikuşlar ── */
+  const birdsWrap = document.getElementById("birds");
+  if (birdsWrap) {
     const stage = document.getElementById("petStage");
     const bubble = document.getElementById("bubble");
-    const eyes = document.getElementById("eyes");
-    const squishG = bird.querySelector(".bird-squish");
-    const danceG = bird.querySelector(".bird-dance");
     const meter = document.getElementById("meter");
     const secret = document.getElementById("secret");
+    const tcCard = document.getElementById("tcCard");
+
+    const PALETTES = [
+      { body: "#7cc243", light: "#b5e27a", dark: "#4f9a2c", mask: "#ffe45c", wing: "#efe06a", tail: "#2f6db5", tail2: "#3f86cf", cheek: "#6f63d8", cere: "#4a7bd6", bow: false },
+      { body: "#c3e05a", light: "#eaf6a0", dark: "#93b83a", mask: "#fff07a", wing: "#f6ec8a", tail: "#3b8ac9", tail2: "#5aa0db", cheek: "#8a7fe0", cere: "#d8a383", bow: true },
+    ];
+    const wing = `<path class="o" d="M34 112c-12 30-4 70 26 92 10-26 8-62-8-90z"/><path class="ln" d="M38 132q7 7 14 0M40 152q7 7 14 0M46 172q7 7 14 0M53 190q6 6 11 0"/>`;
+    const budgie = (p, id) => `
+      <svg class="bird" viewBox="0 0 200 250" role="img" aria-label="Muhabbet kuşu. Okşamak için üstünde parmağını gezdir, dürtmek için dokun.">
+        <defs>
+          <radialGradient id="gb${id}" cx="40%" cy="32%" r="78%"><stop offset="0" stop-color="${p.light}"/><stop offset=".55" stop-color="${p.body}"/><stop offset="1" stop-color="${p.dark}"/></radialGradient>
+          <radialGradient id="gm${id}" cx="45%" cy="28%" r="72%"><stop offset="0" stop-color="#fffbe6"/><stop offset="1" stop-color="${p.mask}"/></radialGradient>
+        </defs>
+        <g class="bird-dance"><g class="bird-squish"><g class="bird-breathe">
+          <path class="o" fill="${p.tail}" d="M90 192l-7 50q11 8 21 0l-2-50z"/>
+          <path class="o" fill="${p.tail2}" d="M100 192l9 42q11 2 15-7l-11-37z"/>
+          <path class="foot" d="M74 206q-2 12 2 18M86 206q2 12 6 17M114 206q-2 12-6 17M126 206q2 12-2 18"/>
+          <path class="o" fill="url(#gb${id})" d="M100 26c50 0 76 46 76 98 0 54-32 88-76 88s-76-34-76-88c0-52 26-98 76-98z"/>
+          <ellipse cx="100" cy="168" rx="46" ry="34" fill="${p.light}" opacity=".5"/>
+          <g class="wing wing-l" fill="${p.wing}">${wing}</g>
+          <g class="wing wing-r" fill="${p.wing}"><g transform="translate(200 0) scale(-1 1)">${wing}</g></g>
+          <g class="head-tilt">
+            <path class="ln" opacity=".5" d="M76 36q24-9 48 0M68 44q32-10 64 0"/>
+            <path fill="url(#gm${id})" d="M100 46c32 0 52 24 52 52 0 32-22 52-52 52s-52-20-52-52c0-28 20-52 52-52z"/>
+            <path class="ln" opacity=".5" d="M36 86q8-2 12-12M31 102q9-2 15-11M32 118q8 0 14-9M164 86q-8-2-12-12M169 102q-9-2-15-11M168 118q-8 0-14-9"/>
+            <ellipse cx="57" cy="128" rx="9" ry="6.5" fill="${p.cheek}"/>
+            <ellipse cx="143" cy="128" rx="9" ry="6.5" fill="${p.cheek}"/>
+            <g fill="#3b2a35"><circle cx="83" cy="146" r="3.2"/><circle cx="94.5" cy="150" r="3.2"/><circle cx="105.5" cy="150" r="3.2"/><circle cx="117" cy="146" r="3.2"/></g>
+            <ellipse class="blush" cx="62" cy="115" rx="12" ry="7" fill="#ff8cc6"/>
+            <ellipse class="blush" cx="138" cy="115" rx="12" ry="7" fill="#ff8cc6"/>
+            <g class="eyes">
+              <g class="eyes-open">
+                <circle cx="72" cy="94" r="13.5" fill="#fff"/><ellipse cx="72" cy="94" rx="10" ry="11.5" fill="#2a2233"/><circle cx="75.5" cy="89.5" r="4" fill="#fff"/><circle cx="68.5" cy="98" r="1.8" fill="#fff"/>
+                <circle cx="128" cy="94" r="13.5" fill="#fff"/><ellipse cx="128" cy="94" rx="10" ry="11.5" fill="#2a2233"/><circle cx="131.5" cy="89.5" r="4" fill="#fff"/><circle cx="124.5" cy="98" r="1.8" fill="#fff"/>
+              </g>
+              <g class="eyes-happy"><path d="M60 97q12-14 24 0M116 97q12-14 24 0"/></g>
+              <g class="eyes-closed"><path d="M60 94q12 10 24 0M116 94q12 10 24 0"/></g>
+              <g class="eyes-pout"><path d="M64 87l15 8-15 8M136 87l-15 8 15 8"/></g>
+            </g>
+            <path class="o" stroke-width="2.5" fill="${p.cere}" d="M88 106q12-9 24 0-3 7-12 7t-12-7z"/>
+            <g class="beak-closed"><path class="o" stroke-width="2.6" fill="#f6c453" d="M90 112q10-3 20 0-1 16-10 22-9-6-10-22z"/><path d="M95 116q2 6 4 10" stroke="#fff" stroke-width="2" opacity=".7" fill="none" stroke-linecap="round"/></g>
+            <g class="beak-open"><path class="o" stroke-width="2.6" fill="#f6c453" d="M90 111q10-3 20 0-2 10-10 14-8-4-10-14z"/><ellipse cx="100" cy="131" rx="6" ry="4" fill="#3b2a35"/><path class="o" stroke-width="2.6" fill="#f6c453" d="M94 134q6 4 12 0-2 6-6 8-4-2-6-8z"/></g>
+            ${p.bow ? `<g transform="translate(138 44) rotate(18)"><path class="o" stroke-width="3" fill="#ff48b0" d="M0 0C-16-14-26 2-16 9-9 13-3 6 0 0zM0 0C16-14 26 2 16 9 9 13 3 6 0 0z"/><circle class="o" stroke-width="3" r="5" fill="#ff8cc6"/></g>` : ""}
+          </g>
+        </g></g></g>
+      </svg>`;
+    birdsWrap.innerHTML = PALETTES.map(budgie).join("");
+    const birds = [...birdsWrap.querySelectorAll(".bird")].map((el) => ({
+      el,
+      eyes: el.querySelector(".eyes"),
+      squishG: el.querySelector(".bird-squish"),
+      danceG: el.querySelector(".bird-dance"),
+      moodTimer: 0,
+      talkTimer: 0,
+    }));
 
     let happy = 0;
     let celebrated = false;
@@ -254,9 +306,8 @@
     let lastAct = Date.now();
     let lastPet = 0;
     let petCount = 0;
-    let rub = 0;
-    let pokes = [];
-    let moodTimer, bubbleTimer, talkTimer;
+    let feedTurn = 0;
+    let bubbleTimer;
 
     meter.innerHTML = Array.from({ length: 5 }, () => `<svg viewBox="-4 -4 108 98"><path d="${HEART}"/></svg>`).join("");
     const renderMeter = () => {
@@ -269,22 +320,32 @@
       void el.getBoundingClientRect();
       el.classList.add(cls);
     };
+    const other = (b) => birds[birds[0] === b ? 1 : 0];
+    const center = (b, fy = 0.4) => {
+      const r = b.el.getBoundingClientRect();
+      return { x: r.left + r.width / 2, y: r.top + r.height * fy };
+    };
 
-    const say = (text, ms = 1800) => {
+    const say = (b, text, ms = 1800) => {
       bubble.textContent = text;
+      // balon konuşan kuşun üstünde dursun ama sahneden taşmasın
+      const s = stage.getBoundingClientRect();
+      const half = bubble.offsetWidth / 2 + 10;
+      const x = center(b).x - s.left;
+      bubble.style.setProperty("--bx", `${Math.min(s.width - half, Math.max(half, x))}px`);
       bubble.classList.add("is-on");
-      bird.classList.add("is-talking");
+      b.el.classList.add("is-talking");
       clearTimeout(bubbleTimer);
-      clearTimeout(talkTimer);
-      talkTimer = setTimeout(() => bird.classList.remove("is-talking"), 450);
+      clearTimeout(b.talkTimer);
+      b.talkTimer = setTimeout(() => b.el.classList.remove("is-talking"), 450);
       bubbleTimer = setTimeout(() => bubble.classList.remove("is-on"), ms);
     };
 
-    const setMood = (name, ms) => {
-      bird.classList.remove("is-happy", "is-pout", "is-sleep");
-      clearTimeout(moodTimer);
-      if (name) bird.classList.add(`is-${name}`);
-      if (name && ms) moodTimer = setTimeout(() => setMood(null), ms);
+    const setMood = (b, name, ms) => {
+      b.el.classList.remove("is-happy", "is-pout", "is-sleep");
+      clearTimeout(b.moodTimer);
+      if (name) b.el.classList.add(`is-${name}`);
+      if (name && ms) b.moodTimer = setTimeout(() => setMood(b, null), ms);
     };
 
     const wake = () => {
@@ -292,27 +353,21 @@
       if (!asleep) return false;
       asleep = false;
       stage.classList.remove("sleeping");
-      setMood(null);
-      restart(squishG, "squish");
-      say("uyandım! cik?", 1500);
+      birds.forEach((b) => { setMood(b, null); restart(b.squishG, "squish"); });
+      say(birds[1], "uyandık cik", 1500);
       return true;
-    };
-
-    const birdPoint = (fx, fy) => {
-      const r = bird.getBoundingClientRect();
-      return { x: r.left + r.width * fx, y: r.top + r.height * fy };
     };
 
     const celebrate = () => {
       celebrated = true;
-      restart(danceG, "dance");
-      setMood("happy", 2600);
-      const p = birdPoint(0.5, 0.45);
-      burst(p.x, p.y, 18);
-      say("cik cik! sana bir şey söyleyeceğim…", 2400);
+      birds.forEach((b, i) => setTimeout(() => { restart(b.danceG, "dance"); setMood(b, "happy", 2600); }, i * 200));
+      const s = stage.getBoundingClientRect();
+      burst(s.left + s.width / 2, s.top + s.height * 0.45, 18);
+      say(birds[0], "cik cik! sana bi şey göstericez", 2400);
       setTimeout(() => {
+        tcCard.classList.add("is-up");
         secret.hidden = false;
-        say("Özgür seni çok seviyormuş ♥", 3600);
+        say(birds[1], "resmi yani, kimlikte yazıyo", 3600);
       }, 2500);
     };
 
@@ -322,59 +377,70 @@
       if (happy === 5 && !celebrated) setTimeout(celebrate, 700);
     };
 
-    const pet = (x, y) => {
+    const pet = (b, x, y) => {
       const now = Date.now();
       if (now - lastPet < 550) return;
       lastPet = now;
       wake();
-      setMood("happy", 1400);
+      setMood(b, "happy", 1400);
       burst(x, y, 4);
-      say(pick(["cik cik ♥", "tam orası", "biraz daha…", "mırr… pardon, ben kuşum", "en güzel sen seviyorsun"]), 1600);
+      say(b, pick(["cik cik ♥", "orası tam yeri", "bi daha bi daha", "mmmh", "en güzel sen seviyosun"]), 1600);
       if (++petCount % 2 === 0) addHappy(1);
+      if (Math.random() < 0.35) {
+        const o = other(b);
+        setTimeout(() => {
+          o.el.classList.add("curious");
+          say(o, pick(["ya ben?", "bi de beni sev", "kıskandım şu an", "bana sıra ne zaman"]), 1500);
+          setTimeout(() => o.el.classList.remove("curious"), 1400);
+        }, 1700);
+      }
     };
 
-    const poke = () => {
+    let pokes = [];
+    const poke = (b) => {
       if (wake()) return;
       const now = Date.now();
-      restart(squishG, "squish");
+      restart(b.squishG, "squish");
       pokes = pokes.filter((t) => now - t < 3000);
       pokes.push(now);
       if (pokes.length >= 4) {
         pokes = [];
-        setMood("pout", 2200);
-        say(pick(["dürtme beniii", "hıh. küstüm.", "off yaa"]), 2000);
+        setMood(b, "pout", 2200);
+        say(b, pick(["dürtme beni ya", "küstüm", "yeter ama"]), 2000);
       } else {
-        say(pick(["cik!", "hı?", "gıdıklanıyorum", "bir daha yap", "cik cik"]), 1200);
+        say(b, pick(["cik!", "efendim?", "gıdıklanıyom", "noluyo"]), 1200);
       }
     };
 
-    // Dokun, okşa
-    let down = null;
-    let hover = null;
-    bird.addEventListener("pointerdown", (e) => {
-      bird.setPointerCapture(e.pointerId);
-      down = { t: Date.now(), moved: 0, x: e.clientX, y: e.clientY };
-    });
-    bird.addEventListener("pointermove", (e) => {
-      const last = down || hover;
-      if (last) {
-        const d = Math.hypot(e.clientX - last.x, e.clientY - last.y);
-        if (down) down.moved += d;
-        rub += d;
-        if (rub > 240) {
-          rub = 0;
-          pet(e.clientX, e.clientY);
+    birds.forEach((b) => {
+      let down = null;
+      let hover = null;
+      let rub = 0;
+      b.el.addEventListener("pointerdown", (e) => {
+        b.el.setPointerCapture(e.pointerId);
+        down = { t: Date.now(), moved: 0, x: e.clientX, y: e.clientY };
+      });
+      b.el.addEventListener("pointermove", (e) => {
+        const last = down || hover;
+        if (last) {
+          const d = Math.hypot(e.clientX - last.x, e.clientY - last.y);
+          if (down) down.moved += d;
+          rub += d;
+          if (rub > 220) {
+            rub = 0;
+            pet(b, e.clientX, e.clientY);
+          }
         }
-      }
-      if (down) Object.assign(down, { x: e.clientX, y: e.clientY });
-      if (e.pointerType === "mouse") hover = { x: e.clientX, y: e.clientY };
+        if (down) Object.assign(down, { x: e.clientX, y: e.clientY });
+        if (e.pointerType === "mouse") hover = { x: e.clientX, y: e.clientY };
+      });
+      b.el.addEventListener("pointerleave", () => { hover = null; rub = 0; });
+      b.el.addEventListener("pointerup", () => {
+        if (down && down.moved < 10 && Date.now() - down.t < 450) poke(b);
+        down = null;
+      });
+      b.el.addEventListener("pointercancel", () => { down = null; });
     });
-    bird.addEventListener("pointerleave", () => { hover = null; rub = 0; });
-    bird.addEventListener("pointerup", () => {
-      if (down && down.moved < 10 && Date.now() - down.t < 450) poke();
-      down = null;
-    });
-    bird.addEventListener("pointercancel", () => { down = null; });
 
     // Gözler imleci takip eder
     let eyeFrame = 0;
@@ -382,62 +448,80 @@
       if (eyeFrame || asleep) return;
       eyeFrame = requestAnimationFrame(() => {
         eyeFrame = 0;
-        const c = birdPoint(0.5, 0.47);
-        const dx = e.clientX - c.x;
-        const dy = e.clientY - c.y;
-        const d = Math.hypot(dx, dy) || 1;
-        const k = Math.min(1, d / 260);
-        eyes.style.transform = `translate(${(dx / d) * 7 * k}px, ${(dy / d) * 6 * k}px)`;
+        birds.forEach((b) => {
+          const c = center(b, 0.38);
+          const dx = e.clientX - c.x;
+          const dy = e.clientY - c.y;
+          const d = Math.hypot(dx, dy) || 1;
+          const k = Math.min(1, d / 260);
+          b.eyes.style.transform = `translate(${(dx / d) * 5 * k}px, ${(dy / d) * 4.5 * k}px)`;
+        });
       });
     });
 
     // Göz kırpma ve uyuma
-    const blinkLoop = () => {
-      if (!asleep) restart(bird, "blink");
-      setTimeout(blinkLoop, rnd(2400, 5200));
-    };
-    setTimeout(blinkLoop, 2000);
+    birds.forEach((b) => {
+      const loop = () => {
+        if (!asleep) restart(b.el, "blink");
+        setTimeout(loop, rnd(2200, 5600));
+      };
+      setTimeout(loop, rnd(1200, 3000));
+    });
     if ("IntersectionObserver" in window) {
       new IntersectionObserver(([en]) => { visible = en.isIntersecting; if (visible) lastAct = Date.now(); }).observe(stage);
     }
     setInterval(() => {
       if (!asleep && visible && Date.now() - lastAct > 16000) {
         asleep = true;
-        setMood("sleep");
+        birds.forEach((b) => { setMood(b, "sleep"); b.eyes.style.transform = ""; });
         stage.classList.add("sleeping");
-        eyes.style.transform = "";
         bubble.classList.remove("is-on");
       }
     }, 1000);
 
     // Atıştırmalıklar
     const TREATS = [
-      { name: "çilek", line: "çilek en sevdiğim!", svg: `<svg viewBox="0 0 60 60"><path fill="#e8475f" d="M30 56C14 46 8 32 10 22c2-8 10-10 20-10s18 2 20 10c2 10-4 24-20 34z"/><path fill="#00a95c" d="M18 14l12 7 12-7-5-6-7 4-7-4z"/><g fill="#ffd23f"><ellipse cx="22" cy="28" rx="1.6" ry="2.4"/><ellipse cx="34" cy="26" rx="1.6" ry="2.4"/><ellipse cx="28" cy="36" rx="1.6" ry="2.4"/><ellipse cx="38" cy="36" rx="1.6" ry="2.4"/><ellipse cx="20" cy="38" rx="1.6" ry="2.4"/><ellipse cx="30" cy="46" rx="1.6" ry="2.4"/></g></svg>` },
-      { name: "kurabiye", line: "nom nom nom", svg: `<svg viewBox="0 0 60 60"><path fill="#d9a066" d="M54 22a24 24 0 1 1-16-16 8 8 0 0 0 9 9 8 8 0 0 0 7 7z"/><g fill="#5a3a2a"><circle cx="20" cy="24" r="3"/><circle cx="32" cy="34" r="3.2"/><circle cx="22" cy="42" r="2.6"/><circle cx="40" cy="44" r="2.4"/><circle cx="30" cy="18" r="2.2"/></g></svg>` },
-      { name: "tohum", line: "klasik ama güzel", svg: `<svg viewBox="0 0 60 60"><g fill="#c8a26b" stroke="#8a5a3c" stroke-width="1.5"><ellipse cx="22" cy="40" rx="6" ry="9" transform="rotate(-30 22 40)"/><ellipse cx="38" cy="40" rx="6" ry="9" transform="rotate(25 38 40)"/><ellipse cx="30" cy="26" rx="6" ry="9" transform="rotate(5 30 26)"/></g></svg>` },
-      { name: "kahve", line: "kahve mi?! uyumam artık", svg: `<svg viewBox="0 0 60 60"><path d="M24 6c-3 4 3 6 0 10M32 6c-3 4 3 6 0 10" stroke="#5d5466" stroke-width="2.5" fill="none" stroke-linecap="round"/><path fill="#fff" stroke="#2a2233" stroke-width="3" d="M10 22h34v16c0 10-8 16-17 16S10 48 10 38z"/><path d="M44 27c9 0 9 12 0 12" stroke="#2a2233" stroke-width="3" fill="none"/><ellipse cx="27" cy="23" rx="15" ry="3" fill="#8a5a3c"/><path fill="#ff48b0" transform="translate(21 32) scale(.12)" d="${HEART}"/></svg>` },
+      { name: "çilek", line: "çileeek", svg: `<svg viewBox="0 0 60 60"><path fill="#e8475f" d="M30 56C14 46 8 32 10 22c2-8 10-10 20-10s18 2 20 10c2 10-4 24-20 34z"/><path fill="#00a95c" d="M18 14l12 7 12-7-5-6-7 4-7-4z"/><g fill="#ffd23f"><ellipse cx="22" cy="28" rx="1.6" ry="2.4"/><ellipse cx="34" cy="26" rx="1.6" ry="2.4"/><ellipse cx="28" cy="36" rx="1.6" ry="2.4"/><ellipse cx="38" cy="36" rx="1.6" ry="2.4"/><ellipse cx="20" cy="38" rx="1.6" ry="2.4"/><ellipse cx="30" cy="46" rx="1.6" ry="2.4"/></g></svg>` },
+      { name: "kurabiye", line: "nom nom", svg: `<svg viewBox="0 0 60 60"><path fill="#d9a066" d="M54 22a24 24 0 1 1-16-16 8 8 0 0 0 9 9 8 8 0 0 0 7 7z"/><g fill="#5a3a2a"><circle cx="20" cy="24" r="3"/><circle cx="32" cy="34" r="3.2"/><circle cx="22" cy="42" r="2.6"/><circle cx="40" cy="44" r="2.4"/><circle cx="30" cy="18" r="2.2"/></g></svg>` },
+      { name: "darı", line: "klasik ama severim", svg: `<svg viewBox="0 0 60 60"><path d="M30 56V10" stroke="#a07a3c" stroke-width="3" stroke-linecap="round"/><g fill="#f2c94c" stroke="#a07a3c" stroke-width="1.2">${[14, 20, 26, 32, 38, 44].map((y, i) => `<ellipse cx="${i % 2 ? 35 : 25}" cy="${y}" rx="5" ry="4"/>`).join("")}</g></svg>` },
+      { name: "kahve", line: "kahve mi? artık uyumam", svg: `<svg viewBox="0 0 60 60"><path d="M24 6c-3 4 3 6 0 10M32 6c-3 4 3 6 0 10" stroke="#5d5466" stroke-width="2.5" fill="none" stroke-linecap="round"/><path fill="#fff" stroke="#2a2233" stroke-width="3" d="M10 22h34v16c0 10-8 16-17 16S10 48 10 38z"/><path d="M44 27c9 0 9 12 0 12" stroke="#2a2233" stroke-width="3" fill="none"/><ellipse cx="27" cy="23" rx="15" ry="3" fill="#8a5a3c"/><path fill="#ff48b0" transform="translate(21 32) scale(.12)" d="${HEART}"/></svg>` },
     ];
     const treatRow = document.getElementById("treats");
 
-    const eat = (t) => {
+    const eat = (b, t) => {
       wake();
-      bird.classList.add("is-eating");
-      restart(squishG, "squish");
-      say(t.line, 1800);
-      [250, 450, 700].forEach((ms, i) => setTimeout(() => bird.classList.toggle("is-eating", i === 1), ms));
-      if (t.name === "kahve") setTimeout(() => restart(danceG, "dance"), 600);
-      else setTimeout(() => setMood("happy", 1200), 750);
+      b.el.classList.add("is-eating");
+      restart(b.squishG, "squish");
+      say(b, t.line, 1800);
+      [250, 450, 700].forEach((ms, i) => setTimeout(() => b.el.classList.toggle("is-eating", i === 1), ms));
+      if (t.name === "kahve") setTimeout(() => restart(b.danceG, "dance"), 600);
+      else setTimeout(() => setMood(b, "happy", 1200), 750);
       addHappy(1);
     };
 
-    const flyToBird = (ghost, from, t) => {
-      const to = birdPoint(0.5, 0.56);
+    const birdUnder = (x, y) => birds.find((b) => {
+      const r = b.el.getBoundingClientRect();
+      return x > r.left && x < r.right && y > r.top && y < r.bottom;
+    });
+
+    const flyTo = (ghost, from, b, t) => {
+      const to = center(b, 0.5);
       const anim = ghost.animate([
         { left: `${from.x}px`, top: `${from.y}px`, transform: "translate(-50%, -50%) scale(1) rotate(0deg)" },
         { left: `${(from.x + to.x) / 2}px`, top: `${Math.min(from.y, to.y) - 90}px`, transform: "translate(-50%, -50%) scale(1.1) rotate(180deg)", offset: 0.5 },
         { left: `${to.x}px`, top: `${to.y}px`, transform: "translate(-50%, -50%) scale(.3) rotate(360deg)" },
       ], { duration: reduceMotion ? 1 : 650, easing: "ease-in-out" });
-      anim.onfinish = () => { ghost.remove(); eat(t); };
+      anim.onfinish = () => { ghost.remove(); eat(b, t); };
+    };
+
+    const makeGhost = (t, x, y) => {
+      const g = document.createElement("div");
+      g.className = "treat-ghost";
+      g.innerHTML = t.svg;
+      g.style.left = `${x}px`;
+      g.style.top = `${y}px`;
+      document.body.appendChild(g);
+      return g;
     };
 
     TREATS.forEach((t) => {
@@ -445,14 +529,14 @@
       btn.type = "button";
       btn.className = "treat";
       btn.innerHTML = `${t.svg}<span>${t.name}</span>`;
-      btn.setAttribute("aria-label", `Cicikuşa ${t.name} ver`);
+      btn.setAttribute("aria-label", `Cicikuşlara ${t.name} ver`);
       treatRow.appendChild(btn);
 
       btn.addEventListener("click", (e) => {
         if (e.detail !== 0) return; // klavyeyle basıldığında
         const r = btn.getBoundingClientRect();
-        const ghost = makeGhost(t, r.left + r.width / 2, r.top + r.height / 2);
-        flyToBird(ghost, { x: r.left + r.width / 2, y: r.top + r.height / 2 }, t);
+        const from = { x: r.left + r.width / 2, y: r.top + r.height / 2 };
+        flyTo(makeGhost(t, from.x, from.y), from, birds[feedTurn++ % 2], t);
       });
 
       btn.addEventListener("pointerdown", (e) => {
@@ -461,24 +545,22 @@
         const start = { x: e.clientX, y: e.clientY };
         let moved = false;
         const ghost = makeGhost(t, e.clientX, e.clientY);
-        const overBird = (ev) => {
-          const r = bird.getBoundingClientRect();
-          return ev.clientX > r.left && ev.clientX < r.right && ev.clientY > r.top && ev.clientY < r.bottom;
-        };
         const move = (ev) => {
           if (Math.hypot(ev.clientX - start.x, ev.clientY - start.y) > 8) moved = true;
           ghost.style.left = `${ev.clientX}px`;
           ghost.style.top = `${ev.clientY}px`;
-          bird.classList.toggle("is-eating", overBird(ev));
+          const hit = birdUnder(ev.clientX, ev.clientY);
+          birds.forEach((b) => b.el.classList.toggle("is-eating", b === hit));
         };
         const up = (ev) => {
           btn.removeEventListener("pointermove", move);
           btn.removeEventListener("pointerup", up);
           btn.removeEventListener("pointercancel", up);
-          if (!moved) flyToBird(ghost, start, t);
-          else if (ev.type === "pointerup" && overBird(ev)) { ghost.remove(); eat(t); }
+          const hit = ev.type === "pointerup" && birdUnder(ev.clientX, ev.clientY);
+          if (!moved) flyTo(ghost, start, birds[feedTurn++ % 2], t);
+          else if (hit) { ghost.remove(); eat(hit, t); }
           else {
-            bird.classList.remove("is-eating");
+            birds.forEach((b) => b.el.classList.remove("is-eating"));
             ghost.animate([{ opacity: 1 }, { opacity: 0, transform: "translate(-50%, -50%) scale(.5)" }], { duration: 250 }).onfinish = () => ghost.remove();
           }
         };
@@ -488,25 +570,162 @@
       });
     });
 
-    function makeGhost(t, x, y) {
-      const g = document.createElement("div");
-      g.className = "treat-ghost";
-      g.innerHTML = t.svg;
-      g.style.left = `${x}px`;
-      g.style.top = `${y}px`;
-      document.body.appendChild(g);
-      return g;
+    renderMeter();
+  }
+
+  /* ── Parolla ── */
+  const PZ = [
+    ["A", "bu sitenin her yerinde var, üç harf", ["aşk"]],
+    ["B", "tasarımcıya iş verirken yazılan şey, bu dergide de var", ["brief", "brif"]],
+    ["C", "bu sitenin tüm hakları onlarda", ["cicikuşlar", "cicikuş"]],
+    ["D", "bu aralar başının belası olan ödev", ["doku"]],
+    ["F", "hello kitty'nin kafasındaki şey", ["fiyonk"]],
+    ["G", "okuduğun bölüm, ___ tasarım", ["grafik"]],
+    ["H", "ağzı olmayan en ünlü kedi", ["hello kitty", "hellokitty"]],
+    ["K", "sabah ___ kadar sıcacıksın", ["kahve"]],
+    ["L", "bu dergide açan çiçek", ["lale"]],
+    ["M", "cicikuşlar aslında ne kuşu", ["muhabbet", "muhabbet kuşu"]],
+    ["Ö", "bu dergiyi yapan çocuk", ["özgür"]],
+    ["P", "şu an oynadığın oyun", ["parolla"]],
+    ["R", "bu derginin baskı tekniği, pembe mavi sarı mürekkepli", ["risograf", "riso", "risografi"]],
+    ["S", "kupon defterindeki ilk kupon", ["sarılma"]],
+    ["T", "bu derginin tek okuru", ["tuana"]],
+    ["Y", "cicikuşların rengi", ["yeşil"]],
+  ];
+  const pzWheel = document.getElementById("pzWheel");
+  if (pzWheel) {
+    const fold = (s) => s.toLocaleLowerCase("tr")
+      .replace(/[çğıöşüâî]/g, (c) => ({ ç: "c", ğ: "g", ı: "i", ö: "o", ş: "s", ü: "u", â: "a", î: "i" })[c])
+      .replace(/[^a-z]/g, "");
+    const els = {
+      now: document.getElementById("pzNow"),
+      hint: document.getElementById("pzHint"),
+      clue: document.getElementById("pzClue"),
+      form: document.getElementById("pzForm"),
+      input: document.getElementById("pzInput"),
+      pass: document.getElementById("pzPass"),
+      fb: document.getElementById("pzFeedback"),
+      play: document.getElementById("pzPlay"),
+      end: document.getElementById("pzEnd"),
+      final: document.getElementById("pzFinal"),
+      endMsg: document.getElementById("pzEndMsg"),
+      again: document.getElementById("pzAgain"),
+      right: document.getElementById("pzRight"),
+      wrong: document.getElementById("pzWrong"),
+      left: document.getElementById("pzLeft"),
+    };
+    const letters = PZ.map(([l], i) => {
+      const a = -Math.PI / 2 + (i * 2 * Math.PI) / PZ.length;
+      const el = document.createElement("span");
+      el.className = "pz-l";
+      el.textContent = l;
+      el.style.setProperty("--x", Math.cos(a).toFixed(4));
+      el.style.setProperty("--y", Math.sin(a).toFixed(4));
+      pzWheel.appendChild(el);
+      return el;
+    });
+
+    let status, pending, cur, busy;
+    const counts = () => {
+      const r = status.filter((s) => s === "right").length;
+      const w = status.filter((s) => s === "wrong").length;
+      els.right.textContent = r;
+      els.wrong.textContent = w;
+      els.left.textContent = PZ.length - r - w;
+      return r;
+    };
+    const paint = () => {
+      letters.forEach((el, i) => {
+        el.className = `pz-l${status[i] ? ` ${status[i]}` : ""}${i === cur ? " now" : ""}`;
+      });
+      counts();
+    };
+    const show = () => {
+      const [l, clue] = PZ[cur];
+      els.now.textContent = l;
+      restart2(els.now, "pz-pop");
+      els.hint.textContent = `${l} ile başlar`;
+      els.clue.textContent = clue;
+      els.input.value = "";
+      els.fb.innerHTML = "&nbsp;";
+      els.fb.className = "pz-feedback hand";
+      paint();
+    };
+    const finish = () => {
+      cur = -1;
+      paint();
+      const r = counts();
+      els.play.hidden = true;
+      els.end.hidden = false;
+      els.final.textContent = r;
+      els.endMsg.textContent =
+        r === PZ.length ? "hepsini bildin. tabii bilcektin zaten" :
+        r >= 12 ? "baya iyi ya, beni en iyi sen tanıyosun" :
+        r >= 8 ? "fena değil ama bi daha oyna bence" :
+        "ciddi misin tuana :( bi daha oyna";
+      if (r >= 12) {
+        const b = pzWheel.getBoundingClientRect();
+        burst(b.left + b.width / 2, b.top + b.height / 2, 16);
+      }
+    };
+    const next = () => {
+      busy = false;
+      if (!pending.length) return finish();
+      cur = pending.shift();
+      show();
+    };
+    const start = () => {
+      status = PZ.map(() => null);
+      pending = PZ.map((_, i) => i);
+      els.play.hidden = false;
+      els.end.hidden = true;
+      next();
+    };
+    function restart2(el, cls) {
+      el.classList.remove(cls);
+      void el.offsetWidth;
+      el.classList.add(cls);
     }
 
-    renderMeter();
+    els.form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      if (busy || cur < 0) return;
+      const v = fold(els.input.value);
+      if (!v) return;
+      busy = true;
+      const answers = PZ[cur][2];
+      if (answers.some((a) => fold(a) === v)) {
+        status[cur] = "right";
+        els.fb.textContent = pick(["evet!", "bildin tabii", "işte bu", "doğru"]);
+        els.fb.className = "pz-feedback hand good";
+        paint();
+        setTimeout(next, 900);
+      } else {
+        status[cur] = "wrong";
+        els.fb.textContent = `yok, cevap ${answers[0].toLocaleUpperCase("tr")}`;
+        els.fb.className = "pz-feedback hand bad";
+        paint();
+        setTimeout(next, 1800);
+      }
+      els.input.focus({ preventScroll: true });
+    });
+    els.pass.addEventListener("click", () => {
+      if (busy || cur < 0) return;
+      status[cur] = "passed";
+      pending.push(cur);
+      next();
+      els.input.focus({ preventScroll: true });
+    });
+    els.again.addEventListener("click", start);
+    start();
   }
 
   /* ── Kazı kazan kuponlar ── */
   const COUPONS = [
-    { title: "Bir sarılma", desc: "İstediğin an, istediğin kadar uzun.", c: "#ff48b0" },
-    { title: "Film gecesi, film senden", desc: "İtiraz etmeyeceğim. En azından deneyeceğim.", c: "#0078bf" },
-    { title: "Bir tartışmayı kazanma hakkı", desc: "Haklı olmasan bile. Bir kereye mahsus.", c: "#00a95c" },
-    { title: "Bir kahve benden", desc: "Nerede istersen, ne zaman istersen.", c: "#8a5a3c" },
+    { title: "Bi sarılma", desc: "ne zaman istersen, ne kadar istersen", c: "#ff48b0" },
+    { title: "Film gecesi, film senden", desc: "itiraz etmicem. en azından deneyeceğim", c: "#0078bf" },
+    { title: "Doku ödevine yardım", desc: "kesmesi, yapıştırması, gece kahvesi benden", c: "#00a95c" },
+    { title: "Bi kahve benden", desc: "nerde istersen, ne zaman istersen", c: "#8a5a3c" },
   ];
   const couponGrid = document.getElementById("couponGrid");
   if (couponGrid) {
@@ -520,7 +739,7 @@
         <div class="coupon-body">
           <h3>${cp.title}</h3>
           <p>${cp.desc}</p>
-          <p class="coupon-fine">son kullanma tarihi yok · devredilemez · sadece Tuana</p>
+          <p class="coupon-fine">süresi yok · sadece tuana kullanabilir</p>
           <canvas aria-label="Kazınacak alan. Parmağınla ya da fareyle sürterek kazı."></canvas>
         </div>`;
       couponGrid.appendChild(card);
@@ -559,7 +778,7 @@
       ctx.font = "700 12px 'Space Mono', monospace";
       ctx.fillText("K A Z I   K A Z A N", r.width / 2, r.height / 2 - 6);
       ctx.font = "700 26px Caveat, cursive";
-      ctx.fillText("buraya sürt ♥", r.width / 2, r.height / 2 + 24);
+      ctx.fillText("kazı bakalım ♥", r.width / 2, r.height / 2 + 24);
       ctx.globalCompositeOperation = "destination-out";
       ctx.lineCap = "round";
       ctx.lineJoin = "round";
@@ -921,7 +1140,7 @@
     }
   }
   document.addEventListener("click", (e) => {
-    if (e.target.closest("button, a, input, label, canvas, .board, .bird, .coupon, .cover-title")) return;
+    if (e.target.closest("button, a, input, label, form, canvas, .board, .bird, .coupon, .cover-title, .pz-wheel")) return;
     burst(e.clientX, e.clientY);
   });
 
