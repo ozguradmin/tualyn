@@ -28,6 +28,7 @@ robot/
 │   ├── BASKI.md       3D baskı ayarları, stüdyoya gidecek hazır mesaj, fiyat tahmini
 │   ├── MONTAJ.md      adım adım montaj, bağlantı tablosu, ilk çalıştırma
 │   ├── BUTCE.md       bütçeye göre 5 kademe (görselli): sade, v1, göz, ses, öğrenen kol
+│   ├── HAZIR_ROBOTLAR.md  hazır robotlar (Microduck, Bittle, Loona...) ve Türkiye'ye gelmiş fiyatları
 │   └── baglanti.svg   bağlantı şeması
 ├── cad/
 │   ├── kipir.scad     parametrik OpenSCAD modeli (tek dosya, 10 parça)
