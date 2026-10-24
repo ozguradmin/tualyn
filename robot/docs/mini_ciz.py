@@ -18,9 +18,9 @@ OUT = os.path.join(HERE, "mini.png")
 
 # (görseldeki yatay konum oranı, renk, ad, boy, fiyat, maddeler)
 SECENEKLER = [
-    (0.42, "#2a78d6", "Kıpır Mini 4", "~8 cm boy, 8 servo", "FIYAT", ["dört bacakla yürür", "ekran yüz", "Claude'a istek atar"]),
-    (0.63, "#eb6834", "Kıpır Mini 2", "~12 cm boy, 4 servo", "FIYAT", ["iki ayakla paytak yürür", "240×240 ekran yüz", "Türkçe sesli sohbet"]),
-    (0.83, "#1baf7a", "Kıpır Küp", "~9 cm boy, 2 servo", "FIYAT", ["yürümez, başını çevirir", "kamerayla yüzünü izler", "Türkçe sesli sohbet"]),
+    (0.42, "#2a78d6", "Kıpır Mini 4 ★", "~8 cm boy, 8 servo, önerilen", "≈3.500–5.000 TL", ["dört bacakla yürür", "OLED yüz, düşmeyi algılar", "Claude'a kendisi istek atar"]),
+    (0.63, "#eb6834", "Kıpır Mini 2", "~12 cm boy, 4 servo", "≈3.100–4.700 TL", ["iki ayakla paytak yürür", "240×240 renkli yüz", "Türkçe sesli sohbet (PC ile)"]),
+    (0.83, "#1baf7a", "Kıpır Küp", "~9 cm boy, 2 servo", "≈3.400–5.000 TL", ["yürümez, başını çevirir", "kamerayla yüzünü izler", "Türkçe sesli sohbet (PC ile)"]),
 ]
 W, IMG_H, CAP_H, HEAD_H = 1800, 900, 250, 120
 
@@ -52,7 +52,7 @@ def main():
         png = os.path.join(tmp, "k.png")
         render(png)
         sheet.paste(Image.open(png).convert("RGB"), (0, HEAD_H))
-    d.text((395, HEAD_H + 640), "telefon (16 cm)", font=font(22), fill="#6b7785")
+    d.text((170, HEAD_H + 420), "telefon (16 cm)", font=font(22), fill="#6b7785")
     cw = 330
     for fx, renk, ad, boy, fiyat, maddeler in SECENEKLER:
         x = int(W * fx) - cw // 2
