@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Kıpır kumanda</title>
+<style>
+  * { box-sizing: border-box; -webkit-tap-highlight-color: rgba(0,0,0,0); }
+  html, body { margin: 0; background: #0b0e13; color: #e6ebf2; font: 15px sans-serif; }
+  .ust { display: -webkit-box; display: flex; -webkit-box-align: center; align-items: center;
+         padding: 10px 14px; background: #121823; border-bottom: 1px solid #1f2836; }
+  .ust b { font-size: 18px; margin-right: 10px; }
+  .nokta { width: 10px; height: 10px; border-radius: 5px; background: #e5484d; display: inline-block; margin-right: 8px; }
+  .nokta.ok { background: #2fbf71; }
+  #bilgi { color: #9aa7b8; font-size: 13px; }
+  .alan { padding: 12px 14px; max-width: 560px; margin: 0 auto; }
+  #pad { position: relative; width: 260px; height: 260px; margin: 6px auto 4px; border-radius: 130px;
+         background: #141b26; border: 2px solid #233042; touch-action: none; }
+  #pad:before, #pad:after { content: ""; position: absolute; background: #1f2836; }
+  #pad:before { left: 50%; top: 18px; bottom: 18px; width: 2px; margin-left: -1px; }
+  #pad:after { top: 50%; left: 18px; right: 18px; height: 2px; margin-top: -1px; }
+  #topuz { position: absolute; left: 50%; top: 50%; width: 92px; height: 92px; margin: -46px 0 0 -46px;
+           border-radius: 46px; background: #3fe0ff; z-index: 2; box-shadow: 0 4px 14px rgba(0,0,0,.5); }
+  .satir { display: -webkit-box; display: flex; -webkit-box-pack: center; justify-content: center;
+           flex-wrap: wrap; margin: 8px 0; }
+  button { border: 0; border-radius: 8px; padding: 11px 12px; margin: 4px; font: 15px sans-serif;
+           color: #0b0e13; background: #cfd6e0; min-width: 72px; }
+  button.dur { background: #e5484d; color: #fff; font-weight: bold; min-width: 150px; font-size: 18px; }
+  button.renk { min-width: 44px; height: 40px; }
+  h3 { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: #7f8da0; margin: 18px 0 6px; }
+  .hiz { text-align: center; color: #9aa7b8; }
+  .hiz input { width: 220px; vertical-align: middle; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  td { padding: 6px 4px; border-bottom: 1px solid #1a2230; }
+  td.kod { font-family: monospace; color: #9aa7b8; }
+  #ogrenMesaj { color: #ffd166; min-height: 20px; text-align: center; }
+  a { color: #3fe0ff; }
+  .alt { text-align: center; padding: 8px 0 24px; color: #7f8da0; font-size: 13px; }
+</style>
+</head>
+<body>
+<div class="ust"><span class="nokta" id="nokta"></span><b>Kıpır</b><span id="bilgi">bağlanıyor…</span></div>
+<div class="alan">
+  <div id="pad"><div id="topuz"></div></div>
+  <div class="hiz">Hız <input type="range" id="hiz" min="30" max="100" value="70"> <span id="hizYaz">70</span>%</div>
+  <div class="satir"><button class="dur" id="durBtn">DUR</button></div>
+
+  <h3>Ruh hâli</h3>
+  <div class="satir" id="modlar"></div>
+
+  <h3>Hareket ve ses</h3>
+  <div class="satir">
+    <button data-k="ses selam">Selam</button>
+    <button data-k="dans">Dans</button>
+    <button data-k="ses bip">Bip</button>
+    <button data-k="uyu">Uyu</button>
+    <button data-k="uyan">Uyan</button>
+  </div>
+
+  <h3>Kulak rengi</h3>
+  <div class="satir" id="renkler"></div>
+
+  <h3>Gece lambası kumandasını öğret</h3>
+  <div id="ogrenMesaj"></div>
+  <div class="hiz" style="font-size:13px">Son okunan kod: <span id="irSon" style="font-family:monospace">–</span></div>
+  <table id="irTablo"></table>
+  <div class="satir"><button id="irSifir">Varsayılana dön</button></div>
+
+  <div class="alt">Bu cihazı robotun yüzü yapmak için: <a href="/yuz">/yuz</a></div>
+</div>
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var son = null, bekleyen = 0;
+
+  function iste(yol, cb, oncelikli) {
+    if (bekleyen > 2 && !oncelikli) return;   // ağ yavaşsa kuyruk biriktirme (dur hariç)
+    bekleyen++;
+    var x = new XMLHttpRequest(), bitti = false;
+    var zaman = setTimeout(function () { if (!bitti) { bitti = true; bekleyen--; x.abort(); cevrimdisi(); } }, 1500);
+    x.onreadystatechange = function () {
+      if (x.readyState !== 4 || bitti) return;
+      bitti = true; clearTimeout(zaman); bekleyen--;
+      if (x.status === 200) {
+        var d = null;
+        try { d = JSON.parse(x.responseText); } catch (e) {}
+        if (d && d.m !== undefined) goster(d);
+        if (cb) cb(d);
+      } else if (x.status === 0) { cevrimdisi(); }
+    };
+    x.open('GET', yol + (yol.indexOf('?') < 0 ? '?' : '&') + '_=' + new Date().getTime(), true);
+    x.send();
+  }
+  function komut(k, cb) { iste('/k?c=' + encodeURIComponent(k), cb, k === 'dur'); }
+  function dur() {   // birkaç kez gönder: yolda kalmış bir sürüş komutundan sonra da ulaşsın
+    iste('/dur', null, true);
+    setTimeout(function () { iste('/dur', null, true); }, 150);
+    setTimeout(function () { iste('/dur', null, true); }, 700);
+  }
+
+  function cevrimdisi() { $('nokta').className = 'nokta'; $('bilgi').innerHTML = 'robota ulaşılamıyor (Kipir ağına bağlı mısın?)'; }
+
+  var MOD_ADLARI = { mutlu: 'Mutlu', saskin: 'Şaşkın', uykulu: 'Uykulu', kizgin: 'Kızgın', sevgi: 'Sevgi', merak: 'Merak', uzgun: 'Üzgün' };
+  var ogrenilen = '', ogrenGoruldu = false;
+  function goster(d) {
+    son = d;
+    $('nokta').className = 'nokta ok';
+    var mesafe = d.d > 0 ? d.d + ' cm' : '–';
+    $('bilgi').innerHTML = (MOD_ADLARI[d.m] || d.m) + ' · önü: ' + mesafe + (d.b ? ' · <b style="color:#ffd166">engel!</b>' : '') +
+      (d.v > 0 ? ' · pil ' + d.v.toFixed(1) + ' V' : '') + (d.ble ? ' · telefon beyni bağlı' : '');
+    if (d.ir && d.ir !== '00000000') $('irSon').innerHTML = d.ir;
+    if (d.ogren) {
+      ogrenGoruldu = true;
+      $('ogrenMesaj').innerHTML = 'Şimdi kumandada "' + (ogrenilen || d.ogren) + '" için kullanmak istediğin tuşa bas…';
+    } else if (ogrenGoruldu) {
+      ogrenGoruldu = false;
+      $('ogrenMesaj').innerHTML = (ogrenilen ? '"' + ogrenilen + '" ' : '') + 'öğrenildi ✓ (son kod: ' + d.ir + ')';
+      ogrenilen = '';
+      irListe();
+    }
+  }
+
+  // ---- joystick ----
+  var pad = $('pad'), topuz = $('topuz'), aktif = false, jx = 0, jy = 0, dokunId = null;
+  function konum(ex, ey) {
+    var r = pad.getBoundingClientRect();
+    var cx = r.left + r.width / 2, cy = r.top + r.height / 2, R = r.width / 2 - 30;
+    var dx = ex - cx, dy = ey - cy, l = Math.sqrt(dx * dx + dy * dy);
+    if (l > R) { dx = dx / l * R; dy = dy / l * R; }
+    topuz.style.webkitTransform = topuz.style.transform = 'translate(' + dx + 'px,' + dy + 'px)';
+    jx = dx / R; jy = -dy / R;
+  }
+  function birak() {
+    aktif = false; dokunId = null; jx = jy = 0;
+    topuz.style.webkitTransform = topuz.style.transform = 'translate(0,0)';
+    dur();
+  }
+  pad.addEventListener('touchstart', function (e) {
+    e.preventDefault();
+    var t = e.changedTouches[0]; dokunId = t.identifier; aktif = true; konum(t.clientX, t.clientY);
+  }, false);
+  pad.addEventListener('touchmove', function (e) {
+    e.preventDefault();
+    for (var i = 0; i < e.changedTouches.length; i++)
+      if (e.changedTouches[i].identifier === dokunId) konum(e.changedTouches[i].clientX, e.changedTouches[i].clientY);
+  }, false);
+  pad.addEventListener('touchend', function (e) { e.preventDefault(); birak(); }, false);
+  pad.addEventListener('touchcancel', function (e) { e.preventDefault(); birak(); }, false);
+  pad.addEventListener('mousedown', function (e) { aktif = true; konum(e.clientX, e.clientY); }, false);
+  document.addEventListener('mousemove', function (e) { if (aktif && dokunId === null) konum(e.clientX, e.clientY); }, false);
+  document.addEventListener('mouseup', function () { if (aktif && dokunId === null) birak(); }, false);
+
+  setInterval(function () {
+    if (!aktif) return;
+    var h = +$('hiz').value;
+    iste('/surus?x=' + Math.round(jx * h) + '&y=' + Math.round(jy * h));
+  }, 100);
+  setInterval(function () { if (!aktif) iste('/durum'); }, 700);
+
+  $('hiz').onchange = $('hiz').oninput = function () { $('hizYaz').innerHTML = this.value; };
+  $('durBtn').onclick = dur;
+
+  // ---- modlar, sesler ----
+  var modlar = $('modlar');
+  for (var m in MOD_ADLARI) {
+    var b = document.createElement('button');
+    b.innerHTML = MOD_ADLARI[m];
+    b.setAttribute('data-k', 'mod ' + m);
+    modlar.appendChild(b);
+  }
+  var dugmeler = document.querySelectorAll('button[data-k]');
+  for (var i = 0; i < dugmeler.length; i++)
+    dugmeler[i].onclick = function () { komut(this.getAttribute('data-k')); };
+
+  var RENKLER = [['oto', '#3a4556', 'oto'], ['255 170 0', '#ffaa00'], ['255 0 0', '#ff2a2a'], ['0 255 80', '#00ff50'],
+                 ['0 120 255', '#0078ff'], ['255 30 120', '#ff1e78'], ['255 255 255', '#ffffff'], ['0 0 0', '#000000', 'kapalı']];
+  for (i = 0; i < RENKLER.length; i++) {
+    var r = document.createElement('button');
+    r.className = 'renk';
+    r.style.background = RENKLER[i][1];
+    r.style.color = '#e6ebf2';
+    r.innerHTML = RENKLER[i][2] || '';
+    r.setAttribute('data-r', RENKLER[i][0]);
+    r.onclick = function () { komut('kulak ' + this.getAttribute('data-r')); };
+    $('renkler').appendChild(r);
+  }
+
+  // ---- IR öğretme ----
+  var EYLEM_ADLARI = { ileri: 'İleri', geri: 'Geri', sol: 'Sola dön', sag: 'Sağa dön', dur: 'Dur', selam: 'Selam', dans: 'Dans', uyku: 'Uyu' };
+  function irListe() {
+    iste('/ir_liste', function (d) {
+      if (!d) return;
+      var h = '';
+      for (var a in EYLEM_ADLARI)
+        h += '<tr><td>' + EYLEM_ADLARI[a] + '</td><td class="kod">' + (d[a] || '') + '</td><td style="text-align:right"><button data-a="' + a + '">Öğret</button></td></tr>';
+      $('irTablo').innerHTML = h;
+      var bs = $('irTablo').getElementsByTagName('button');
+      for (var j = 0; j < bs.length; j++)
+        bs[j].onclick = function () {
+          ogrenilen = EYLEM_ADLARI[this.getAttribute('data-a')];
+          iste('/ir_ogren?a=' + this.getAttribute('data-a'));
+        };
+    });
+  }
+  $('irSifir').onclick = function () { iste('/ir_sifirla', irListe); };
+  irListe();
+})();
+</script>
+</body>
+</html>

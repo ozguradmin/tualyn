@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Kıpır yüzü</title>
+<style>
+  html, body { margin: 0; padding: 0; height: 100%; background: #05070a; overflow: hidden; }
+  #c { display: block; width: 100%; height: 100%; }
+  #menu { position: absolute; left: 0; right: 0; bottom: 0; padding: 12px; text-align: center;
+          font: 16px sans-serif; color: #cfd6e0; background: rgba(0,0,0,0.75); display: none; }
+  #menu a, #menu button { color: #05070a; background: #3fe0ff; border: 0; border-radius: 6px;
+          padding: 10px 14px; margin: 4px; font: 16px sans-serif; text-decoration: none; display: inline-block; }
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<div id="menu">
+  <button id="tam">Tam ekran</button>
+  <a href="/">Kumanda</a>
+  <div style="margin-top:8px;font-size:13px">İpucu: tablet şarjdayken açık kalsın diye Ayarlar &gt; Geliştirici seçenekleri &gt; "Uyanık kal".</div>
+</div>
+<script src="yuz.js"></script>
+<script>
+(function () {
+  var yuz = new KipirYuz(document.getElementById('c'), { durumNoktasi: true, fps: 20 });
+  yuz.baslat();
+
+  var bekliyor = false, hata = 0;
+  function sor() {
+    if (bekliyor) return;
+    bekliyor = true;
+    var x = new XMLHttpRequest(), bitti = false;
+    var zaman = setTimeout(function () { if (!bitti) { bitti = true; x.abort(); bekliyor = false; hata++; yuz.baglanti(hata < 3); } }, 1200);
+    x.onreadystatechange = function () {
+      if (x.readyState !== 4 || bitti) return;
+      bitti = true; clearTimeout(zaman); bekliyor = false;
+      if (x.status === 200) {
+        try { yuz.durum(JSON.parse(x.responseText)); hata = 0; yuz.baglanti(true); } catch (e) { hata++; }
+      } else { hata++; yuz.baglanti(hata < 3); }
+    };
+    x.open('GET', '/durum?_=' + new Date().getTime(), true);
+    x.send();
+  }
+  setInterval(sor, 150);
+
+  var menu = document.getElementById('menu'), gizle;
+  document.getElementById('c').onclick = function () {
+    menu.style.display = 'block';
+    clearTimeout(gizle);
+    gizle = setTimeout(function () { menu.style.display = 'none'; }, 5000);
+  };
+  document.getElementById('tam').onclick = function () {
+    var e = document.documentElement;
+    var f = e.requestFullscreen || e.webkitRequestFullscreen || e.webkitRequestFullScreen;
+    if (f) f.call(e);
+    menu.style.display = 'none';
+  };
+})();
+</script>
+</body>
+</html>

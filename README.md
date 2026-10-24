@@ -28,3 +28,10 @@ Build adımı yok: `index.html`, `style.css`, `script.js`.
 
 Cloudflare Pages'te bu repoyu bağlaman yeterli. Build komutu boş, çıktı klasörü `/`.
 Yerelde denemek için: `python3 -m http.server` ve ardından http://localhost:8000.
+
+## Robot projesi
+
+`robot/` klasöründe **Kıpır v1** var: telefon/tablet yüzlü, ESP32'li, 2 tekerlekli ev robotu
+(3D baskı modeli, firmware, web sayfaları, malzeme listesi ve araştırma notları).
+Başlangıç noktası: [`robot/README.md`](robot/README.md). Site yayınını etkilemez;
+`robot/web/beyin.html` bu sayede HTTPS üzerinden de açılabilir.

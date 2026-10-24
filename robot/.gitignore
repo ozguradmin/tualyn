@@ -1,0 +1,4 @@
+# PlatformIO derleme klasörü
+firmware/kipir_esp32/.pio/
+# yerel denemeler
+*.gcode

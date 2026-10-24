@@ -1,0 +1,162 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 820" width="1180" height="820" font-family="Helvetica, Arial, sans-serif">
+<style>
+ .blok{fill:#f6f8fb;stroke:#1d2733;stroke-width:2;rx:10}
+ .baslik{font-size:17px;font-weight:700;fill:#1d2733}
+ .pin{font-size:13px;fill:#1d2733}
+ .not{font-size:12.5px;fill:#516070}
+ .w{fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+ .g{stroke:#1d2733}.p5{stroke:#d7263d}.p3{stroke:#f08a24}.pm{stroke:#8b1e3f}
+ .s1{stroke:#1b7f79}.s2{stroke:#3a6ea5}.s3{stroke:#7a4fb3}.s4{stroke:#2e8b3a}
+ .dot{fill:#1d2733}
+</style>
+<rect width="1180" height="820" fill="#ffffff"/>
+<text x="24" y="38" font-size="24" font-weight="700" fill="#1d2733">Kıpır v1: bağlantı şeması</text>
+<text x="24" y="62" class="not">Tüm GND'ler ortak. Kırmızı: 5V (powerbank), turuncu: 3V3, bordo: motor pili (2x18650, 7.4V). Pin numaraları config.h ile aynı.</text>
+<rect class="blok" x="420" y="110" width="230" height="520" rx="10"/>
+<text class="baslik" x="432" y="134">ESP32 DevKit V1</text>
+<text class="pin" x="640" y="164" text-anchor="end">GPIO25</text>
+<circle class="dot" cx="650" cy="160" r="3.5"/>
+<text class="pin" x="640" y="186" text-anchor="end">GPIO26</text>
+<circle class="dot" cx="650" cy="182" r="3.5"/>
+<text class="pin" x="640" y="208" text-anchor="end">GPIO27</text>
+<circle class="dot" cx="650" cy="204" r="3.5"/>
+<text class="pin" x="640" y="230" text-anchor="end">GPIO13</text>
+<circle class="dot" cx="650" cy="226" r="3.5"/>
+<text class="pin" x="640" y="252" text-anchor="end">GPIO33</text>
+<circle class="dot" cx="650" cy="248" r="3.5"/>
+<text class="pin" x="640" y="274" text-anchor="end">GPIO32</text>
+<circle class="dot" cx="650" cy="270" r="3.5"/>
+<text class="pin" x="640" y="296" text-anchor="end">GPIO14</text>
+<circle class="dot" cx="650" cy="292" r="3.5"/>
+<text class="pin" x="640" y="318" text-anchor="end">GND</text>
+<circle class="dot" cx="650" cy="314" r="3.5"/>
+<text class="pin" x="430" y="164">VIN (5V)</text>
+<circle class="dot" cx="420" cy="160" r="3.5"/>
+<text class="pin" x="430" y="186">3V3</text>
+<circle class="dot" cx="420" cy="182" r="3.5"/>
+<text class="pin" x="430" y="208">GND</text>
+<circle class="dot" cx="420" cy="204" r="3.5"/>
+<text class="pin" x="430" y="230">GPIO4</text>
+<circle class="dot" cx="420" cy="226" r="3.5"/>
+<text class="pin" x="430" y="252">GPIO35</text>
+<circle class="dot" cx="420" cy="248" r="3.5"/>
+<text class="pin" x="430" y="274">GPIO34</text>
+<circle class="dot" cx="420" cy="270" r="3.5"/>
+<text class="pin" x="430" y="296">GPIO19</text>
+<circle class="dot" cx="420" cy="292" r="3.5"/>
+<text class="pin" x="430" y="318">GPIO18</text>
+<circle class="dot" cx="420" cy="314" r="3.5"/>
+<text class="pin" x="430" y="340">GPIO16</text>
+<circle class="dot" cx="420" cy="336" r="3.5"/>
+<text class="not" x="440" y="395">USB: powerbank'ten 5V</text>
+<text class="not" x="440" y="413">(ESP32 ve tablet powerbank'ten,</text>
+<text class="not" x="440" y="431">motorlar ayrı pilden beslenir)</text>
+<text class="not" x="440" y="470">İsteğe bağlı:</text>
+<text class="not" x="440" y="488">GPIO36 ← pil bölücü 100k/33k</text>
+<text class="not" x="440" y="506">GPIO23/22/21 ← Gamebox kolu</text>
+<text class="not" x="440" y="524">(LATCH / CLOCK / DATA)</text>
+<rect class="blok" x="760" y="110" width="200" height="300" rx="10"/>
+<text class="baslik" x="772" y="134">TB6612FNG</text>
+<text class="pin" x="770" y="164">PWMA</text>
+<circle class="dot" cx="760" cy="160" r="3.5"/>
+<text class="pin" x="770" y="186">AIN1</text>
+<circle class="dot" cx="760" cy="182" r="3.5"/>
+<text class="pin" x="770" y="208">AIN2</text>
+<circle class="dot" cx="760" cy="204" r="3.5"/>
+<text class="pin" x="770" y="230">PWMB</text>
+<circle class="dot" cx="760" cy="226" r="3.5"/>
+<text class="pin" x="770" y="252">BIN1</text>
+<circle class="dot" cx="760" cy="248" r="3.5"/>
+<text class="pin" x="770" y="274">BIN2</text>
+<circle class="dot" cx="760" cy="270" r="3.5"/>
+<text class="pin" x="770" y="296">STBY</text>
+<circle class="dot" cx="760" cy="292" r="3.5"/>
+<text class="pin" x="770" y="318">GND</text>
+<circle class="dot" cx="760" cy="314" r="3.5"/>
+<text class="pin" x="770" y="340">VCC</text>
+<circle class="dot" cx="760" cy="336" r="3.5"/>
+<text class="pin" x="950" y="164" text-anchor="end">VM</text>
+<circle class="dot" cx="960" cy="160" r="3.5"/>
+<text class="pin" x="950" y="186" text-anchor="end">GND </text>
+<circle class="dot" cx="960" cy="182" r="3.5"/>
+<text class="pin" x="950" y="208" text-anchor="end">AO1</text>
+<circle class="dot" cx="960" cy="204" r="3.5"/>
+<text class="pin" x="950" y="230" text-anchor="end">AO2</text>
+<circle class="dot" cx="960" cy="226" r="3.5"/>
+<text class="pin" x="950" y="252" text-anchor="end">BO1</text>
+<circle class="dot" cx="960" cy="248" r="3.5"/>
+<text class="pin" x="950" y="274" text-anchor="end">BO2</text>
+<circle class="dot" cx="960" cy="270" r="3.5"/>
+<path class="w s1" d="M650,160 L705,160 L705,160 L760,160"/>
+<path class="w s1" d="M650,182 L705,182 L705,182 L760,182"/>
+<path class="w s1" d="M650,204 L705,204 L705,204 L760,204"/>
+<path class="w s2" d="M650,226 L705,226 L705,226 L760,226"/>
+<path class="w s2" d="M650,248 L705,248 L705,248 L760,248"/>
+<path class="w s2" d="M650,270 L705,270 L705,270 L760,270"/>
+<path class="w s3" d="M650,292 L705,292 L705,292 L760,292"/>
+<path class="w g" d="M650,314 L705,314 L705,314 L760,314"/>
+<path class="w p3" d="M420,182 L395,182 L395,92 L740,92 L740,336 L760,336"/>
+<rect class="blok" x="1010" y="230" width="150" height="70" rx="10"/>
+<text class="baslik" x="1022" y="254">Sol motor</text>
+<rect class="blok" x="1010" y="320" width="150" height="70" rx="10"/>
+<text class="baslik" x="1022" y="344">Sağ motor</text>
+<path class="w s1" d="M960,204 L985,204 L985,255 L1010,255"/>
+<path class="w s1" d="M960,226 L995,226 L995,275 L1010,275"/>
+<path class="w s2" d="M960,248 L985,248 L985,345 L1010,345"/>
+<path class="w s2" d="M960,270 L995,270 L995,365 L1010,365"/>
+<text class="not" x="1012" y="410">Ters dönerse config.h:</text>
+<text class="not" x="1012" y="426">INVERT_LEFT / RIGHT = 1</text>
+<rect class="blok" x="780" y="470" width="230" height="120" rx="10"/>
+<text class="baslik" x="792" y="494">Motor pili 2x18650</text>
+<text class="not" x="792" y="518">anahtarlı yuva, 7.4V</text>
+<text class="not" x="792" y="538">+ ile − arasına 1000µF 16V</text>
+<text class="not" x="792" y="556">kondansatör (VM yanında)</text>
+<circle class="dot" cx="1010" cy="500" r="3.5"/><text class="pin" x="998" y="504" text-anchor="end">+</text>
+<circle class="dot" cx="1010" cy="570" r="3.5"/><text class="pin" x="998" y="574" text-anchor="end">−</text>
+<path class="w pm" d="M1010,500 L1040,500 L1040,430 L975,430 L975,160 L960,160"/>
+<path class="w g" d="M1010,570 L1060,570 L1060,440 L968,440 L968,182 L960,182"/>
+<rect class="blok" x="60" y="650" width="300" height="100" rx="10"/>
+<text class="baslik" x="72" y="674">Powerbank (5V USB)</text>
+<text class="not" x="72" y="700">USB kablo → ESP32 USB girişi</text>
+<text class="not" x="72" y="720">2. çıkış → tablet (yüz modunda)</text>
+<path class="w p5" d="M360,690 L535,690 L535,630"/>
+<text class="not" x="545" y="660">USB</text>
+<rect class="blok" x="60" y="90" width="300" height="150" rx="10"/>
+<text class="baslik" x="72" y="114">HC-SR04 mesafe</text>
+<text class="pin" x="350" y="139" text-anchor="end">VCC</text>
+<circle class="dot" cx="360" cy="135" r="3.5"/>
+<text class="pin" x="350" y="163" text-anchor="end">TRIG</text>
+<circle class="dot" cx="360" cy="159" r="3.5"/>
+<text class="pin" x="350" y="187" text-anchor="end">ECHO</text>
+<circle class="dot" cx="360" cy="183" r="3.5"/>
+<text class="pin" x="350" y="211" text-anchor="end">GND</text>
+<circle class="dot" cx="360" cy="207" r="3.5"/>
+<path class="w p5" d="M360,135 L380,135 L380,160 L420,160"/>
+<path class="w s4" d="M360,159 L388,159 L388,226 L420,226"/>
+<path class="w g" d="M360,207 L372,207 L372,204 L420,204"/>
+<path class="w s4" d="M360,183 L300,183 L300,275"/>
+<rect x="288" y="275" width="24" height="34" fill="#fff" stroke="#2e8b3a" stroke-width="2"/><text class="not" x="318" y="297">1k</text>
+<path class="w s4" d="M300,309 L300,330 L403,330 L403,248 L420,248"/>
+<rect x="288" y="345" width="24" height="34" fill="#fff" stroke="#1d2733" stroke-width="2"/><text class="not" x="318" y="367">2k → GND</text>
+<path class="w g" d="M300,330 L300,345"/>
+<text class="not" x="72" y="228">ECHO 5V verir: 1k/2k bölücü şart</text>
+<rect class="blok" x="60" y="400" width="230" height="110" rx="10"/>
+<text class="baslik" x="72" y="424">IR alıcı VS1838B</text>
+<text class="pin" x="280" y="444" text-anchor="end">OUT</text>
+<circle class="dot" cx="290" cy="440" r="3.5"/>
+<text class="pin" x="280" y="468" text-anchor="end">GND</text>
+<circle class="dot" cx="290" cy="464" r="3.5"/>
+<text class="pin" x="280" y="492" text-anchor="end">VCC</text>
+<circle class="dot" cx="290" cy="488" r="3.5"/>
+<path class="w s3" d="M290,440 L330,440 L330,270 L420,270"/>
+<text class="not" x="72" y="500">VCC → 3V3, GND → GND</text>
+<rect class="blok" x="60" y="530" width="300" height="100" rx="10"/>
+<text class="baslik" x="72" y="554">Kulak LED'leri + buzzer</text>
+<text class="not" x="72" y="575">Sol kulak DIN ← GPIO19, sağ ← GPIO18</text>
+<text class="not" x="72" y="593">LED VDD: 5V bir 1N4148 diyot üzerinden</text>
+<text class="not" x="72" y="611">Pasif buzzer + ← 100Ω ← GPIO16</text>
+<path class="w s1" d="M360,570 L395,570 L395,292 L420,292"/>
+<path class="w s2" d="M360,585 L405,585 L405,314 L420,314"/>
+<path class="w s3" d="M360,605 L412,605 L412,336 L420,336"/>
+<text class="not" x="24" y="800">Kodda değiştirebilirsin: robot/firmware/kipir_esp32/config.h  ·  Çizim: robot/docs/baglanti_ciz.py</text>
+</svg>

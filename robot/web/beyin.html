@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#05070a">
+<title>Kıpır beyni</title>
+<style>
+  :root { --bg: #05070a; --panel: rgba(12, 16, 23, 0.92); --line: #223042; --text: #e6ebf2; --muted: #8b98aa; --accent: #3fe0ff; --red: #e5484d; --ok: #2fbf71; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: var(--bg); color: var(--text); font: 15px system-ui, sans-serif; overflow: hidden; }
+  #yuz { position: fixed; inset: 0; width: 100%; height: 100%; display: block; }
+  #ust { position: fixed; top: 0; left: 0; right: 0; padding: 8px 12px; display: flex; gap: 10px; align-items: center;
+         font-size: 13px; color: var(--muted); pointer-events: none; }
+  .nokta { width: 9px; height: 9px; border-radius: 50%; background: var(--red); display: inline-block; }
+  .nokta.ok { background: var(--ok); }
+  #altyazi { position: fixed; left: 0; right: 0; bottom: 150px; text-align: center; padding: 0 16px; font-size: 18px;
+             text-shadow: 0 1px 3px #000; pointer-events: none; min-height: 1.4em; }
+  #panel { position: fixed; left: 0; right: 0; bottom: 0; padding: 10px 10px calc(10px + env(safe-area-inset-bottom));
+           background: var(--panel); border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: 8px;
+           justify-content: center; transition: transform .25s; }
+  #panel.gizli { transform: translateY(110%); }
+  button { border: 0; border-radius: 10px; padding: 12px 14px; font: 600 15px system-ui, sans-serif; background: #cfd6e0; color: #0b0e13; }
+  button.acik { background: var(--accent); }
+  button.dur { background: var(--red); color: #fff; }
+  button:disabled { opacity: .45; }
+  dialog { background: #0e131b; color: var(--text); border: 1px solid var(--line); border-radius: 14px; width: min(520px, 94vw); padding: 18px; }
+  dialog::backdrop { background: rgba(0,0,0,.6); }
+  dialog label { display: block; margin: 12px 0 4px; color: var(--muted); font-size: 13px; }
+  dialog input, dialog select, dialog textarea { width: 100%; padding: 10px; border-radius: 8px; border: 1px solid var(--line);
+         background: #070a0f; color: var(--text); font: 15px system-ui, sans-serif; }
+  dialog .satir { display: flex; gap: 8px; align-items: center; margin-top: 10px; }
+  dialog .satir input { width: auto; }
+  .not { font-size: 12px; color: var(--muted); margin-top: 6px; line-height: 1.4; }
+  #pad { position: fixed; left: 50%; bottom: 110px; width: 220px; height: 220px; margin-left: -110px; border-radius: 50%;
+         background: rgba(20,27,38,.85); border: 2px solid var(--line); touch-action: none; display: none; }
+  #topuz { position: absolute; left: 50%; top: 50%; width: 80px; height: 80px; margin: -40px 0 0 -40px; border-radius: 50%; background: var(--accent); }
+  #gunluk { position: fixed; top: 30px; left: 10px; right: 10px; max-height: 30vh; overflow: auto; font: 12px ui-monospace, monospace;
+            color: #9fb0c4; background: rgba(0,0,0,.55); border-radius: 8px; padding: 6px 8px; display: none; white-space: pre-wrap; }
+</style>
+</head>
+<body>
+<canvas id="yuz"></canvas>
+<video id="kamera" playsinline muted autoplay style="display:none"></video>
+<div id="ust"><span class="nokta" id="robotNokta"></span><span id="robotYazi">robot bağlı değil</span><span id="mesafe"></span><span id="pad-bilgi"></span></div>
+<div id="gunluk"></div>
+<div id="altyazi"></div>
+<div id="pad"><div id="topuz"></div></div>
+
+<div id="panel">
+  <button id="baglanBtn">Robota bağlan</button>
+  <button id="konusBtn">🎤 Konuş</button>
+  <button id="kesifBtn">Keşif</button>
+  <button id="elleBtn">Elle sür</button>
+  <button id="dur" class="dur">DUR</button>
+  <button id="ayarBtn">Ayarlar</button>
+</div>
+
+<dialog id="ayarlar">
+  <h3 style="margin:0 0 4px">Ayarlar</h3>
+  <label for="anahtar">Claude API anahtarı</label>
+  <input id="anahtar" type="password" autocomplete="off" placeholder="sk-ant-...">
+  <div class="satir"><input type="checkbox" id="sakla"><span>Anahtarı bu telefonda sakla</span></div>
+  <div class="not">Anahtar sadece bu cihazda durur ve sadece api.anthropic.com'a gider. Konsolda aylık harcama sınırı koymanı öneririm.</div>
+  <label for="model">Model</label>
+  <select id="model">
+    <option value="claude-opus-5-5">Claude Opus 5.5 (en akıllı, varsayılan)</option>
+    <option value="claude-sonnet-5-5">Claude Sonnet 5.5 (dengeli)</option>
+    <option value="claude-haiku-5-5">Claude Haiku 5.5 (en hızlı ve ucuz)</option>
+  </select>
+  <label for="ses">Konuşma sesi</label>
+  <select id="ses"></select>
+  <div class="satir"><input type="checkbox" id="ayna"><span>Kamera görüntüsünü aynala (sol/sağ ters geliyorsa)</span></div>
+  <div class="satir"><input type="checkbox" id="gunlukAc"><span>Günlüğü göster</span></div>
+  <label for="kisilik">Kişilik (isteğe bağlı)</label>
+  <textarea id="kisilik" rows="2" placeholder="ör. Utangaç ama meraklı, muhabbet kuşlarına bayılır."></textarea>
+  <div class="satir" style="justify-content:flex-end"><button id="kapatBtn" class="acik">Tamam</button></div>
+</dialog>
+
+<script src="yuz.js"></script>
+<script type="module">
+import Anthropic from "https://cdn.jsdelivr.net/npm/@anthropic-ai/sdk@0.133.0/+esm";
+
+const $ = (id) => document.getElementById(id);
+const MODLAR = ["mutlu", "saskin", "uykulu", "kizgin", "sevgi", "merak", "uzgun"];
+const NUS = "6e400001-b5a3-f393-e0a9-e50e24dcca9e";
+const NUS_RX = "6e400002-b5a3-f393-e0a9-e50e24dcca9e";
+const NUS_TX = "6e400003-b5a3-f393-e0a9-e50e24dcca9e";
+const MAKS_TUR = 6;              // bir görevde en fazla kaç araç turu
+const FALLBACK_MODELLER = new Set(["claude-opus-5-5", "claude-sonnet-5-5"]);
+
+// ------------------------------------------------------------------ yüz
+const yuz = new KipirYuz($("yuz"), { fps: 30 });
+yuz.baslat();
+const yuzDurum = { m: "mutlu", lx: 0, ly: 0, t: 0 };
+function yuzGuncelle(degisiklik) {
+  Object.assign(yuzDurum, degisiklik);
+  yuz.durum(yuzDurum);
+}
+
+function gunluk(...p) {
+  const s = p.map((x) => (typeof x === "string" ? x : JSON.stringify(x))).join(" ");
+  console.log(s);
+  const g = $("gunluk");
+  g.textContent = (s + "\n" + g.textContent).slice(0, 4000);
+}
+function altyazi(s) { $("altyazi").textContent = s || ""; }
+
+// ------------------------------------------------------------------ ayarlar
+const ayar = {
+  get anahtar() { return $("anahtar").value.trim(); },
+  get model() { return $("model").value; },
+  get ayna() { return $("ayna").checked; },
+  get kisilik() { return $("kisilik").value.trim(); },
+};
+function ayarYukle() {
+  try {
+    const a = JSON.parse(localStorage.getItem("kipir-ayar") || "{}");
+    if (a.anahtar) { $("anahtar").value = a.anahtar; $("sakla").checked = true; }
+    if (a.model) $("model").value = a.model;
+    $("ayna").checked = !!a.ayna;
+    $("kisilik").value = a.kisilik || "";
+    $("ses").dataset.secili = a.ses || "";
+  } catch (e) { /* tarayıcı depolaması kapalı olabilir */ }
+}
+function ayarKaydet() {
+  try {
+    localStorage.setItem("kipir-ayar", JSON.stringify({
+      anahtar: $("sakla").checked ? ayar.anahtar : "",
+      model: ayar.model, ayna: ayar.ayna, kisilik: ayar.kisilik, ses: $("ses").value,
+    }));
+  } catch (e) { /* yok say */ }
+}
+ayarYukle();
+$("ayarBtn").onclick = () => $("ayarlar").showModal();
+$("kapatBtn").onclick = () => { ayarKaydet(); $("ayarlar").close(); };
+$("gunlukAc").onchange = (e) => { $("gunluk").style.display = e.target.checked ? "block" : "none"; };
+
+// ------------------------------------------------------------------ robot (Web Bluetooth)
+const robot = {
+  rx: null, cihaz: null, mesafe: -1, engel: false,
+  kuyruk: Promise.resolve(), bekleyenSurus: null, surusYolda: false,
+  get bagli() { return !!(this.rx && this.cihaz && this.cihaz.gatt.connected); },
+
+  async baglan() {
+    if (!navigator.bluetooth) throw new Error("Bu tarayıcıda Web Bluetooth yok. Android'de Chrome kullan.");
+    this.cihaz = await navigator.bluetooth.requestDevice({ filters: [{ namePrefix: "Kipir" }], optionalServices: [NUS] });
+    this.cihaz.addEventListener("gattserverdisconnected", () => { this.rx = null; robotGoster(); });
+    const sunucu = await this.cihaz.gatt.connect();
+    const servis = await sunucu.getPrimaryService(NUS);
+    this.rx = await servis.getCharacteristic(NUS_RX);
+    const tx = await servis.getCharacteristic(NUS_TX);
+    tx.addEventListener("characteristicvaluechanged", (e) => this.durumGeldi(new TextDecoder().decode(e.target.value)));
+    await tx.startNotifications();
+    robotGoster();
+  },
+
+  durumGeldi(s) {  // "d=23 b=0 m=0"
+    for (const parca of s.trim().split(" ")) {
+      const [k, v] = parca.split("=");
+      if (k === "d") this.mesafe = parseInt(v, 10);
+      if (k === "b") this.engel = v === "1";
+    }
+    $("mesafe").textContent = this.mesafe > 0 ? `· önü ${this.mesafe} cm${this.engel ? " (engel!)" : ""}` : "";
+  },
+
+  yaz(metin) {
+    if (!this.rx) return Promise.resolve();
+    // Tek komut, satır sonu yok: varsayılan BLE MTU'sunda bir yazma en fazla 20 bayt.
+    // En uzun komut "teker -100 -100 2000" tam 20 bayt.
+    const veri = new TextEncoder().encode(metin);
+    const yaz = this.rx.writeValueWithoutResponse ? () => this.rx.writeValueWithoutResponse(veri) : () => this.rx.writeValue(veri);
+    this.kuyruk = this.kuyruk.then(yaz).catch((e) => gunluk("BLE yazma hatası:", String(e)));
+    return this.kuyruk;
+  },
+
+  // joystick/gamepad: sadece en son sürüş komutu gider, kuyruk birikmez
+  surus(x, y) {
+    this.bekleyenSurus = `surus ${Math.round(x * 100)} ${Math.round(y * 100)}`;
+    if (this.surusYolda) return;
+    this.surusYolda = true;
+    const k = this.bekleyenSurus;
+    this.bekleyenSurus = null;
+    this.yaz(k).finally(() => {
+      this.surusYolda = false;
+      if (this.bekleyenSurus && surusSuruyor()) this.surus(...this.bekleyenSurus.split(" ").slice(1).map((v) => v / 100));
+      else this.bekleyenSurus = null;
+    });
+  },
+
+  dur() {   // bekleyen sürüşü at, "dur"u birkaç kez gönder
+    this.bekleyenSurus = null;
+    this.yaz("dur");
+    setTimeout(() => this.yaz("dur"), 150);
+  },
+};
+
+function robotGoster() {
+  $("robotNokta").className = "nokta" + (robot.bagli ? " ok" : "");
+  $("robotYazi").textContent = robot.bagli ? `robot: ${robot.cihaz.name}` : "robot bağlı değil";
+  $("baglanBtn").textContent = robot.bagli ? "Bağlı ✓" : "Robota bağlan";
+}
+
+$("baglanBtn").onclick = async () => {
+  try { await robot.baglan(); robot.yaz("ses selam"); }
+  catch (e) { altyazi(String(e.message || e)); gunluk("bağlantı:", String(e)); }
+};
+
+let kesifAcik = false;
+async function durHepsi() {
+  kesifAcik = false;
+  $("kesifBtn").classList.remove("acik");
+  gorevIptal = true;
+  speechSynthesis.cancel();
+  robot.dur();
+  yuzGuncelle({ t: 0 });
+}
+$("dur").onclick = durHepsi;
+
+// ------------------------------------------------------------------ kamera
+let kameraAkisi = null;
+async function kameraAc() {
+  if (kameraAkisi) return;
+  kameraAkisi = await navigator.mediaDevices.getUserMedia({
+    video: { facingMode: "user", width: { ideal: 640 }, height: { ideal: 480 } }, audio: false,
+  });
+  $("kamera").srcObject = kameraAkisi;
+  await $("kamera").play();
+}
+function kare() {
+  const v = $("kamera");
+  if (!v.videoWidth) return null;
+  const c = document.createElement("canvas");
+  c.width = 512;
+  c.height = Math.round(512 * v.videoHeight / v.videoWidth);
+  const x = c.getContext("2d");
+  if (ayar.ayna) { x.translate(c.width, 0); x.scale(-1, 1); }
+  x.drawImage(v, 0, 0, c.width, c.height);
+  return c.toDataURL("image/jpeg", 0.7).split(",")[1];
+}
+
+// ------------------------------------------------------------------ konuşma (TTS + STT)
+function sesleriDoldur() {
+  const sesler = speechSynthesis.getVoices();
+  const s = $("ses");
+  if (!sesler.length || s.options.length) return;
+  const tr = sesler.filter((v) => v.lang && v.lang.toLowerCase().startsWith("tr"));
+  for (const v of (tr.length ? tr : sesler)) {
+    const o = document.createElement("option");
+    o.value = v.name; o.textContent = `${v.name} (${v.lang})`;
+    s.appendChild(o);
+  }
+  if (s.dataset.secili) s.value = s.dataset.secili;
+}
+speechSynthesis.onvoiceschanged = sesleriDoldur;
+sesleriDoldur();
+
+function soyle(metin) {
+  return new Promise((bitti) => {
+    if (!metin) return bitti();
+    const u = new SpeechSynthesisUtterance(metin);
+    u.lang = "tr-TR";
+    const v = speechSynthesis.getVoices().find((x) => x.name === $("ses").value);
+    if (v) u.voice = v;
+    u.pitch = 1.25;
+    u.onstart = () => { yuzGuncelle({ t: 1 }); robot.yaz("konus 1"); };
+    const son = () => { yuzGuncelle({ t: 0 }); robot.yaz("konus 0"); bitti(); };
+    u.onend = son;
+    u.onerror = son;
+    altyazi(metin);
+    speechSynthesis.speak(u);
+  });
+}
+
+function dinle() {
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SR) return Promise.reject(new Error("Bu tarayıcı konuşma tanıma desteklemiyor."));
+  return new Promise((sonuc, hata) => {
+    const r = new SR();
+    r.lang = "tr-TR";
+    r.interimResults = false;
+    r.maxAlternatives = 1;
+    let metin = "";
+    r.onresult = (e) => { metin = e.results[0][0].transcript; };
+    r.onerror = (e) => hata(new Error("Dinleme hatası: " + e.error));
+    r.onend = () => sonuc(metin);
+    yuzGuncelle({ m: "merak" });
+    altyazi("Dinliyorum…");
+    r.start();
+  });
+}
+
+// ------------------------------------------------------------------ Claude
+const ARACLAR = [
+  {
+    name: "hareket_et",
+    description: "Robotu kısa bir süre hareket ettirir. Engel sensörü sadece ileriyi görür ve ileri gitmeyi kendisi durdurur; " +
+      "arkada sensör yok. Süre sınırları: ileri en fazla 1000 ms, geri en fazla 400 ms, dönüş en fazla 1200 ms. " +
+      "Bilinmeyen alanda kısa adımlar at (300-800 ms). 90 derece dönüş için yaklaşık 600 ms yeterlidir.",
+    input_schema: {
+      type: "object",
+      properties: {
+        yon: { type: "string", enum: ["ileri", "geri", "sola_don", "saga_don"] },
+        sure_ms: { type: "integer", description: "100 ile 1000 arası (geri için en fazla 400)" },
+        hiz: { type: "number", description: "0.3 ile 0.7 arası; içeride 0.5 iyi" },
+      },
+      required: ["yon", "sure_ms"],
+      additionalProperties: false,
+    },
+  },
+  {
+    name: "yuz_ifadesi",
+    description: "Yüz ifadesini ve kulak ışıklarını değiştirir.",
+    input_schema: {
+      type: "object",
+      properties: { ifade: { type: "string", enum: MODLAR } },
+      required: ["ifade"],
+      additionalProperties: false,
+    },
+  },
+  {
+    name: "bak",
+    description: "Gözleri görüntüdeki bir noktaya çevirir. x: -1 sol, 1 sağ; y: -1 yukarı, 1 aşağı.",
+    input_schema: {
+      type: "object",
+      properties: { x: { type: "number" }, y: { type: "number" } },
+      required: ["x", "y"],
+      additionalProperties: false,
+    },
+  },
+  {
+    name: "ses_cal",
+    description: "Robotun hoparlöründen kısa bir ses çalar.",
+    input_schema: {
+      type: "object",
+      properties: { ses: { type: "string", enum: ["selam", "saskin", "dans", "bip", "sevgi"] } },
+      required: ["ses"],
+      additionalProperties: false,
+    },
+  },
+  {
+    name: "dans_et",
+    description: "Robot yerinde kısa bir dans yapar (yaklaşık 3 saniye).",
+    input_schema: { type: "object", properties: {}, additionalProperties: false },
+  },
+];
+
+function sistemMetni() {
+  return [
+    "Sen Kıpır'sın: evde yerde dolaşan, 2 tekerlekli, küçük, sevimli bir ev robotusun.",
+    "Yüzün bir telefon ekranı; ön kamerayla görüyorsun. Görüntünün solu senin solun.",
+    "Önünde bir mesafe sensörü var; 15 cm'den yakın engel varsa ileri gidemezsin.",
+    "Türkçe konuş. Cevapların kısa olsun: en fazla 1-2 cümle, sesli okunacak; emoji ve madde işareti kullanma.",
+    "Hareket ederken temkinli ol: kısa adımlar at. Merdiven ya da masa kenarı gibi düşme noktalarını algılayan bir sensörün yok, " +
+      "arkanı da göremiyorsun; bu yüzden kenarlara yaklaşma ve geri giderken çok kısa hareket et.",
+    "İnsanlara, hayvanlara ve kırılabilir eşyalara çarpma; emin değilsen dur ve sor.",
+    "Araçları sadece gerektiğinde kullan. Görevin bitince araç çağırmadan kısa bir cümleyle bitir.",
+    ayar.kisilik ? `Kişiliğin: ${ayar.kisilik}` : "Kişiliğin: meraklı, neşeli ve biraz utangaç.",
+  ].join("\n");
+}
+
+let istemci = null, istemciAnahtari = "";
+function claude() {
+  if (!ayar.anahtar) throw new Error("Önce Ayarlar'dan Claude API anahtarını gir.");
+  if (!istemci || istemciAnahtari !== ayar.anahtar) {
+    // Anahtar kullanıcının kendi telefonunda; tarayıcıdan doğrudan çağrı bilinçli bir tercih.
+    istemci = new Anthropic({ apiKey: ayar.anahtar, dangerouslyAllowBrowser: true });
+    istemciAnahtari = ayar.anahtar;
+  }
+  return istemci;
+}
+
+async function claudeIstek(mesajlar) {
+  const model = ayar.model;
+  const govde = {
+    model,
+    max_tokens: 4000,
+    output_config: { effort: "low" },   // robot kısa ve hızlı karar versin
+    system: [{ type: "text", text: sistemMetni(), cache_control: { type: "ephemeral" } }],
+    tools: ARACLAR,
+    messages: mesajlar,
+  };
+  if (FALLBACK_MODELLER.has(model)) {   // güvenlik sınıflandırıcısı reddederse sunucu yedek modelle dener
+    govde.betas = ["server-side-fallback-2026-07-01"];
+    govde.fallbacks = "default";
+    return claude().beta.messages.create(govde);
+  }
+  return claude().messages.create(govde);
+}
+
+function sinirla(v, a, b, varsayilan) {
+  const n = Number(v);
+  return Number.isFinite(n) ? Math.min(b, Math.max(a, n)) : varsayilan;
+}
+const bekle = (ms) => new Promise((r) => setTimeout(r, ms));
+
+async function araciCalistir(ad, girdi) {
+  switch (ad) {
+    case "hareket_et": {
+      const enUzun = { ileri: 1000, geri: 400, sola_don: 1200, saga_don: 1200 }[girdi.yon] || 400;
+      const sure = Math.round(sinirla(girdi.sure_ms, 100, enUzun, 400));
+      const hiz = sinirla(girdi.hiz, 0.3, 0.7, 0.5);
+      const h = Math.round(hiz * 100);
+      const [l, r] = { ileri: [h, h], geri: [-h, -h], sola_don: [-h, h], saga_don: [h, -h] }[girdi.yon] || [0, 0];
+      if (!robot.bagli) return "Robot bağlı değil; hareket edilemedi.";
+      await robot.yaz(`teker ${l} ${r} ${sure}`);
+      await bekle(sure + 250);
+      const m = robot.mesafe > 0 ? `${robot.mesafe} cm` : "ölçülemedi (açık alan olabilir)";
+      return `Tamamlandı. Önündeki mesafe: ${m}.${robot.engel ? " Önünde engel var, ileri gidemezsin." : ""}`;
+    }
+    case "yuz_ifadesi": {
+      const m = MODLAR.includes(girdi.ifade) ? girdi.ifade : "mutlu";
+      yuzGuncelle({ m });
+      robot.yaz(`mod ${m}`);
+      return "Tamam.";
+    }
+    case "bak": {
+      const x = sinirla(girdi.x, -1, 1, 0), y = sinirla(girdi.y, -1, 1, 0);
+      // ekran karşıdaki kişiye dönük: robotun solu ekranın sağı
+      yuzGuncelle({ lx: -x, ly: y });
+      setTimeout(() => yuzGuncelle({ lx: 0, ly: 0 }), 2500);
+      return "Tamam.";
+    }
+    case "ses_cal":
+      robot.yaz(`ses ${girdi.ses}`);
+      return "Tamam.";
+    case "dans_et":
+      robot.yaz("dans");
+      await bekle(3000);
+      return "Dans bitti.";
+    default:
+      return `Bilinmeyen araç: ${ad}`;
+  }
+}
+
+const hafiza = [];   // son konuşmalardan kısa metin özeti (görüntüsüz, ucuz)
+let gorevIptal = false, mesgul = false;
+
+// Bir görev: kullanıcı cümlesi ya da keşif komutu. Claude araç çağırdıkça çalıştırır,
+// her turda yeni kamera karesini sonuç olarak geri gönderir.
+async function gorev(metin) {
+  if (mesgul) return;
+  mesgul = true;
+  gorevIptal = false;
+  $("konusBtn").disabled = true;
+  try {
+    await kameraAc().catch((e) => gunluk("kamera:", String(e)));
+    const icerik = [];
+    const goruntu = kare();
+    if (goruntu) icerik.push({ type: "image", source: { type: "base64", media_type: "image/jpeg", data: goruntu } });
+    const durum = `Sensör: önündeki mesafe ${robot.mesafe > 0 ? robot.mesafe + " cm" : "bilinmiyor"}. Robot ${robot.bagli ? "bağlı" : "bağlı değil"}.`;
+    const gecmis = hafiza.length ? `Önceki konuşmalarımız:\n${hafiza.join("\n")}\n\n` : "";
+    icerik.push({ type: "text", text: `${gecmis}${durum}\n\n${metin}` });
+    const mesajlar = [{ role: "user", content: icerik }];
+    yuzGuncelle({ m: "merak" });
+
+    let sonMetin = "";
+    for (let tur = 0; tur < MAKS_TUR && !gorevIptal; tur++) {
+      const yanit = await claudeIstek(mesajlar);
+      gunluk(`[${yanit.model}] stop=${yanit.stop_reason} in=${yanit.usage.input_tokens} out=${yanit.usage.output_tokens}`);
+      if (yanit.stop_reason === "refusal") {
+        sonMetin = "Bunu yapamam, başka bir şey deneyelim mi?";
+        await soyle(sonMetin);
+        break;
+      }
+      mesajlar.push({ role: "assistant", content: yanit.content });   // tüm bloklar aynen geri gider
+
+      const metinler = yanit.content.filter((b) => b.type === "text").map((b) => b.text).join(" ").trim();
+      const araclar = yanit.content.filter((b) => b.type === "tool_use");
+      if (metinler) { sonMetin = metinler; await soyle(metinler); }
+      if (yanit.stop_reason !== "tool_use" || !araclar.length) break;
+
+      const sonuclar = [];
+      for (const a of araclar) {
+        if (gorevIptal) break;
+        gunluk("araç:", a.name, a.input);
+        let cikti;
+        try { cikti = await araciCalistir(a.name, a.input || {}); }
+        catch (e) { cikti = `Hata: ${e.message || e}`; }
+        sonuclar.push({ type: "tool_result", tool_use_id: a.id, content: [{ type: "text", text: cikti }] });
+      }
+      if (gorevIptal) break;
+      // hareketten sonra yeni görüntüyü son araç sonucuna ekle
+      const yeni = araclar.some((a) => a.name === "hareket_et" || a.name === "dans_et") ? kare() : null;
+      if (yeni && sonuclar.length) {
+        sonuclar[sonuclar.length - 1].content.push({ type: "image", source: { type: "base64", media_type: "image/jpeg", data: yeni } });
+      }
+      mesajlar.push({ role: "user", content: sonuclar });
+    }
+    hafiza.push(`Sen: ${metin}`, `Kıpır: ${sonMetin || "(sessiz)"}`);
+    while (hafiza.length > 10) hafiza.shift();
+  } catch (e) {
+    let mesaj = String(e.message || e);
+    if (e instanceof Anthropic.AuthenticationError) mesaj = "API anahtarı geçersiz görünüyor.";
+    else if (e instanceof Anthropic.RateLimitError) mesaj = "Biraz yoruldum, birazdan tekrar dene (hız sınırı).";
+    else if (e instanceof Anthropic.APIConnectionError) mesaj = "İnternete ulaşamadım.";
+    else if (e instanceof Anthropic.APIError) mesaj = `Claude hatası (${e.status}).`;
+    gunluk("hata:", String(e));
+    altyazi(mesaj);
+    yuzGuncelle({ m: "uzgun" });
+  } finally {
+    mesgul = false;
+    $("konusBtn").disabled = false;
+    if (yuzDurum.m === "merak") yuzGuncelle({ m: "mutlu" });
+  }
+}
+
+$("konusBtn").onclick = async () => {
+  try {
+    const metin = await dinle();
+    if (!metin) { altyazi(""); yuzGuncelle({ m: "mutlu" }); return; }
+    altyazi(`“${metin}”`);
+    await gorev(metin);
+  } catch (e) { altyazi(String(e.message || e)); }
+};
+
+// Keşif: Claude'a etrafı gezdirir; her görev en fazla MAKS_TUR araç turu, aralarda kısa mola
+$("kesifBtn").onclick = async () => {
+  kesifAcik = !kesifAcik;
+  $("kesifBtn").classList.toggle("acik", kesifAcik);
+  while (kesifAcik) {
+    await gorev("Keşif modundasın. Etrafına bak, ilginç bir şey bul ve ona doğru dikkatlice birkaç kısa adım at. " +
+      "Gördüğün şey hakkında tek cümlelik sevimli bir yorum yap.");
+    for (let i = 0; i < 30 && kesifAcik; i++) await bekle(100);
+  }
+};
+
+// ------------------------------------------------------------------ elle sürüş: ekran joystick'i + oyun kumandası
+let elleAcik = false, jx = 0, jy = 0, jAktif = false;
+$("elleBtn").onclick = () => {
+  elleAcik = !elleAcik;
+  $("elleBtn").classList.toggle("acik", elleAcik);
+  $("pad").style.display = elleAcik ? "block" : "none";
+};
+const pad = $("pad"), topuz = $("topuz");
+function padKonum(e) {
+  const r = pad.getBoundingClientRect();
+  const R = r.width / 2 - 26;
+  let dx = e.clientX - (r.left + r.width / 2), dy = e.clientY - (r.top + r.height / 2);
+  const l = Math.hypot(dx, dy);
+  if (l > R) { dx = dx / l * R; dy = dy / l * R; }
+  topuz.style.transform = `translate(${dx}px, ${dy}px)`;
+  jx = dx / R; jy = -dy / R;
+}
+pad.addEventListener("pointerdown", (e) => { pad.setPointerCapture(e.pointerId); jAktif = true; padKonum(e); });
+pad.addEventListener("pointermove", (e) => { if (jAktif) padKonum(e); });
+const padBirak = () => { jAktif = false; jx = jy = 0; topuz.style.transform = ""; robot.dur(); };
+pad.addEventListener("pointerup", padBirak);
+pad.addEventListener("pointercancel", padBirak);
+
+// Oyun kumandası (Gamebox'ın USB alıcısı Android'e OTG ile takılırsa ya da Bluetooth kumanda)
+let gpOnceki = {};
+function oyunKumandasi() {
+  const gp = [...(navigator.getGamepads ? navigator.getGamepads() : [])].find(Boolean);
+  $("pad-bilgi").textContent = gp ? "· kumanda bağlı" : "";
+  if (!gp) return null;
+  const olu = (v) => (Math.abs(v) < 0.15 ? 0 : v);
+  let x = olu(gp.axes[0] || 0), y = -olu(gp.axes[1] || 0);
+  // yön tuşları (standart eşleşmede 12-15)
+  const b = (i) => !!(gp.buttons[i] && gp.buttons[i].pressed);
+  if (b(12)) y = 1; if (b(13)) y = -1; if (b(14)) x = -1; if (b(15)) x = 1;
+  const bas = (i, komut) => { if (b(i) && !gpOnceki[i]) robot.yaz(komut); gpOnceki[i] = b(i); };
+  bas(0, "ses selam"); bas(1, "dur"); bas(2, "dans"); bas(3, "mod sevgi");
+  return { x, y };
+}
+
+let gpSuruyor = false;
+function surusSuruyor() { return jAktif || gpSuruyor; }
+setInterval(() => {
+  const gp = oyunKumandasi();
+  if (jAktif) robot.surus(jx * 0.8, jy * 0.8);
+  else if (gp && (gp.x || gp.y)) { gpSuruyor = true; robot.surus(gp.x * 0.8, gp.y * 0.8); }
+  else if (gpSuruyor) { gpSuruyor = false; robot.dur(); }   // kol bırakıldı
+}, 100);
+
+// ------------------------------------------------------------------ panel: dokununca görünür, 6 sn sonra gizlenir
+let panelZaman;
+function paneliGoster() {
+  $("panel").classList.remove("gizli");
+  clearTimeout(panelZaman);
+  panelZaman = setTimeout(() => { if (!elleAcik && !$("ayarlar").open) $("panel").classList.add("gizli"); }, 6000);
+}
+$("yuz").addEventListener("click", paneliGoster);
+paneliGoster();
+
+// ekran kararmasın (destekleyen tarayıcılarda)
+async function uyanikTut() {
+  try { if (navigator.wakeLock) await navigator.wakeLock.request("screen"); } catch (e) { /* yok say */ }
+}
+document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState === "visible") uyanikTut();
+  else durHepsi();   // sekme arka plana geçerse robot dursun
+});
+uyanikTut();
+
+if (!ayar.anahtar) setTimeout(() => $("ayarlar").showModal(), 600);
+
+// tarayıcı konsolundan deneme için
+window.kipir = { gorev, robot, yuzGuncelle };
+</script>
+</body>
+</html>
