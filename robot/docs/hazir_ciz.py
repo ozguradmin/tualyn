@@ -22,15 +22,15 @@ GRUPLAR = {
 SATIRLAR = [
     ("kendin", "Kıpır v1 (2. kademe)", "tekerli, tablet yüz, telefondan sürülür", 2650, 3750, None),
     ("kendin", "Kıpır Göz + Ses (4. kademe)", "kamera + Claude + sesli konuşma", 4200, 5300, None),
-    ("kalkar", "Petoi Bittle X V2 (kendin getir)", "köpek, 0,3 kg; petoi.com'dan, gümrük dahil", 29900, 41000, None),
-    ("kalkar", "Hugging Face Microduck", "Türkiye'ye göndermiyor; aracıyla, 4-6 ay", 34000, 46000, None),
-    ("kalkar", "Hiwonder Tonybot (kendin getir)", "insansı, 38 cm; hiwonder.com'dan", 37200, 51500, None),
+    ("kalkar", "Petoi Bittle X V2 (kendin getir)", "köpek, 0,3 kg; petoi.com'dan, gümrük dahil", 24000, 41700, None),
+    ("kalkar", "Hugging Face Microduck", "Türkiye'ye göndermiyor; aracıyla, 4-6 ay", 28000, 48300, None),
+    ("kalkar", "Hiwonder Tonybot (kendin getir)", "insansı, 38 cm; hiwonder.com'dan", 31800, 51500, None),
     ("kalkar", "Petoi Bittle X V2 (Türk satıcı)", "ithalatçı ilanı, hepsi tükendi", 44400, 51700, None),
     ("kalkar", "Unitree Go2 Air (Türk satıcı)", "15 kg gerçek robot köpek", 70000, 70000, "234–291 bin TL"),
     ("yurur", "Open Duck Mini v2 (kendin yap)", "14 servo, yarım kılavuz, ciddi proje", 30000, 40000, None),
     ("yurur", "Hiwonder MechDog (Türk satıcı)", "ön sipariş, 4-8 hafta", 53400, 61700, None),
     ("yurumez", "Loona (Türk satıcı, 2 yıl garanti)", "tekerli robot köpek, GPT sesli sohbet", 32900, 41500, None),
-    ("yurumez", "Reachy Mini Wireless", "konuşur, kafasını oynatır; bacak yok", 39700, 48700, None),
+    ("yurumez", "Reachy Mini Wireless", "konuşur, kafasını oynatır; bacak yok", 33700, 49500, None),
 ]
 
 W, LEFT, RIGHT, TOP, ROW, BOT = 1900, 600, 360, 210, 74, 120
