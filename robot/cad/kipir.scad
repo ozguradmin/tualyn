@@ -11,7 +11,12 @@
 //  oturmuş olarak gelir.
 // =====================================================================
 
-part = "assembly"; // [assembly, taban, ust_kat, boyun, kafa_ray, cene_sol, cene_sag, teker_kapak, sensor_tutucu, kulak_sol, kulak_sag]
+part = "assembly"; // [assembly, kol_sahnesi, taban, ust_kat, boyun, kafa_ray, cene_sol, cene_sag, teker_kapak, sensor_tutucu, kulak_sol, kulak_sag]
+
+/* [Görünüm: sadece montaj görseli, basılan parçaları değiştirmez] */
+// 1 sade (tek powerbank, kulaksız), 2 Kıpır v1 (ayrı motor pili, kulaklar),
+// 3 + kamera (kameralı ESP32-S3 kartı), 4 + mikrofon/hoparlör
+kademe = 2; // [1, 2, 3, 4]
 
 /* [Cihaz (kafa)] */
 // Telefon/tablet kalınlığı için kanal genişliği. 11.5 mm'ye kadar (kılıflı
@@ -424,12 +429,16 @@ module assembly() {
     color("royalblue") translate([20, -14, deck_top]) cube([52, 28, 12]);
     color("teal") translate([sensor_x - 2, -22.5, base_top + 8]) cube([2, 45, 20]);
     color("silver") for (y = [-13, 13]) translate([sensor_x, y, base_top + 18]) rotate([0, 90, 0]) cylinder(d = 16, h = 15);
+    if (kademe >= 2) pil_paketi_dummy();
+    if (kademe >= 3) kamera_dummy();
+    if (kademe >= 4) ses_dummy();
     head_frame() {
         color("lightskyblue") kafa_ray();
         for (m = [0, 1]) mirror([0, m, 0])
             translate([0, dev_L / 2, -rail_z0]) {
                 color("tomato") cene();
-                color("white") translate([rail_t + (jp_t + dev_t + lip_t) / 2, clr + ear_w / 2, jaw_h]) kulak();
+                if (kademe >= 2)
+                    color("white") translate([rail_t + (jp_t + dev_t + lip_t) / 2, clr + ear_w / 2, jaw_h]) kulak();
             }
         // cihaz
         translate([rail_t + jp_t, -dev_L / 2, -rail_z0 + floor_t]) {
@@ -437,6 +446,76 @@ module assembly() {
             color([0.95, 0.85, 0.3]) translate([dev_t - 1.2, 0, 0]) face_dummy();
         }
     }
+}
+
+// --- kademe görselleri için temsili parçalar (basılmaz) ---
+module pil_paketi_dummy() {   // 2x18650 yuvası, üst katın arka ızgarasında
+    translate([-80.5, -38.5, deck_top]) {
+        color([0.15, 0.15, 0.17]) difference() {
+            cube([41, 77, 20]);
+            translate([2, 3, 4]) cube([37, 71, 20]);
+        }
+        color([0.2, 0.45, 0.85]) for (x = [11, 30]) translate([x, 6, 11]) rotate([-90, 0, 0]) cylinder(d = 18.5, h = 65);
+    }
+}
+
+module kamera_dummy() {       // kameralı ESP32-S3 kartı, üst katın önünde ileri bakar (tutucu temsili)
+    translate([76, 0, deck_top]) {
+        color("tomato") translate([-8, -16, 0]) cube([12, 32, 3]);
+        color("tomato") translate([1.5, -16, 0]) cube([3, 32, 58]);
+        color([0.1, 0.1, 0.1]) translate([4.5, -13.5, 4]) cube([1.5, 27, 52]);
+        color([0.2, 0.2, 0.2]) translate([6, -4, 40]) cube([3, 8, 8]);
+        color([0.05, 0.05, 0.05]) translate([9, 0, 44]) rotate([0, 90, 0]) cylinder(d = 7, h = 4);
+    }
+}
+
+module ses_dummy() {          // hoparlör (önde solda) + I2S mikrofon kartı (önde sağda)
+    translate([58, 42, deck_top + 24]) rotate([0, 90, 0]) {
+        color([0.1, 0.1, 0.1]) cylinder(d = 40, h = 8);
+        color([0.55, 0.55, 0.55]) for (r = [6, 11, 16]) translate([0, 0, 8]) difference() {
+            cylinder(r = r, h = 0.6);
+            cylinder(r = r - 1.5, h = 1);
+        }
+    }
+    color("tomato") translate([50, 30, deck_top]) cube([14, 24, 3]);
+    color([0.45, 0.1, 0.6]) translate([60, -48, deck_top]) cube([3, 14, 12]);
+    color("tomato") translate([54, -50, deck_top]) cube([12, 18, 3]);
+}
+
+// --- SO-101 öğrenen kol sahnesi (temsili, ölçüler yaklaşık) ---
+module servo_dummy(l = 45, w = 25, h = 35) {
+    color([0.1, 0.1, 0.12]) translate([-l / 2, -w / 2, -h / 2]) cube([l, w, h]);
+}
+
+module so101_temsili(omuz = 70, dirsek = -100, bilek = -40, renk = "white") {
+    color(renk) translate([-55, -40, 0]) cube([110, 80, 6]);
+    translate([0, 0, 24]) servo_dummy(45, 25, 36);
+    color(renk) translate([-24, -24, 40]) cube([48, 48, 22]);
+    translate([0, 0, 62]) rotate([0, -omuz, 0]) {               // üst kol
+        translate([0, 0, 0]) rotate([90, 0, 0]) servo_dummy(40, 36, 25);
+        color(renk) translate([0, -14, -12]) cube([116, 28, 24]);
+        translate([116, 0, 0]) rotate([0, -dirsek, 0]) {        // ön kol
+            rotate([90, 0, 0]) servo_dummy(40, 36, 25);
+            color(renk) translate([0, -13, -11]) cube([135, 26, 22]);
+            translate([135, 0, 0]) rotate([0, -bilek, 0]) {     // bilek + kıskaç
+                rotate([90, 0, 0]) servo_dummy(36, 32, 24);
+                color(renk) translate([0, -16, -12]) cube([40, 32, 24]);
+                color(renk) translate([40, -16, -4]) cube([55, 8, 8]);
+                color(renk) translate([40, 8, -4]) rotate([0, 0, -12]) cube([55, 8, 8]);
+            }
+        }
+    }
+}
+
+module kol_sahnesi() {
+    color([0.82, 0.68, 0.5]) translate([-110, -330, -12]) cube([440, 430, 12]);  // masa
+    so101_temsili();                                                              // takipçi kol
+    translate([-20, -220, 0]) so101_temsili(60, -95, -25, [0.98, 0.62, 0.25]);   // lider kol (elle tutulan)
+    translate([150, 70, 0]) {                                                     // sahne kamerası
+        color([0.3, 0.3, 0.3]) cylinder(d = 8, h = 220);
+        color([0.1, 0.1, 0.1]) translate([-12, -20, 220]) cube([24, 40, 22]);
+    }
+    color([0.85, 0.2, 0.25]) translate([230, -60, 0]) cube([40, 40, 40]);         // tutulacak küp
 }
 
 module face_dummy() {
@@ -449,6 +528,7 @@ module face_dummy() {
 //  baskı yönleri
 // =====================================================================
 if (part == "assembly") assembly();
+else if (part == "kol_sahnesi") kol_sahnesi();
 else if (part == "taban") translate([0, 0, base_top]) rotate([180, 0, 0]) taban();
 else if (part == "ust_kat") translate([0, 0, deck_top]) rotate([180, 0, 0]) ust_kat();
 else if (part == "boyun") boyun();

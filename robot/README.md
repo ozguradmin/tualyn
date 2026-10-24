@@ -27,6 +27,7 @@ robot/
 │   ├── MALZEME.md     parça listesi, Türkiye fiyatları, toplam maliyet
 │   ├── BASKI.md       3D baskı ayarları, stüdyoya gidecek hazır mesaj, fiyat tahmini
 │   ├── MONTAJ.md      adım adım montaj, bağlantı tablosu, ilk çalıştırma
+│   ├── BUTCE.md       bütçeye göre 5 kademe (görselli): sade, v1, göz, ses, öğrenen kol
 │   └── baglanti.svg   bağlantı şeması
 ├── cad/
 │   ├── kipir.scad     parametrik OpenSCAD modeli (tek dosya, 10 parça)
@@ -73,6 +74,7 @@ robot/
 
 ## Hızlı başlangıç
 
+0. Bütçeni seç: [docs/BUTCE.md](docs/BUTCE.md)
 1. Parçaları al: [docs/MALZEME.md](docs/MALZEME.md)
 2. Gövdeyi bastır: [docs/BASKI.md](docs/BASKI.md) (stüdyo mesajı hazır)
 3. Topla, bağla, yükle, dene: [docs/MONTAJ.md](docs/MONTAJ.md)

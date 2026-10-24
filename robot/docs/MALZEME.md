@@ -34,7 +34,7 @@ Robotistan 1.500 TL üzeri siparişte kargo ücretsiz.
 |---|---:|---|
 | Adreslenebilir 5 mm RGB LED (WS2812D-F5) ×2 + biraz ince kablo | ~30 | kulak ışıkları; bacaklara uzatma teli lehimlenir. Yerine [NeoPixel 12'li halka 71,97](https://www.robotistan.com/neopixel-12li-halka) ya da gece lambasının LED'leri |
 | Direnç 100k + 33k | ~5 | pil gerilimini ölçmek (`USE_BAT 1`) |
-| ESP32-CAM (OV2640) + programlayıcı | ~700-910 | tablet yüz modunda ileri bakan kamera ([Motorobit 909,00](https://www.motorobit.com/esp32-kamerali-gelistirme-karti-ov2640-wifi-blu)). RHYX kameralı ucuz sürümlerde örnek kodlar çalışmayabilir. |
+| Kameralı ESP32-S3 N16R8 kartı (OV2640) | 1.111,50 | tablet yüz modunda ileri bakan kamera; USB'li, programlayıcı gerekmez ([Robolink](https://www.robolinkmarket.com/esp32-s3-n16r8-ov2640-kamerali-gelistirme-karti), stokta). ESP32-CAM ([Motorobit 909,00](https://www.motorobit.com/esp32-kamerali-gelistirme-karti-ov2640-wifi-blu)) daha ucuz ama programlayıcısı şu an hiçbir yerde stokta değil. Bkz. [BUTCE.md](BUTCE.md) |
 | DRV8833 (TB6612 yerine) | 68,34 | [Robotistan](https://www.robotistan.com/drv8833-step-motor-surucu-karti); `MOTOR_DRIVER 2` |
 
 ## C. 3D baskı
