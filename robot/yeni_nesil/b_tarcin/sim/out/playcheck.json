@@ -1,0 +1,220 @@
+{
+ "_luts": {
+  "neck_pan": {
+   "min_clearance_in_range_mm": 0.95,
+   "at_deg": -27.0
+  },
+  "tail": {
+   "min_clearance_in_range_mm": 0.03,
+   "at_deg": -41.0
+  },
+  "hip_fl": {
+   "min_clearance_in_range_mm": 0.23,
+   "at_deg": -9.0
+  },
+  "knee_fl": {
+   "min_clearance_in_range_mm": 0.2,
+   "at_deg": -140.0
+  },
+  "hip_fr": {
+   "min_clearance_in_range_mm": 0.23,
+   "at_deg": -14.0
+  },
+  "knee_fr": {
+   "min_clearance_in_range_mm": 0.2,
+   "at_deg": -140.0
+  },
+  "hip_hl": {
+   "min_clearance_in_range_mm": 0.23,
+   "at_deg": 0.0
+  },
+  "knee_hl": {
+   "min_clearance_in_range_mm": 0.2,
+   "at_deg": -25.0
+  },
+  "hip_hr": {
+   "min_clearance_in_range_mm": 0.23,
+   "at_deg": -45.0
+  },
+  "knee_hr": {
+   "min_clearance_in_range_mm": 0.2,
+   "at_deg": -25.0
+  }
+ },
+ "idle": {
+  "frames": 151,
+  "lowest_z_min_mm": -0.9,
+  "lowest_z_max_mm": -0.12,
+  "frames_penetrating_gt1mm": 0,
+  "frames_floating_gt1mm": 0,
+  "sibling_hull_penetration_mm": 0.0,
+  "parent_child_min_clearance_mm": {
+   "neck_pan": 0.95,
+   "tail": 0.06,
+   "hip_fl": 0.25,
+   "knee_fl": 0.2,
+   "hip_fr": 0.24,
+   "knee_fr": 0.2,
+   "hip_hl": 0.24,
+   "knee_hl": 0.2,
+   "hip_hr": 0.23,
+   "knee_hr": 0.2
+  },
+  "parent_child_worst": "tail 0.06 mm",
+  "head_vs_front_leg_min_gap_mm": "hip_f never > 90\u00b0"
+ },
+ "walk": {
+  "frames": 220,
+  "lowest_z_min_mm": -0.22,
+  "lowest_z_max_mm": 0.06,
+  "frames_penetrating_gt1mm": 0,
+  "frames_floating_gt1mm": 0,
+  "sibling_hull_penetration_mm": 0.0,
+  "parent_child_min_clearance_mm": {
+   "neck_pan": 0.96,
+   "tail": 0.05,
+   "hip_fl": 0.23,
+   "knee_fl": 0.2,
+   "hip_fr": 0.23,
+   "knee_fr": 0.2,
+   "hip_hl": 0.24,
+   "knee_hl": 0.2,
+   "hip_hr": 0.23,
+   "knee_hr": 0.2
+  },
+  "parent_child_worst": "tail 0.05 mm",
+  "head_vs_front_leg_min_gap_mm": "hip_f never > 90\u00b0"
+ },
+ "turn": {
+  "frames": 164,
+  "lowest_z_min_mm": -0.28,
+  "lowest_z_max_mm": 0.03,
+  "frames_penetrating_gt1mm": 0,
+  "frames_floating_gt1mm": 0,
+  "sibling_hull_penetration_mm": 0.0,
+  "parent_child_min_clearance_mm": {
+   "neck_pan": 0.96,
+   "tail": 0.06,
+   "hip_fl": 0.23,
+   "knee_fl": 0.2,
+   "hip_fr": 0.24,
+   "knee_fr": 0.2,
+   "hip_hl": 0.24,
+   "knee_hl": 0.2,
+   "hip_hr": 0.23,
+   "knee_hr": 0.2
+  },
+  "parent_child_worst": "tail 0.06 mm",
+  "head_vs_front_leg_min_gap_mm": "hip_f never > 90\u00b0"
+ },
+ "talk": {
+  "frames": 151,
+  "lowest_z_min_mm": -0.66,
+  "lowest_z_max_mm": -0.08,
+  "frames_penetrating_gt1mm": 0,
+  "frames_floating_gt1mm": 0,
+  "sibling_hull_penetration_mm": 0.0,
+  "parent_child_min_clearance_mm": {
+   "neck_pan": 0.95,
+   "tail": 0.05,
+   "hip_fl": 0.25,
+   "knee_fl": 0.2,
+   "hip_fr": 0.24,
+   "knee_fr": 0.2,
+   "hip_hl": 0.25,
+   "knee_hl": 0.2,
+   "hip_hr": 0.23,
+   "knee_hr": 0.2
+  },
+  "parent_child_worst": "tail 0.05 mm",
+  "head_vs_front_leg_min_gap_mm": "hip_f never > 90\u00b0"
+ },
+ "happy": {
+  "frames": 129,
+  "lowest_z_min_mm": -0.08,
+  "lowest_z_max_mm": -0.0,
+  "frames_penetrating_gt1mm": 0,
+  "frames_floating_gt1mm": 0,
+  "sibling_hull_penetration_mm": 0.02,
+  "parent_child_min_clearance_mm": {
+   "neck_pan": 0.95,
+   "tail": 0.04,
+   "hip_fl": 0.25,
+   "knee_fl": 0.2,
+   "hip_fr": 0.23,
+   "knee_fr": 0.2,
+   "hip_hl": 0.24,
+   "knee_hl": 0.2,
+   "hip_hr": 0.23,
+   "knee_hr": 0.2
+  },
+  "parent_child_worst": "tail 0.04 mm",
+  "head_vs_front_leg_min_gap_mm": "hip_f never > 90\u00b0"
+ },
+ "fall_recover": {
+  "frames": 211,
+  "lowest_z_min_mm": -0.36,
+  "lowest_z_max_mm": 1.27,
+  "frames_penetrating_gt1mm": 0,
+  "frames_floating_gt1mm": 1,
+  "sibling_hull_penetration_mm": 0.26,
+  "parent_child_min_clearance_mm": {
+   "neck_pan": 0.96,
+   "tail": 0.06,
+   "hip_fl": 0.24,
+   "knee_fl": 0.2,
+   "hip_fr": 0.24,
+   "knee_fr": 0.2,
+   "hip_hl": 0.24,
+   "knee_hl": 0.2,
+   "hip_hr": 0.23,
+   "knee_hr": 0.2
+  },
+  "parent_child_worst": "tail 0.06 mm",
+  "head_vs_front_leg_min_gap_mm": "hip_f never > 90\u00b0"
+ },
+ "sleep": {
+  "frames": 121,
+  "lowest_z_min_mm": -0.16,
+  "lowest_z_max_mm": 0.04,
+  "frames_penetrating_gt1mm": 0,
+  "frames_floating_gt1mm": 0,
+  "sibling_hull_penetration_mm": 0.01,
+  "parent_child_min_clearance_mm": {
+   "neck_pan": 0.97,
+   "tail": 0.08,
+   "hip_fl": 0.25,
+   "knee_fl": 0.2,
+   "hip_fr": 0.24,
+   "knee_fr": 0.2,
+   "hip_hl": 0.25,
+   "knee_hl": 0.2,
+   "hip_hr": 0.23,
+   "knee_hr": 0.2
+  },
+  "parent_child_worst": "tail 0.08 mm",
+  "head_vs_front_leg_min_gap_mm": "hip_f never > 90\u00b0"
+ },
+ "fall_recover_back": {
+  "frames": 428,
+  "lowest_z_min_mm": -1.13,
+  "lowest_z_max_mm": 9.78,
+  "frames_penetrating_gt1mm": 1,
+  "frames_floating_gt1mm": 1,
+  "sibling_hull_penetration_mm": 0.44,
+  "parent_child_min_clearance_mm": {
+   "neck_pan": 0.95,
+   "tail": 0.04,
+   "hip_fl": 0.24,
+   "knee_fl": 0.2,
+   "hip_fr": 0.23,
+   "knee_fr": 0.2,
+   "hip_hl": 0.23,
+   "knee_hl": 0.2,
+   "hip_hr": 0.23,
+   "knee_hr": 0.2
+  },
+  "parent_child_worst": "tail 0.04 mm",
+  "head_vs_front_leg_min_gap_mm": "hip_f never > 90\u00b0"
+ }
+}

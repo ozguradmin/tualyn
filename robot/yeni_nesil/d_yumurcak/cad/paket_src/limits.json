@@ -1,0 +1,1 @@
+{"yaw_min": -20, "yaw_max": 85, "knee_min": -15, "knee_max": 164, "basis": "check_limits.py: paw/knuckle vs analytic egg + haunch balls; knee 165+ hits the egg flank at yaw 0 (concept fallen pose 178 penetrates 4.2 mm), yaw < -22 drives the knuckle into the egg, yaw > 72 with knee 90 hits the neighbouring ball"}

@@ -1,0 +1,53 @@
+{
+ "method": "manifold3d boolean intersection volume between closed meshes, > 0.5 mm3 counts",
+ "non_manifold_skipped": [],
+ "A_body_static": [],
+ "B_head_static": [],
+ "C_neck_sweep": {
+  "angles": [
+   -40,
+   -35,
+   -30,
+   -25,
+   -20,
+   -15,
+   -10,
+   -5,
+   0,
+   5,
+   10,
+   15,
+   20,
+   25,
+   30,
+   35,
+   40
+  ],
+  "hits": []
+ },
+ "D_leg_sweep": {
+  "hip": "min/0/max per leg",
+  "knee": [
+   -90,
+   -45,
+   0,
+   45,
+   80,
+   90
+  ],
+  "hits": []
+ },
+ "E_tof_view": [
+  {
+   "sensor": "bottom (face A)",
+   "axis_floor_hit_y_mm": -60.8,
+   "axis_range_to_floor_mm": 38.3
+  },
+  {
+   "sensor": "top (face B)",
+   "axis_floor_hit_y_mm": -60.8,
+   "axis_range_to_floor_mm": 38.3
+  }
+ ],
+ "collisions_total": 0
+}

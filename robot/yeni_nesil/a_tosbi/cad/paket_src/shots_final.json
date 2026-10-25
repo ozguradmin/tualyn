@@ -1,0 +1,234 @@
+{
+"width": 1400,
+"height": 1050,
+"shots": [
+{
+"name": "rest_hero",
+"azimuth": -30,
+"elevation": 16,
+"distance": 0.78
+},
+{
+"name": "rest_front",
+"azimuth": 0,
+"elevation": 20,
+"distance": 0.85
+},
+{
+"name": "rest_side",
+"azimuth": -90,
+"elevation": 4,
+"distance": 0.85
+},
+{
+"name": "rest_back",
+"azimuth": 150,
+"elevation": 22,
+"distance": 0.85
+},
+{
+"name": "rest_top",
+"azimuth": 0,
+"elevation": 88,
+"distance": 0.85
+},
+{
+"name": "macro_face",
+"azimuth": -10,
+"elevation": 20,
+"distance": 0.2,
+"target": [
+0,
+-87,
+48
+]
+},
+{
+"name": "macro_pixels",
+"azimuth": 8,
+"elevation": 22,
+"distance": 0.075,
+"target": [
+9,
+-84,
+51
+]
+},
+{
+"name": "macro_face_happy",
+"azimuth": -10,
+"elevation": 20,
+"distance": 0.2,
+"target": [
+0,
+-87,
+48
+],
+"face": "happy"
+},
+{
+"name": "macro_print",
+"azimuth": -60,
+"elevation": 20,
+"distance": 0.2,
+"target": [
+-30,
+-26,
+60
+]
+},
+{
+"name": "macro_knee",
+"azimuth": -120,
+"elevation": 10,
+"distance": 0.2,
+"target": [
+-45,
+48,
+40
+]
+},
+{
+"name": "macro_tail",
+"azimuth": 170,
+"elevation": 12,
+"distance": 0.16,
+"target": [
+0,
+44,
+44
+]
+},
+{
+"name": "xray",
+"xray": true,
+"azimuth": -40,
+"elevation": 34,
+"distance": 0.85
+},
+{
+"name": "xray_side",
+"xray": true,
+"azimuth": -90,
+"elevation": 10,
+"distance": 0.85
+},
+{
+"name": "lim_hip_fwd",
+"azimuth": 0,
+"elevation": 88,
+"distance": 0.85,
+"pose": {
+"hip_fl": 14,
+"hip_fr": 14,
+"hip_rl": 20,
+"hip_rr": 20
+}
+},
+{
+"name": "lim_hip_back",
+"azimuth": 0,
+"elevation": 88,
+"distance": 0.85,
+"pose": {
+"hip_fl": -20,
+"hip_fr": -20,
+"hip_rl": -20,
+"hip_rr": -20
+}
+},
+{
+"name": "lim_knee",
+"azimuth": -35,
+"elevation": 12,
+"distance": 0.85,
+"pose": {
+"knee_fl": -90,
+"knee_fr": 0,
+"knee_rl": 90,
+"knee_rr": -45
+}
+},
+{
+"name": "lim_neck_up",
+"azimuth": -80,
+"elevation": 8,
+"distance": 0.6,
+"pose": {
+"neck": 40
+},
+"face": "surprised"
+},
+{
+"name": "lim_neck_down",
+"azimuth": -80,
+"elevation": 8,
+"distance": 0.6,
+"pose": {
+"neck": -40
+},
+"face": "sad"
+},
+{
+"name": "idle_t0",
+"anim": "idle",
+"t": 0.0,
+"azimuth": -90,
+"elevation": 2,
+"distance": 0.85
+},
+{
+"name": "idle_t1",
+"anim": "idle",
+"t": 0.5,
+"azimuth": -90,
+"elevation": 2,
+"distance": 0.85
+},
+{
+"name": "face_sleepy",
+"azimuth": -10,
+"elevation": 20,
+"distance": 0.2,
+"target": [
+0,
+-87,
+48
+],
+"face": "sleepy",
+"pose": {
+"neck": 0
+}
+},
+{
+"name": "action_wave",
+"anim": "happy",
+"t": 1.4,
+"azimuth": -24,
+"elevation": 12,
+"distance": 0.8
+},
+{
+"name": "macro_switch",
+"azimuth": -90,
+"elevation": 8,
+"distance": 0.22,
+"target": [
+-41,
+0,
+42
+]
+},
+{
+"name": "macro_tof",
+"azimuth": 55,
+"elevation": 4,
+"distance": 0.26,
+"target": [
+0,
+-40,
+42
+]
+}
+]
+}

@@ -1,0 +1,59 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><style>html,body{margin:0;background:#fff}</style></head>
+<body>
+<script type="importmap">{"imports":{"three":"./three.module.js"}}</script>
+<script type="module">
+import * as THREE from 'three';
+import { RoomEnvironment } from './RoomEnvironment.js';
+import { GLTFLoader } from './GLTFLoader.js';
+import { loadRobot } from './rig.js';
+
+const cfg = await (await fetch('/cfg.json')).json();
+const W = cfg.width || 1400, H = cfg.height || 1050;
+const r = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+r.setSize(W, H); r.shadowMap.enabled = true; r.shadowMap.type = THREE.PCFSoftShadowMap;
+r.toneMapping = THREE.ACESFilmicToneMapping; r.outputColorSpace = THREE.SRGBColorSpace;
+document.body.appendChild(r.domElement);
+const scene = new THREE.Scene(); scene.background = new THREE.Color(cfg.background || '#ece8e1');
+const pm = new THREE.PMREMGenerator(r); scene.environment = pm.fromScene(new RoomEnvironment(), 0.04).texture; scene.environmentIntensity = 0.9;
+
+const manifest = await (await fetch('/pkg/manifest.json')).json();
+const robot = await loadRobot(THREE, GLTFLoader, '/pkg/', manifest);
+scene.add(robot.object);
+
+const floor = new THREE.Mesh(new THREE.PlaneGeometry(4, 4), new THREE.ShadowMaterial({ opacity: 0.22 }));
+floor.rotation.x = -Math.PI / 2; floor.receiveShadow = true; scene.add(floor);
+// 1 cm grid for scale
+const grid = new THREE.GridHelper(0.6, 60, 0xb9b3a8, 0xd6d0c6); grid.position.y = 0.0002; grid.material.transparent = true; grid.material.opacity = cfg.grid === false ? 0 : 0.5; scene.add(grid);
+const key = new THREE.DirectionalLight('#fff7ee', 2.2); key.position.set(0.35, 0.6, 0.45); key.castShadow = true;
+key.shadow.mapSize.set(4096, 4096); key.shadow.radius = 6; key.shadow.blurSamples = 25;
+Object.assign(key.shadow.camera, { left: -0.3, right: 0.3, top: 0.3, bottom: -0.3, near: 0.01, far: 3 }); key.shadow.bias = -0.0003; key.shadow.normalBias = 0.002;
+scene.add(key); const rim = new THREE.DirectionalLight('#dfe9ff', 0.8); rim.position.set(-0.5, 0.4, -0.5); scene.add(rim);
+scene.add(new THREE.HemisphereLight('#ffffff', '#d9d2c5', 0.25));
+const cam = new THREE.PerspectiveCamera(28, W / H, 0.005, 20);
+
+window.state = { joints: Object.keys(robot.joints), screens: Object.keys(robot.screens), anims: Object.keys(robot.anims), internal: robot.internal.length, meshes: robot.meshes.length };
+
+window.renderShot = (s) => {
+  robot.setBase(null); robot.setPose(manifest.pose_rest || {}); if (manifest.faces?.neutral) robot.setFace('neutral');
+  if (s.pose) robot.setPose(s.pose);
+  if (s.face) robot.setFace(s.face);
+  if (s.anim) { const a = robot.anims[s.anim]; if (!a) return 'no anim ' + s.anim; robot.applyFrame(a, s.t || 0); }
+  robot.setXray(!!s.xray);
+  robot.object.updateMatrixWorld(true);
+  const box = new THREE.Box3().setFromObject(robot.object);
+  // follow the robot but keep the floor at y = 0 (the base may move in animations)
+  const c = box.getCenter(new THREE.Vector3()); const size = box.getSize(new THREE.Vector3());
+  const rad = Math.max(0.06, size.length() / 2);
+  const tgt = s.target ? new THREE.Vector3(s.target[0] / 1000, s.target[2] / 1000, -s.target[1] / 1000) : c;
+  const az = (s.azimuth ?? 30) * Math.PI / 180, el = (s.elevation ?? 15) * Math.PI / 180;
+  const dist = (s.distance ?? 1) * rad / Math.sin(cam.fov * Math.PI / 360) * 1.05;
+  cam.position.set(tgt.x + dist * Math.cos(el) * Math.sin(az), tgt.y + dist * Math.sin(el), tgt.z + dist * Math.cos(el) * Math.cos(az));
+  cam.lookAt(tgt); cam.updateProjectionMatrix();
+  key.target.position.copy(tgt); key.target.updateMatrixWorld();
+  r.render(scene, cam);
+  return 'ok';
+};
+window.READY = true;
+</script>
+</body></html>

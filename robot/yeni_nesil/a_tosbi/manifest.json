@@ -1,0 +1,867 @@
+{
+ "key": "A",
+ "name": "Tosbi",
+ "subtitle_tr": "İki yüzlü kaplumbağa",
+ "tagline_tr": "Ters dönse de yürür: iki kabuğu aynı, sırtüstü düşünce diğer yüzüyle yürümeye devam eder.",
+ "accent": "#f2846b",
+ "glb": "model.glb",
+ "frame_note": "body link origin = zemin, gövde merkezinin altı (dinlenme pozunda). Orta düzlem z = 42.45 mm. base = bu çerçevenin dünya pozu; ayakta [0,0,0,1,0,0,0].",
+ "joints": {
+  "hip_fl": {
+   "node": "leg_fl",
+   "axis": [
+    0,
+    0,
+    -1
+   ],
+   "min": -20,
+   "max": 14,
+   "zero": 0,
+   "servo": "MG90S",
+   "note": "kalça yaw; + = bacak öne. Ön bacaklarda +14° sınırı kafa çarpışmasından (concept check.py)"
+  },
+  "hip_fr": {
+   "node": "leg_fr",
+   "axis": [
+    0,
+    0,
+    1
+   ],
+   "min": -20,
+   "max": 14,
+   "zero": 0,
+   "servo": "MG90S",
+   "note": "kalça yaw; + = bacak öne. Ön bacaklarda +14° sınırı kafa çarpışmasından (concept check.py)"
+  },
+  "hip_rl": {
+   "node": "leg_rl",
+   "axis": [
+    0,
+    0,
+    -1
+   ],
+   "min": -20,
+   "max": 20,
+   "zero": 0,
+   "servo": "MG90S",
+   "note": "kalça yaw; + = bacak öne. Ön bacaklarda +14° sınırı kafa çarpışmasından (concept check.py)"
+  },
+  "hip_rr": {
+   "node": "leg_rr",
+   "axis": [
+    0,
+    0,
+    1
+   ],
+   "min": -20,
+   "max": 20,
+   "zero": 0,
+   "servo": "MG90S",
+   "note": "kalça yaw; + = bacak öne. Ön bacaklarda +14° sınırı kafa çarpışmasından (concept check.py)"
+  },
+  "knee_fl": {
+   "node": "foot_fl",
+   "axis": [
+    0.573576,
+    0.819152,
+    0
+   ],
+   "min": -90,
+   "max": 90,
+   "zero": 0,
+   "servo": "MG90S",
+   "note": "ayak açısı, yüzgeç düzleminin altında; +80 = ayakta, 0 = yatay, -80 = ters dönmüş halde ayakta"
+  },
+  "knee_fr": {
+   "node": "foot_fr",
+   "axis": [
+    0.573576,
+    -0.819152,
+    0
+   ],
+   "min": -90,
+   "max": 90,
+   "zero": 0,
+   "servo": "MG90S",
+   "note": "ayak açısı, yüzgeç düzleminin altında; +80 = ayakta, 0 = yatay, -80 = ters dönmüş halde ayakta"
+  },
+  "knee_rl": {
+   "node": "foot_rl",
+   "axis": [
+    -0.573576,
+    0.819152,
+    0
+   ],
+   "min": -90,
+   "max": 90,
+   "zero": 0,
+   "servo": "MG90S",
+   "note": "ayak açısı, yüzgeç düzleminin altında; +80 = ayakta, 0 = yatay, -80 = ters dönmüş halde ayakta"
+  },
+  "knee_rr": {
+   "node": "foot_rr",
+   "axis": [
+    -0.573576,
+    -0.819152,
+    0
+   ],
+   "min": -90,
+   "max": 90,
+   "zero": 0,
+   "servo": "MG90S",
+   "note": "ayak açısı, yüzgeç düzleminin altında; +80 = ayakta, 0 = yatay, -80 = ters dönmüş halde ayakta"
+  },
+  "neck": {
+   "node": "head",
+   "axis": [
+    -1,
+    0,
+    0
+   ],
+   "min": -40,
+   "max": 40,
+   "zero": 0,
+   "servo": "MG90S",
+   "note": "kafa pitch, kafanın kendi merkezi etrafında; + = yukarı bakar. Servo sapın üstünde sabit, kafa onun etrafında döner"
+  }
+ },
+ "materials": {
+  "shell": {
+   "type": "print",
+   "color": "#9fd8c3",
+   "filament": "PLA Mint (Elas / Porima pastel mint)",
+   "layer": 0.12,
+   "layerAxis": [
+    0,
+    0,
+    1
+   ],
+   "note": "iki kubbe aynı STL, kubbe yukarı basılır (Z katman), 0.12 mm; dikiş izi arkada"
+  },
+  "egg": {
+   "type": "print",
+   "color": "#9fd8c3",
+   "filament": "PLA Mint (Elas / Porima pastel mint)",
+   "layer": 0.12,
+   "layerAxis": [
+    0,
+    0,
+    1
+   ],
+   "note": "kalça yumurtası, ekvatordan iki yarım, kutup aşağı basılır"
+  },
+  "arm": {
+   "type": "print",
+   "color": "#9fd8c3",
+   "filament": "PLA Mint (Elas / Porima pastel mint)",
+   "layer": 0.16,
+   "layerAxis": [
+    0,
+    0,
+    1
+   ],
+   "note": "kol üst/alt iki yarım, düz basılır, diz servosunu sıkıştırır"
+  },
+  "boot_fl": {
+   "type": "print",
+   "color": "#9fd8c3",
+   "filament": "PLA Mint (Elas / Porima pastel mint)",
+   "layer": 0.16,
+   "layerAxis": [
+    0.819152,
+    -0.573576,
+    0
+   ],
+   "note": "ayak çizmesi + diz kapakları, ayakta (boyuna) basılır"
+  },
+  "toe_fl": {
+   "type": "tpu",
+   "color": "#d64a3a",
+   "filament": "TPU 95A Kırmızı",
+   "layerAxis": [
+    0.573576,
+    0.819152,
+    0
+   ],
+   "note": "kapsül parmak dik basılır; mercan rengi TPU Türkiye'de nadir, kırmızı TPU gerçekçi seçim"
+  },
+  "boot_fr": {
+   "type": "print",
+   "color": "#9fd8c3",
+   "filament": "PLA Mint (Elas / Porima pastel mint)",
+   "layer": 0.16,
+   "layerAxis": [
+    -0.819152,
+    -0.573576,
+    0
+   ],
+   "note": "ayak çizmesi + diz kapakları, ayakta (boyuna) basılır"
+  },
+  "toe_fr": {
+   "type": "tpu",
+   "color": "#d64a3a",
+   "filament": "TPU 95A Kırmızı",
+   "layerAxis": [
+    0.573576,
+    -0.819152,
+    0
+   ],
+   "note": "kapsül parmak dik basılır; mercan rengi TPU Türkiye'de nadir, kırmızı TPU gerçekçi seçim"
+  },
+  "boot_rl": {
+   "type": "print",
+   "color": "#9fd8c3",
+   "filament": "PLA Mint (Elas / Porima pastel mint)",
+   "layer": 0.16,
+   "layerAxis": [
+    0.819152,
+    0.573576,
+    0
+   ],
+   "note": "ayak çizmesi + diz kapakları, ayakta (boyuna) basılır"
+  },
+  "toe_rl": {
+   "type": "tpu",
+   "color": "#d64a3a",
+   "filament": "TPU 95A Kırmızı",
+   "layerAxis": [
+    -0.573576,
+    0.819152,
+    0
+   ],
+   "note": "kapsül parmak dik basılır; mercan rengi TPU Türkiye'de nadir, kırmızı TPU gerçekçi seçim"
+  },
+  "boot_rr": {
+   "type": "print",
+   "color": "#9fd8c3",
+   "filament": "PLA Mint (Elas / Porima pastel mint)",
+   "layer": 0.16,
+   "layerAxis": [
+    -0.819152,
+    0.573576,
+    0
+   ],
+   "note": "ayak çizmesi + diz kapakları, ayakta (boyuna) basılır"
+  },
+  "toe_rr": {
+   "type": "tpu",
+   "color": "#d64a3a",
+   "filament": "TPU 95A Kırmızı",
+   "layerAxis": [
+    -0.573576,
+    -0.819152,
+    0
+   ],
+   "note": "kapsül parmak dik basılır; mercan rengi TPU Türkiye'de nadir, kırmızı TPU gerçekçi seçim"
+  },
+  "head": {
+   "type": "print",
+   "color": "#efe4cc",
+   "filament": "PLA Krem / Fildişi",
+   "layer": 0.12,
+   "layerAxis": [
+    0,
+    1,
+    0
+   ],
+   "note": "kafa ön/arka iki yarım, ayırma yüzeyi tablaya gelecek şekilde basılır (Y katman)"
+  },
+  "stalk": {
+   "type": "print",
+   "color": "#efe4cc",
+   "filament": "PLA Krem / Fildişi",
+   "layer": 0.16,
+   "layerAxis": [
+    0,
+    1,
+    0
+   ],
+   "note": "boyun sapı dik basılır"
+  },
+  "tail": {
+   "type": "print",
+   "color": "#efe4cc",
+   "filament": "PLA Krem / Fildişi",
+   "layer": 0.16,
+   "layerAxis": [
+    0,
+    0,
+    1
+   ],
+   "note": "kuyruk (USB-C yuvası) yan yatık basılır"
+  },
+  "bezel": {
+   "type": "print",
+   "color": "#f2846b",
+   "filament": "PLA Mercan / Somon",
+   "layer": 0.16,
+   "layerAxis": [
+    0,
+    1,
+    0
+   ],
+   "note": "vizör çevresindeki mercan halka, düz basılır"
+  },
+  "badge": {
+   "type": "print",
+   "color": "#f2846b",
+   "filament": "PLA Mercan / Somon",
+   "layer": 0.16,
+   "layerAxis": [
+    0,
+    0,
+    1
+   ],
+   "note": "'beni sev' altıgen dokunma plakası, arkasında bakır bant"
+  },
+  "lip": {
+   "type": "print",
+   "color": "#26272b",
+   "filament": "PLA Siyah",
+   "layer": 0.16,
+   "layerAxis": [
+    0,
+    0,
+    1
+   ],
+   "note": "iki kubbe arasındaki şasi bandı, kubbelerdeki ToF ışık tünelleri, çene yarığı (kozmetik 'ağız'), boyun yuvası astarı"
+  },
+  "mask": {
+   "type": "print",
+   "color": "#141414",
+   "filament": "Mat siyah boya (iç maske)",
+   "layer": 0.16,
+   "layerAxis": [
+    0,
+    1,
+    0
+   ],
+   "roughness": 0.9
+  },
+  "visor": {
+   "type": "petg",
+   "color": "#141518",
+   "filament": "PETG Siyah",
+   "layerAxis": [
+    0,
+    1,
+    0
+   ],
+   "note": "Kubbeli vizör yüzü yukarı basılır. Eğri yüzey ütülenemez: yarı parlak olur ve kontur halkaları görünür; tam parlaklık için zımpara + şeffaf vernik gerekir"
+  },
+  "window": {
+   "type": "acrylic",
+   "color": "#0b0c0e",
+   "opacity": 0.4,
+   "note": "2 mm açık füme akrilik disk Ø34 (~%60 geçirgen), lazer kesim, vizör deliğine pres geçme"
+  },
+  "lcd_glass": {
+   "type": "glass",
+   "color": "#07080a",
+   "roughness": 0.08,
+   "note": "GC9A01 modülün Ø35.5 ön camı; aktif alan dışındaki siyah halka"
+  },
+  "screen_face": {
+   "type": "screen",
+   "screen": "face"
+  },
+  "screw": {
+   "type": "metal",
+   "color": "#4a4c52",
+   "roughness": 0.42,
+   "note": "M2 siyah oksit çelik: ISO 7380 yuvarlak başlı (kalça/diz/kubbe/kafa); yatak pimi yerine M2x15 vida (Türkiye stoğunda M2 omuz cıvatası bulunamadı; dişli gövde PLA yatakta zamanla aşınır/boşluk yapar)"
+  },
+  "metal": {
+   "type": "metal",
+   "color": "#b4b8be",
+   "roughness": 0.3,
+   "note": "USB-C dişi soket (kuyrukta)"
+  },
+  "internal_servo": {
+   "type": "internal",
+   "color": "#2f56b0"
+  },
+  "internal_pcb": {
+   "type": "internal",
+   "color": "#1f7a4a"
+  },
+  "internal_chip": {
+   "type": "internal",
+   "color": "#222326"
+  },
+  "internal_cell": {
+   "type": "internal",
+   "color": "#d6402b"
+  },
+  "speaker": {
+   "type": "rubber",
+   "color": "#1d1e21",
+   "note": "29 mm hoparlör, ızgara deliklerinden görünür"
+  },
+  "internal_wire": {
+   "type": "internal",
+   "color": "#e0a030"
+  },
+  "internal_chassis": {
+   "type": "internal",
+   "color": "#c9c5bd"
+  },
+  "internal_cap": {
+   "type": "internal",
+   "color": "#3a4fa8"
+  },
+  "switch": {
+   "type": "plastic",
+   "color": "#141416",
+   "roughness": 0.35,
+   "note": "KCD1 mini rocker anahtar (siyah, 21x15 çerçeve), sağ yanda kubbe ek yerinde: iki yüzde de aynı yerde durur"
+  }
+ },
+ "screens": {
+  "face": {
+   "res": [
+    240,
+    240
+   ],
+   "round": true,
+   "uvAxes": [
+    "x",
+    "z"
+   ],
+   "panel": "GC9A01 1.28in IPS 240x240 (SPI, RGB565)",
+   "active_diam_mm": 32.4,
+   "glass_diam_mm": 35.5,
+   "brightness": 1.25,
+   "behind": "Ø34 delikli PETG vizör + 2 mm açık füme akrilik (~%60 geçirgen), ekran camı akriliğin 2.2 mm arkasında"
+  }
+ },
+ "faces": {
+  "neutral": {
+   "face": "faces/neutral.png"
+  },
+  "blink": {
+   "face": "faces/blink.png"
+  },
+  "happy": {
+   "face": "faces/happy.png"
+  },
+  "talk_a": {
+   "face": "faces/talk_a.png"
+  },
+  "talk_b": {
+   "face": "faces/talk_b.png"
+  },
+  "surprised": {
+   "face": "faces/surprised.png"
+  },
+  "sleepy": {
+   "face": "faces/sleepy.png"
+  },
+  "sad": {
+   "face": "faces/sad.png"
+  },
+  "determined": {
+   "face": "faces/determined.png"
+  },
+  "neutral_inv": {
+   "face": "faces/neutral_inv.png"
+  },
+  "blink_inv": {
+   "face": "faces/blink_inv.png"
+  },
+  "happy_inv": {
+   "face": "faces/happy_inv.png"
+  },
+  "talk_a_inv": {
+   "face": "faces/talk_a_inv.png"
+  },
+  "talk_b_inv": {
+   "face": "faces/talk_b_inv.png"
+  },
+  "surprised_inv": {
+   "face": "faces/surprised_inv.png"
+  },
+  "sleepy_inv": {
+   "face": "faces/sleepy_inv.png"
+  },
+  "sad_inv": {
+   "face": "faces/sad_inv.png"
+  },
+  "determined_inv": {
+   "face": "faces/determined_inv.png"
+  }
+ },
+ "faces_note": "*_inv = aynı ifade 180° döndürülmüş; robot ters (diğer kabuğunun üstünde) dururken firmware ekranı döndürür. Ters pozdaki animasyonlar *_inv kullanmalı.",
+ "animations": {
+  "idle": "anim/idle.json",
+  "walk": "anim/walk.json",
+  "turn": "anim/turn.json",
+  "talk": "anim/talk.json",
+  "happy": "anim/happy.json",
+  "fall_recover": "anim/fall_recover.json",
+  "sleep": "anim/sleep.json"
+ },
+ "pose_rest": {
+  "hip_fl": 0,
+  "hip_fr": 0,
+  "hip_rl": 0,
+  "hip_rr": 0,
+  "knee_fl": 80,
+  "knee_fr": 80,
+  "knee_rl": 80,
+  "knee_rr": 80,
+  "neck": 15
+ },
+ "specs": {
+  "dims_mm": [
+   154,
+   156,
+   72
+  ],
+  "mass_g": 403,
+  "mass_note": "BOM parçalarıyla (GY-521, 39x18 şarj, PAM8403+pot, 2 x GY-53, KCD1, delikli pertinaks, kondansatörler, JST kablolar, somunlar); hedef 350 g aşılıyor",
+  "servos": 9,
+  "motors": 0,
+  "brain": "ESP32-S3 SuperMini (Wi-Fi, kafada) + PCA9685 (I2C servo sürücü, gövdede)",
+  "battery": "2S 14500 Li-ion (2 hücre, ~6 Wh), 2S BMS, USB-C 2S şarj (kuyrukta), KCD1 güç anahtarı (sağ yan)",
+  "battery_note": "Satın alınabilen Orion 14500 hücreler 3C (~2.7 A); konseptin istediği ≥4 A değil. Takla sırasında 4 diz servosu aynı anda stall'a yakın akım çeker: gerilim çökmesi / ESP32 resetlenme riski (simülasyonda modellenmedi).",
+  "runtime_walk_min": 35,
+  "runtime_idle_h": 2.5,
+  "walk_speed_cm_s": 5.08,
+  "self_righting": "Gerekmez/var: iki kabuk özdeş. Sırtüstü düşünce dizler ~160° kabuk düzleminden geçip öbür yüzde ayağa kalkar, ekran 180° döner. Yan/burun/kuyruk üstü düşüşte alttaki bacaklar tekmeleyip gövdeyi bir yüze devirir. MuJoCo: μ 0.6: 78/78, μ 0.4: 78/78 düşüş senaryosunda kendi kendine kalktı (26 sistematik yön, 30 rastgele 40 mm takla, 6 yere bırakılmış yan/burun/kuyruk/sırt pozu, 16 itme/kaldırma). Çoğu düşüşte sırtüstü gelip dizleri düzlemden geçirerek öbür yüzünde ayağa kalkar (firmware tepkisinden sağlam duruşa: medyan 0.5 s, en uzun 1.6 s, tüm gruplarda aynı ölçü). Zayıf servo (4.8 V, 0.177 N·m): 30/30. Başarısız durum bulunamadı; 'yardım iste' dalı simülasyonda hiç tetiklenmedi.",
+  "sensors": [
+   "MPU6050 GY-521 IMU (ters dönme / düşme)",
+   "2 x VL53L0X ToF (GY-53 modül), her kubbenin önünde boynun altında/üstünde birer pencere: hangi yüz alttaysa onun sensörü masa kenarına bakar (A ve B yüzünde de kenar algısı var)",
+   "ESP32-S3 dokunma pinleri + bakır bant (2 kabuk plakası, kafa üstü)"
+  ],
+  "sensors_note": "Konseptteki çene ToF'u B yüzünde yukarı bakıyordu ve GY-53 kartı (25x15.6) çeneye sığmıyor (src/fit_report.json). Çene yarığı artık kozmetik.",
+  "screen": "GC9A01 1.28\" yuvarlak IPS 240x240, aktif Ø32.4 mm",
+  "voice": "PAM8403 + 29 mm hoparlör (cıvıltı / telefon veya PC üzerinden ses)",
+  "turn_rate_deg_s": 33.9
+ },
+ "realism_notes_tr": [
+  "Kabuk, yumurtalar, kollar ve ayaklar FDM PLA: yakından 0.12–0.16 mm katman çizgileri görünür; kubbelerin tepesinde kontur basamakları oluşur.",
+  "Parçalar arasında gerçek ayrım çizgileri var: iki kubbe arasında siyah şasi bandı, yumurtaların ekvatoru, kolların üst/alt yarısı, kafanın ön/arka yarısı, diz kapaklarındaki 0.4 mm boşluk.",
+  "Görünen vidalar gerçek yerlerinde: her kalça yumurtasının üstünde horn vidası ve altında M2x15 vida (omuz cıvatası bulunamadı), her dizde iki vida, her kubbede 2, kafanın arkasında 2 adet M2.",
+  "Yüz tek bir yuvarlak GC9A01 ekran: 240x240 piksel, aktif alan Ø32.4 mm. Oval vizörün tamamı ekran değil; ekran vizördeki yuvarlak deliğin arkasında, füme akrilikten görünür. Yakından pikseller seçilir.",
+  "Açık füme akrilik ekranı yaklaşık %40 karartır ve üzerinde yansıma oluşur; ekranın Ø35.5 camının siyah kenar halkası akriliğin arkasında hafifçe seçilir.",
+  "Vizör parlak siyah PETG'den basılır ama kubbeli olduğu için ütülenemez: yarı parlak görünür, kontur halkaları seçilir. Ayna gibi parlaklık için zımpara ve vernik gerekir.",
+  "Renkler hazır filamentlerden: PLA Mint, PLA Krem, PLA Mercan, PLA Siyah, PETG Siyah, TPU 95A Kırmızı. Mercan renkli TPU bulmak zor, bu yüzden parmaklar kırmızı. Her renk ayrı parça; çok renkli (AMS) yazıcı gerekmez.",
+  "Konsept görsellerindeki daha doygun yeşil yerine gerçek pastel mint filament rengi kullanıldı.",
+  "Gözlerdeki yumuşak parıltı, ESP32'nin LVGL ile çizebileceği kadar: ekran RGB565 renk derinliğinde, renk geçişlerinde hafif bantlanma olur.",
+  "Servolar, kablolar ve kartlar dışarıdan görünmez. Boyundaki 6 telli kablo sapın içinden geçer, kafada boyun servosunun yanından arka duvar boyunca SuperMini'ye çıkar (±40° boyunca servoya değmez).",
+  "Sağ yanda, iki kubbenin birleştiği yerde siyah KCD1 güç anahtarı görünür; kesiği yarı yarıya iki kubbede.",
+  "Her kubbenin önünde, boynun hemen altında/üstünde küçük siyah bir ToF penceresi var (kubbeler hâlâ aynı STL)."
+ ],
+ "sim_summary": {
+  "engine": "MuJoCo 3.x (sim/tosbi.xml, GLB bağlantı çerçeveleriyle birebir), 1 ms adım, MG90S konum servosu ±0.20 N·m / 600°/s, 50 Hz komut, kütle 403 g (BOM parçalarıyla), IMU = simüle ivmeölçer + gürültü, servo hattı ideal sabit 5.5 V",
+  "walk_speed_cm_s": 5.08,
+  "walk_speed_mu04_cm_s": 5.13,
+  "walk_fast_mode_cm_s": 7.34,
+  "turn_rate_deg_s": 33.9,
+  "turn_rate_mu04_deg_s": 34.0,
+  "recovery": "μ 0.6: 78/78, μ 0.4: 78/78 düşüş senaryosunda kendi kendine kalktı (26 sistematik yön, 30 rastgele 40 mm takla, 6 yere bırakılmış yan/burun/kuyruk/sırt pozu, 16 itme/kaldırma). Çoğu düşüşte sırtüstü gelip dizleri düzlemden geçirerek öbür yüzünde ayağa kalkar (firmware tepkisinden sağlam duruşa: medyan 0.5 s, en uzun 1.6 s, tüm gruplarda aynı ölçü). Zayıf servo (4.8 V, 0.177 N·m): 30/30. Başarısız durum bulunamadı; 'yardım iste' dalı simülasyonda hiç tetiklenmedi.",
+  "recovery_detail": {
+   "systematic_drop_15mm@0.6": {
+    "success": "26/26",
+    "needed_righting": 17,
+    "t_median_s": 0.5,
+    "t_max_s": 0.6,
+    "max_torque_Nm": 0.126,
+    "ended_face_B": 17,
+    "fails": []
+   },
+   "systematic_drop_15mm@0.4": {
+    "success": "26/26",
+    "needed_righting": 17,
+    "t_median_s": 0.5,
+    "t_max_s": 0.7,
+    "max_torque_Nm": 0.124,
+    "ended_face_B": 17,
+    "fails": []
+   },
+   "random_tumble_40mm@0.6": {
+    "success": "30/30",
+    "needed_righting": 25,
+    "t_median_s": 0.5,
+    "t_max_s": 0.8,
+    "max_torque_Nm": 0.194,
+    "ended_face_B": 25,
+    "fails": []
+   },
+   "random_tumble_40mm@0.4": {
+    "success": "30/30",
+    "needed_righting": 25,
+    "t_median_s": 0.5,
+    "t_max_s": 0.7,
+    "max_torque_Nm": 0.122,
+    "ended_face_B": 25,
+    "fails": []
+   },
+   "placed_still@0.6": {
+    "success": "6/6",
+    "needed_righting": 6,
+    "t_median_s": 0.6,
+    "t_max_s": 1.2,
+    "max_torque_Nm": 0.2,
+    "ended_face_B": 6,
+    "fails": []
+   },
+   "placed_still@0.4": {
+    "success": "6/6",
+    "needed_righting": 6,
+    "t_median_s": 0.6,
+    "t_max_s": 1.1,
+    "max_torque_Nm": 0.2,
+    "ended_face_B": 6,
+    "fails": []
+   },
+   "pushes@0.6": {
+    "success": "16/16",
+    "needed_righting": 9,
+    "t_median_s": 1.4,
+    "t_max_s": 1.6,
+    "max_torque_Nm": 0.2,
+    "ended_face_B": 8,
+    "fails": []
+   },
+   "pushes@0.4": {
+    "success": "16/16",
+    "needed_righting": 8,
+    "t_median_s": 1.4,
+    "t_max_s": 1.5,
+    "max_torque_Nm": 0.2,
+    "ended_face_B": 8,
+    "fails": []
+   },
+   "weak_servo_4V8_random@0.6": {
+    "success": "30/30",
+    "needed_righting": 25,
+    "t_median_s": 0.5,
+    "t_max_s": 0.7,
+    "max_torque_Nm": 0.177,
+    "ended_face_B": 25,
+    "fails": []
+   }
+  },
+  "recovery_time_s": {
+   "basis": "firmware tepki anından (bırakmadan 0.9 s sonra kontrol açılır / yere konan pozda 1.5 s / itme anı 0.5 s) en az 1 s kesintisiz ayakta durmanın başladığı ana; sadece doğrulma gereken durumlar",
+   "all_median": 0.5,
+   "all_max": 1.6,
+   "drop_median": 0.5,
+   "drop_max": 0.7,
+   "random_tumble_median": 0.5,
+   "random_tumble_max": 0.8,
+   "placed_median": 0.6,
+   "placed_max": 1.2,
+   "push_median": 1.4,
+   "push_max": 1.6
+  },
+  "min_servo_torque_for_recovery_Nm": "0.05 ile 14/14 (stall'ın %25'i) – geniş pay (380 g'lık önceki modelde ölçüldü, yeniden koşulmadı)",
+  "tip_over_threshold": "Düz masada kolay devrilmez: 0.15 s itmede yandan ≥0.6–1.05 N·s gerekir, çapraz (45°/135°) 8 N'da bile devrilmedi (380 g'lık önceki modelde); klipte bir el kabuk kenarını 2.6 N ile kaldırıp 70°'de bırakıyor.",
+  "servo_torque_Nm": {
+   "walk": {
+    "hip": {
+     "peak": 0.161,
+     "mean": 0.0347,
+     "time_at_clamp_pct": 0.0
+    },
+    "knee": {
+     "peak": 0.192,
+     "mean": 0.0283,
+     "time_at_clamp_pct": 0.0
+    },
+    "neck": {
+     "peak": 0.001,
+     "mean": 0.0007,
+     "time_at_clamp_pct": 0.0
+    }
+   },
+   "turn": {
+    "hip": {
+     "peak": 0.11,
+     "mean": 0.0257,
+     "time_at_clamp_pct": 0.0
+    },
+    "knee": {
+     "peak": 0.195,
+     "mean": 0.0274,
+     "time_at_clamp_pct": 0.0
+    },
+    "neck": {
+     "peak": 0.001,
+     "mean": 0.0009,
+     "time_at_clamp_pct": 0.0
+    }
+   },
+   "fall_recover": {
+    "hip": {
+     "peak": 0.2,
+     "mean": 0.0104,
+     "time_at_clamp_pct": 1.3
+    },
+    "knee": {
+     "peak": 0.2,
+     "mean": 0.0244,
+     "time_at_clamp_pct": 5.8
+    },
+    "neck": {
+     "peak": 0.2,
+     "mean": 0.004,
+     "time_at_clamp_pct": 0.7
+    }
+   },
+   "happy": {
+    "hip": {
+     "peak": 0.101,
+     "mean": 0.0124,
+     "time_at_clamp_pct": 0.0
+    },
+    "knee": {
+     "peak": 0.2,
+     "mean": 0.0205,
+     "time_at_clamp_pct": 2.4
+    },
+    "neck": {
+     "peak": 0.072,
+     "mean": 0.0049,
+     "time_at_clamp_pct": 0.0
+    }
+   }
+  },
+  "replay_check": {
+   "fall_recover": {
+    "frames": 199,
+    "floor_min_mm": -0.3,
+    "floor_max_lowest_point_mm": 0.88,
+    "frames_floating_gt_2mm": 0,
+    "frames_penetrating_gt_1mm": 0,
+    "max_link_interpenetration_mm(hulls)": -0.0,
+    "worst_pair": null
+   },
+   "happy": {
+    "frames": 121,
+    "floor_min_mm": -0.08,
+    "floor_max_lowest_point_mm": 0.04,
+    "frames_floating_gt_2mm": 0,
+    "frames_penetrating_gt_1mm": 0,
+    "max_link_interpenetration_mm(hulls)": -0.0,
+    "worst_pair": null
+   },
+   "idle": {
+    "frames": 151,
+    "floor_min_mm": -0.03,
+    "floor_max_lowest_point_mm": -0.0,
+    "frames_floating_gt_2mm": 0,
+    "frames_penetrating_gt_1mm": 0,
+    "max_link_interpenetration_mm(hulls)": -0.0,
+    "worst_pair": null
+   },
+   "sleep": {
+    "frames": 121,
+    "floor_min_mm": -0.24,
+    "floor_max_lowest_point_mm": 0.02,
+    "frames_floating_gt_2mm": 0,
+    "frames_penetrating_gt_1mm": 0,
+    "max_link_interpenetration_mm(hulls)": -0.0,
+    "worst_pair": null
+   },
+   "talk": {
+    "frames": 151,
+    "floor_min_mm": -0.03,
+    "floor_max_lowest_point_mm": -0.0,
+    "frames_floating_gt_2mm": 0,
+    "frames_penetrating_gt_1mm": 0,
+    "max_link_interpenetration_mm(hulls)": -0.0,
+    "worst_pair": null
+   },
+   "turn": {
+    "frames": 151,
+    "floor_min_mm": -0.07,
+    "floor_max_lowest_point_mm": -0.01,
+    "frames_floating_gt_2mm": 0,
+    "frames_penetrating_gt_1mm": 0,
+    "max_link_interpenetration_mm(hulls)": -0.0,
+    "worst_pair": null
+   },
+   "walk": {
+    "frames": 211,
+    "floor_min_mm": -0.14,
+    "floor_max_lowest_point_mm": -0.01,
+    "frames_floating_gt_2mm": 0,
+    "frames_penetrating_gt_1mm": 0,
+    "max_link_interpenetration_mm(hulls)": -0.0,
+    "worst_pair": null
+   }
+  },
+  "link_masses_g": {
+   "body": 220.8,
+   "leg_fl": 26.5,
+   "leg_fr": 26.5,
+   "leg_rl": 26.5,
+   "leg_rr": 26.5,
+   "foot_fl": 9.3,
+   "foot_fr": 9.3,
+   "foot_rl": 9.3,
+   "foot_rr": 9.3,
+   "head": 39.3
+  },
+  "notes": [
+   "Yürüme: diyagonal tırıs, periyot 0.7 s, kalça −17…+14/+17°, diz kaldırma 20°. μ 0.6'da 5.08 cm/s, μ 0.4'te 5.13 cm/s; 26.9 cm'de 1.34 cm yana kayma. 0.5 s periyotla 7.34 cm/s mümkün ama dizler zamanın %6.3'inde 0.20 N·m sınırına dayanıyor; o yüzden gösterilen yürüyüş yavaş olan.",
+   "Dönüş: yerinde, sol bacaklar ters adım; 0.8 s periyotla ~34°/s. Ters yüzdeyken firmware dönüş yönünü çevirir.",
+   "Mutlu el sallama: ön bacak kalkınca ağırlık merkezi 3 ayak üçgeninin dışında kalıyor; arka kalçalar +20°, sağ ön +14° öne alınmadan simülasyonda burnunun (kafanın) üstüne düşüyor. Klipte bu ağırlık kaydırma var; stills/action_wave bu klipten.",
+   "Uyku: dizler 12°'ye iner, gövde karın kubbesine, çene (kafa) masaya oturur; ayak uçları havada kalır.",
+   "Düşüp kalkma klibi el ile animasyon değil: görünmeyen bir el kabuğun sağ kenarını 2.6 N ile kaldırıp 70°'de bırakıyor (klipte 'events' ve 'caption_tr' var), robot sırtüstü düşüyor, ivmeölçerden ters olduğunu anlayıp dizleri ~160° çeviriyor, öbür yüzünde kalkıp *_inv yüzlerle 1.2 s yürüyüp duruyor (toplam kayma 21.2 cm).",
+   "Basitleştirmeler: parçalar rijit dışbükey kabuklar (gerçek şekilden biraz dolgun), servo boşluğu/ölü bölgesi, plastik esnemesi ve kablo direnci yok, servo hattı ideal sabit 5.5 V (pil çökmesi yok). Gerçek hız ve dönüş büyük olasılıkla daha düşük olur; simülasyon değerleri üst sınır gibi okunmalı.",
+   "Test edilmeyenler: masadan düşme (iki ToF bunu önlemek için; ToF modellenmedi), halı/yumuşak zemin, bir engelin dibinde sıkışma, düşerken çarpma hasarı, pil gerilim çökmesi.",
+   "idle, talk, happy, sleep komutları el ile yazıldı (firmware'in göndereceği servo hedefleri) ama fizik içinde oynatıldı; gövde hareketi simülasyondan.",
+   "Darbede eklem sınırı: MJCF eklem sınırları sertleştirildi (solreflimit 2 ms); kalan en büyük taşma 0.18°, klipte sınıra kırpıldı (servo mekanik durdurucuya dayanır)."
+  ]
+ },
+ "animation_captions_tr": {
+  "fall_recover": {
+   "caption": "Fizik simülasyonu: bir el kabuğun kenarını kaldırıp bırakıyor (el görünmüyor), Tosbi sırtüstü düşüyor, dizlerini kabuk düzleminden geçirip öbür yüzünde kalkıyor ve kısa bir yürüyüş yapıyor.",
+   "events": [
+    [
+     24,
+     "el kabuğun sağ kenarını kaldırıyor (2.6 N)"
+    ],
+    [
+     58,
+     "el bırakıyor (70° eğik)"
+    ],
+    [
+     62,
+     "sırtüstü yere çarptı; firmware ivmeölçerle tepki veriyor"
+    ],
+    [
+     91,
+     "dizler kabuk düzleminden geçiyor (~160°)"
+    ],
+    [
+     104,
+     "öbür yüzünde (B) ayakta, ekran döndü"
+    ],
+    [
+     134,
+     "B yüzünde yürüyor; üst kubbedeki ToF masayı görüyor"
+    ],
+    [
+     170,
+     "duruyor"
+    ]
+   ]
+  }
+ },
+ "stills_notes_tr": {
+  "action_wave": "happy klibinden (MuJoCo) alınmış kare: arka kalçalar öne alınmış, ağırlık 3 ayağın üstünde; robot bu pozda gerçekten durabiliyor.",
+  "lim_knee": "eklem yönü testi, dengede değil (dizler farklı uç açılarda; robot bu pozda duramaz)",
+  "lim_hip_fwd": "kalça ileri sınırları (ön +14°, arka +20°), eklem testi",
+  "lim_hip_back": "kalça geri sınırları (−20°), eklem testi",
+  "lim_neck_up": "boyun +40° (yukarı sınır)",
+  "lim_neck_down": "boyun −40° (aşağı sınır)",
+  "xray / xray_side": "BOM'daki gerçek kart ölçüleriyle iç yerleşim (src/fit_report.json: 0 çakışma)",
+  "macro_switch": "sağ yandaki KCD1 güç anahtarı, kubbe ek yerinde",
+  "macro_tof": "kubbelerin önündeki ToF pencereleri (alttaki A yüzü için, üstteki B yüzü için)"
+ }
+}

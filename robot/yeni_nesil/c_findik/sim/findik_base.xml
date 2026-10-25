@@ -1,0 +1,88 @@
+<mujoco model="findik">
+  <compiler angle="degree" autolimits="true"/>
+  <option timestep="0.001" integrator="implicitfast" cone="elliptic" noslip_iterations="0"/>
+  <size memory="20M"/>
+  <visual><global offwidth="800" offheight="600"/></visual>
+  <asset>
+    <mesh name="egg" file="meshes/egg.stl"/>
+    <mesh name="earL" file="meshes/earL.stl"/>
+    <mesh name="earR" file="meshes/earR.stl"/>
+    <mesh name="arm_fl" file="meshes/arm_fl.stl"/>
+    <mesh name="arm_fr" file="meshes/arm_fr.stl"/>
+    <mesh name="arm_rl" file="meshes/arm_rl.stl"/>
+    <mesh name="arm_rr" file="meshes/arm_rr.stl"/>
+  </asset>
+  <default>
+    <geom solref="0.004 1" solimp="0.95 0.99 0.0005"/>
+    <default class="shell"><geom friction="@MU_SHELL@ 0.005 0.0001" priority="0" condim="3" rgba="0.9 0.85 0.75 1"/></default>
+    <default class="tyre"><geom friction="@MU_TYRE@ 0.005 0.0001" priority="2" condim="4" solref="0.015 1" solimp="0.9 0.95 0.001" rgba="0.1 0.1 0.1 1"/></default>
+  </default>
+  <worldbody>
+    <light pos="0 -0.3 0.5" dir="0 0.5 -1"/>
+    <geom name="floor" type="plane" size="2 2 0.01" friction="@MU_FLOOR@ 0.005 0.0001" priority="1" rgba="0.8 0.8 0.8 1"/>
+    <body name="body" pos="0 0 0">
+      <freejoint name="base"/>
+      <inertial pos="0.00029873 0.001765991 0.05595051" mass="0.227198" fullinertia="0.000184225 0.0001834 0.000169944 -6.29182e-07 9.89226e-08 -3.56801e-06"/>
+      <geom name="egg" type="mesh" mesh="egg" class="shell"/>
+      <geom name="earL" type="mesh" mesh="earL" class="shell"/>
+      <geom name="earR" type="mesh" mesh="earR" class="shell"/>
+      <site name="imu" pos="0 0.004 0.05"/>
+    <body name="leg_fl" pos="0.031 -0.0155 0.04652425">
+      <inertial pos="-0.001772613 2.388561e-09 -0.02775223" mass="0.00712535" fullinertia="1.32516e-06 1.27029e-06 2.77178e-07 -7.7223e-14 -1.1375e-07 -2.33302e-13"/>
+      <joint name="hip_fl" type="hinge" axis="-1 0 0" range="5 82" limited="true"
+             armature="5e-5" damping="0.002" frictionloss="0.004"/>
+      <geom name="arm_fl" type="mesh" mesh="arm_fl" class="shell"/>
+      <body name="wheel_fl" pos="0.0068 0 -0.034">
+        <inertial pos="0 0 0" mass="0.00519297" fullinertia="5.10489e-07 2.75255e-07 2.75255e-07 0 0 0"/>
+        <joint name="wheel_fl" type="hinge" axis="1 0 0" armature="1e-7" damping="2e-6" frictionloss="3e-5"/>
+        <geom name="tyre_fl" type="cylinder" size="0.015 0.0034" zaxis="1 0 0" class="tyre"/>
+      </body>
+    </body>
+    <body name="leg_fr" pos="-0.031 -0.0155 0.04652425">
+      <inertial pos="0.001772614 2.924529e-09 -0.02775223" mass="0.00712535" fullinertia="1.32516e-06 1.27029e-06 2.77178e-07 6.81203e-15 1.1375e-07 -2.38662e-13"/>
+      <joint name="hip_fr" type="hinge" axis="-1 0 0" range="5 82" limited="true"
+             armature="5e-5" damping="0.002" frictionloss="0.004"/>
+      <geom name="arm_fr" type="mesh" mesh="arm_fr" class="shell"/>
+      <body name="wheel_fr" pos="-0.0068 0 -0.034">
+        <inertial pos="0 0 0" mass="0.00519297" fullinertia="5.10489e-07 2.75255e-07 2.75255e-07 0 0 0"/>
+        <joint name="wheel_fr" type="hinge" axis="1 0 0" armature="1e-7" damping="2e-6" frictionloss="3e-5"/>
+        <geom name="tyre_fr" type="cylinder" size="0.015 0.0034" zaxis="1 0 0" class="tyre"/>
+      </body>
+    </body>
+    <body name="leg_rl" pos="0.031 0.0215 0.04652425">
+      <inertial pos="-0.01107587 8.886201e-10 -0.03172801" mass="0.0193395" fullinertia="1.79501e-06 2.86363e-06 1.73579e-06 -2.37727e-13 -5.2205e-07 -3.01867e-13"/>
+      <joint name="hip_rl" type="hinge" axis="1 0 0" range="5 118" limited="true"
+             armature="5e-5" damping="0.002" frictionloss="0.004"/>
+      <geom name="arm_rl" type="mesh" mesh="arm_rl" class="shell"/>
+      <body name="wheel_rl" pos="0.0068 0 -0.034">
+        <inertial pos="0 0 0" mass="0.00519297" fullinertia="5.10489e-07 2.75255e-07 2.75255e-07 0 0 0"/>
+        <joint name="wheel_rl" type="hinge" axis="1 0 0" armature="5e-5" damping="0.0005" frictionloss="0.006"/>
+        <geom name="tyre_rl" type="cylinder" size="0.015 0.0034" zaxis="1 0 0" class="tyre"/>
+      </body>
+    </body>
+    <body name="leg_rr" pos="-0.031 0.0215 0.04652425">
+      <inertial pos="0.01107587 7.937494e-10 -0.03172801" mass="0.0193395" fullinertia="1.79501e-06 2.86363e-06 1.73579e-06 1.62058e-13 5.2205e-07 -2.91816e-13"/>
+      <joint name="hip_rr" type="hinge" axis="1 0 0" range="5 118" limited="true"
+             armature="5e-5" damping="0.002" frictionloss="0.004"/>
+      <geom name="arm_rr" type="mesh" mesh="arm_rr" class="shell"/>
+      <body name="wheel_rr" pos="-0.0068 0 -0.034">
+        <inertial pos="0 0 0" mass="0.00519297" fullinertia="5.10489e-07 2.75255e-07 2.75255e-07 0 0 0"/>
+        <joint name="wheel_rr" type="hinge" axis="1 0 0" armature="5e-5" damping="0.0005" frictionloss="0.006"/>
+        <geom name="tyre_rr" type="cylinder" size="0.015 0.0034" zaxis="1 0 0" class="tyre"/>
+      </body>
+    </body>
+    </body>
+  </worldbody>
+  <contact>
+    <exclude body1="body" body2="wheel_fl"/><exclude body1="body" body2="wheel_fr"/>
+    <exclude body1="body" body2="wheel_rl"/><exclude body1="body" body2="wheel_rr"/>
+  </contact>
+  <actuator>
+    <motor name="m_hip_fl" joint="hip_fl" ctrlrange="-0.2 0.2"/>
+    <motor name="m_hip_fr" joint="hip_fr" ctrlrange="-0.2 0.2"/>
+    <motor name="m_hip_rl" joint="hip_rl" ctrlrange="-0.2 0.2"/>
+    <motor name="m_hip_rr" joint="hip_rr" ctrlrange="-0.2 0.2"/>
+    <motor name="m_wheel_rl" joint="wheel_rl" ctrlrange="-0.1 0.1"/>
+    <motor name="m_wheel_rr" joint="wheel_rr" ctrlrange="-0.1 0.1"/>
+  </actuator>
+</mujoco>

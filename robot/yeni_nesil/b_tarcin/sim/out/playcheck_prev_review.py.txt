@@ -1,0 +1,39 @@
+#!/usr/bin/env python3
+"""Numeric playback check of anim/*.json with the GLB's visual meshes (same FK as rig.js):
+per frame the lowest visible vertex z (mm). <0 = ground penetration, >0 = nothing touches the desk (floating / airborne).
+Also: deepest link-link penetration seen by MuJoCo when the clip is replayed as joint+base kinematics (mj_forward only)."""
+import sys, os, json, math, numpy as np, trimesh, mujoco
+HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE)
+import fixcam as F, tarcin as T
+S, G = F._S, F._G
+HV = []
+for n in G.nodes_geometry:
+    link, mat = n.split('__', 1)
+    if mat.startswith('internal'): continue
+    Tn, g = G.get(n); m = S.geometry[g]
+    v = m.convex_hull.vertices if len(m.vertices) > 60 else m.vertices
+    HV.append((link, (np.linalg.inv(G.get(link)[0]) @ Tn @ np.c_[v, np.ones(len(v))].T).T[:, :3]))
+def minz(j, b):
+    W = F.world(j, b); return min(float((W[l] @ np.c_[v, np.ones(len(v))].T)[2].min()) for l, v in HV)
+m = mujoco.MjModel.from_xml_string(T.build(0.6)); d = mujoco.MjData(m)
+jadr = {n: m.jnt_qposadr[mujoco.mj_name2id(m, mujoco.mjtObj.mjOBJ_JOINT, n)] for n in T.JOINTS}
+floor = mujoco.mj_name2id(m, mujoco.mjtObj.mjOBJ_GEOM, 'floor')
+res = {}
+for clip in sys.argv[1:] or ['idle', 'walk', 'turn', 'talk', 'happy', 'fall_recover', 'sleep']:
+    a = json.load(open(os.path.join(F.PKG, 'anim', clip + '.json')))
+    zs, pen = [], 0.0
+    for i in range(a['frames']):
+        j = {k: v[i] for k, v in a['joints'].items()}; b = a['base'][i] if a.get('base') else [0, 0, 0, 1, 0, 0, 0]
+        zs.append(minz(j, np.array(b, float)))
+        d.qpos[:3] = np.array(b[:3]) / 1000; d.qpos[3:7] = b[3:]
+        for k in T.JOINTS: d.qpos[jadr[k]] = math.radians(j[k])
+        mujoco.mj_forward(m, d)
+        for c in d.contact[:d.ncon]:
+            if floor in (c.geom1, c.geom2): continue
+            pen = max(pen, -c.dist * 1000)
+    zs = np.array(zs)
+    res[clip] = dict(frames=a['frames'], lowest_z_min_mm=round(zs.min(), 2), lowest_z_max_mm=round(zs.max(), 2),
+                     frames_penetrating_gt1mm=int((zs < -1).sum()), frames_floating_gt1mm=int((zs > 1).sum()),
+                     max_link_link_penetration_mm=round(pen, 2))
+    print(clip, res[clip], flush=True)
+json.dump(res, open(os.path.join(HERE, 'out', 'playcheck.json'), 'w'), indent=1)

@@ -1,0 +1,728 @@
+{
+ "key": "B",
+ "name": "Tarçın",
+ "subtitle_tr": "Cep boyu kızıl panda",
+ "tagline_tr": "Maskeli yüzü, iki yuvarlak göz ekranı ve hem sevinçle sallanan hem de düşünce kalkmasını sağlayan halkalı kuyruğuyla cep boyu kızıl panda yavrusu.",
+ "accent": "#e0692b",
+ "glb": "model.glb",
+ "creaseDeg": 40,
+ "frame_notes": "mm, Z yukarı, robot -Y'ye bakar. +x = robotun SOLU (fl/hl/eyeL), -x = SAĞI (fr/hr/eyeR). Konsept model.py/sim 'R'=+x der: sim hip_FR = buradaki hip_fl, hip_FL = hip_fr, hip_HR = hip_hl, hip_HL = hip_hr. Kalça = uyluğun -Z'den +Y'ye açısı (a); diz = b - a. Kök düğüm 'body' birim dönüşümlüdür: orijini masada, gövde merkezinin altında; kalça ekseni z = 69.05 mm. anim base = bu düğümün dünya pozu, dinlenmede [0,0,0,1,0,0,0]. MuJoCo gövde (kalça yüksekliğindeki torso) pozundan: base = torso_pose * T(0,0,-69.05).",
+ "joints": {
+  "neck_pan": {
+   "node": "head",
+   "axis": [
+    0,
+    0,
+    1
+   ],
+   "min": -40,
+   "max": 40,
+   "zero": 0,
+   "servo": "4 g dijital mikro servo (E-Sky 002279 / ES9051 sınıfı)",
+   "note": "+ açı yüzü +x'e (robotun soluna) çevirir"
+  },
+  "tail": {
+   "node": "tail",
+   "axis": [
+    0,
+    1,
+    0
+   ],
+   "min": -85,
+   "max": 85,
+   "zero": 0,
+   "servo": "MG90S (metal dişli önerilir)",
+   "note": "silecek gibi yana sallanır; + açı ucu +x'e götürür"
+  },
+  "hip_fl": {
+   "node": "thigh_fl",
+   "axis": [
+    1,
+    0,
+    0
+   ],
+   "min": -20,
+   "max": 128,
+   "zero": 0,
+   "servo": "MG90S",
+   "side": "+x (robotun solu)",
+   "sim_name": "hip_FR",
+   "note": "Kafayla eşleşik sınır: ön bacak 128°'den fazla kalkarsa kafaya çarpar. İzin verilen en büyük açı neck_pan'a bağlıdır (gerçek modellerle tarandı, ≥1 mm boşluk): kafa düz (pan 0) → 128°; kafa bu bacağa doğru 20° dönük → 122°, 40° → 114°; kafa bacaktan uzağa dönükse 150°'ye kadar çarpmaz ama eklem sınırı 128°'dir. Yazılım ve benzetim aynı tabloyu uygular (build/limits.json). Bu bacak için 'bacağa doğru' = pozitif pan.",
+   "coupled_limit": {
+    "with": "neck_pan",
+    "table_deg": {
+     "-40": 150,
+     "-35": 150,
+     "-30": 146,
+     "-25": 142,
+     "-20": 138,
+     "-15": 136,
+     "-10": 132,
+     "-5": 130,
+     "0": 128,
+     "5": 128,
+     "10": 124,
+     "15": 124,
+     "20": 122,
+     "25": 120,
+     "30": 118,
+     "35": 116,
+     "40": 114
+    },
+    "source": "build/limits.json, sim/hipsweep.py"
+   }
+  },
+  "knee_fl": {
+   "node": "shin_fl",
+   "axis": [
+    1,
+    0,
+    0
+   ],
+   "min": -140,
+   "max": 25,
+   "zero": 0,
+   "servo": "MG90S",
+   "side": "+x (robotun solu)",
+   "sim_name": "knee_FR"
+  },
+  "hip_fr": {
+   "node": "thigh_fr",
+   "axis": [
+    1,
+    0,
+    0
+   ],
+   "min": -20,
+   "max": 128,
+   "zero": 0,
+   "servo": "MG90S",
+   "side": "-x (robotun sağı)",
+   "sim_name": "hip_FL",
+   "note": "Kafayla eşleşik sınır: ön bacak 128°'den fazla kalkarsa kafaya çarpar. İzin verilen en büyük açı neck_pan'a bağlıdır (gerçek modellerle tarandı, ≥1 mm boşluk): kafa düz (pan 0) → 128°; kafa bu bacağa doğru 20° dönük → 122°, 40° → 114°; kafa bacaktan uzağa dönükse 150°'ye kadar çarpmaz ama eklem sınırı 128°'dir. Yazılım ve benzetim aynı tabloyu uygular (build/limits.json). Bu bacak için 'bacağa doğru' = negatif pan.",
+   "coupled_limit": {
+    "with": "neck_pan",
+    "table_deg": {
+     "40": 150,
+     "35": 150,
+     "30": 146,
+     "25": 142,
+     "20": 138,
+     "15": 136,
+     "10": 132,
+     "5": 130,
+     "0": 128,
+     "-5": 128,
+     "-10": 124,
+     "-15": 124,
+     "-20": 122,
+     "-25": 120,
+     "-30": 118,
+     "-35": 116,
+     "-40": 114
+    },
+    "source": "build/limits.json, sim/hipsweep.py"
+   }
+  },
+  "knee_fr": {
+   "node": "shin_fr",
+   "axis": [
+    1,
+    0,
+    0
+   ],
+   "min": -140,
+   "max": 25,
+   "zero": 0,
+   "servo": "MG90S",
+   "side": "-x (robotun sağı)",
+   "sim_name": "knee_FL"
+  },
+  "hip_hl": {
+   "node": "thigh_hl",
+   "axis": [
+    1,
+    0,
+    0
+   ],
+   "min": -50,
+   "max": 130,
+   "zero": 0,
+   "servo": "MG90S",
+   "side": "+x (robotun solu)",
+   "sim_name": "hip_HR"
+  },
+  "knee_hl": {
+   "node": "shin_hl",
+   "axis": [
+    1,
+    0,
+    0
+   ],
+   "min": -25,
+   "max": 140,
+   "zero": 0,
+   "servo": "MG90S",
+   "side": "+x (robotun solu)",
+   "sim_name": "knee_HR"
+  },
+  "hip_hr": {
+   "node": "thigh_hr",
+   "axis": [
+    1,
+    0,
+    0
+   ],
+   "min": -50,
+   "max": 130,
+   "zero": 0,
+   "servo": "MG90S",
+   "side": "-x (robotun sağı)",
+   "sim_name": "hip_HL"
+  },
+  "knee_hr": {
+   "node": "shin_hr",
+   "axis": [
+    1,
+    0,
+    0
+   ],
+   "min": -25,
+   "max": 140,
+   "zero": 0,
+   "servo": "MG90S",
+   "side": "-x (robotun sağı)",
+   "sim_name": "knee_HL"
+  }
+ },
+ "materials": {
+  "shell": {
+   "type": "print",
+   "color": "#e0692b",
+   "filament": "Elas PLA Turuncu (mat)",
+   "layer": 0.16,
+   "layerAxis": [
+    0,
+    0,
+    1
+   ],
+   "part": "gövde üst kabuğu, kubbe yukarı basılır"
+  },
+  "shell_head": {
+   "type": "print",
+   "color": "#e0692b",
+   "filament": "Elas PLA Turuncu (mat)",
+   "layer": 0.12,
+   "layerAxis": [
+    0,
+    0,
+    1
+   ],
+   "part": "kafa tepe kabuğu, kubbe yukarı, 0.12 mm katman"
+  },
+  "shellcap": {
+   "type": "print",
+   "color": "#e0692b",
+   "filament": "Elas PLA Turuncu (mat)",
+   "layer": 0.16,
+   "layerAxis": [
+    0,
+    0,
+    1
+   ],
+   "part": "kafa çene/alt kapağı (boyun deliği, 2x M2 vida)"
+  },
+  "hub": {
+   "type": "print",
+   "color": "#e0692b",
+   "filament": "Elas PLA Turuncu (mat)",
+   "layer": 0.16,
+   "layerAxis": [
+    1,
+    0,
+    0
+   ],
+   "part": "kalça göbek direkleri, uçları üzerine basılır"
+  },
+  "shell_pod": {
+   "type": "print",
+   "color": "#e0692b",
+   "filament": "Elas PLA Turuncu (mat)",
+   "layer": 0.16,
+   "layerStrength": 0.38,
+   "layerAxis": [
+    1,
+    0,
+    0
+   ],
+   "part": "bacak modülü dış kapağı, ayırma yüzü tablaya"
+  },
+  "shell_podin": {
+   "type": "print",
+   "color": "#e0692b",
+   "filament": "Elas PLA Turuncu (mat)",
+   "layer": 0.16,
+   "layerStrength": 0.38,
+   "layerAxis": [
+    1,
+    0,
+    0
+   ],
+   "part": "bacak modülü iç yarısı (2 servo + göbek yakaları), ayırma yüzü tablaya"
+  },
+  "shell_tail": {
+   "type": "print",
+   "color": "#e0692b",
+   "filament": "Elas PLA Turuncu (mat)",
+   "layer": 0.2,
+   "layerAxis": [
+    0,
+    0,
+    1
+   ],
+   "part": "kuyruk halkaları (içi boş, dik basılır)"
+  },
+  "ear": {
+   "type": "print",
+   "color": "#e0692b",
+   "filament": "Elas PLA Turuncu (mat)",
+   "layer": 0.16,
+   "layerAxis": [
+    0,
+    0.985,
+    -0.174
+   ],
+   "part": "kulak dış kabuğu, yatık basılır; pimle kafaya oturur ve CA ile yapıştırılır (sabit, mıknatıs yok)"
+  },
+  "cream": {
+   "type": "print",
+   "color": "#efe4cc",
+   "filament": "Elas PLA Krem / Fildişi",
+   "layer": 0.16,
+   "layerAxis": [
+    0,
+    0,
+    1
+   ],
+   "part": "karın kabuğu"
+  },
+  "cream_face": {
+   "type": "print",
+   "color": "#efe4cc",
+   "filament": "Elas PLA Krem / Fildişi",
+   "layer": 0.16,
+   "layerAxis": [
+    0,
+    1,
+    0
+   ],
+   "part": "ağız/yanak parçası, düz yüzü tablaya"
+  },
+  "cream_ear": {
+   "type": "print",
+   "color": "#efe4cc",
+   "filament": "Elas PLA Krem / Fildişi",
+   "layer": 0.16,
+   "layerAxis": [
+    0,
+    0.985,
+    -0.174
+   ],
+   "part": "kulak içi"
+  },
+  "cheek": {
+   "type": "print",
+   "color": "#efe4cc",
+   "filament": "Elas PLA Krem / Fildişi (0.6 mm pencere, arkasında WS2812B)",
+   "layer": 0.16,
+   "layerAxis": [
+    0,
+    1,
+    0
+   ],
+   "part": "yanak ışık pencereleri (LED kapalıyken krem görünür)"
+  },
+  "charcoal": {
+   "type": "print",
+   "color": "#26272b",
+   "filament": "Elas PLA Siyah",
+   "layer": 0.16,
+   "layerAxis": [
+    0,
+    0,
+    1
+   ],
+   "part": "boyun direği"
+  },
+  "mouth": {
+   "type": "print",
+   "color": "#26272b",
+   "filament": "Elas PLA Siyah (kakma parça; AMS ya da ayrı parça + yapıştırma)",
+   "layer": 0.16,
+   "layerAxis": [
+    0,
+    1,
+    0
+   ],
+   "part": "ω ağız"
+  },
+  "sock": {
+   "type": "print",
+   "color": "#26272b",
+   "filament": "Elas PLA Siyah",
+   "layer": 0.16,
+   "layerStrength": 0.38,
+   "layerAxis": [
+    0,
+    0,
+    1
+   ],
+   "part": "bacak 'çorap' kapağı, dik basılır, oluğa geçme + yapıştırma"
+  },
+  "ring": {
+   "type": "print",
+   "color": "#26272b",
+   "filament": "Elas PLA Siyah",
+   "layer": 0.2,
+   "layerAxis": [
+    0,
+    0,
+    1
+   ],
+   "part": "kuyruk siyah halkaları"
+  },
+  "shin": {
+   "type": "print",
+   "color": "#26272b",
+   "filament": "Elas PLA Siyah",
+   "layer": 0.16,
+   "layerAxis": [
+    1,
+    0,
+    0
+   ],
+   "part": "kaval plakası, düz basılır (katmanlar kalınlık boyunca)"
+  },
+  "backer": {
+   "type": "print",
+   "color": "#1d1e21",
+   "filament": "Elas PLA Siyah",
+   "layer": 0.16,
+   "layerAxis": [
+    0,
+    1,
+    0
+   ],
+   "part": "füme akrilik arkasındaki siyah maske/ekran yuvası"
+  },
+  "nose": {
+   "type": "print",
+   "color": "#1b1c1f",
+   "filament": "Elas PLA Siyah + 2 kat şeffaf parlak vernik (sprey ya da tırnak cilası üst katı)",
+   "layer": 0.12,
+   "layerAxis": [
+    0,
+    0,
+    1
+   ],
+   "layerStrength": 0.3,
+   "roughness": 0.3,
+   "clearcoat": 0.7,
+   "part": "burun: siyah PLA, vernikle parlatılmış (PETG yok; kavisli yüzeyde ütüleme yapılamaz)"
+  },
+  "paw_f": {
+   "type": "tpu",
+   "color": "#202124",
+   "filament": "TPU 95A Siyah",
+   "layerAxis": [
+    0,
+    -0.407,
+    0.914
+   ],
+   "part": "ön pati, taban tablaya"
+  },
+  "paw_h": {
+   "type": "tpu",
+   "color": "#202124",
+   "filament": "TPU 95A Siyah",
+   "layerAxis": [
+    0,
+    0.407,
+    0.914
+   ],
+   "part": "arka pati, taban tablaya"
+  },
+  "visor": {
+   "type": "acrylic",
+   "color": "#0b0c0e",
+   "opacity": 0.32,
+   "note": "2 mm açık füme akrilik (~%65-70 geçirgen), lazer kesim maske şekli; arkası siyah PLA"
+  },
+  "lcdglass": {
+   "type": "glass",
+   "color": "#050607",
+   "roughness": 0.06,
+   "note": "GC9A01 cam: Ø35.5, aktif alan dışındaki siyah halka"
+  },
+  "screen_eyeL": {
+   "type": "screen",
+   "screen": "eyeL"
+  },
+  "screen_eyeR": {
+   "type": "screen",
+   "screen": "eyeR"
+  },
+  "screw": {
+   "type": "metal",
+   "color": "#a9adb3",
+   "roughness": 0.38,
+   "note": "M2 yıldız başlı galvaniz vida (havşada) + USB-C soket"
+  },
+  "tofwin": {
+   "type": "glass",
+   "color": "#0d0e10",
+   "roughness": 0.08,
+   "note": "VL53L0X için 1 mm IR-geçirgen siyah akrilik pencere"
+  },
+  "speaker": {
+   "type": "rubber",
+   "color": "#18191b",
+   "note": "32 mm 8 Ω 1 W hoparlör (32 x 5 mm), kafanın arka duvarında, 37 delikli ızgaranın arkasında"
+  },
+  "wire_brown": {
+   "type": "rubber",
+   "color": "#4a3122",
+   "note": "servo kabloları (2 servo x kahve/kırmızı/turuncu = 6 telli yassı demet): bacak modülünün iç yüzündeki yarıktan çıkar, kalça ekseninden 13.6 mm uzakta düz geçer ve gövdedeki kalça eksenli yay yarıktan içeri girer (bacakla birlikte döner)"
+  },
+  "wire_red": {
+   "type": "rubber",
+   "color": "#a3281f"
+  },
+  "wire_orange": {
+   "type": "rubber",
+   "color": "#d9822b"
+  },
+  "internal_servo": {
+   "type": "internal",
+   "color": "#3b82f6",
+   "note": "MG90S x9 (8 bacak + kuyruk), 4 g mikro servo (kafa pan; gövdesi pan ekseninden öne doğru)"
+  },
+  "internal_horn": {
+   "type": "internal",
+   "color": "#e5e7eb",
+   "note": "servo kolları"
+  },
+  "internal_battery": {
+   "type": "internal",
+   "color": "#22c55e",
+   "note": "2S 14500 Li-ion"
+  },
+  "internal_pcb": {
+   "type": "internal",
+   "color": "#0f766e",
+   "note": "ESP32-S3 Super Mini x2, BMS, şarj kartı, MPU6500 IMU, VL53L0X, TTP223, 32 mm hoparlörün mıknatıs gövdesi"
+  },
+  "internal_power": {
+   "type": "internal",
+   "color": "#f59e0b",
+   "note": "MP1584 x3 + kondansatörler"
+  },
+  "internal_screen": {
+   "type": "internal",
+   "color": "#14b8a6",
+   "note": "GC9A01 modül PCB'leri + pin başlıkları"
+  },
+  "internal_wire": {
+   "type": "internal",
+   "color": "#d9822b",
+   "note": "kalça servo kablolarının gövde içindeki boşluk (slack) halkası: kablo yay yarıktan girer, bu halka uzunluk değişimini alır"
+  }
+ },
+ "screens": {
+  "eyeL": {
+   "res": [
+    240,
+    240
+   ],
+   "round": true,
+   "uvAxes": [
+    "x",
+    "z"
+   ],
+   "panel": "GC9A01 1.28in IPS 240x240 (RGB565, SPI)",
+   "active_diam_mm": 32.4,
+   "glass_diam_mm": 35.5,
+   "brightness": 1.5,
+   "behind": "2 mm füme akrilik (açık füme, yaklaşık %65-70 ışık geçirir)",
+   "side": "+x (robotun solu)"
+  },
+  "eyeR": {
+   "res": [
+    240,
+    240
+   ],
+   "round": true,
+   "uvAxes": [
+    "x",
+    "z"
+   ],
+   "panel": "GC9A01 1.28in IPS 240x240 (RGB565, SPI)",
+   "active_diam_mm": 32.4,
+   "glass_diam_mm": 35.5,
+   "brightness": 1.5,
+   "behind": "2 mm füme akrilik (açık füme, yaklaşık %65-70 ışık geçirir)",
+   "side": "-x (robotun sağı)"
+  }
+ },
+ "faces": {
+  "neutral": {
+   "eyeL": "faces/neutral_L.png",
+   "eyeR": "faces/neutral_R.png"
+  },
+  "blink": {
+   "eyeL": "faces/blink_L.png",
+   "eyeR": "faces/blink_R.png"
+  },
+  "happy": {
+   "eyeL": "faces/happy_L.png",
+   "eyeR": "faces/happy_R.png"
+  },
+  "talk_a": {
+   "eyeL": "faces/talk_a_L.png",
+   "eyeR": "faces/talk_a_R.png"
+  },
+  "talk_b": {
+   "eyeL": "faces/talk_b_L.png",
+   "eyeR": "faces/talk_b_R.png"
+  },
+  "surprised": {
+   "eyeL": "faces/surprised_L.png",
+   "eyeR": "faces/surprised_R.png"
+  },
+  "sleepy": {
+   "eyeL": "faces/sleepy_L.png",
+   "eyeR": "faces/sleepy_R.png"
+  },
+  "sleep": {
+   "eyeL": "faces/sleep_L.png",
+   "eyeR": "faces/sleep_R.png"
+  },
+  "sad": {
+   "eyeL": "faces/sad_L.png",
+   "eyeR": "faces/sad_R.png"
+  },
+  "determined": {
+   "eyeL": "faces/determined_L.png",
+   "eyeR": "faces/determined_R.png"
+  },
+  "curious": {
+   "eyeL": "faces/curious_L.png",
+   "eyeR": "faces/curious_R.png"
+  },
+  "love": {
+   "eyeL": "faces/love_L.png",
+   "eyeR": "faces/love_R.png"
+  }
+ },
+ "animations": {
+  "idle": "anim/idle.json",
+  "walk": "anim/walk.json",
+  "turn": "anim/turn.json",
+  "talk": "anim/talk.json",
+  "happy": "anim/happy.json",
+  "fall_recover": "anim/fall_recover.json",
+  "sleep": "anim/sleep.json",
+  "fall_recover_back": "anim/fall_recover_back.json"
+ },
+ "pose_rest": {
+  "neck_pan": 0,
+  "tail": 0,
+  "hip_fl": 20,
+  "knee_fl": -44,
+  "hip_fr": 20,
+  "knee_fr": -44,
+  "hip_hl": -20,
+  "knee_hl": 44,
+  "hip_hr": -20,
+  "knee_hr": 44
+ },
+ "specs": {
+  "dims_mm": [
+   120,
+   144,
+   150
+  ],
+  "mass_g": 368,
+  "servos": 10,
+  "motors": 0,
+  "servo_list": "9x MG90S (8 bacak + kuyruk), 1x 4 g dijital mikro servo (kafa pan)",
+  "brain": "2x ESP32-S3 Super Mini (kafa: gözler, Wi-Fi/Claude API, ses; gövde: 9 servo, IMU, ToF) - UART ile bağlı. Pin bütçesi mağazanın pinout görselinden doğrulandı: kenarda 15 GPIO (1-13, TX, RX); gövde 14, kafa 12 kullanır.",
+  "battery": "2S 14500 Li-ion (7.4 V, ~6 Wh, hücre ~3C / 2.7 A), 5 A 2S BMS + USB-C 2S şarj kartı (port karnın önünde). Kalkma anında ~4.8 A tepe çekilir: paket çöker ya da BMS keserse robot yeniden başlar (risk, NOTES).",
+  "runtime_walk_min": 30,
+  "runtime_idle_h": 2.2,
+  "walk_speed_cm_s": 7.01,
+  "screens": "2x GC9A01 1.28\" yuvarlak IPS 240x240, 2 mm füme akrilik maskenin arkasında",
+  "self_righting": "Kuyruk kaldıraç + bacak tekmesi (OpenCat 'rc' tarzı, IMU ile kapalı döngü), en çok 4 deneme. MuJoCo (μ 0.6, tork-hız düşüşlü servo, ön kalça-kafa sınırı): yan düşüş ilk denemede 30/39, sırtüstü ilk denemede yalnızca 4/14; μ 0.6'da hepsi en çok 3 denemede kalktı (en kötü ≈13 s). μ 0.4'te 30 yeni düşüşten biri kalkamadı. Benzetim 5.5 V hatlarının çökmediğini varsayar; 0.16 N·m'ye düşen tork ile 23 düşüşten yalnızca 15'i kalkar.",
+  "sensors": [
+   "MPU6500 IMU (6 eksen)",
+   "VL53L0X masa kenarı (ToF, alt göğüsteki IR pencerenin arkasında)",
+   "TTP223 kafa dokunma",
+   "INMP441 yok (ses telefondan/PC'den)"
+  ],
+  "voice": "PAM8403 + 32 mm 8 Ω 1 W hoparlör (kafa arkası 37 delikli ızgara) - cıvıltı/ses; konuşma tanıma telefon/PC üzerinden",
+  "hip_height_mm": 69.0,
+  "turn_rate_deg_s": 46
+ },
+ "sim_summary": {
+  "engine": "MuJoCo 3.17, dt 0.5 ms, model.glb kopyası (aynı eklem orijinleri/eksenleri/sıfırları), dışbükey kabuk çarpışma, 368 g",
+  "servo_model": "MG90S konum servosu: kp 3 N·m/rad, sürücü torku ±0.20 N·m, komut hızı 600°/s; zıt-EMK tork-hız düşüşü: hareket yönünde en çok 0.20·(1-ω/ω0), ω0 = 11 rad/s (sönüm 0.2/11 + 0.001 sürtünme = 0.0192; yüksüz ≈600°/s). Kafa pan 4 g mikro servo ±0.07 N·m, ω0 14 rad/s. Ön kalça ≤ tablo(neck_pan) yazılım sınırı uygulanır. (İncelemeden önce sönüm 0.012 idi: yüksüz ≈955°/s, fazla iyimser.)",
+  "contact": "masa μ 0.6 (ikinci koşu 0.4); TPU pati μ 0.9 (0.4 masada 0.6); kulaklar sert PLA (çarpışır)",
+  "walk_speed_cm_s": 7.01,
+  "walk": "Tırıs, periyot 0.524 s, adım 20.4 mm, ayak kaldırma 5.3 mm + IMU dengeleme. Klipte ölçülen 7.01 cm/s (μ 0.6). Yeni servo modeliyle (tork-hız düşüşü) önceki 5.6 cm/s'den daha hızlı çıktı: daha güçlü zıt-EMK sönümü bacak titreşimini azaltıyor. Gerçekte servo ve zemin farkıyla ±%30 sapma beklenmeli.",
+  "turn": "Yerinde dönüş (tırıs, ±11 mm ters adım, periyot 0.42 s): 46.3°/s (μ 0.6), merkez kayması 16.8 mm.",
+  "recovery": "μ 0.6: konseptin 24 düşüşü 23/23 kalktı (ilk denemede 13/23), 24 yeni + 8 itme 30/30 (ilk denemede 21/30); μ 0.4: 23/23 (ilk 15/23) ve 29/30 (ilk 19/30); +%10 kütle μ 0.6: 30/30 (ilk 17/30). İniş durumuna göre ilk deneme (μ 0.6, iki set): YAN 30/39, SIRT 4/14; μ 0.4: YAN 30/38, SIRT 4/15. Sırtüstü düşüşler çoğunlukla 2-3 deneme ister (her deneme ≈2.5 s + 1.3 s bekleme); en kötü başarılı durum 4 deneme, ≈18 s. Başarısız: μ 0.4: drop roll -95.3° pitch 24.2° (side) 4 denemede kalkamadı → yardım ister.",
+  "recovery_strategy": "IMU yerçekimi vektörüne göre: sırtüstü → konseptin best_seq_13 dizisi (2. denemede aynalanır); yan → bu pakette ayarlanan yan dizi. Ön kalça komutları kafa-bacak tablosuyla kırpılır (dizilerdeki 135-148° komutlar pan'a göre 114-128°'ye iner); kayıtlı kliplerde ön kalça zemin/gövde temasıyla zaten 60°'yi geçmiyor.",
+  "honest_failures": "Kurtarma dizileri eski servo modeliyle ayarlanmıştı; tork-hız düşüşü ve kafa-bacak sınırı eklenince ilk deneme oranı düştü (çoğunlukla tork-hız düşüşü yüzünden; özellikle sırtüstü), μ 0.6'da tüm düşüşler en çok 3-4 denemede kalktı, μ 0.4'te 30 yeni düşüşten biri kalkamadı. Diziler bu benzetimde ayarlandı; gerçek robotta yeniden ayar gerekir. Konseptin tek dizisi bu modelde yan düşüşlerde başarısızdı (8/24, eski model); yan dizi bu yüzden yeniden ayarlandı.",
+  "kinematic_clips": "idle ve talk kinematik döngüler (ayaklar sabit IK); MuJoCo'da 2 tur oynatıldı: gövde sapması < 0.6 mm / 0.9°, devrilme yok.",
+  "playback_check": "rig.js ile aynı FK, 8 klibin hepsi tek koşuda: en alçak görünür nokta -1.13…9.78 mm (üst değer fall_recover_back'in 1. karesindeki 15 mm'den bırakma; diğer kliplerde ≤ 1.3 mm). Ebeveyn-çocuk çiftleri (gövde-kafa, gövde-kuyruk, gövde-uyluk, uyluk-kaval) gerçek modellerle açıya göre tarandı (MuJoCo bunları süzer); tüm eklem aralığında en dar yer tail 0.03 mm (açıdan bağımsız sabit çalışma boşluğu; baskıda ~0.3 mm bırakılmalı). Ayrıntı: sim/out/playcheck.json.",
+  "notes": "Kaynaklar: sim/ (tarcin.py, gait.py, recover2.py, clips.py, hipsweep.py, sensitivity.py, playcheck.py, out/*.json).",
+  "recovery_per_state": {
+   "mu0.6": {
+    "side_first_try": "30/39",
+    "side_ok": "39/39",
+    "back_first_try": "4/14",
+    "back_ok": "14/14"
+   },
+   "mu0.4": {
+    "side_first_try": "30/38",
+    "side_ok": "37/38",
+    "back_first_try": "4/15",
+    "back_ok": "15/15"
+   },
+   "sets": "konseptin 24 yönelimi (23'ü düşer) + 24 yeni rastgele yönelim ve 8 itme (30'u düşer)"
+  },
+  "power_assumption": "Kalkma benzetimi her servonun aynı anda tam 0.20 N·m verdiğini, yani 5.5 V hatlarının sabit kaldığını varsayar. Stoktaki 14500 hücreler ~3C (2.7 A); kalkma tepesi ~4.8 A. Paket çöker ya da 5 A BMS keserse sonuç daha zayıf bir tekme değil, işlemcinin yeniden başlamasıdır. Yazılım servoları sıraya koyar (aynı anda en çok 4 tam tork), 2x1000 µF tampon vardır. Bölmeye sığan ≥20C 2S LiPo stokta bulunamadı.",
+  "head_pan_load": "Düşüşlerde kafa (76 g) 4 g pan servosunu geri sürer: dişliye binen en büyük tork ≈0.47 N·m (servonun gücü 0.07 N·m), pan ±40° sınırını 4.6°'ye kadar aşar (görüntüleyici 40°'de keser). Dişli sıyırma riski: yedek servo ya da kaydırmalı kavrama önerilir.",
+  "recovery_sensitivity": "Konseptin 23 düşüşü, μ 0.6: tam güç (0.20 N·m, 600°/s) 23/23 (ilk 13/23); paket çökmesi 0.16 N·m 15/23 (ilk 1/23; yan 0/15, sırt 1/8); 450°/s servolar 22/23 (ilk 1/23; yan 0/15, sırt 1/8); en çok 4 deneme. Kalkma tork ve hız payı olmadan çalışıyor: diziler zayıf servolara göre yeniden ayarlanmalı. Komut: sim/sensitivity.py."
+ },
+ "realism_notes_tr": [
+  "Gövde, kafa, bacaklar ve kuyruk mat PLA'dır: yakından 0.12-0.16 mm katman çizgileri görünür, parlak 'oyuncak' yüzey yoktur.",
+  "Parçaların birleştiği yerlerde 0.5-0.8 mm ek çizgileri (gövde üst/karın, kafa tepe/çene kapağı, ağız parçası, bacak modülü iç/dış yarısı, siyah çorap, kuyruk halkaları) gerçekten görünür.",
+  "Gözler iki adet GC9A01 1.28\" yuvarlak IPS ekrandır: 240x240 piksel, 32.4 mm aktif daire. Yakından pikseller seçilir; çizimler ESP32'nin RGB565 renkleriyle, yazılımın çizebileceği basit şekillerdir.",
+  "Ekranlar 2 mm füme akriliğin arkasındadır: göz parlaklığı yaklaşık üçte bir azalır ve parlak odada akrilik yansıması gözlerin üstüne gri bir perde ekler, camın siyah kenar halkası ve IPS siyahının hafif mavi parlaması akrilik arkasından belli belirsiz görünür.",
+  "Vidalar gizli değildir: karnın altında 4, kafanın altında 2, her bacak modülünün iç yüzünde 1 ve her kaval plakasında 3 adet M2 vida başı görünür; kuyruk kökünün arkasında da bir servo vidası vardır.",
+  "Ağız ('ω') ekran değildir, basılı siyah kakma parçadır ve hareket etmez. Konuşma; gözlerin ritmik nabzı, kafa ve kuyruk hareketiyle anlatılır.",
+  "Turuncu, krem ve siyah standart PLA renkleridir (Elas/Porima vb.); ayrı parçalar olarak basıldığı için çok renkli yazıcı (AMS) gerekmez, yalnızca ağız kakması için gerekir ya da ayrı parça yapıştırılır.",
+  "USB-C şarj girişi karnın önündedir (konseptteki yan konumda kalça göbeği var); şarj için robot yan yatırılır veya L tipi kablo kullanılır.",
+  "Göğüsteki küçük siyah pencere, masa kenarını gören VL53L0X sensörüdür.",
+  "Siyah maske parlak görünüyorsa bu baskı değil, lazer kesim füme akriliktir. Burun siyah PLA'dır; parlaklığı 2 kat şeffaf vernikten gelir (kavisli yüzeyde ütüleme yapılamaz), katman çizgileri vernik altında hafifçe seçilir.",
+  "Her kalçada iki servonun 6 telli yassı kablosu bacak modülünün iç yüzündeki yarıktan çıkar, 8-10 mm düz gider ve gövdedeki kalça ekseni etrafında kıvrılan 2 mm'lik yay yarıktan içeri girer; yarık alttan ve önden görünür. Kablo her kalça hareketinde yarık kenarında esner: sık düşüp kalkan bir robotta servo kabloları aşınan parçadır.",
+  "Kulaklar sert turuncu PLA'dır, pimle oturur ve yapıştırılır; düşüşte çıkmaz (benzetim de böyle hesaplar), sert bir darbede kırılabilir.",
+  "Kafanın arkasındaki 37 delikli ızgaranın arkasında 32 mm hoparlör vardır; sığması için kafa pan servosunun gövdesi öne bakar.",
+  "Ekrandaki turuncu, gerçek Elas PLA Turuncu'dan daha açık ve kayısı tonlu görünür (ışıklı yüzlerde #ee9758-#f5a159): gerçek baskı daha koyu ve doygun turuncudur (makara rengi #e0692b'ye yakın). Gözler ise akrilik arkasında gerçekte olduğu gibi biraz soluk gri-turkuaz görünür.",
+  "Yanak pencereleri arkasında WS2812B LED olan ince krem PLA'dır; LED kapalıyken krem görünür, mutlu olduğunda pembe yanar (stills/rig_face_happy_blush.png). Animasyonlarda yanak LED'i gösterilmez.",
+  "Ön bacak kafaya çarpmasın diye ön kalça en çok 128°'ye kalkar; kafa bu bacağa doğru dönükse sınır daha düşüktür (20°'de 122°, 40°'de 114°). Görüntüleyicideki 128° üst sınırı yalnızca kafa düzken çarpışmasızdır.",
+  "Hareketler MuJoCo fizik benzetimidir: yürüme yaklaşık 7.01 cm/s, dönüş 46°/s. Düşünce kalkma kuyruğun yere vurması ve bacak tekmeleriyle olur: yana düşünce çoğunlukla ilk denemede (30/39), sırtüstü düşünce çoğunlukla 2-3 denemede kalkar (ilk denemede yalnızca 4/14); 'fall_recover_back' klibi bu zor durumu gösterir.",
+  "Kalkma benzetimi pilin ve 5.5 V hatlarının çökmediğini varsayar. Stoktaki 14500 hücreler kalkma anındaki ~4.8 A tepeyi zor verir: pil zayıfladığında ya da BMS kestiğinde robot kalkamaz ve yeniden başlar; kafa pan servosu da düşüşlerde zorlanır ve dişlisi sıyırabilir."
+ ]
+}

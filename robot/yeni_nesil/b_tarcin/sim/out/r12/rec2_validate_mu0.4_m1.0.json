@@ -1,0 +1,282 @@
+{
+ "mu": 0.4,
+ "mass_scale": 1.0,
+ "success": "32/32",
+ "fallen": 30,
+ "success_of_fallen": "30/30",
+ "first_try_of_fallen": "26/30",
+ "cases": [
+  {
+   "kind": "drop",
+   "roll": -133.7,
+   "pitch": -0.1,
+   "settled": "side",
+   "ok": true,
+   "attempts": 1
+  },
+  {
+   "kind": "drop",
+   "roll": 36.5,
+   "pitch": -37.7,
+   "settled": "side",
+   "ok": true,
+   "attempts": 1
+  },
+  {
+   "kind": "drop",
+   "roll": -126.7,
+   "pitch": 34.3,
+   "settled": "side",
+   "ok": true,
+   "attempts": 1
+  },
+  {
+   "kind": "drop",
+   "roll": -154.6,
+   "pitch": -29.6,
+   "settled": "side",
+   "ok": true,
+   "attempts": 1
+  },
+  {
+   "kind": "drop",
+   "roll": 161.4,
+   "pitch": 9.8,
+   "settled": "back",
+   "ok": true,
+   "attempts": 3
+  },
+  {
+   "kind": "drop",
+   "roll": -47.2,
+   "pitch": 0.9,
+   "settled": "side",
+   "ok": true,
+   "attempts": 1
+  },
+  {
+   "kind": "drop",
+   "roll": 58.6,
+   "pitch": -18.0,
+   "settled": "side",
+   "ok": true,
+   "attempts": 1
+  },
+  {
+   "kind": "drop",
+   "roll": -130.3,
+   "pitch": 23.0,
+   "settled": "side",
+   "ok": true,
+   "attempts": 1
+  },
+  {
+   "kind": "drop",
+   "roll": 61.3,
+   "pitch": 1.0,
+   "settled": "side",
+   "ok": true,
+   "attempts": 3
+  },
+  {
+   "kind": "drop",
+   "roll": 114.0,
+   "pitch": 3.9,
+   "settled": "side",
+   "ok": true,
+   "attempts": 1
+  },
+  {
+   "kind": "drop",
+   "roll": 173.1,
+   "pitch": -23.6,
+   "settled": "back",
+   "ok": true,
+   "attempts": 3
+  },
+  {
+   "kind": "drop",
+   "roll": 19.3,
+   "pitch": -1.3,
+   "settled": "up",
+   "ok": true,
+   "attempts": 0
+  },
+  {
+   "kind": "drop",
+   "roll": -52.8,
+   "pitch": 7.3,
+   "settled": "side",
+   "ok": true,
+   "attempts": 1
+  },
+  {
+   "kind": "drop",
+   "roll": -95.3,
+   "pitch": 24.2,
+   "settled": "side",
+   "ok": true,
+   "attempts": 1
+  },
+  {
+   "kind": "drop",
+   "roll": 132.2,
+   "pitch": -29.7,
+   "settled": "side",
+   "ok": true,
+   "attempts": 1
+  },
+  {
+   "kind": "drop",
+   "roll": -11.9,
+   "pitch": -17.8,
+   "settled": "up",
+   "ok": true,
+   "attempts": 0
+  },
+  {
+   "kind": "drop",
+   "roll": -150.1,
+   "pitch": 31.7,
+   "settled": "back",
+   "ok": true,
+   "attempts": 1
+  },
+  {
+   "kind": "drop",
+   "roll": -25.2,
+   "pitch": -28.2,
+   "settled": "side",
+   "ok": true,
+   "attempts": 1
+  },
+  {
+   "kind": "drop",
+   "roll": 62.4,
+   "pitch": -23.8,
+   "settled": "side",
+   "ok": true,
+   "attempts": 1
+  },
+  {
+   "kind": "drop",
+   "roll": 144.5,
+   "pitch": -22.6,
+   "settled": "side",
+   "ok": true,
+   "attempts": 1
+  },
+  {
+   "kind": "drop",
+   "roll": -168.1,
+   "pitch": -23.9,
+   "settled": "side",
+   "ok": true,
+   "attempts": 1
+  },
+  {
+   "kind": "drop",
+   "roll": -55.5,
+   "pitch": -2.5,
+   "settled": "side",
+   "ok": true,
+   "attempts": 1
+  },
+  {
+   "kind": "drop",
+   "roll": 146.2,
+   "pitch": 15.8,
+   "settled": "side",
+   "ok": true,
+   "attempts": 1
+  },
+  {
+   "kind": "drop",
+   "roll": -57.8,
+   "pitch": -38.6,
+   "settled": "back",
+   "ok": true,
+   "attempts": 1
+  },
+  {
+   "kind": "push",
+   "w_body": [
+    0,
+    9
+   ],
+   "settled": "side",
+   "ok": true,
+   "attempts": 1
+  },
+  {
+   "kind": "push",
+   "w_body": [
+    0,
+    -9
+   ],
+   "settled": "side",
+   "ok": true,
+   "attempts": 1
+  },
+  {
+   "kind": "push",
+   "w_body": [
+    3,
+    13
+   ],
+   "settled": "side",
+   "ok": true,
+   "attempts": 1
+  },
+  {
+   "kind": "push",
+   "w_body": [
+    -3,
+    -13
+   ],
+   "settled": "side",
+   "ok": true,
+   "attempts": 1
+  },
+  {
+   "kind": "push",
+   "w_body": [
+    0,
+    11
+   ],
+   "settled": "side",
+   "ok": true,
+   "attempts": 1
+  },
+  {
+   "kind": "push",
+   "w_body": [
+    4,
+    -11
+   ],
+   "settled": "side",
+   "ok": true,
+   "attempts": 1
+  },
+  {
+   "kind": "push",
+   "w_body": [
+    22,
+    0
+   ],
+   "settled": "back",
+   "ok": true,
+   "attempts": 3
+  },
+  {
+   "kind": "push",
+   "w_body": [
+    -22,
+    0
+   ],
+   "settled": "back",
+   "ok": true,
+   "attempts": 1
+  }
+ ]
+}

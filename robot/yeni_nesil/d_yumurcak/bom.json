@@ -1,0 +1,702 @@
+{
+ "key": "D",
+ "name": "Yumurcak",
+ "currency": "TL, KDV (VAT 20 %) included",
+ "checked": "2026-10-24",
+ "method": "Every shop line was fetched live on 2026-10-24 with curl (T-Soft PRODUCT_DATA: total_sale_price is the KDV-included price, quantity is the shop stock; Amazon read from the offer box). All 32 bought lines are in stock in the needed quantity. Three lines are local services or owned items and are marked verified_on_page=false. The switch, MOSFET and 100 k lines were fetched live on 2026-10-25.",
+ "items": [
+  {
+   "part": "MG90S metal-gear micro servo 180° (4 hip-yaw + 4 knee + 1 spare)",
+   "qty": 9,
+   "unit_tl": 125.8,
+   "line_tl": 1132.2,
+   "shop": "Robotistan",
+   "url": "https://www.robotistan.com/mg90s-servo-motor",
+   "stock": "in stock (qty 517)",
+   "checked": "2026-10-24",
+   "verified_on_page": true,
+   "role": "legs"
+  },
+  {
+   "part": "SG90 micro servo 180° (oblique head turn)",
+   "qty": 1,
+   "unit_tl": 82.25,
+   "line_tl": 82.25,
+   "shop": "Robotistan",
+   "url": "https://www.robotistan.com/tower-pro-sg90-rc-mini-servo-motor",
+   "stock": "in stock (qty 2737)",
+   "checked": "2026-10-24",
+   "verified_on_page": true,
+   "role": "head"
+  },
+  {
+   "part": "GC9A01 1.28in round IPS 240x240 SPI module (eyes)",
+   "qty": 2,
+   "unit_tl": 351.5,
+   "line_tl": 703.0,
+   "shop": "Robotistan",
+   "url": "https://www.robotistan.com/gc9a01-128-inc-yuvarlak-tft-lcd-ekran",
+   "stock": "in stock (qty 18, low)",
+   "checked": "2026-10-24",
+   "verified_on_page": true,
+   "role": "face"
+  },
+  {
+   "part": "VL53L0X laser ToF module, black (desk-edge sensor behind the belly-button window)",
+   "qty": 1,
+   "unit_tl": 423.35,
+   "line_tl": 423.35,
+   "shop": "Robotistan",
+   "url": "https://www.robotistan.com/vl53l0x-lazer-tof-sensor-modul-i2c-pwm-serial-siyah",
+   "stock": "in stock (qty 40)",
+   "checked": "2026-10-24",
+   "verified_on_page": true,
+   "role": "sensor"
+  },
+  {
+   "part": "Orion 14500 3.7 V 900 mAh Li-ion cell (2S pack, ballast at the egg floor)",
+   "qty": 2,
+   "unit_tl": 94.95,
+   "line_tl": 189.9,
+   "shop": "Robotistan",
+   "url": "https://www.robotistan.com/orion-pil-liion-14500-900mah",
+   "stock": "in stock (qty 20)",
+   "checked": "2026-10-24",
+   "verified_on_page": true,
+   "role": "power",
+   "note": "Not an IMR cell: Direnc rates the same Orion cell 3C (~2.7 A). The concept wanted >=4 A; no high-drain 14500 is stocked in these shops."
+  },
+  {
+   "part": "2S 5 A BMS Li-ion protection board",
+   "qty": 1,
+   "unit_tl": 45.24,
+   "line_tl": 45.24,
+   "shop": "Robotistan",
+   "url": "https://www.robotistan.com/2s-5a-bms-lityum-pil-koruma",
+   "stock": "in stock (qty 52)",
+   "checked": "2026-10-24",
+   "verified_on_page": true,
+   "role": "power"
+  },
+  {
+   "part": "MP1584EN 3 A mini buck (rail A knees+head 5.5 V, rail B yaws 5.5 V, rail C logic 5.0 V)",
+   "qty": 3,
+   "unit_tl": 53.22,
+   "line_tl": 159.66,
+   "shop": "Robotistan",
+   "url": "https://www.robotistan.com/3a-mini-ayarlanabilir-voltaj-dusurucu-regulator-karti-step-down",
+   "stock": "in stock (qty 187)",
+   "checked": "2026-10-24",
+   "verified_on_page": true,
+   "role": "power"
+  },
+  {
+   "part": "1000 uF 10 V electrolytic (one per servo bank + 1 spare)",
+   "qty": 3,
+   "unit_tl": 2.84,
+   "line_tl": 8.52,
+   "shop": "Robotistan",
+   "url": "https://www.robotistan.com/1000uf-10v-elektrolit-kondansator",
+   "stock": "in stock (qty 92)",
+   "checked": "2026-10-24",
+   "verified_on_page": true,
+   "role": "power"
+  },
+  {
+   "part": "470 uF 16 V electrolytic (logic-rail hold-up)",
+   "qty": 1,
+   "unit_tl": 4.05,
+   "line_tl": 4.05,
+   "shop": "Robotistan",
+   "url": "https://www.robotistan.com/16v-470uf-kondansator-paketi-10-adet",
+   "stock": "in stock (qty 394)",
+   "checked": "2026-10-24",
+   "verified_on_page": true,
+   "role": "power"
+  },
+  {
+   "part": "1N5819 Schottky diode (through-hole stand-in for the concept's SS14; logic OR + spare)",
+   "qty": 2,
+   "unit_tl": 2.96,
+   "line_tl": 5.92,
+   "shop": "Robotistan",
+   "url": "https://www.robotistan.com/1n5819-diyot",
+   "stock": "in stock (qty 313)",
+   "checked": "2026-10-24",
+   "verified_on_page": true,
+   "role": "power"
+  },
+  {
+   "part": "10 k 1/4 W resistor (20k/10k battery-voltage divider)",
+   "qty": 3,
+   "unit_tl": 0.24,
+   "line_tl": 0.72,
+   "shop": "Robotistan",
+   "url": "https://www.robotistan.com/14w-10k-direnc-paketi-10-adet",
+   "stock": "in stock (qty 11690)",
+   "checked": "2026-10-24",
+   "verified_on_page": true,
+   "role": "power"
+  },
+  {
+   "part": "IC205 3-pin slide switch (SS12D00 class, 10.5 x 5.7 mm), main power at the back under the USB-C port; switches only the MOSFET gate",
+   "qty": 1,
+   "unit_tl": 6.23,
+   "line_tl": 6.23,
+   "shop": "Robotistan",
+   "url": "https://www.robotistan.com/ic205-180-derece-surgulu-switch",
+   "stock": "in stock (qty 768)",
+   "checked": "2026-10-25",
+   "verified_on_page": true,
+   "role": "power",
+   "note": "Replaces the KCD1 rocker: a 19 x 13 mm rocker does not fit under the belly (haunch balls, cells and BMS fill it), and the model shows this slide-switch slot at the back. A slide switch of this class is rated ~0.5 A, so it must not carry the ~4 A get-up peak."
+  },
+  {
+   "part": "IRF4905 P-channel MOSFET TO-220 (55 V, 20 mOhm): high-side main switch after the BMS, gate pulled up, slide switch pulls it to GND",
+   "qty": 1,
+   "unit_tl": 55.64,
+   "line_tl": 55.64,
+   "shop": "Robotistan",
+   "url": "https://www.robotistan.com/irf4905-74a-55v-p-mosfet-to220",
+   "stock": "in stock (qty 4, low)",
+   "checked": "2026-10-25",
+   "verified_on_page": true,
+   "role": "power",
+   "note": "Vgs is -6 to -8.4 V on a 2S pack, so it is fully on; ~0.3-0.5 W at a 4 A peak, laid flat on the perfboard."
+  },
+  {
+   "part": "100 k 1/4 W resistor (MOSFET gate pull-up)",
+   "qty": 1,
+   "unit_tl": 0.24,
+   "line_tl": 0.24,
+   "shop": "Robotistan",
+   "url": "https://www.robotistan.com/14w-100k-direnc-paketi-10-adet",
+   "stock": "in stock (qty 11875)",
+   "checked": "2026-10-25",
+   "verified_on_page": true,
+   "role": "power"
+  },
+  {
+   "part": "3x7 cm double-sided perfboard (power board on the sled: caps, diode, divider, 9 servo headers, star ground)",
+   "qty": 1,
+   "unit_tl": 10.89,
+   "line_tl": 10.89,
+   "shop": "Robotistan",
+   "url": "https://www.robotistan.com/3x7cm-double-sided-perfboard-1",
+   "stock": "in stock (qty 396)",
+   "checked": "2026-10-24",
+   "verified_on_page": true,
+   "role": "wiring"
+  },
+  {
+   "part": "1x40 male pin header 2.54 mm (servo plugs, module headers)",
+   "qty": 2,
+   "unit_tl": 7.92,
+   "line_tl": 15.84,
+   "shop": "Robotistan",
+   "url": "https://www.robotistan.com/1x40-180-12mm",
+   "stock": "in stock (qty 329)",
+   "checked": "2026-10-24",
+   "verified_on_page": true,
+   "role": "wiring"
+  },
+  {
+   "part": "JST connector pair, silicone 22 AWG leads (battery disconnect, charger lead, bank feeds)",
+   "qty": 3,
+   "unit_tl": 23.59,
+   "line_tl": 70.77,
+   "shop": "Robotistan",
+   "url": "https://www.robotistan.com/jst-konektor-silikon-kablolu-disi-erkek",
+   "stock": "in stock (qty 110)",
+   "checked": "2026-10-24",
+   "verified_on_page": true,
+   "role": "wiring"
+  },
+  {
+   "part": "40-pin F-F jumper ribbon 200 mm (peeled into the 10-wire head ribbon through the hollow post, plus I2C/SPI leads)",
+   "qty": 1,
+   "unit_tl": 48.99,
+   "line_tl": 48.99,
+   "shop": "Robotistan",
+   "url": "https://www.robotistan.com/40-pin-ayrilabilen-disi-disi-f-f-jumper-kablo-200-mm",
+   "stock": "in stock (qty 1178)",
+   "checked": "2026-10-24",
+   "verified_on_page": true,
+   "role": "wiring"
+  },
+  {
+   "part": "Heat-shrink 2.5 mm, 1 m",
+   "qty": 1,
+   "unit_tl": 9.62,
+   "line_tl": 9.62,
+   "shop": "Robotistan",
+   "url": "https://www.robotistan.com/25-mm-makaron-1-metre",
+   "stock": "in stock (qty 116)",
+   "checked": "2026-10-24",
+   "verified_on_page": true,
+   "role": "wiring"
+  },
+  {
+   "part": "Heat-shrink 4.8 mm, 1 m (pack, BMS, switch joints)",
+   "qty": 1,
+   "unit_tl": 14.7,
+   "line_tl": 14.7,
+   "shop": "Robotistan",
+   "url": "https://www.robotistan.com/4-mm-makaron-1-metre",
+   "stock": "in stock (qty 83)",
+   "checked": "2026-10-24",
+   "verified_on_page": true,
+   "role": "wiring"
+  },
+  {
+   "part": "Solder wire 60/40 rosin core 1 mm, 17 g",
+   "qty": 1,
+   "unit_tl": 142.73,
+   "line_tl": 142.73,
+   "shop": "Robotistan",
+   "url": "https://www.robotistan.com/prolink-tup-lehim-teli-60-40-17gr-1mm",
+   "stock": "in stock (qty 27)",
+   "checked": "2026-10-24",
+   "verified_on_page": true,
+   "role": "consumable"
+  },
+  {
+   "part": "Copper tape 5 mm x 30 m (head-pat pad inside the cap, belly pad)",
+   "qty": 1,
+   "unit_tl": 101.6,
+   "line_tl": 101.6,
+   "shop": "Robotistan",
+   "url": "https://www.robotistan.com/5mm-bakir-bant-30-metre",
+   "stock": "in stock (qty 25)",
+   "checked": "2026-10-24",
+   "verified_on_page": true,
+   "role": "sensor"
+  },
+  {
+   "part": "M2 x 8 mm cross-head screw (haunch hemispheres, deck, sled, PCB mounts, shell under the cap/belly)",
+   "qty": 30,
+   "unit_tl": 0.69,
+   "line_tl": 20.7,
+   "shop": "Robotistan",
+   "url": "https://www.robotistan.com/m2-8mm-yildiz-basli-civata",
+   "stock": "in stock (qty 642)",
+   "checked": "2026-10-24",
+   "verified_on_page": true,
+   "role": "hardware"
+  },
+  {
+   "part": "M2 x 10 mm cross-head screw (collars, knee-servo clamps)",
+   "qty": 10,
+   "unit_tl": 1.92,
+   "line_tl": 19.2,
+   "shop": "Robotistan",
+   "url": "https://www.robotistan.com/m2-10mm-yildiz-basli-civata",
+   "stock": "in stock (qty 1795)",
+   "checked": "2026-10-24",
+   "verified_on_page": true,
+   "role": "hardware"
+  },
+  {
+   "part": "M2 nut",
+   "qty": 10,
+   "unit_tl": 1.37,
+   "line_tl": 13.7,
+   "shop": "Robotistan",
+   "url": "https://www.robotistan.com/m2-somun",
+   "stock": "in stock (qty 21, nearly the whole stock)",
+   "checked": "2026-10-24",
+   "verified_on_page": true,
+   "role": "hardware"
+  },
+  {
+   "part": "USB-C to USB-A data cable (flashing the ESP32-S3; also feeds the charger)",
+   "qty": 1,
+   "unit_tl": 64.71,
+   "line_tl": 64.71,
+   "shop": "Robotistan",
+   "url": "https://www.robotistan.com/type-c-to-usb-data-transfer-kablosu",
+   "stock": "in stock (qty 1299)",
+   "checked": "2026-10-24",
+   "verified_on_page": true,
+   "role": "tool-ish"
+  },
+  {
+   "part": "Waveshare ESP32-S3 Mini (S3-Zero class, 4 MB flash / 2 MB PSRAM, castellated, USB-C), code 25517",
+   "qty": 1,
+   "unit_tl": 632.44,
+   "line_tl": 632.44,
+   "shop": "Robot Sepeti",
+   "url": "https://www.robotsepeti.com/esp32-s3-mini-gelistirme-karti",
+   "stock": "in stock (qty 12)",
+   "checked": "2026-10-24",
+   "verified_on_page": true,
+   "role": "brain",
+   "note": "Same board is OUT OF STOCK at Robotistan (553.92, qty 0). Robot Sepeti is the only stocked source found."
+  },
+  {
+   "part": "MPU6050 GY-521 6-axis IMU (fall / orientation detection), replaces the BMI160",
+   "qty": 1,
+   "unit_tl": 164.66,
+   "line_tl": 164.66,
+   "shop": "Robot Sepeti",
+   "url": "https://www.robotsepeti.com/mpu6050-6-eksen-ivme-ve-gyro-sensoru-gy-521",
+   "stock": "in stock (qty 48)",
+   "checked": "2026-10-24",
+   "verified_on_page": true,
+   "role": "sensor"
+  },
+  {
+   "part": "Neodymium disc magnet 6 x 2 mm (swappable eggshell cap: 2 in cap + 2 in head)",
+   "qty": 4,
+   "unit_tl": 12.2,
+   "line_tl": 48.8,
+   "shop": "Robot Sepeti",
+   "url": "https://www.robotsepeti.com/neodymium-miknatis-yuvarlak-cap-6mm-kalinlik-2mm",
+   "stock": "in stock (qty 163)",
+   "checked": "2026-10-24",
+   "verified_on_page": true,
+   "role": "hardware"
+  },
+  {
+   "part": "Evo Bond cyanoacrylate glue 20 g (TPU soles, magnets, visor edge)",
+   "qty": 1,
+   "unit_tl": 87.82,
+   "line_tl": 87.82,
+   "shop": "Robot Sepeti",
+   "url": "https://www.robotsepeti.com/evo-bond-super-hizli-japon-yapistirici-20g-tup",
+   "stock": "in stock (qty 97)",
+   "checked": "2026-10-24",
+   "verified_on_page": true,
+   "role": "consumable"
+  },
+  {
+   "part": "PTFE (teflon) tape 12 mm x 10 m (lining for the haunch collars and the head seam lip)",
+   "qty": 1,
+   "unit_tl": 44.52,
+   "line_tl": 44.52,
+   "shop": "Robot Sepeti",
+   "url": "https://www.robotsepeti.com/teflon-bant",
+   "stock": "in stock (qty 49)",
+   "checked": "2026-10-24",
+   "verified_on_page": true,
+   "role": "hardware",
+   "note": "This is non-adhesive plumbing-type PTFE tape: wrap the boss and tack the ends with CA. Self-adhesive PTFE film would be nicer but was not found in these shops."
+  },
+  {
+   "part": "2S 8.4 V USB-C charger board, 0.55 A charge (39 x 18 x 6.3 mm, port at the back)",
+   "qty": 1,
+   "unit_tl": 181.8,
+   "line_tl": 181.8,
+   "shop": "Motorobit",
+   "url": "https://www.motorobit.com/2s-84v-1a-li-ion-lipo-pil-sarj-devresi",
+   "stock": "in stock (qty 41)",
+   "checked": "2026-10-24",
+   "verified_on_page": true,
+   "role": "power",
+   "note": "Replaces the concept's Robolink 78 TL '4 A' module: its page states a 2 A charge current, about 2.2C for 900 mAh cells. This one charges at 0.55 A (~0.6C)."
+  },
+  {
+   "part": "2S pack assembly: spot-weld nickel strip and leads onto the two 14500 cells (local battery/pil shop)",
+   "qty": 1,
+   "unit_tl": 110.0,
+   "line_tl": 110.0,
+   "tl_range": [
+    75,
+    150
+   ],
+   "shop": "local battery shop",
+   "url": null,
+   "stock": "service, unverified",
+   "checked": "2026-10-24",
+   "verified_on_page": false,
+   "role": "power"
+  },
+  {
+   "part": "1 mm smoked PETG sheet (A4-ish offcut) for the vacuum-formed visor + DIY former (box, household vacuum, kitchen oven)",
+   "qty": 1,
+   "unit_tl": 175.0,
+   "line_tl": 175.0,
+   "tl_range": [
+    100,
+    300
+   ],
+   "shop": "local plastic/plexi (pleksi) shop",
+   "url": null,
+   "stock": "unverified: no Turkish online shop listing smoked PETG sheet was found",
+   "checked": "2026-10-24",
+   "verified_on_page": false,
+   "role": "visor",
+   "note": "Fallback (used in the lean variant): print the visor 0.8 mm in translucent-black PETG; the eyes glow through more softly. Its cost is already inside the print estimate."
+  },
+  {
+   "part": "5 V USB wall adapter (>= 1 A) for charging",
+   "qty": 1,
+   "unit_tl": 0.0,
+   "line_tl": 0.0,
+   "tl_range": [
+    0,
+    150
+   ],
+   "shop": "assumed owned (any phone charger)",
+   "url": null,
+   "stock": "not bought",
+   "checked": "2026-10-24",
+   "verified_on_page": false,
+   "role": "charger"
+  }
+ ],
+ "parts_tl": 4510.41,
+ "parts_tl_verified_online": 4510.41,
+ "services_tl": [
+  175,
+  450
+ ],
+ "subtotal_by_shop": {
+  "Robotistan": 3350.37,
+  "Robot Sepeti": 978.24,
+  "Motorobit": 181.8
+ },
+ "optional_voice": {
+  "items": [
+   {
+    "part": "INMP441 I2S MEMS microphone (on-board voice option)",
+    "qty": 1,
+    "unit_tl": 145.29,
+    "line_tl": 145.29,
+    "shop": "Direnc",
+    "url": "https://www.direnc.net/inmp441-mems-i2s-cok-yonlu-mikrofon-modulu",
+    "stock": "in stock (qty 601)",
+    "checked": "2026-10-24",
+    "verified_on_page": true,
+    "role": "voice option"
+   },
+   {
+    "part": "MAX98357A I2S 3 W class-D amp (Alkatronik)",
+    "qty": 1,
+    "unit_tl": 309.0,
+    "line_tl": 309.0,
+    "shop": "Amazon.com.tr",
+    "url": "https://www.amazon.com.tr/dp/B0FGPXW8SN",
+    "stock": "in stock ('Stokta sadece 12 adet kaldı')",
+    "checked": "2026-10-24",
+    "verified_on_page": true,
+    "role": "voice option"
+   },
+   {
+    "part": "Speaker 8 ohm 1 W 32 mm",
+    "qty": 1,
+    "unit_tl": 51.51,
+    "line_tl": 51.51,
+    "shop": "Motorobit",
+    "url": "https://www.motorobit.com/hoparlor-8-ohm-8%CE%A9-1w-32mm",
+    "stock": "in stock (qty 4900)",
+    "checked": "2026-10-24",
+    "verified_on_page": true,
+    "role": "voice option"
+   }
+  ],
+  "tl": 505.8,
+  "note": "Not in the totals. Voice otherwise runs through the phone or a PC. Adds a Direnc and an Amazon parcel (Amazon ships free; Direnc ~90-150 TL). Also check the free GPIO count first: I2S needs 3-4 more pins."
+ },
+ "print": {
+  "grams": 165,
+  "grams_net_from_cad": 125,
+  "hours": 24,
+  "hours_range": [
+   20,
+   28
+  ],
+  "materials": [
+   "PLA mat Krem / Fildişi (e.g. Elas or Porima PLA Krem, ~#F1E9DA): body bowl and head shell, ~45 g, printed on the oblique seam face, dome up, 0.12 mm layers",
+   "PLA Turuncu / yolk orange (e.g. Elas PLA Turuncu, ~#F68A0E): eggshell cap, 8 haunch hemispheres, 4 paws, ~70 g",
+   "PLA any colour: deck, collars, sled, core post, visor vacuum-form buck, ~25 g",
+   "PETG translucent black / smoked: visor fallback 0.8 mm, ~8 g (skip if the visor is vacuum-formed)",
+   "TPU 95A black: 4 paw soles, ~4 g, glued on with CA",
+   "+ ~15 % brims, purge, the sacrificial membrane in the visor window and one reprint allowance"
+  ],
+  "tl_min": 750,
+  "tl_max": 1250,
+  "basis": "Net plastic from the concept's itemised CAD mass sheet (check.json: shells 52 g, haunch balls 36 g, paws 28 g, deck/collars/sled 9 g = 125 g) plus ~15 g visor buck and core post and ~15 % waste -> ~165 g filament. The stl_stand haunch/foot STLs are solid envelopes (haunch 132 cm3, foot 56 cm3), so their raw volume would overstate the print; the shells are 1.6 mm walls. Time: two 96 mm domes at 0.12 mm (~4-5 h each), 8 hemispheres (~6 h), paws (~3-4 h), cap, visor, TPU soles and small parts -> 20-28 h on a Bambu-class printer, longer on an older i3. Rates found: a Turkish university döner-sermaye tariff lists PLA 5 TL/g or 40 TL/h (KDV incl., 200 TL minimum); a 2026 pea3d.com cost article gives ~80-120 TL/h for standard PLA in commercial terms; Armut hobby sellers quote ~1.5-4 TL/g. Gram basis: 150 g PLA x 3.5-5.5 = 525-825, PETG visor incl. material change 100-150, TPU soles incl. set-up 100-150 (some studios refuse tiny TPU jobs), 2nd PLA colour change 25-75 -> 750-1,200. Hour basis: 24 h x 30-45 TL/h + ~160 TL material -> 880-1,240. No AMS needed: every colour is a separate part. Visor gloss: matte unless the PETG is ironed or the vacuum-formed sheet is used (sheet is glossy by nature).",
+  "surcharges": "Included above: PETG material change, TPU set-up, second PLA colour. Not included: a professional finish (sanding/painting)."
+ },
+ "shipping_tl": [
+  180,
+  550
+ ],
+ "shipping_breakdown": [
+  {
+   "shop": "Robotistan",
+   "order_tl": 3350.37,
+   "free_from_tl": 1500,
+   "est_tl": [
+    0,
+    0
+   ],
+   "note": "threshold read on the homepage header ('1.500 TL ve Üzeri Siparişlerde Ücretsiz Kargo')"
+  },
+  {
+   "shop": "Robot Sepeti",
+   "order_tl": 978.24,
+   "free_from_tl": 2500,
+   "est_tl": [
+    90,
+    150
+   ],
+   "note": "threshold read on the homepage ('2500 TL ve üzeri ücretsiz kargo'); fee below it not shown before checkout"
+  },
+  {
+   "shop": "Motorobit",
+   "order_tl": 181.8,
+   "free_from_tl": 2500,
+   "est_tl": [
+    90,
+    150
+   ],
+   "note": "2,500 TL threshold per Motorobit header (MNG/DHL); fee below it assumed"
+  },
+  {
+   "shop": "3D print studio",
+   "order_tl": null,
+   "free_from_tl": null,
+   "est_tl": [
+    0,
+    150
+   ],
+   "note": "0 if local pick-up"
+  },
+  {
+   "shop": "local battery shop / plastic shop",
+   "order_tl": null,
+   "free_from_tl": null,
+   "est_tl": [
+    0,
+    100
+   ],
+   "note": "walk-in; courier if not local"
+  }
+ ],
+ "tools_tl_if_needed": [
+  0,
+  761.85
+ ],
+ "tools_min_kit_tl": 454.5,
+ "tools": [
+  {
+   "tool": "Analog adjustable 60 W pen soldering iron",
+   "tl": 242.4,
+   "shop": "Motorobit",
+   "url": "https://www.motorobit.com/analog-isi-ayarli-60w-kalem-havya",
+   "stock": "in stock (qty 285)",
+   "verified_on_page": true,
+   "checked": "2026-10-24"
+  },
+  {
+   "tool": "DT-830D digital multimeter",
+   "tl": 212.1,
+   "shop": "Motorobit",
+   "url": "https://www.motorobit.com/dijital-avometre-multimetre-olcu-aleti-dt-830d",
+   "stock": "in stock (qty 222)",
+   "verified_on_page": true,
+   "checked": "2026-10-24"
+  },
+  {
+   "tool": "ZD-10A iron stand",
+   "tl": 155.85,
+   "shop": "Robotistan",
+   "url": "https://www.robotistan.com/havya-standi",
+   "stock": "in stock (qty 118)",
+   "verified_on_page": true,
+   "checked": "2026-10-24"
+  },
+  {
+   "tool": "Plato 170 side cutter",
+   "tl": 151.5,
+   "shop": "Motorobit",
+   "url": "https://www.motorobit.com/plato-yan-keski-model-170",
+   "stock": "in stock (qty 416)",
+   "verified_on_page": true,
+   "checked": "2026-10-24"
+  }
+ ],
+ "tools_note": "0 TL if the family already has a soldering iron and a multimeter. The minimum kit is iron + multimeter (454.50 TL); adding them to the Motorobit order still stays under its 2,500 TL threshold. A screwdriver and a lighter or hair dryer for heat-shrink are assumed to be at home.",
+ "total_tl": [
+  5620,
+  6760
+ ],
+ "total_typical_tl": 6050,
+ "total_basis": "Minimum: verified parts 4510.41 + services 175 + print 750 + shipping 180 = 5615.41. Maximum: parts + services 450 + print 1250 + shipping 550 = 6760.41. Typical: parts + 285 services + 950 print + 300 shipping = 6045.41. Rounded to 10 TL. Excludes tools (0-762) and the optional on-board voice (+505.80).",
+ "lean_variant": {
+  "what": "Drop the spare MG90S, the VL53L0X edge sensor and the copper tape (foil works for touch pads), and print the visor in translucent-black PETG instead of vacuum-forming smoked sheet. Keeps all 9 servos, both round eyes, the IMU and self-righting. Robotistan stays above 1,500 TL, so it still ships free.",
+  "removed": [
+   {
+    "part": "Spare MG90S",
+    "tl": 125.8
+   },
+   {
+    "part": "VL53L0X desk-edge sensor (no cliff awareness; firmware keeps a cautious gait)",
+    "tl": 423.35
+   },
+   {
+    "part": "Copper tape (use kitchen aluminium foil for the touch pads)",
+    "tl": 101.6
+   },
+   {
+    "part": "Smoked PETG sheet + DIY vacuum former (print the visor in translucent-black PETG instead)",
+    "tl": [
+     100,
+     300
+    ]
+   }
+  ],
+  "parts_tl": 3859.66,
+  "total_tl": [
+   4860,
+   5810
+  ],
+  "total_basis": "Minimum: lean parts 3859.66 + battery welding 75 + print 750 + shipping 180 = 4864.66. Maximum: lean parts + welding 150 + print 1250 + shipping 550 = 5809.66. Same print range as the full build (the PETG visor was already inside the print estimate)."
+ },
+ "concept_claim": {
+  "parts_tl": 3929.96,
+  "total_tl": 4830,
+  "why_different": "The concept's 335 TL of small-parts estimates (caps/diode/switch 55, copper 30, wire/JST/screws/PTFE/magnets 150, PETG sheet 100) become ~730 TL of real shop lines plus 175-450 TL of local services (battery welding, smoked sheet). The charger is 181.80 instead of 78 (the cheap one charges too fast for 900 mAh cells), the IMU is 164.66 instead of 127.86 (to avoid a 4th parcel), the cells are cheaper (94.95 vs 105.48). The print is 750-1,250 rather than 650 because of 0.12 mm layers on two 96 mm domes, 3 materials and ~24 h of machine time, and shipping is really two paid parcels plus the studio rather than a flat 250."
+ },
+ "changes_vs_concept": [
+  "BMI160 (Direnc 127.86, in stock) -> MPU6050 GY-521 (Robot Sepeti 164.66) so Direnc is not a 4th paid parcel; same I2C tilt/fall role, but the GY-521 is 21 x 16 mm vs the BMI160's smaller board, so check its spot near the centre.",
+  "2S charger: Robolink 78 TL module (page: 2 A charge) -> Motorobit 2S 8.4 V module charging at 0.55 A (181.80), safe for 900 mAh 14500 cells.",
+  "14500 cells: guide price 105.48 (Direnc) -> Orion 14500 900 mAh at Robotistan 94.95, same cell family; no >=4 A IMR 14500 exists in these shops (risk below).",
+  "SS14 SMD diode -> 1N5819 through-hole (same 1 A Schottky role), easier on perfboard.",
+  "Magnets: 4 x 6 x 2 mm neodymium discs from Robot Sepeti (12.20 each).",
+  "PTFE: the concept's 'PTFE tape' priced as 12 mm plumbing PTFE tape (44.52), non-adhesive.",
+  "ESP32-S3 Mini (code 25517) price unchanged at Robot Sepeti 632.44 (qty 12); the same board at Robotistan is out of stock.",
+  "Heat-set inserts dropped: the only M2 insert set found (Robo90 M2-M6 220 pcs, 892.80) is out of stock; M2 screws self-tap into 1.6 mm+ PLA bosses and M2 nuts are used where a joint is opened often.",
+  "Smoked PETG sheet: no online Turkish listing found; kept as a local purchase (100-300 TL incl. a DIY vacuum former), printed PETG visor as fallback.",
+  "Added itemised lines the concept lumped or forgot: JST pairs, 40-pin ribbon (head ribbon), headers, perfboard, resistors, heat-shrink, solder, CA glue, M2 nuts, USB-C data cable, battery-pack welding, a third 1000 uF cap as spare.",
+  "Every other price is unchanged from the concept and was confirmed live on 2026-10-24 (MG90S qty 517, GC9A01 qty 18, VL53L0X qty 40, MP1584 qty 187).",
+  "Power switch: the BOM's KCD1 rocker 'under the belly' did not fit there and was not modelled; replaced by the slide switch the model shows at the back (IC205, 6.23) driving an IRF4905 P-MOSFET high-side switch (55.64) + 100 k pull-up, so no battery current flows through the small switch (+57.27 TL)."
+ ],
+ "out_of_stock_seen": [
+  "ESP32-S3 Mini Geliştirme Kartı at Robotistan (553.92, qty 0); bought at Robot Sepeti instead",
+  "Robo90 M2-M6 brass heat-set insert set 220 pcs (892.80, qty 0); inserts dropped",
+  "Robot Sepeti GY-VL53L0XV2 (365.92, qty 0); Robotistan VL53L0X used"
+ ],
+ "unverified": [
+  "Shipping fees below the free-shipping thresholds (90-150 TL per parcel assumed; shops show them only at checkout)",
+  "3D print studio price (no public Turkish price list; range from a university tariff, a 2026 cost article and Armut listings)",
+  "2S pack spot-welding at a local battery shop (75-150 TL)",
+  "1 mm smoked PETG sheet availability and price at a local plastic shop (100-300 TL incl. former)",
+  "ESP32-S3 Mini pin budget: the concept needs ~21 GPIO (9 servos, 2 displays on one SPI bus, I2C, ADC, 2 touch pads); the board exposes more only via its bottom pads, so tie display RST/BL if short",
+  "Orion 14500 discharge: 3C (~2.7 A) per Direnc's listing of the same cell vs ~4 A battery-side peak during a get-up"
+ ],
+ "risks": [
+  "Battery current: 3C cells and a 5 A BMS against a ~4.7 A (5.5 V side) get-up peak. Firmware must stagger servos and push slowly, as the concept already plans; expect voltage sag.",
+  "GC9A01 stock is 18 at Robotistan; buy both at once.",
+  "M2 nut stock at Robotistan is 21; Motorobit sells 10-packs (3.03) if it runs out.",
+  "The vacuum-formed visor is the hardest part to make well; the printed PETG fallback looks less glassy.",
+  "IRF4905 stock at Robotistan is 4; any TO-220 P-MOSFET with Rds(on) <= 50 mOhm at Vgs -4.5 V works."
+ ],
+ "sources": [
+  "https://pea3d.com/3d-yazici-maliyet-hesaplama-ve-bambu-lab-karlilik-rehberi/",
+  "https://veteriner.omu.edu.tr/ar/fakulte/uecretler/ANATOMİ ANABİLİM DALI DÖNER SERMAYE ÜCRET TARİFESİ.pdf",
+  "https://armut.com/tarsus-fdm-baski"
+ ]
+}

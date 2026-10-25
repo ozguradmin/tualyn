@@ -1,0 +1,15 @@
+import sys; sys.path.insert(0, '.')
+from common import *
+s = Sim(0.6)
+s.set_pose(REST)
+mujoco.mj_forward(s.m, s.d)
+print("initial base", s.base())
+s.drop_to_floor(0.05)
+print("dropped base", s.base())
+s.step_time(1.5)
+print("after 1.5s", np.round(s.base(),3), "tilt", round(s.tilt(),2), "pen", s.maxpen, "com", s.com())
+print({j: round(s.q(j),2) for j in JOINTS})
+print({j: round(v,3) for j,v in s.max_tau.items()})
+print("frames", len(s.frames))
+for i in range(s.d.ncon):
+    c=s.d.contact[i]; print(mujoco.mj_id2name(s.m,mujoco.mjtObj.mjOBJ_GEOM,c.geom1), mujoco.mj_id2name(s.m,mujoco.mjtObj.mjOBJ_GEOM,c.geom2), round(c.dist*1000,3))

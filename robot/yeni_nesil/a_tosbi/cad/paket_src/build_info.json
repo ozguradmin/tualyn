@@ -1,0 +1,91 @@
+{
+ "HM": 42.45307910843949,
+ "hubs": [
+  [
+   30.659649062935802,
+   -25.765834472425105
+  ],
+  [
+   -30.659649062935802,
+   -25.765834472425105
+  ],
+  [
+   30.659649062935802,
+   25.765834472425105
+  ],
+  [
+   -30.659649062935802,
+   25.765834472425105
+  ]
+ ],
+ "leg_dir0": [
+  -35.0,
+  215.0,
+  35.0,
+  145.0
+ ],
+ "head_c": [
+  0.0,
+  -69.0,
+  0.0
+ ],
+ "triangles": 274632,
+ "per_node": {
+  "body__shell": 44502,
+  "body__badge": 168,
+  "body__lip": 980,
+  "body__tail": 2592,
+  "body__metal": 380,
+  "body__stalk": 500,
+  "body__screw": 2640,
+  "body__internal_servo": 4590,
+  "body__speaker": 668,
+  "body__switch": 384,
+  "body__internal_cell": 664,
+  "body__internal_pcb": 168,
+  "body__internal_chip": 528,
+  "body__internal_chassis": 40,
+  "body__internal_cap": 996,
+  "body__internal_wire": 3008,
+  "leg_fl__egg": 14480,
+  "leg_fl__arm": 8446,
+  "leg_fl__screw": 1320,
+  "leg_fl__internal_servo": 918,
+  "foot_fl__boot_fl": 11600,
+  "foot_fl__toe_fl": 4556,
+  "foot_fl__screw": 1320,
+  "leg_fr__egg": 14466,
+  "leg_fr__arm": 8446,
+  "leg_fr__screw": 1320,
+  "leg_fr__internal_servo": 918,
+  "foot_fr__boot_fr": 11600,
+  "foot_fr__toe_fr": 4556,
+  "foot_fr__screw": 1320,
+  "leg_rl__egg": 14466,
+  "leg_rl__arm": 8446,
+  "leg_rl__screw": 1320,
+  "leg_rl__internal_servo": 918,
+  "foot_rl__boot_rl": 11600,
+  "foot_rl__toe_rl": 4556,
+  "foot_rl__screw": 1320,
+  "leg_rr__egg": 14480,
+  "leg_rr__arm": 8446,
+  "leg_rr__screw": 1320,
+  "leg_rr__internal_servo": 918,
+  "foot_rr__boot_rr": 11600,
+  "foot_rr__toe_rr": 4556,
+  "foot_rr__screw": 1320,
+  "head__head": 20628,
+  "head__bezel": 2854,
+  "head__visor": 3150,
+  "head__lip": 676,
+  "head__mask": 1040,
+  "head__window": 628,
+  "head__lcd_glass": 1260,
+  "head__screen_face": 628,
+  "head__screw": 1320,
+  "head__internal_pcb": 348,
+  "head__internal_chip": 24,
+  "head__internal_wire": 8736
+ }
+}

@@ -1,0 +1,3035 @@
+{
+ "systematic_drop_15mm": {
+  "corner(-1,-1,-1)@0.6": {
+   "ok": true,
+   "t_recovered": 1.3,
+   "final_face": "A",
+   "fell_over": true,
+   "modes": [],
+   "up_end": 1.0,
+   "max_torque_Nm": 0.008
+  },
+  "edge(-1,-1,0)@0.6": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.11
+  },
+  "corner(-1,-1,1)@0.6": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.117
+  },
+  "edge(-1,0,-1)@0.6": {
+   "ok": true,
+   "t_recovered": 1.3,
+   "final_face": "A",
+   "fell_over": true,
+   "modes": [],
+   "up_end": 1.0,
+   "max_torque_Nm": 0.007
+  },
+  "face(-1,0,0)@0.6": {
+   "ok": true,
+   "t_recovered": 1.5,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.98,
+     "flip_through"
+    ],
+    [
+     1.42,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.126
+  },
+  "edge(-1,0,1)@0.6": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.111
+  },
+  "corner(-1,1,-1)@0.6": {
+   "ok": true,
+   "t_recovered": 1.3,
+   "final_face": "A",
+   "fell_over": true,
+   "modes": [],
+   "up_end": 1.0,
+   "max_torque_Nm": 0.009
+  },
+  "edge(-1,1,0)@0.6": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.119
+  },
+  "corner(-1,1,1)@0.6": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.119
+  },
+  "edge(0,-1,-1)@0.6": {
+   "ok": true,
+   "t_recovered": 1.3,
+   "final_face": "A",
+   "fell_over": true,
+   "modes": [],
+   "up_end": 1.0,
+   "max_torque_Nm": 0.008
+  },
+  "face(0,-1,0)@0.6": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.119
+  },
+  "edge(0,-1,1)@0.6": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.123
+  },
+  "face(0,0,-1)@0.6": {
+   "ok": true,
+   "t_recovered": 1.3,
+   "final_face": "A",
+   "fell_over": true,
+   "modes": [],
+   "up_end": 1.0,
+   "max_torque_Nm": 0.007
+  },
+  "face(0,0,1)@0.6": {
+   "ok": true,
+   "t_recovered": 1.5,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.109
+  },
+  "edge(0,1,-1)@0.6": {
+   "ok": true,
+   "t_recovered": 1.3,
+   "final_face": "A",
+   "fell_over": true,
+   "modes": [],
+   "up_end": 1.0,
+   "max_torque_Nm": 0.008
+  },
+  "face(0,1,0)@0.6": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.12
+  },
+  "edge(0,1,1)@0.6": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.115
+  },
+  "corner(1,-1,-1)@0.6": {
+   "ok": true,
+   "t_recovered": 1.3,
+   "final_face": "A",
+   "fell_over": true,
+   "modes": [],
+   "up_end": 1.0,
+   "max_torque_Nm": 0.007
+  },
+  "edge(1,-1,0)@0.6": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.123
+  },
+  "corner(1,-1,1)@0.6": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.108
+  },
+  "edge(1,0,-1)@0.6": {
+   "ok": true,
+   "t_recovered": 1.3,
+   "final_face": "A",
+   "fell_over": true,
+   "modes": [],
+   "up_end": 1.0,
+   "max_torque_Nm": 0.008
+  },
+  "face(1,0,0)@0.6": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.113
+  },
+  "edge(1,0,1)@0.6": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.125
+  },
+  "corner(1,1,-1)@0.6": {
+   "ok": true,
+   "t_recovered": 1.3,
+   "final_face": "A",
+   "fell_over": true,
+   "modes": [],
+   "up_end": 1.0,
+   "max_torque_Nm": 0.008
+  },
+  "edge(1,1,0)@0.6": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.114
+  },
+  "corner(1,1,1)@0.6": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.114
+  },
+  "corner(-1,-1,-1)@0.4": {
+   "ok": true,
+   "t_recovered": 1.3,
+   "final_face": "A",
+   "fell_over": true,
+   "modes": [],
+   "up_end": 1.0,
+   "max_torque_Nm": 0.007
+  },
+  "edge(-1,-1,0)@0.4": {
+   "ok": true,
+   "t_recovered": 1.5,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.107
+  },
+  "corner(-1,-1,1)@0.4": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.115
+  },
+  "edge(-1,0,-1)@0.4": {
+   "ok": true,
+   "t_recovered": 1.3,
+   "final_face": "A",
+   "fell_over": true,
+   "modes": [],
+   "up_end": 1.0,
+   "max_torque_Nm": 0.007
+  },
+  "face(-1,0,0)@0.4": {
+   "ok": true,
+   "t_recovered": 1.6,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     1.1,
+     "flip_through"
+    ],
+    [
+     1.54,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.103
+  },
+  "edge(-1,0,1)@0.4": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.124
+  },
+  "corner(-1,1,-1)@0.4": {
+   "ok": true,
+   "t_recovered": 1.3,
+   "final_face": "A",
+   "fell_over": true,
+   "modes": [],
+   "up_end": 1.0,
+   "max_torque_Nm": 0.01
+  },
+  "edge(-1,1,0)@0.4": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.105
+  },
+  "corner(-1,1,1)@0.4": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.112
+  },
+  "edge(0,-1,-1)@0.4": {
+   "ok": true,
+   "t_recovered": 1.3,
+   "final_face": "A",
+   "fell_over": true,
+   "modes": [],
+   "up_end": 1.0,
+   "max_torque_Nm": 0.007
+  },
+  "face(0,-1,0)@0.4": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.102
+  },
+  "edge(0,-1,1)@0.4": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.103
+  },
+  "face(0,0,-1)@0.4": {
+   "ok": true,
+   "t_recovered": 1.3,
+   "final_face": "A",
+   "fell_over": true,
+   "modes": [],
+   "up_end": 1.0,
+   "max_torque_Nm": 0.007
+  },
+  "face(0,0,1)@0.4": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.104
+  },
+  "edge(0,1,-1)@0.4": {
+   "ok": true,
+   "t_recovered": 1.3,
+   "final_face": "A",
+   "fell_over": true,
+   "modes": [],
+   "up_end": 1.0,
+   "max_torque_Nm": 0.007
+  },
+  "face(0,1,0)@0.4": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.106
+  },
+  "edge(0,1,1)@0.4": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.103
+  },
+  "corner(1,-1,-1)@0.4": {
+   "ok": true,
+   "t_recovered": 1.3,
+   "final_face": "A",
+   "fell_over": true,
+   "modes": [],
+   "up_end": 1.0,
+   "max_torque_Nm": 0.007
+  },
+  "edge(1,-1,0)@0.4": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.119
+  },
+  "corner(1,-1,1)@0.4": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.104
+  },
+  "edge(1,0,-1)@0.4": {
+   "ok": true,
+   "t_recovered": 1.3,
+   "final_face": "A",
+   "fell_over": true,
+   "modes": [],
+   "up_end": 1.0,
+   "max_torque_Nm": 0.007
+  },
+  "face(1,0,0)@0.4": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.106
+  },
+  "edge(1,0,1)@0.4": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.103
+  },
+  "corner(1,1,-1)@0.4": {
+   "ok": true,
+   "t_recovered": 1.3,
+   "final_face": "A",
+   "fell_over": true,
+   "modes": [],
+   "up_end": 1.0,
+   "max_torque_Nm": 0.007
+  },
+  "edge(1,1,0)@0.4": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.101
+  },
+  "corner(1,1,1)@0.4": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.102
+  }
+ },
+ "random_tumble_40mm": {
+  "r0@0.6": {
+   "ok": true,
+   "t_recovered": 1.6,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     1.12,
+     "flip_through"
+    ],
+    [
+     1.56,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.121
+  },
+  "r1@0.6": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.133
+  },
+  "r2@0.6": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.125
+  },
+  "r3@0.6": {
+   "ok": true,
+   "t_recovered": 1.7,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     1.1,
+     "flip_through"
+    ],
+    [
+     1.54,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.194
+  },
+  "r4@0.6": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.119
+  },
+  "r5@0.6": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.111
+  },
+  "r6@0.6": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.128
+  },
+  "r7@0.6": {
+   "ok": true,
+   "t_recovered": 1.3,
+   "final_face": "A",
+   "fell_over": true,
+   "modes": [],
+   "up_end": 1.0,
+   "max_torque_Nm": 0.008
+  },
+  "r8@0.6": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.136
+  },
+  "r9@0.6": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.112
+  },
+  "r10@0.6": {
+   "ok": true,
+   "t_recovered": 1.5,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.124
+  },
+  "r11@0.6": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.128
+  },
+  "r12@0.6": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.118
+  },
+  "r13@0.6": {
+   "ok": true,
+   "t_recovered": 1.3,
+   "final_face": "A",
+   "fell_over": true,
+   "modes": [],
+   "up_end": 1.0,
+   "max_torque_Nm": 0.007
+  },
+  "r14@0.6": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.112
+  },
+  "r15@0.6": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.115
+  },
+  "r16@0.6": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.116
+  },
+  "r17@0.6": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.113
+  },
+  "r18@0.6": {
+   "ok": true,
+   "t_recovered": 1.3,
+   "final_face": "A",
+   "fell_over": true,
+   "modes": [],
+   "up_end": 1.0,
+   "max_torque_Nm": 0.008
+  },
+  "r19@0.6": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.132
+  },
+  "r20@0.6": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.114
+  },
+  "r21@0.6": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.121
+  },
+  "r22@0.6": {
+   "ok": true,
+   "t_recovered": 1.3,
+   "final_face": "A",
+   "fell_over": true,
+   "modes": [],
+   "up_end": 1.0,
+   "max_torque_Nm": 0.008
+  },
+  "r23@0.6": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.124
+  },
+  "r24@0.6": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.114
+  },
+  "r25@0.6": {
+   "ok": true,
+   "t_recovered": 1.3,
+   "final_face": "A",
+   "fell_over": true,
+   "modes": [],
+   "up_end": 1.0,
+   "max_torque_Nm": 0.007
+  },
+  "r26@0.6": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.124
+  },
+  "r27@0.6": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.114
+  },
+  "r28@0.6": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.121
+  },
+  "r29@0.6": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.137
+  },
+  "r0@0.4": {
+   "ok": true,
+   "t_recovered": 1.6,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     1.04,
+     "flip_through"
+    ],
+    [
+     1.48,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.102
+  },
+  "r1@0.4": {
+   "ok": true,
+   "t_recovered": 1.5,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.097
+  },
+  "r2@0.4": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.102
+  },
+  "r3@0.4": {
+   "ok": true,
+   "t_recovered": 1.5,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.096
+  },
+  "r4@0.4": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.095
+  },
+  "r5@0.4": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.099
+  },
+  "r6@0.4": {
+   "ok": true,
+   "t_recovered": 1.5,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.102
+  },
+  "r7@0.4": {
+   "ok": true,
+   "t_recovered": 1.3,
+   "final_face": "A",
+   "fell_over": true,
+   "modes": [],
+   "up_end": 1.0,
+   "max_torque_Nm": 0.007
+  },
+  "r8@0.4": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.098
+  },
+  "r9@0.4": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.121
+  },
+  "r10@0.4": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.111
+  },
+  "r11@0.4": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.101
+  },
+  "r12@0.4": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.1
+  },
+  "r13@0.4": {
+   "ok": true,
+   "t_recovered": 1.3,
+   "final_face": "A",
+   "fell_over": true,
+   "modes": [],
+   "up_end": 1.0,
+   "max_torque_Nm": 0.007
+  },
+  "r14@0.4": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.106
+  },
+  "r15@0.4": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.104
+  },
+  "r16@0.4": {
+   "ok": true,
+   "t_recovered": 1.5,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.102
+  },
+  "r17@0.4": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.114
+  },
+  "r18@0.4": {
+   "ok": true,
+   "t_recovered": 1.3,
+   "final_face": "A",
+   "fell_over": true,
+   "modes": [],
+   "up_end": 1.0,
+   "max_torque_Nm": 0.009
+  },
+  "r19@0.4": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.097
+  },
+  "r20@0.4": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.11
+  },
+  "r21@0.4": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.098
+  },
+  "r22@0.4": {
+   "ok": true,
+   "t_recovered": 1.3,
+   "final_face": "A",
+   "fell_over": true,
+   "modes": [],
+   "up_end": 1.0,
+   "max_torque_Nm": 0.007
+  },
+  "r23@0.4": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.115
+  },
+  "r24@0.4": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.105
+  },
+  "r25@0.4": {
+   "ok": true,
+   "t_recovered": 1.3,
+   "final_face": "A",
+   "fell_over": true,
+   "modes": [],
+   "up_end": 1.0,
+   "max_torque_Nm": 0.007
+  },
+  "r26@0.4": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.122
+  },
+  "r27@0.4": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.106
+  },
+  "r28@0.4": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.104
+  },
+  "r29@0.4": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.115
+  }
+ },
+ "placed_still": {
+  "left side@0.6": {
+   "ok": true,
+   "t_recovered": 2.1,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     1.52,
+     "flip_through"
+    ],
+    [
+     1.96,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.111
+  },
+  "right side@0.6": {
+   "ok": true,
+   "t_recovered": 2.0,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     1.52,
+     "flip_through"
+    ],
+    [
+     1.96,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.119
+  },
+  "nose down@0.6": {
+   "ok": true,
+   "t_recovered": 2.1,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     1.52,
+     "flip_through"
+    ],
+    [
+     1.96,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.121
+  },
+  "tail down@0.6": {
+   "ok": true,
+   "t_recovered": 2.7,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     1.74,
+     "edge_kick"
+    ],
+    [
+     2.26,
+     "flip_through"
+    ],
+    [
+     2.68,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.2
+  },
+  "on back@0.6": {
+   "ok": true,
+   "t_recovered": 2.1,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     1.52,
+     "flip_through"
+    ],
+    [
+     1.96,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.117
+  },
+  "back-left edge@0.6": {
+   "ok": true,
+   "t_recovered": 2.1,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     1.52,
+     "flip_through"
+    ],
+    [
+     1.96,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.113
+  },
+  "left side@0.4": {
+   "ok": true,
+   "t_recovered": 2.1,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     1.52,
+     "flip_through"
+    ],
+    [
+     1.96,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.101
+  },
+  "right side@0.4": {
+   "ok": true,
+   "t_recovered": 2.0,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     1.52,
+     "flip_through"
+    ],
+    [
+     1.96,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.106
+  },
+  "nose down@0.4": {
+   "ok": true,
+   "t_recovered": 2.1,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     1.52,
+     "flip_through"
+    ],
+    [
+     1.96,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.105
+  },
+  "tail down@0.4": {
+   "ok": true,
+   "t_recovered": 2.6,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     1.74,
+     "edge_kick"
+    ],
+    [
+     2.16,
+     "flip_through"
+    ],
+    [
+     2.58,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.2
+  },
+  "on back@0.4": {
+   "ok": true,
+   "t_recovered": 2.1,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     1.52,
+     "flip_through"
+    ],
+    [
+     1.96,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.105
+  },
+  "back-left edge@0.4": {
+   "ok": true,
+   "t_recovered": 2.1,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     1.52,
+     "flip_through"
+    ],
+    [
+     1.96,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.105
+  }
+ },
+ "pushes": {
+  "shove0@0.6": {
+   "ok": true,
+   "t_recovered": 1.9,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     1.4,
+     "flip_through"
+    ],
+    [
+     1.84,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.2
+  },
+  "lift0@0.6": {
+   "ok": true,
+   "t_recovered": 1.8,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     1.26,
+     "flip_through"
+    ],
+    [
+     1.7,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.2
+  },
+  "shove45@0.6": {
+   "ok": true,
+   "t_recovered": 1.1,
+   "final_face": "A",
+   "fell_over": false,
+   "modes": [],
+   "up_end": 1.0,
+   "max_torque_Nm": 0.2
+  },
+  "lift45@0.6": {
+   "ok": true,
+   "t_recovered": 1.8,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     1.22,
+     "edge_kick"
+    ],
+    [
+     1.36,
+     "flip_through"
+    ],
+    [
+     1.78,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.2
+  },
+  "shove90@0.6": {
+   "ok": true,
+   "t_recovered": 1.6,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     1.1,
+     "flip_through"
+    ],
+    [
+     1.54,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.2
+  },
+  "lift90@0.6": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "A",
+   "fell_over": false,
+   "modes": [],
+   "up_end": 1.0,
+   "max_torque_Nm": 0.2
+  },
+  "shove135@0.6": {
+   "ok": true,
+   "t_recovered": 1.1,
+   "final_face": "A",
+   "fell_over": false,
+   "modes": [],
+   "up_end": 1.0,
+   "max_torque_Nm": 0.129
+  },
+  "lift135@0.6": {
+   "ok": true,
+   "t_recovered": 1.8,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     1.28,
+     "flip_through"
+    ],
+    [
+     1.72,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.2
+  },
+  "shove180@0.6": {
+   "ok": true,
+   "t_recovered": 1.9,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     1.44,
+     "flip_through"
+    ],
+    [
+     1.88,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.2
+  },
+  "lift180@0.6": {
+   "ok": true,
+   "t_recovered": 1.9,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     1.32,
+     "flip_through"
+    ],
+    [
+     1.76,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.2
+  },
+  "shove225@0.6": {
+   "ok": true,
+   "t_recovered": 1.9,
+   "final_face": "A",
+   "fell_over": false,
+   "modes": [],
+   "up_end": 1.0,
+   "max_torque_Nm": 0.2
+  },
+  "lift225@0.6": {
+   "ok": true,
+   "t_recovered": 2.0,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     1.54,
+     "flip_through"
+    ],
+    [
+     1.98,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.2
+  },
+  "shove270@0.6": {
+   "ok": true,
+   "t_recovered": 2.1,
+   "final_face": "A",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "edge_kick"
+    ],
+    [
+     1.42,
+     "settle"
+    ],
+    [
+     2.04,
+     "stand"
+    ]
+   ],
+   "up_end": 1.0,
+   "max_torque_Nm": 0.2
+  },
+  "lift270@0.6": {
+   "ok": true,
+   "t_recovered": 1.0,
+   "final_face": "A",
+   "fell_over": false,
+   "modes": [],
+   "up_end": 1.0,
+   "max_torque_Nm": 0.2
+  },
+  "shove315@0.6": {
+   "ok": true,
+   "t_recovered": 1.8,
+   "final_face": "A",
+   "fell_over": false,
+   "modes": [],
+   "up_end": 1.0,
+   "max_torque_Nm": 0.2
+  },
+  "lift315@0.6": {
+   "ok": true,
+   "t_recovered": 1.2,
+   "final_face": "A",
+   "fell_over": false,
+   "modes": [],
+   "up_end": 1.0,
+   "max_torque_Nm": 0.2
+  },
+  "shove0@0.4": {
+   "ok": true,
+   "t_recovered": 1.2,
+   "final_face": "A",
+   "fell_over": false,
+   "modes": [],
+   "up_end": 1.0,
+   "max_torque_Nm": 0.183
+  },
+  "lift0@0.4": {
+   "ok": true,
+   "t_recovered": 1.9,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     1.36,
+     "flip_through"
+    ],
+    [
+     1.8,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.166
+  },
+  "shove45@0.4": {
+   "ok": true,
+   "t_recovered": 1.5,
+   "final_face": "A",
+   "fell_over": false,
+   "modes": [],
+   "up_end": 1.0,
+   "max_torque_Nm": 0.166
+  },
+  "lift45@0.4": {
+   "ok": true,
+   "t_recovered": 1.9,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     1.32,
+     "flip_through"
+    ],
+    [
+     1.76,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.104
+  },
+  "shove90@0.4": {
+   "ok": true,
+   "t_recovered": 1.9,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     1.38,
+     "flip_through"
+    ],
+    [
+     1.82,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.2
+  },
+  "lift90@0.4": {
+   "ok": true,
+   "t_recovered": 1.1,
+   "final_face": "A",
+   "fell_over": false,
+   "modes": [],
+   "up_end": 1.0,
+   "max_torque_Nm": 0.2
+  },
+  "shove135@0.4": {
+   "ok": true,
+   "t_recovered": 1.5,
+   "final_face": "A",
+   "fell_over": false,
+   "modes": [],
+   "up_end": 1.0,
+   "max_torque_Nm": 0.095
+  },
+  "lift135@0.4": {
+   "ok": true,
+   "t_recovered": 1.8,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     1.28,
+     "flip_through"
+    ],
+    [
+     1.72,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.2
+  },
+  "shove180@0.4": {
+   "ok": true,
+   "t_recovered": 1.1,
+   "final_face": "A",
+   "fell_over": false,
+   "modes": [],
+   "up_end": 1.0,
+   "max_torque_Nm": 0.144
+  },
+  "lift180@0.4": {
+   "ok": true,
+   "t_recovered": 1.9,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     1.34,
+     "flip_through"
+    ],
+    [
+     1.78,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.2
+  },
+  "shove225@0.4": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "A",
+   "fell_over": false,
+   "modes": [],
+   "up_end": 1.0,
+   "max_torque_Nm": 0.126
+  },
+  "lift225@0.4": {
+   "ok": true,
+   "t_recovered": 2.0,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     1.24,
+     "edge_kick"
+    ],
+    [
+     1.52,
+     "flip_through"
+    ],
+    [
+     1.94,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.2
+  },
+  "shove270@0.4": {
+   "ok": true,
+   "t_recovered": 2.0,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "edge_kick"
+    ],
+    [
+     1.48,
+     "flip_through"
+    ],
+    [
+     1.9,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.2
+  },
+  "lift270@0.4": {
+   "ok": true,
+   "t_recovered": 1.0,
+   "final_face": "A",
+   "fell_over": false,
+   "modes": [],
+   "up_end": 1.0,
+   "max_torque_Nm": 0.2
+  },
+  "shove315@0.4": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "A",
+   "fell_over": false,
+   "modes": [],
+   "up_end": 1.0,
+   "max_torque_Nm": 0.119
+  },
+  "lift315@0.4": {
+   "ok": true,
+   "t_recovered": 2.0,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     1.54,
+     "flip_through"
+    ],
+    [
+     1.98,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.2
+  }
+ },
+ "weak_servo_4V8_random": {
+  "r0@0.6": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.174
+  },
+  "r1@0.6": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.177
+  },
+  "r2@0.6": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.177
+  },
+  "r3@0.6": {
+   "ok": true,
+   "t_recovered": 1.6,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     1.1,
+     "flip_through"
+    ],
+    [
+     1.54,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.177
+  },
+  "r4@0.6": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.177
+  },
+  "r5@0.6": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.159
+  },
+  "r6@0.6": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.176
+  },
+  "r7@0.6": {
+   "ok": true,
+   "t_recovered": 1.3,
+   "final_face": "A",
+   "fell_over": true,
+   "modes": [],
+   "up_end": 1.0,
+   "max_torque_Nm": 0.007
+  },
+  "r8@0.6": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.175
+  },
+  "r9@0.6": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.168
+  },
+  "r10@0.6": {
+   "ok": true,
+   "t_recovered": 1.5,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.177
+  },
+  "r11@0.6": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.177
+  },
+  "r12@0.6": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.177
+  },
+  "r13@0.6": {
+   "ok": true,
+   "t_recovered": 1.3,
+   "final_face": "A",
+   "fell_over": true,
+   "modes": [],
+   "up_end": 1.0,
+   "max_torque_Nm": 0.007
+  },
+  "r14@0.6": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.177
+  },
+  "r15@0.6": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.177
+  },
+  "r16@0.6": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.176
+  },
+  "r17@0.6": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.176
+  },
+  "r18@0.6": {
+   "ok": true,
+   "t_recovered": 1.3,
+   "final_face": "A",
+   "fell_over": true,
+   "modes": [],
+   "up_end": 1.0,
+   "max_torque_Nm": 0.009
+  },
+  "r19@0.6": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.177
+  },
+  "r20@0.6": {
+   "ok": true,
+   "t_recovered": 1.5,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.167
+  },
+  "r21@0.6": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.162
+  },
+  "r22@0.6": {
+   "ok": true,
+   "t_recovered": 1.3,
+   "final_face": "A",
+   "fell_over": true,
+   "modes": [],
+   "up_end": 1.0,
+   "max_torque_Nm": 0.008
+  },
+  "r23@0.6": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.177
+  },
+  "r24@0.6": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.171
+  },
+  "r25@0.6": {
+   "ok": true,
+   "t_recovered": 1.3,
+   "final_face": "A",
+   "fell_over": true,
+   "modes": [],
+   "up_end": 1.0,
+   "max_torque_Nm": 0.008
+  },
+  "r26@0.6": {
+   "ok": true,
+   "t_recovered": 1.5,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.177
+  },
+  "r27@0.6": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.166
+  },
+  "r28@0.6": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.169
+  },
+  "r29@0.6": {
+   "ok": true,
+   "t_recovered": 1.4,
+   "final_face": "B",
+   "fell_over": true,
+   "modes": [
+    [
+     0.9,
+     "flip_through"
+    ],
+    [
+     1.34,
+     "stand"
+    ]
+   ],
+   "up_end": -1.0,
+   "max_torque_Nm": 0.177
+  }
+ },
+ "summary": {
+  "systematic_drop_15mm@0.6": {
+   "success": "26/26",
+   "needed_righting": 17,
+   "fails": [],
+   "t_median_s": 1.4,
+   "t_max_s": 1.5,
+   "max_torque_Nm": 0.126,
+   "ended_face_B": 17
+  },
+  "systematic_drop_15mm@0.4": {
+   "success": "26/26",
+   "needed_righting": 17,
+   "fails": [],
+   "t_median_s": 1.4,
+   "t_max_s": 1.6,
+   "max_torque_Nm": 0.124,
+   "ended_face_B": 17
+  },
+  "random_tumble_40mm@0.6": {
+   "success": "30/30",
+   "needed_righting": 25,
+   "fails": [],
+   "t_median_s": 1.4,
+   "t_max_s": 1.7,
+   "max_torque_Nm": 0.194,
+   "ended_face_B": 25
+  },
+  "random_tumble_40mm@0.4": {
+   "success": "30/30",
+   "needed_righting": 25,
+   "fails": [],
+   "t_median_s": 1.4,
+   "t_max_s": 1.6,
+   "max_torque_Nm": 0.122,
+   "ended_face_B": 25
+  },
+  "placed_still@0.6": {
+   "success": "6/6",
+   "needed_righting": 6,
+   "fails": [],
+   "t_median_s": 2.1,
+   "t_max_s": 2.7,
+   "max_torque_Nm": 0.2,
+   "ended_face_B": 6
+  },
+  "placed_still@0.4": {
+   "success": "6/6",
+   "needed_righting": 6,
+   "fails": [],
+   "t_median_s": 2.1,
+   "t_max_s": 2.6,
+   "max_torque_Nm": 0.2,
+   "ended_face_B": 6
+  },
+  "pushes@0.6": {
+   "success": "16/16",
+   "needed_righting": 9,
+   "fails": [],
+   "t_median_s": 1.8,
+   "t_max_s": 2.1,
+   "max_torque_Nm": 0.2,
+   "ended_face_B": 8
+  },
+  "pushes@0.4": {
+   "success": "16/16",
+   "needed_righting": 8,
+   "fails": [],
+   "t_median_s": 1.65,
+   "t_max_s": 2.0,
+   "max_torque_Nm": 0.2,
+   "ended_face_B": 8
+  },
+  "weak_servo_4V8_random@0.6": {
+   "success": "30/30",
+   "needed_righting": 25,
+   "fails": [],
+   "t_median_s": 1.4,
+   "t_max_s": 1.6,
+   "max_torque_Nm": 0.177,
+   "ended_face_B": 25
+  }
+ }
+}

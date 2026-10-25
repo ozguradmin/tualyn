@@ -1,0 +1,229 @@
+{
+ "body": {
+  "shell": [
+   "body__shell__0.brep",
+   "body__shell__1.brep"
+  ],
+  "badge": [
+   "body__badge__0.brep",
+   "body__badge__1.brep"
+  ],
+  "lip": [
+   "body__lip__0.brep",
+   "body__lip__1.brep",
+   "body__lip__2.brep",
+   "body__lip__3.brep",
+   "body__lip__4.brep"
+  ],
+  "tail": [
+   "body__tail__0.brep"
+  ],
+  "metal": [
+   "body__metal__0.brep"
+  ],
+  "stalk": [
+   "body__stalk__0.brep"
+  ],
+  "screw": [
+   "body__screw__0.brep",
+   "body__screw__1.brep",
+   "body__screw__2.brep",
+   "body__screw__3.brep"
+  ],
+  "internal_servo": [
+   "body__internal_servo__0.brep",
+   "body__internal_servo__1.brep",
+   "body__internal_servo__2.brep",
+   "body__internal_servo__3.brep",
+   "body__internal_servo__4.brep"
+  ],
+  "speaker": [
+   "body__speaker__0.brep"
+  ],
+  "switch": [
+   "body__switch__0.brep",
+   "body__switch__1.brep"
+  ],
+  "internal_cell": [
+   "body__internal_cell__0.brep",
+   "body__internal_cell__1.brep"
+  ],
+  "internal_pcb": [
+   "body__internal_pcb__0.brep",
+   "body__internal_pcb__1.brep",
+   "body__internal_pcb__2.brep",
+   "body__internal_pcb__3.brep",
+   "body__internal_pcb__4.brep",
+   "body__internal_pcb__5.brep",
+   "body__internal_pcb__6.brep",
+   "body__internal_pcb__7.brep",
+   "body__internal_pcb__8.brep",
+   "body__internal_pcb__9.brep",
+   "body__internal_pcb__10.brep",
+   "body__internal_pcb__11.brep",
+   "body__internal_pcb__12.brep",
+   "body__internal_pcb__13.brep"
+  ],
+  "internal_chip": [
+   "body__internal_chip__0.brep",
+   "body__internal_chip__1.brep",
+   "body__internal_chip__2.brep",
+   "body__internal_chip__3.brep",
+   "body__internal_chip__4.brep",
+   "body__internal_chip__5.brep",
+   "body__internal_chip__6.brep",
+   "body__internal_chip__7.brep",
+   "body__internal_chip__8.brep",
+   "body__internal_chip__9.brep",
+   "body__internal_chip__10.brep",
+   "body__internal_chip__11.brep",
+   "body__internal_chip__12.brep",
+   "body__internal_chip__13.brep",
+   "body__internal_chip__14.brep",
+   "body__internal_chip__15.brep"
+  ],
+  "internal_chassis": [
+   "body__internal_chassis__0.brep",
+   "body__internal_chassis__1.brep"
+  ],
+  "internal_cap": [
+   "body__internal_cap__0.brep",
+   "body__internal_cap__1.brep",
+   "body__internal_cap__2.brep"
+  ],
+  "internal_wire": [
+   "body__internal_wire__0.pkl",
+   "body__internal_wire__1.pkl",
+   "body__internal_wire__2.pkl",
+   "body__internal_wire__3.pkl",
+   "body__internal_wire__4.pkl",
+   "body__internal_wire__5.pkl",
+   "body__internal_wire__6.pkl",
+   "body__internal_wire__7.pkl",
+   "body__internal_wire__8.pkl",
+   "body__internal_wire__9.pkl",
+   "body__internal_wire__10.pkl",
+   "body__internal_wire__11.pkl",
+   "body__internal_wire__12.pkl"
+  ]
+ },
+ "foot": {
+  "boot": [
+   "foot__boot__0.brep"
+  ],
+  "toe": [
+   "foot__toe__0.brep"
+  ],
+  "screw": [
+   "foot__screw__0.brep",
+   "foot__screw__1.brep"
+  ]
+ },
+ "head": {
+  "head": [
+   "head__head__0.brep"
+  ],
+  "bezel": [
+   "head__bezel__0.brep"
+  ],
+  "visor": [
+   "head__visor__0.brep"
+  ],
+  "lip": [
+   "head__lip__0.brep",
+   "head__lip__1.brep"
+  ],
+  "mask": [
+   "head__mask__0.brep"
+  ],
+  "window": [
+   "head__window__0.brep"
+  ],
+  "lcd_glass": [
+   "head__lcd_glass__0.brep"
+  ],
+  "screen_face": [
+   "head__screen_face__0.brep"
+  ],
+  "screw": [
+   "head__screw__0.brep",
+   "head__screw__1.brep"
+  ],
+  "internal_pcb": [
+   "head__internal_pcb__0.brep",
+   "head__internal_pcb__1.brep"
+  ],
+  "internal_chip": [
+   "head__internal_chip__0.brep",
+   "head__internal_chip__1.brep"
+  ],
+  "internal_wire": [
+   "head__internal_wire__0.pkl",
+   "head__internal_wire__1.pkl",
+   "head__internal_wire__2.pkl",
+   "head__internal_wire__3.pkl",
+   "head__internal_wire__4.pkl",
+   "head__internal_wire__5.pkl"
+  ]
+ },
+ "leg_fl": {
+  "egg": [
+   "leg_fl__egg__0.brep"
+  ],
+  "arm": [
+   "leg_fl__arm__0.brep"
+  ],
+  "screw": [
+   "leg_fl__screw__0.brep",
+   "leg_fl__screw__1.brep"
+  ],
+  "internal_servo": [
+   "leg_fl__internal_servo__0.brep"
+  ]
+ },
+ "leg_fr": {
+  "egg": [
+   "leg_fr__egg__0.brep"
+  ],
+  "arm": [
+   "leg_fr__arm__0.brep"
+  ],
+  "screw": [
+   "leg_fr__screw__0.brep",
+   "leg_fr__screw__1.brep"
+  ],
+  "internal_servo": [
+   "leg_fr__internal_servo__0.brep"
+  ]
+ },
+ "leg_rl": {
+  "egg": [
+   "leg_rl__egg__0.brep"
+  ],
+  "arm": [
+   "leg_rl__arm__0.brep"
+  ],
+  "screw": [
+   "leg_rl__screw__0.brep",
+   "leg_rl__screw__1.brep"
+  ],
+  "internal_servo": [
+   "leg_rl__internal_servo__0.brep"
+  ]
+ },
+ "leg_rr": {
+  "egg": [
+   "leg_rr__egg__0.brep"
+  ],
+  "arm": [
+   "leg_rr__arm__0.brep"
+  ],
+  "screw": [
+   "leg_rr__screw__0.brep",
+   "leg_rr__screw__1.brep"
+  ],
+  "internal_servo": [
+   "leg_rr__internal_servo__0.brep"
+  ]
+ }
+}

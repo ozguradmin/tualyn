@@ -1,0 +1,260 @@
+{
+ "_mjcf_vs_glb": {
+  "checked": [
+   "leg_fl",
+   "leg_fr",
+   "leg_rl",
+   "leg_rr",
+   "wheel_fl",
+   "wheel_fr",
+   "wheel_rl",
+   "wheel_rr"
+  ],
+  "max_pos_err_mm": 0.0,
+  "max_axis_err": 0.0,
+  "range_ok": true,
+  "mass_sum_g": 300.9
+ },
+ "_arm_shell_clear_range_deg": {
+  "hip_fl": [
+   4.0,
+   90.0
+  ],
+  "hip_rl": [
+   3.0,
+   119.0
+  ],
+  "hip_fr": [
+   4.0,
+   90.0
+  ],
+  "hip_rr": [
+   3.0,
+   119.0
+  ]
+ },
+ "idle": {
+  "frames": 151,
+  "min_z_mm": -0.15,
+  "max_gap_mm": -0.12,
+  "frames_gap_over_1mm": 0,
+  "frames_below_minus_1p2mm": 0,
+  "tyre_hub_in_egg_hull_mm": 0.0,
+  "tyre_tyre_clearance_mm": 27.55,
+  "arm_in_shell_mm": 0.0,
+  "hip_range_deg": {
+   "hip_fl": [
+    17.63,
+    26.64
+   ],
+   "hip_fr": [
+    17.63,
+    26.64
+   ],
+   "hip_rl": [
+    17.56,
+    26.56
+   ],
+   "hip_rr": [
+    17.56,
+    26.56
+   ]
+  }
+ },
+ "walk": {
+  "frames": 210,
+  "min_z_mm": -0.16,
+  "max_gap_mm": -0.12,
+  "frames_gap_over_1mm": 0,
+  "frames_below_minus_1p2mm": 0,
+  "tyre_hub_in_egg_hull_mm": 0.0,
+  "tyre_tyre_clearance_mm": 32.61,
+  "arm_in_shell_mm": 0.0,
+  "hip_range_deg": {
+   "hip_fl": [
+    22.14,
+    22.26
+   ],
+   "hip_fr": [
+    22.14,
+    22.25
+   ],
+   "hip_rl": [
+    22.11,
+    22.34
+   ],
+   "hip_rr": [
+    22.11,
+    22.33
+   ]
+  }
+ },
+ "turn": {
+  "frames": 150,
+  "min_z_mm": -1.26,
+  "max_gap_mm": 0.08,
+  "frames_gap_over_1mm": 0,
+  "frames_below_minus_1p2mm": 1,
+  "tyre_hub_in_egg_hull_mm": 0.0,
+  "tyre_tyre_clearance_mm": 32.54,
+  "arm_in_shell_mm": 0.0,
+  "hip_range_deg": {
+   "hip_fl": [
+    22.05,
+    82.01
+   ],
+   "hip_fr": [
+    22.05,
+    82.0
+   ],
+   "hip_rl": [
+    22.05,
+    50.18
+   ],
+   "hip_rr": [
+    22.11,
+    49.95
+   ]
+  }
+ },
+ "talk": {
+  "frames": 151,
+  "min_z_mm": -0.18,
+  "max_gap_mm": -0.13,
+  "frames_gap_over_1mm": 0,
+  "frames_below_minus_1p2mm": 0,
+  "tyre_hub_in_egg_hull_mm": 0.0,
+  "tyre_tyre_clearance_mm": 28.38,
+  "arm_in_shell_mm": 0.0,
+  "hip_range_deg": {
+   "hip_fl": [
+    16.45,
+    27.75
+   ],
+   "hip_fr": [
+    15.05,
+    29.08
+   ],
+   "hip_rl": [
+    16.74,
+    27.43
+   ],
+   "hip_rr": [
+    17.77,
+    26.38
+   ]
+  }
+ },
+ "happy": {
+  "frames": 120,
+  "min_z_mm": -1.03,
+  "max_gap_mm": 0.1,
+  "frames_gap_over_1mm": 0,
+  "frames_below_minus_1p2mm": 0,
+  "tyre_hub_in_egg_hull_mm": 0.0,
+  "tyre_tyre_clearance_mm": 22.33,
+  "arm_in_shell_mm": 0.0,
+  "hip_range_deg": {
+   "hip_fl": [
+    13.09,
+    80.59
+   ],
+   "hip_fr": [
+    13.18,
+    40.6
+   ],
+   "hip_rl": [
+    7.91,
+    31.47
+   ],
+   "hip_rr": [
+    12.89,
+    65.31
+   ]
+  }
+ },
+ "fall_recover": {
+  "frames": 167,
+  "min_z_mm": -0.6,
+  "max_gap_mm": 0.61,
+  "frames_gap_over_1mm": 0,
+  "frames_below_minus_1p2mm": 0,
+  "tyre_hub_in_egg_hull_mm": 0.0,
+  "tyre_tyre_clearance_mm": 31.9,
+  "arm_in_shell_mm": 0.0,
+  "hip_range_deg": {
+   "hip_fl": [
+    21.94,
+    80.46
+   ],
+   "hip_fr": [
+    21.91,
+    22.37
+   ],
+   "hip_rl": [
+    21.02,
+    118.18
+   ],
+   "hip_rr": [
+    21.57,
+    22.8
+   ]
+  }
+ },
+ "sleep": {
+  "frames": 120,
+  "min_z_mm": -0.21,
+  "max_gap_mm": -0.0,
+  "frames_gap_over_1mm": 0,
+  "frames_below_minus_1p2mm": 0,
+  "tyre_hub_in_egg_hull_mm": 0.0,
+  "tyre_tyre_clearance_mm": 32.63,
+  "arm_in_shell_mm": 0.0,
+  "hip_range_deg": {
+   "hip_fl": [
+    22.15,
+    76.92
+   ],
+   "hip_fr": [
+    22.15,
+    76.92
+   ],
+   "hip_rl": [
+    22.14,
+    73.92
+   ],
+   "hip_rr": [
+    22.14,
+    73.92
+   ]
+  }
+ },
+ "fall_back_help": {
+  "frames": 165,
+  "min_z_mm": -1.27,
+  "max_gap_mm": 0.08,
+  "frames_gap_over_1mm": 0,
+  "frames_below_minus_1p2mm": 1,
+  "tyre_hub_in_egg_hull_mm": 0.0,
+  "tyre_tyre_clearance_mm": 32.21,
+  "arm_in_shell_mm": 0.0,
+  "hip_range_deg": {
+   "hip_fl": [
+    21.7,
+    62.03
+   ],
+   "hip_fr": [
+    21.7,
+    62.03
+   ],
+   "hip_rl": [
+    21.17,
+    61.96
+   ],
+   "hip_rr": [
+    21.26,
+    61.97
+   ]
+  }
+ }
+}

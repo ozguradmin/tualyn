@@ -1,0 +1,124 @@
+{
+ "summary_tr": "Ağırlıklı puanlar birbirine çok yakın (6,0-6,7) ve hiçbiri her konuda iyi değil. Fındık en sevimli ve en ucuzu ama yürümüyor; Tosbi en iyi kalkan ama görünüşü zayıf; Tarçın en karakterlisi ama en pahalı ve en kırılgan; Yumurcak her alanda orta-iyi. Bütün hareket sonuçları MuJoCo simülasyonundan geliyor; hiçbiri gerçek donanımda denenmedi ve pil voltajının düşmesi hiçbir simülasyonda modellenmedi.",
+ "recommendation_tr": "Yapılacak robot olarak Yumurcak'ı (D) öneriyoruz. Fındık puan tablosunda 0,2 puanla önde, ama tekerlekle yuvarlanıyor ve sırtüstü düşünce kalkamıyor; ailenin 'iyi yürüsün' isteğini karşılamıyor. Yumurcak ise gerçekten yürüyor, simülasyonda her düşüşten sonunda kalkıyor, sevimli bir fikri var ve tam kurulumu yaklaşık 5.600-6.900 TL. 5 bin TL'ye yaklaşmak isteniyorsa en iyi ucuz seçenek Yumurcak'ın sade sürümü (4.860-5.810 TL, basılı vizörle). Yürüme şart değilse, en ucuz ve en kolay kurulan Fındık da iyi bir seçim. Hangisi seçilirse seçilsin kalkma hareketi gerçek donanımda yeniden ayarlanmalı ve servoların aynı anda çalışmaması sağlanmalı; ayrıca Claude API kredisi ve bir parçanın bozulmasına karşı birkaç yüz TL yedek bütçe ayrılmalı.",
+ "ranking": [
+  {
+   "key": "C",
+   "rank": 1,
+   "score_total": 6.7,
+   "scores": {
+    "Görünüş": 8,
+    "Yürüyüş ve kalkma": 5,
+    "Maliyet ve yapım": 7.5
+   },
+   "verdict_tr": "Fındık dört robotun en sevimlisi, ve en ucuz, en kolay kurulanı da o. Ama yürümüyor: arka tekerleklerle yuvarlanıyor, bacaklar sadece duruşu tutuyor. Sırtüstü ya da yüzüstü düşünce de kendi kalkamıyor. Ailenin 'iyi yürüsün' isteğini karşılamadığı için puanı yüksek olsa da ilk tercih değil.",
+   "pros": [
+    "En sevimli siluet: kulaklı top gövde, büyük amber gözler, patili tekerlek kapakları",
+    "Gözlerin önünde füme akrilik yok, ekranlar parlak görünüyor",
+    "En ucuz tam kurulum (tipik ~5.790 TL) ve en basit elektronik: tek kart, 4 servo, 2 N20 motor",
+    "Robotun üstünde mikrofon ve hoparlör olan tek paket; Claude ile sesli konuşma telefona bağlı değil",
+    "En hızlı ve en sağlam hareket (13,8 cm/s), servolar az yükleniyor"
+   ],
+   "cons": [
+    "Yürümüyor, tekerlekle yuvarlanıyor",
+    "Düz tekerleklerle düzgün dönemiyor; çözüm olarak karnının üstünde dönüyor, bu da kabuğu masada sürtüyor",
+    "Sırtüstü, yüzüstü ve ters düşüşlerde 0/3: mutlaka elle kaldırılması gerekiyor",
+    "Yan düşüşten kalkma, ağırlık merkezi birkaç mm kayınca çok bozuluyor (simülasyonda 16/18'den 4/18'e)",
+    "Renderdaki parlak vizör için zımpara + 2K vernik gerekiyor; karamel filamentin Türkiye'de bulunduğu doğrulanmadı"
+   ],
+   "real_cost_tl": [
+    5470,
+    6850
+   ],
+   "real_cost_note_tr": "bom.json toplamı 5.470-6.750 TL (tipik 5.790): parça 4.465 + baskı 650-1.200 + 4 ayrı kargo 360-700. Üst sınıra N20 motor indiriminin bitme ihtimali (+42 TL) ve küçük sapmalar eklendi. Hoparlörsüz sade sürüm 4.790-6.070 TL. Dahil değil: aletler, Claude API ön ödemeli kredisi (~200-250 TL), bir parçanın yanması ihtimaline karşı yedek bütçe (~250-400 TL). Amazon'daki 309 TL'lik amfi fiyatı kontrol edilemedi."
+  },
+  {
+   "key": "D",
+   "rank": 2,
+   "score_total": 6.5,
+   "scores": {
+    "Görünüş": 6,
+    "Yürüyüş ve kalkma": 7,
+    "Maliyet ve yapım": 6.5
+   },
+   "verdict_tr": "Yumurcak gerçekten yürüyen ve her düşüşten (simülasyonda) sonunda kalkabilen en uygun fiyatlı robot. Çatlak yumurta kabuğu fikri sevimli ve akılda kalıcı. Zayıf yanları: yavaş yürüyor, sırtüstü düşünce kalkması 10-12 saniye sürebiliyor, ve vizörü güzel yapmak evde zor.",
+   "pros": [
+    "Çatlak yumurta kabuğu şapkası: hemen anlaşılan, hikâyesi olan sevimli bir fikir",
+    "Simülasyonda üç farklı sürtünmede 60/60 düşüşten sonunda kalkıyor",
+    "Yürüyen robotlar arasında yerinde en iyi dönüş (~60°/s), az sapma",
+    "Yalnızca 3 mağaza; sade sürüm 4.860 TL'den başlıyor ve 9 servo, iki göz, IMU ve kendi kendine kalkmayı koruyor",
+    "Renk planı basit, AMS gerekmiyor"
+   ],
+   "cons": [
+    "En yavaş yürüyen (~4,5 cm/s); yürürken servolar sınırın %78'inde",
+    "Düşüşlerin ancak %65-75'inde ilk denemede kalkıyor; sırtüstünde 12,6 sn'ye kadar sürüyor",
+    "Kalkma, konseptte olmayan ve firmware'e yeni yazılması gereken bir 'yan kıvrılma' hareketine bağlı",
+    "Parlak vizör evde vakumla şekillendirme istiyor; basılı yedek vizör mat ve katmanlı görünüyor. Renderda parlama bir gözü kapatıyor",
+    "Gerçek turuncu renderdakinden çok daha canlı; diz servosu 0-164° açıyı zor yetiştiriyor"
+   ],
+   "real_cost_tl": [
+    5620,
+    6930
+   ],
+   "real_cost_note_tr": "bom.json toplamı 5.620-6.760 TL (tipik 6.050): parça 4.510 + yerel hizmet 175-450 + baskı 750-1.250 + kargo 180-550. Üst sınıra VL53L0X indiriminin bitme ihtimali (+167 TL) eklendi. Sade sürüm (basılı vizör, kenar sensörü yok) 4.860-5.810 TL. Dahil değil: aletler, robotta mikrofon/hoparlör (+506 TL, isteğe bağlı), Claude API kredisi (~200-250 TL), yedek bütçe (~250-400 TL)."
+  },
+  {
+   "key": "A",
+   "rank": 3,
+   "score_total": 6.1,
+   "scores": {
+    "Görünüş": 4,
+    "Yürüyüş ve kalkma": 8,
+    "Maliyet ve yapım": 6
+   },
+   "verdict_tr": "Tosbi düşüp kalkmada açık ara en iyisi: iki yüzü aynı olduğu için 'sırtüstü kaldım' diye bir durum yok, simülasyonda her düşüşten yarım saniye civarında doğruluyor. Ama görünüşü bir evcil hayvandan çok yengeç ya da böceğe benziyor, yüzü küçük ve soluk. Elektroniği de bir aile için yoğun.",
+   "pros": [
+    "Simülasyonda 156/156 düşüşten kalkıyor, zayıf servolarla bile (30/30 ve 14/14)",
+    "En hızlı kalkma: ortalama 0,5 sn",
+    "Yalnızca 2 iyi stoklu mağaza, en düşük tedarik riski",
+    "Nane, krem ve mercan renkleri hoş; baskı kalitesi ve ek yerleri temiz"
+   ],
+   "cons": [
+    "Basık, geniş yengeç/böcek silueti; küçük kafa, tek ekran füme akrilik arkasında gri görünüyor",
+    "Yanda çıkıntılı siyah anahtar ve üstte 8'den fazla açık vida başı",
+    "Yürürken diz servoları sınırın %96'sında; gerçekte muhtemelen 5 cm/s'nin altında yürür",
+    "Yoğun elektronik (PCA9685, 3 voltaj düşürücü, aynı I2C adresli iki mesafe sensörü) ve 6 ayrı baskı işi",
+    "Robotta mikrofon yok; vizör parlaklığı için ek zımpara ve vernik (200-400 TL) gerekiyor"
+   ],
+   "real_cost_tl": [
+    6050,
+    7400
+   ],
+   "real_cost_note_tr": "bom.json toplamı 6.048-7.048 TL: çevrimiçi parça 4.698 + yerel 280-550 + baskı 900-1.500 + kargo 170-300. Üst sınıra iki mesafe sensörünün indiriminin bitme ihtimali (+335 TL) eklendi. Sade sürüm 4.853-5.683 TL, ama masa kenarı algılaması tamamen gidiyor. Dahil değil: aletler, isteğe bağlı vizör cilası (200-400 TL), Claude API kredisi (~200-250 TL), yedek bütçe."
+  },
+  {
+   "key": "B",
+   "rank": 4,
+   "score_total": 6.0,
+   "scores": {
+    "Görünüş": 7,
+    "Yürüyüş ve kalkma": 6,
+    "Maliyet ve yapım": 4.5
+   },
+   "verdict_tr": "Tarçın en karakterli hayvan ve yürüyen robotlar arasında en iyi yürüyen (7 cm/s). Fakat en pahalısı ve en zor kurulanı. Kendi hassasiyet testi de pil voltajı düşünce kalkmanın çöktüğünü gösteriyor. Bu pillerle de voltaj düşüşü büyük ihtimalle yaşanacak.",
+   "pros": [
+    "En tanınır hayvan karakteri: kulaklar, maske, burun, ağız ve çizgili kuyruk",
+    "Kalp gözler ve yanak LED'leri; paketlerdeki en sevimli kare",
+    "Yürüyen robotlar arasında en hızlı, en köpeksi yürüyüş (7,0 cm/s) ve 46°/s dönüş",
+    "En gerçekçi servo modeli ve dürüst bir hassasiyet çalışması; tüm mağaza satırları doğrulanmış"
+   ],
+   "cons": [
+    "En pahalı: tam kurulum 6.330-7.560 TL, sade sürüm bile 5.500 TL'nin altına inmiyor",
+    "En zor kurulum: iki mikrodenetleyici, 10 servo, 12 telli boyun kablosu, kalça yarıklarından geçen kablolar",
+    "Servo gücü 0,16 N·m'ye düşünce 23 düşüşten yalnızca 15'inden kalkıyor (ilk denemede 1/23); 4,8 A tepe akım 2,7 A'lik pilleri zorlar",
+    "Düşüşlerde boyun servosu yaklaşık 6,7 kat aşırı yükleniyor; dişli kırılması ve tekrar eden masraf bekleniyor",
+    "Bacaklar mekanik görünüyor (ince siyah incikler, açık vidalar, görünen kablo demeti); gerçek turuncu renderdakinden daha canlı"
+   ],
+   "real_cost_tl": [
+    6330,
+    7730
+   ],
+   "real_cost_note_tr": "bom.json toplamı 6.330-7.560 TL: doğrulanmış parça 5.163 + hizmet 240-550 + baskı 750-1.300 + kargo 180-550. Üst sınıra VL53L0X indiriminin bitme ihtimali (+167 TL) eklendi. Sade sürüm 5.530-6.370 TL. Dahil değil: aletler, kırılabilecek 303 TL'lik boyun servosu için yedek, silikon kablo yenilemesi, Claude API kredisi, yedek bütçe."
+  }
+ ]
+}

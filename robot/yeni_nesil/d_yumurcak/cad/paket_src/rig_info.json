@@ -1,0 +1,153 @@
+{
+ "CZ": 77.27331556501294,
+ "origins": {
+  "body": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "head": [
+   0.0,
+   -0.832,
+   81.186
+  ],
+  "haunch_fr": [
+   -24.0,
+   -24.0,
+   41.273
+  ],
+  "paw_fr": [
+   -24.0,
+   -48.3,
+   46.773
+  ],
+  "haunch_fl": [
+   24.0,
+   -24.0,
+   41.273
+  ],
+  "paw_fl": [
+   24.0,
+   -48.3,
+   46.773
+  ],
+  "haunch_br": [
+   -24.0,
+   24.0,
+   41.273
+  ],
+  "paw_br": [
+   -24.0,
+   48.3,
+   46.773
+  ],
+  "haunch_bl": [
+   24.0,
+   24.0,
+   41.273
+  ],
+  "paw_bl": [
+   24.0,
+   48.3,
+   46.773
+  ]
+ },
+ "parents": {
+  "head": "body",
+  "haunch_fr": "body",
+  "paw_fr": "haunch_fr",
+  "haunch_fl": "body",
+  "paw_fl": "haunch_fl",
+  "haunch_br": "body",
+  "paw_br": "haunch_br",
+  "haunch_bl": "body",
+  "paw_bl": "haunch_bl"
+ },
+ "NV": [
+  0.0,
+  -0.20791169081775934,
+  0.9781476007338057
+ ],
+ "cap_layer_axis": [
+  0.1908,
+  0.1196,
+  0.9743
+ ],
+ "eyes": {
+  "eyeR": {
+   "centre_world": [
+    -17.0,
+    -34.24,
+    93.75
+   ],
+   "normal": [
+    -0.4083,
+    -0.8226,
+    0.3958
+   ]
+  },
+  "eyeL": {
+   "centre_world": [
+    17.0,
+    -34.24,
+    93.75
+   ],
+   "normal": [
+    0.4083,
+    -0.8226,
+    0.3958
+   ]
+  }
+ },
+ "triangles": {
+  "body__shell": 18994,
+  "body__lens": 2320,
+  "body__screw": 1408,
+  "body__usb_metal": 540,
+  "body__black": 64,
+  "body__internal_servo": 1872,
+  "body__internal_battery": 328,
+  "body__internal_frame": 2900,
+  "body__internal_pcb": 76,
+  "head__shell": 9576,
+  "head__visor": 2744,
+  "head__cap": 1780,
+  "head__internal_pcb_disp": 352,
+  "head__internal_lcd": 328,
+  "head__mask": 2374,
+  "head__internal_servo": 380,
+  "head__internal_frame": 12,
+  "head__internal_magnet": 328,
+  "haunch_fr__ball": 11458,
+  "haunch_fr__internal_servo": 468,
+  "haunch_fr__internal_horn": 332,
+  "paw_fr__paw": 9446,
+  "paw_fr__sole": 771,
+  "paw_fr__screw": 296,
+  "paw_fr__internal_horn": 332,
+  "haunch_fl__ball": 11458,
+  "haunch_fl__internal_servo": 468,
+  "haunch_fl__internal_horn": 332,
+  "paw_fl__paw": 9446,
+  "paw_fl__sole": 771,
+  "paw_fl__screw": 296,
+  "paw_fl__internal_horn": 332,
+  "haunch_br__ball": 11458,
+  "haunch_br__internal_servo": 468,
+  "haunch_br__internal_horn": 332,
+  "paw_br__paw": 9446,
+  "paw_br__sole": 771,
+  "paw_br__screw": 296,
+  "paw_br__internal_horn": 332,
+  "haunch_bl__ball": 11458,
+  "haunch_bl__internal_servo": 468,
+  "haunch_bl__internal_horn": 332,
+  "paw_bl__paw": 9446,
+  "paw_bl__sole": 771,
+  "paw_bl__screw": 296,
+  "paw_bl__internal_horn": 332,
+  "head__screen_eyeR": 128,
+  "head__screen_eyeL": 128
+ },
+ "total_triangles": 139044
+}

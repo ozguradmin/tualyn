@@ -1,0 +1,93 @@
+{
+ "body": {
+  "mass_g": 164.9,
+  "com_link_mm": [
+   -0.01,
+   3.93,
+   67.06
+  ]
+ },
+ "head": {
+  "mass_g": 53.5,
+  "com_link_mm": [
+   1.33,
+   -10.12,
+   24.16
+  ]
+ },
+ "haunch_fl": {
+  "mass_g": 23.6,
+  "com_link_mm": [
+   0.12,
+   -0.17,
+   0.87
+  ]
+ },
+ "paw_fl": {
+  "mass_g": 8.2,
+  "com_link_mm": [
+   -1.9,
+   1.1,
+   -20.38
+  ]
+ },
+ "haunch_fr": {
+  "mass_g": 23.6,
+  "com_link_mm": [
+   0.05,
+   -0.13,
+   0.8
+  ]
+ },
+ "paw_fr": {
+  "mass_g": 8.2,
+  "com_link_mm": [
+   2.24,
+   0.97,
+   -20.74
+  ]
+ },
+ "haunch_bl": {
+  "mass_g": 23.6,
+  "com_link_mm": [
+   0.03,
+   0.41,
+   0.91
+  ]
+ },
+ "paw_bl": {
+  "mass_g": 8.2,
+  "com_link_mm": [
+   -2.21,
+   -1.06,
+   -20.7
+  ]
+ },
+ "haunch_br": {
+  "mass_g": 23.6,
+  "com_link_mm": [
+   0.03,
+   0.48,
+   0.99
+  ]
+ },
+ "paw_br": {
+  "mass_g": 8.2,
+  "com_link_mm": [
+   2.07,
+   -1.07,
+   -20.74
+  ]
+ },
+ "_total_g": 345.6,
+ "_com_world_rest_mm": [
+  0.22,
+  0.22,
+  62.3
+ ],
+ "_com_concept_frame_mm": [
+  0.22,
+  0.22,
+  -14.97
+ ]
+}

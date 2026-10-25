@@ -1,0 +1,469 @@
+{
+ "mu": 0.6,
+ "mass_scale": 1.1,
+ "success": "32/32",
+ "fallen": 30,
+ "success_of_fallen": "30/30",
+ "first_try_of_fallen": "17/30",
+ "per_state": {
+  "side": {
+   "n": 23,
+   "ok": 23,
+   "first_try": 15,
+   "worst_attempts": 4,
+   "worst_t_s": 16.5
+  },
+  "back": {
+   "n": 7,
+   "ok": 7,
+   "first_try": 2,
+   "worst_attempts": 4,
+   "worst_t_s": 16.96
+  }
+ },
+ "servo_model": {
+  "tau": 0.2,
+  "vmax_deg_s": 600,
+  "w0": 11.0,
+  "damping": 0.01918,
+  "droop": true,
+  "coupled_hip_limit": true,
+  "tau_pan": 0.07
+ },
+ "pan_gear_peak_Nm": 0.465,
+ "pan_overshoot_max_deg": 4.63,
+ "cases": [
+  {
+   "kind": "drop",
+   "roll": -133.7,
+   "pitch": -0.1,
+   "settled": "side",
+   "ok": true,
+   "attempts": 1,
+   "t": 4.91,
+   "pan_gear_peak_Nm": 0.456,
+   "pan_ext_peak_Nm": 0.559,
+   "pan_overshoot_deg": 4.58,
+   "hip_f_clamp_steps": 622
+  },
+  {
+   "kind": "drop",
+   "roll": 36.5,
+   "pitch": -37.7,
+   "settled": "side",
+   "ok": true,
+   "attempts": 3,
+   "t": 12.79,
+   "pan_gear_peak_Nm": 0.458,
+   "pan_ext_peak_Nm": 0.623,
+   "pan_overshoot_deg": 4.6,
+   "hip_f_clamp_steps": 2657
+  },
+  {
+   "kind": "drop",
+   "roll": -126.7,
+   "pitch": 34.3,
+   "settled": "side",
+   "ok": true,
+   "attempts": 2,
+   "t": 9.08,
+   "pan_gear_peak_Nm": 0.453,
+   "pan_ext_peak_Nm": 0.919,
+   "pan_overshoot_deg": 4.51,
+   "hip_f_clamp_steps": 2035
+  },
+  {
+   "kind": "drop",
+   "roll": -154.6,
+   "pitch": -29.6,
+   "settled": "side",
+   "ok": true,
+   "attempts": 2,
+   "t": 9.08,
+   "pan_gear_peak_Nm": 0.45,
+   "pan_ext_peak_Nm": 0.361,
+   "pan_overshoot_deg": 4.47,
+   "hip_f_clamp_steps": 2035
+  },
+  {
+   "kind": "drop",
+   "roll": 161.4,
+   "pitch": 9.8,
+   "settled": "back",
+   "ok": true,
+   "attempts": 3,
+   "t": 13.25,
+   "pan_gear_peak_Nm": 0.458,
+   "pan_ext_peak_Nm": 0.807,
+   "pan_overshoot_deg": 4.52,
+   "hip_f_clamp_steps": 3448
+  },
+  {
+   "kind": "drop",
+   "roll": -47.2,
+   "pitch": 0.9,
+   "settled": "side",
+   "ok": true,
+   "attempts": 2,
+   "t": 9.08,
+   "pan_gear_peak_Nm": 0.33,
+   "pan_ext_peak_Nm": 1.104,
+   "pan_overshoot_deg": 3.4,
+   "hip_f_clamp_steps": 2036
+  },
+  {
+   "kind": "drop",
+   "roll": 58.6,
+   "pitch": -18.0,
+   "settled": "side",
+   "ok": true,
+   "attempts": 1,
+   "t": 4.91,
+   "pan_gear_peak_Nm": 0.448,
+   "pan_ext_peak_Nm": 0.269,
+   "pan_overshoot_deg": 4.53,
+   "hip_f_clamp_steps": 622
+  },
+  {
+   "kind": "drop",
+   "roll": -130.3,
+   "pitch": 23.0,
+   "settled": "back",
+   "ok": true,
+   "attempts": 4,
+   "t": 16.96,
+   "pan_gear_peak_Nm": 0.456,
+   "pan_ext_peak_Nm": 0.797,
+   "pan_overshoot_deg": 4.6,
+   "hip_f_clamp_steps": 4071
+  },
+  {
+   "kind": "drop",
+   "roll": 61.3,
+   "pitch": 1.0,
+   "settled": "side",
+   "ok": true,
+   "attempts": 1,
+   "t": 4.91,
+   "pan_gear_peak_Nm": 0.465,
+   "pan_ext_peak_Nm": 0.261,
+   "pan_overshoot_deg": 4.49,
+   "hip_f_clamp_steps": 622
+  },
+  {
+   "kind": "drop",
+   "roll": 114.0,
+   "pitch": 3.9,
+   "settled": "side",
+   "ok": true,
+   "attempts": 1,
+   "t": 4.91,
+   "pan_gear_peak_Nm": 0.454,
+   "pan_ext_peak_Nm": 0.292,
+   "pan_overshoot_deg": 4.47,
+   "hip_f_clamp_steps": 622
+  },
+  {
+   "kind": "drop",
+   "roll": 173.1,
+   "pitch": -23.6,
+   "settled": "back",
+   "ok": true,
+   "attempts": 3,
+   "t": 12.79,
+   "pan_gear_peak_Nm": 0.458,
+   "pan_ext_peak_Nm": 0.607,
+   "pan_overshoot_deg": 4.61,
+   "hip_f_clamp_steps": 2656
+  },
+  {
+   "kind": "drop",
+   "roll": 19.3,
+   "pitch": -1.3,
+   "settled": "up",
+   "ok": true,
+   "attempts": 0,
+   "t": 1.2,
+   "pan_gear_peak_Nm": 0.014,
+   "pan_ext_peak_Nm": 0.0,
+   "pan_overshoot_deg": 0.0,
+   "hip_f_clamp_steps": 0
+  },
+  {
+   "kind": "drop",
+   "roll": -52.8,
+   "pitch": 7.3,
+   "settled": "side",
+   "ok": true,
+   "attempts": 1,
+   "t": 4.91,
+   "pan_gear_peak_Nm": 0.456,
+   "pan_ext_peak_Nm": 0.254,
+   "pan_overshoot_deg": 4.55,
+   "hip_f_clamp_steps": 622
+  },
+  {
+   "kind": "drop",
+   "roll": -95.3,
+   "pitch": 24.2,
+   "settled": "side",
+   "ok": true,
+   "attempts": 1,
+   "t": 4.91,
+   "pan_gear_peak_Nm": 0.442,
+   "pan_ext_peak_Nm": 0.24,
+   "pan_overshoot_deg": 4.52,
+   "hip_f_clamp_steps": 622
+  },
+  {
+   "kind": "drop",
+   "roll": 132.2,
+   "pitch": -29.7,
+   "settled": "side",
+   "ok": true,
+   "attempts": 1,
+   "t": 4.91,
+   "pan_gear_peak_Nm": 0.457,
+   "pan_ext_peak_Nm": 0.257,
+   "pan_overshoot_deg": 4.6,
+   "hip_f_clamp_steps": 622
+  },
+  {
+   "kind": "drop",
+   "roll": -11.9,
+   "pitch": -17.8,
+   "settled": "up",
+   "ok": true,
+   "attempts": 0,
+   "t": 1.2,
+   "pan_gear_peak_Nm": 0.015,
+   "pan_ext_peak_Nm": 0.0,
+   "pan_overshoot_deg": 0.0,
+   "hip_f_clamp_steps": 0
+  },
+  {
+   "kind": "drop",
+   "roll": -150.1,
+   "pitch": 31.7,
+   "settled": "back",
+   "ok": true,
+   "attempts": 1,
+   "t": 5.37,
+   "pan_gear_peak_Nm": 0.266,
+   "pan_ext_peak_Nm": 0.988,
+   "pan_overshoot_deg": 2.74,
+   "hip_f_clamp_steps": 1414
+  },
+  {
+   "kind": "drop",
+   "roll": -25.2,
+   "pitch": -28.2,
+   "settled": "side",
+   "ok": true,
+   "attempts": 2,
+   "t": 8.62,
+   "pan_gear_peak_Nm": 0.457,
+   "pan_ext_peak_Nm": 0.359,
+   "pan_overshoot_deg": 4.55,
+   "hip_f_clamp_steps": 1244
+  },
+  {
+   "kind": "drop",
+   "roll": 62.4,
+   "pitch": -23.8,
+   "settled": "side",
+   "ok": true,
+   "attempts": 1,
+   "t": 4.91,
+   "pan_gear_peak_Nm": 0.457,
+   "pan_ext_peak_Nm": 0.266,
+   "pan_overshoot_deg": 4.49,
+   "hip_f_clamp_steps": 622
+  },
+  {
+   "kind": "drop",
+   "roll": 144.5,
+   "pitch": -22.6,
+   "settled": "side",
+   "ok": true,
+   "attempts": 2,
+   "t": 9.08,
+   "pan_gear_peak_Nm": 0.442,
+   "pan_ext_peak_Nm": 0.594,
+   "pan_overshoot_deg": 4.46,
+   "hip_f_clamp_steps": 2035
+  },
+  {
+   "kind": "drop",
+   "roll": -168.1,
+   "pitch": -23.9,
+   "settled": "side",
+   "ok": true,
+   "attempts": 4,
+   "t": 16.5,
+   "pan_gear_peak_Nm": 0.458,
+   "pan_ext_peak_Nm": 0.844,
+   "pan_overshoot_deg": 4.61,
+   "hip_f_clamp_steps": 3279
+  },
+  {
+   "kind": "drop",
+   "roll": -55.5,
+   "pitch": -2.5,
+   "settled": "side",
+   "ok": true,
+   "attempts": 1,
+   "t": 4.91,
+   "pan_gear_peak_Nm": 0.453,
+   "pan_ext_peak_Nm": 0.266,
+   "pan_overshoot_deg": 4.47,
+   "hip_f_clamp_steps": 622
+  },
+  {
+   "kind": "drop",
+   "roll": 146.2,
+   "pitch": 15.8,
+   "settled": "side",
+   "ok": true,
+   "attempts": 1,
+   "t": 4.91,
+   "pan_gear_peak_Nm": 0.456,
+   "pan_ext_peak_Nm": 0.837,
+   "pan_overshoot_deg": 4.49,
+   "hip_f_clamp_steps": 622
+  },
+  {
+   "kind": "drop",
+   "roll": -57.8,
+   "pitch": -38.6,
+   "settled": "back",
+   "ok": true,
+   "attempts": 3,
+   "t": 13.25,
+   "pan_gear_peak_Nm": 0.458,
+   "pan_ext_peak_Nm": 0.655,
+   "pan_overshoot_deg": 4.57,
+   "hip_f_clamp_steps": 3448
+  },
+  {
+   "kind": "push",
+   "w_body": [
+    0,
+    9
+   ],
+   "settled": "side",
+   "ok": true,
+   "attempts": 1,
+   "t": 5.51,
+   "pan_gear_peak_Nm": 0.449,
+   "pan_ext_peak_Nm": 0.264,
+   "pan_overshoot_deg": 4.58,
+   "hip_f_clamp_steps": 622
+  },
+  {
+   "kind": "push",
+   "w_body": [
+    0,
+    -9
+   ],
+   "settled": "side",
+   "ok": true,
+   "attempts": 1,
+   "t": 5.51,
+   "pan_gear_peak_Nm": 0.453,
+   "pan_ext_peak_Nm": 0.308,
+   "pan_overshoot_deg": 4.45,
+   "hip_f_clamp_steps": 622
+  },
+  {
+   "kind": "push",
+   "w_body": [
+    3,
+    13
+   ],
+   "settled": "side",
+   "ok": true,
+   "attempts": 1,
+   "t": 5.51,
+   "pan_gear_peak_Nm": 0.462,
+   "pan_ext_peak_Nm": 0.329,
+   "pan_overshoot_deg": 4.56,
+   "hip_f_clamp_steps": 622
+  },
+  {
+   "kind": "push",
+   "w_body": [
+    -3,
+    -13
+   ],
+   "settled": "side",
+   "ok": true,
+   "attempts": 1,
+   "t": 5.51,
+   "pan_gear_peak_Nm": 0.459,
+   "pan_ext_peak_Nm": 0.302,
+   "pan_overshoot_deg": 4.45,
+   "hip_f_clamp_steps": 622
+  },
+  {
+   "kind": "push",
+   "w_body": [
+    0,
+    11
+   ],
+   "settled": "side",
+   "ok": true,
+   "attempts": 1,
+   "t": 5.51,
+   "pan_gear_peak_Nm": 0.455,
+   "pan_ext_peak_Nm": 0.28,
+   "pan_overshoot_deg": 4.48,
+   "hip_f_clamp_steps": 622
+  },
+  {
+   "kind": "push",
+   "w_body": [
+    4,
+    -11
+   ],
+   "settled": "side",
+   "ok": true,
+   "attempts": 3,
+   "t": 13.39,
+   "pan_gear_peak_Nm": 0.456,
+   "pan_ext_peak_Nm": 0.504,
+   "pan_overshoot_deg": 4.6,
+   "hip_f_clamp_steps": 2658
+  },
+  {
+   "kind": "push",
+   "w_body": [
+    22,
+    0
+   ],
+   "settled": "back",
+   "ok": true,
+   "attempts": 3,
+   "t": 13.39,
+   "pan_gear_peak_Nm": 0.46,
+   "pan_ext_peak_Nm": 0.56,
+   "pan_overshoot_deg": 4.63,
+   "hip_f_clamp_steps": 2656
+  },
+  {
+   "kind": "push",
+   "w_body": [
+    -22,
+    0
+   ],
+   "settled": "back",
+   "ok": true,
+   "attempts": 1,
+   "t": 5.97,
+   "pan_gear_peak_Nm": 0.23,
+   "pan_ext_peak_Nm": 0.609,
+   "pan_overshoot_deg": 2.38,
+   "hip_f_clamp_steps": 1413
+  }
+ ]
+}

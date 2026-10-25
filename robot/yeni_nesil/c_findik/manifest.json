@@ -1,0 +1,1399 @@
+{
+ "key": "C",
+ "name": "Fındık",
+ "subtitle_tr": "Teker patili hacıyatmaz hamster",
+ "tagline_tr": "Avuç içi kadar bir hamster: dört teker-patiyle masada koşturur, el sallar, eğilir; yana devrilince bacaklarını savurup hacıyatmaz gibi kendini toparlar, sırtüstü düşerse yardım ister.",
+ "accent": "#AE835B",
+ "glb": "model.glb",
+ "creaseDeg": 40,
+ "joints": {
+  "hip_fl": {
+   "node": "leg_fl",
+   "axis": [
+    -1,
+    0,
+    0
+   ],
+   "min": 5,
+   "max": 82,
+   "zero": 0,
+   "servo": "MG90S",
+   "note": "0 = kol dik aşağı; + = teker ileri gider; ayakta 22°. Alt sınır +5°: kol +4°'nin altında gövdeye sürtünür (0°'de 0.6 mm, −5°'de 1.6 mm girer; sim/check_arm_shell.py)",
+   "coupled_limit": "sınırlar kol+çizme gövdeye girmeyecek şekilde (sim/check_arm_shell.py) seçildi; bu aralıkta ön ve arka teker birbirine değmez (sin(ön)+sin(arka) > 0)"
+  },
+  "hip_fr": {
+   "node": "leg_fr",
+   "axis": [
+    -1,
+    0,
+    0
+   ],
+   "min": 5,
+   "max": 82,
+   "zero": 0,
+   "servo": "MG90S",
+   "note": "0 = kol dik aşağı; + = teker ileri gider; ayakta 22°. Alt sınır +5°: kol +4°'nin altında gövdeye sürtünür (0°'de 0.6 mm, −5°'de 1.6 mm girer; sim/check_arm_shell.py)",
+   "coupled_limit": "sınırlar kol+çizme gövdeye girmeyecek şekilde (sim/check_arm_shell.py) seçildi; bu aralıkta ön ve arka teker birbirine değmez (sin(ön)+sin(arka) > 0)"
+  },
+  "hip_rl": {
+   "node": "leg_rl",
+   "axis": [
+    1,
+    0,
+    0
+   ],
+   "min": 5,
+   "max": 118,
+   "zero": 0,
+   "servo": "MG90S",
+   "note": "0 = kol dik aşağı; + = teker geri gider; ayakta 22°. Alt sınır +5° (N20 çizme kovanı +3°'nin altında karına girer: 0°'de 0.7 mm, −12°'de 4 mm), üst sınır 118° (120°'de kapağa 0.1 mm, 122°'de 0.7 mm sürtünür)",
+   "coupled_limit": "sınırlar kol+çizme gövdeye girmeyecek şekilde (sim/check_arm_shell.py) seçildi; bu aralıkta ön ve arka teker birbirine değmez (sin(ön)+sin(arka) > 0)"
+  },
+  "hip_rr": {
+   "node": "leg_rr",
+   "axis": [
+    1,
+    0,
+    0
+   ],
+   "min": 5,
+   "max": 118,
+   "zero": 0,
+   "servo": "MG90S",
+   "note": "0 = kol dik aşağı; + = teker geri gider; ayakta 22°. Alt sınır +5° (N20 çizme kovanı +3°'nin altında karına girer: 0°'de 0.7 mm, −12°'de 4 mm), üst sınır 118° (120°'de kapağa 0.1 mm, 122°'de 0.7 mm sürtünür)",
+   "coupled_limit": "sınırlar kol+çizme gövdeye girmeyecek şekilde (sim/check_arm_shell.py) seçildi; bu aralıkta ön ve arka teker birbirine değmez (sin(ön)+sin(arka) > 0)"
+  },
+  "wheel_fl": {
+   "node": "wheel_fl",
+   "axis": [
+    1,
+    0,
+    0
+   ],
+   "continuous": true,
+   "motor": "yok - serbest teker (M3x12 cıvata kolu sıkar, teker baskı PETG burç üstünde döner)",
+   "note": "+ = ileri (-Y) yuvarlanma"
+  },
+  "wheel_fr": {
+   "node": "wheel_fr",
+   "axis": [
+    1,
+    0,
+    0
+   ],
+   "continuous": true,
+   "motor": "yok - serbest teker (M3x12 cıvata kolu sıkar, teker baskı PETG burç üstünde döner)",
+   "note": "+ = ileri (-Y) yuvarlanma"
+  },
+  "wheel_rl": {
+   "node": "wheel_rl",
+   "axis": [
+    1,
+    0,
+    0
+   ],
+   "continuous": true,
+   "motor": "N20 6V 100rpm, DRV8833",
+   "note": "+ = ileri (-Y) yuvarlanma"
+  },
+  "wheel_rr": {
+   "node": "wheel_rr",
+   "axis": [
+    1,
+    0,
+    0
+   ],
+   "continuous": true,
+   "motor": "N20 6V 100rpm, DRV8833",
+   "note": "+ = ileri (-Y) yuvarlanma"
+  }
+ },
+ "materials": {
+  "cream": {
+   "type": "print",
+   "color": "#ECE3D0",
+   "filament": "PLA Mat Fildişi/Krem (ör. Bambu Lab PLA Matte Ivory White veya Elas PLA Krem)",
+   "layer": 0.12,
+   "layerAxis": [
+    0.0,
+    0.386,
+    0.922
+   ],
+   "part": "alt gövde (yüz halkası, karın, omuz yuvaları); ayırma yüzü tablada, kubbe yukarı basılır -> katmanlar ayırma düzlemine paralel (~23° eğik)"
+  },
+  "cap": {
+   "type": "print",
+   "color": "#745034",
+   "filament": "Bambu Lab PLA Matte Caramel",
+   "layer": 0.12,
+   "layerAxis": [
+    0.0,
+    0.386,
+    0.922
+   ],
+   "part": "karamel kapak; ayırma yüzü tablada, destek yok; 4 çift Ø6x1.5 mm N35 mıknatısla tutulur",
+   "swatch": "#AE835B",
+   "color_note": "render albedo; gerçek filament rengi Bambu Lab PLA Matte Caramel katalog rengi #AE835B (swatch). Viewer'ın ışığı (ACES + ortam) rengi açtığı için albedo koyulaştırıldı: aydınlık yüzler ~#C79D79-#CEA989, gölgeler ~#8C654D olur ve swatch bu aralığın ortasına düşer"
+  },
+  "ear": {
+   "type": "print",
+   "color": "#745034",
+   "filament": "Bambu Lab PLA Matte Caramel",
+   "layer": 0.12,
+   "layerAxis": [
+    0,
+    0.985,
+    -0.174
+   ],
+   "part": "kulak kabuğu x2, düz basılır, kapağa pimle yapıştırılır",
+   "swatch": "#AE835B",
+   "color_note": "render albedo; gerçek filament rengi Bambu Lab PLA Matte Caramel katalog rengi #AE835B (swatch). Viewer'ın ışığı (ACES + ortam) rengi açtığı için albedo koyulaştırıldı: aydınlık yüzler ~#C79D79-#CEA989, gölgeler ~#8C654D olur ve swatch bu aralığın ortasına düşer"
+  },
+  "ear_inner": {
+   "type": "print",
+   "color": "#ECE3D0",
+   "filament": "PLA Mat Fildişi/Krem",
+   "layer": 0.12,
+   "layerAxis": [
+    0,
+    0.985,
+    -0.174
+   ],
+   "part": "kulak içi krem parça x2, yapıştırılır"
+  },
+  "visor": {
+   "type": "petg",
+   "color": "#141518",
+   "filament": "PETG Siyah, dış yüz yukarı basılır; parlaklık için zımpara (400->1500) + 2K şeffaf vernik (kavisli yüzeyde ütüleme işe yaramaz)",
+   "layer": 0.12,
+   "layerAxis": [
+    0,
+    1,
+    0
+   ]
+  },
+  "nose": {
+   "type": "petg",
+   "color": "#141518",
+   "filament": "PETG Siyah (vizörle aynı işlem)",
+   "layer": 0.12,
+   "layerAxis": [
+    0,
+    1,
+    0
+   ]
+  },
+  "arm": {
+   "type": "print",
+   "color": "#745034",
+   "filament": "Bambu Lab PLA Matte Caramel, %50 gyroid",
+   "layer": 0.16,
+   "layerAxis": [
+    1,
+    0,
+    0
+   ],
+   "part": "kol + çizme tek parça, göbek yüzü tablada (destek yok)",
+   "swatch": "#AE835B",
+   "color_note": "render albedo; gerçek filament rengi Bambu Lab PLA Matte Caramel katalog rengi #AE835B (swatch). Viewer'ın ışığı (ACES + ortam) rengi açtığı için albedo koyulaştırıldı: aydınlık yüzler ~#C79D79-#CEA989, gölgeler ~#8C654D olur ve swatch bu aralığın ortasına düşer"
+  },
+  "hubcap": {
+   "type": "print",
+   "color": "#745034",
+   "filament": "Bambu Lab PLA Matte Caramel",
+   "layer": 0.16,
+   "layerAxis": [
+    1,
+    0,
+    0
+   ],
+   "part": "tekerlek kapağı, aks vidasını gizler",
+   "swatch": "#AE835B",
+   "color_note": "render albedo; gerçek filament rengi Bambu Lab PLA Matte Caramel katalog rengi #AE835B (swatch). Viewer'ın ışığı (ACES + ortam) rengi açtığı için albedo koyulaştırıldı: aydınlık yüzler ~#C79D79-#CEA989, gölgeler ~#8C654D olur ve swatch bu aralığın ortasına düşer"
+  },
+  "hub": {
+   "type": "print",
+   "color": "#ECE3D0",
+   "filament": "PLA Mat Fildişi/Krem",
+   "layer": 0.16,
+   "layerAxis": [
+    1,
+    0,
+    0
+   ]
+  },
+  "beans": {
+   "type": "print",
+   "color": "#ECE3D0",
+   "filament": "PLA Mat Fildişi/Krem (4 minik parça yapıştırılır; tek renk baskıda kabartma olur)",
+   "layer": 0.12,
+   "layerAxis": [
+    1,
+    0,
+    0
+   ]
+  },
+  "tyre": {
+   "type": "tpu",
+   "color": "#202124",
+   "filament": "TPU 95A Siyah",
+   "layerAxis": [
+    1,
+    0,
+    0
+   ]
+  },
+  "screen_eyeL": {
+   "type": "screen",
+   "screen": "eyeL"
+  },
+  "screen_eyeR": {
+   "type": "screen",
+   "screen": "eyeR"
+  },
+  "lcd_glass": {
+   "type": "glass",
+   "color": "#0b0c0e",
+   "roughness": 0.04,
+   "note": "GC9A01 modülünün ön camı: Ø35.6 cam, Ø32.4 aktif alanın etrafında ~1.6 mm siyah maske halkası"
+  },
+  "screw": {
+   "type": "metal",
+   "color": "#a6aab0",
+   "roughness": 0.38,
+   "note": "M2 çinko kaplı vida: 4 x MG90S korna vidası (kol dış yüzünde havşada), 2 x karın altı havşa başlı"
+  },
+  "usb_metal": {
+   "type": "metal",
+   "color": "#c4c7cc",
+   "roughness": 0.3,
+   "note": "2S USB-C şarj modülünün soketi, arkada altta"
+  },
+  "usb_tongue": {
+   "type": "plastic",
+   "color": "#151516",
+   "roughness": 0.6
+  },
+  "tcrt_body": {
+   "type": "plastic",
+   "color": "#151517",
+   "roughness": 0.6,
+   "note": "TCRT5000 gövdesi, çene yarıklarından görünür"
+  },
+  "tcrt_emitter": {
+   "type": "plastic",
+   "color": "#2a3a6e",
+   "roughness": 0.12,
+   "note": "IR verici lens (mavimsi şeffaf)"
+  },
+  "tcrt_detector": {
+   "type": "plastic",
+   "color": "#0c0c0e",
+   "roughness": 0.1,
+   "note": "IR alıcı lens (siyah)"
+  },
+  "speaker_cloth": {
+   "type": "plastic",
+   "color": "#19191b",
+   "roughness": 0.95,
+   "note": "ızgara arkasında siyah hoparlör kumaşı"
+  },
+  "wire_red": {
+   "type": "plastic",
+   "color": "#b8322a",
+   "roughness": 0.45,
+   "note": "N20 motor kablosu, 28 AWG silikon"
+  },
+  "wire_black": {
+   "type": "plastic",
+   "color": "#1c1c1e",
+   "roughness": 0.45
+  },
+  "internal_servo": {
+   "type": "internal",
+   "color": "#3b82f6",
+   "label": "4 x MG90S"
+  },
+  "internal_horn": {
+   "type": "internal",
+   "color": "#f1f1ee",
+   "label": "servo kornası (kolun içine gömülü)"
+  },
+  "internal_motor": {
+   "type": "internal",
+   "color": "#c3c7cc",
+   "label": "2 x N20 6V 100rpm"
+  },
+  "internal_shaft": {
+   "type": "internal",
+   "color": "#8d939a",
+   "label": "aks (ön: M3x12 cıvata + baskı PETG burç, arka: N20 D-mil)"
+  },
+  "internal_battery": {
+   "type": "internal",
+   "color": "#4caf7a",
+   "label": "2 x 14500 900 mAh (2S), baskı yuvada, tutucudan sökülmüş yay/plaka kontaklar"
+  },
+  "internal_pcb": {
+   "type": "internal",
+   "color": "#1f7a3a",
+   "label": "BMS, 2 x MP1584, MAX98357A, INMP441, BMI160, şarj"
+  },
+  "internal_pcb_esp": {
+   "type": "internal",
+   "color": "#22262c",
+   "label": "ESP32-S3 N16R8 devkit"
+  },
+  "internal_module": {
+   "type": "internal",
+   "color": "#b8bdc3",
+   "label": "ESP32-S3-WROOM-1 metal kılıf"
+  },
+  "internal_metal": {
+   "type": "internal",
+   "color": "#c4c7cc",
+   "label": "pil kontakları, ESP32 USB-C soketleri"
+  },
+  "internal_pcb_blue": {
+   "type": "internal",
+   "color": "#1f4fa8",
+   "label": "GC9A01 ve TCRT5000 kartları"
+  },
+  "internal_pcb_red": {
+   "type": "internal",
+   "color": "#7a2d8f",
+   "label": "DRV8833"
+  },
+  "internal_lcd": {
+   "type": "internal",
+   "color": "#0e1014"
+  },
+  "internal_speaker": {
+   "type": "internal",
+   "color": "#5b5f66",
+   "label": "32 mm hoparlör"
+  },
+  "internal_chassis": {
+   "type": "internal",
+   "color": "#d6d1c7",
+   "label": "iç şasi (servo yuvaları, pil tepsisi, güverte)"
+  },
+  "internal_led": {
+   "type": "internal",
+   "color": "#f4f4f4",
+   "label": "2 x WS2812B yanak"
+  },
+  "internal_magnet": {
+   "type": "internal",
+   "color": "#9aa0a6",
+   "label": "kapak mıknatısları Ø6x1.5 (kapakta 4 + gövdede 4)"
+  }
+ },
+ "screens": {
+  "eyeL": {
+   "res": [
+    240,
+    240
+   ],
+   "round": true,
+   "uvAxes": [
+    "x",
+    "z"
+   ],
+   "panel": "GC9A01 1.28in IPS 240x240 (SPI, RGB565)",
+   "active_diam_mm": 32.4,
+   "glass_diam_mm": 35.6,
+   "brightness": 1.15,
+   "note": "robotun SOL gözü (+X), önden bakınca sağda"
+  },
+  "eyeR": {
+   "res": [
+    240,
+    240
+   ],
+   "round": true,
+   "uvAxes": [
+    "x",
+    "z"
+   ],
+   "panel": "GC9A01 1.28in IPS 240x240 (SPI, RGB565)",
+   "active_diam_mm": 32.4,
+   "glass_diam_mm": 35.6,
+   "brightness": 1.15,
+   "note": "robotun SAĞ gözü (-X), önden bakınca solda"
+  }
+ },
+ "faces": {
+  "neutral": {
+   "eyeL": "faces/neutral_L.png",
+   "eyeR": "faces/neutral_R.png"
+  },
+  "blink": {
+   "eyeL": "faces/blink_L.png",
+   "eyeR": "faces/blink_R.png"
+  },
+  "happy": {
+   "eyeL": "faces/happy_L.png",
+   "eyeR": "faces/happy_R.png"
+  },
+  "talk_a": {
+   "eyeL": "faces/talk_a_L.png",
+   "eyeR": "faces/talk_a_R.png"
+  },
+  "talk_b": {
+   "eyeL": "faces/talk_b_L.png",
+   "eyeR": "faces/talk_b_R.png"
+  },
+  "surprised": {
+   "eyeL": "faces/surprised_L.png",
+   "eyeR": "faces/surprised_R.png"
+  },
+  "sleepy": {
+   "eyeL": "faces/sleepy_L.png",
+   "eyeR": "faces/sleepy_R.png"
+  },
+  "sad": {
+   "eyeL": "faces/sad_L.png",
+   "eyeR": "faces/sad_R.png"
+  },
+  "determined": {
+   "eyeL": "faces/determined_L.png",
+   "eyeR": "faces/determined_R.png"
+  },
+  "curious": {
+   "eyeL": "faces/curious_L.png",
+   "eyeR": "faces/curious_R.png"
+  }
+ },
+ "animations": {
+  "idle": "anim/idle.json",
+  "walk": "anim/walk.json",
+  "turn": "anim/turn.json",
+  "talk": "anim/talk.json",
+  "happy": "anim/happy.json",
+  "fall_recover": "anim/fall_recover.json",
+  "sleep": "anim/sleep.json",
+  "fall_back_help": "anim/fall_back_help.json"
+ },
+ "pose_rest": {
+  "hip_fl": 22,
+  "hip_fr": 22,
+  "hip_rl": 22,
+  "hip_rr": 22,
+  "wheel_fl": 0,
+  "wheel_fr": 0,
+  "wheel_rl": 0,
+  "wheel_rr": 0
+ },
+ "specs": {
+  "dims_mm": [
+   96.0,
+   92.5,
+   117.0
+  ],
+  "dims_note": "G x U x Y, ayakta (22°), kulaklar dahil",
+  "mass_g": 301,
+  "mass_note": "CAD hacim x PLA yoğunluğu + gerçek parça kütleleri; simde 300.9 g, ağırlık merkezi zeminden 46.3 mm. Konseptin kendi hesabı 47.9 mm (kablo kütlesini güverteye toplar); kalkma bu farka duyarlı, sim/fall.py iki değeri de test eder.",
+  "servos": 4,
+  "motors": 2,
+  "actuators_note": "4 x MG90S kalça (bacak başına 1 serbestlik) + 2 x N20 arka tekerde; ön tekerler serbest",
+  "brain": "ESP32-S3 N16R8 DevKitC-1 (16 MB flash, 8 MB PSRAM, Wi-Fi -> Claude API, telefon/PC proxy üzerinden)",
+  "battery": "2S 14500 900 mAh Li-ion (7.4 V, 6.7 Wh), baskı pil yuvasında (iç uzunluk 53.6 mm; 2'li AA tutucudan sökülen yay/plaka kontaklar) + 2S BMS + USB-C 2S şarj",
+  "runtime_walk_min": 60,
+  "runtime_idle_h": 4.6,
+  "walk_speed_cm_s": 13.8,
+  "walk_speed_note": "MuJoCo: arka N20'ler %80 PWM'de (≈6 V) düz yolda 13.8 cm/s (μ 0.6 ve 0.4'te aynı; boşta hesap 15.7 cm/s). Yürümez, tekerle yuvarlanır.",
+  "self_righting": "Yana devrilince alttaki iki bacağı dışarı süpürür (ön 80°, arka 118°), yumurta gövde yuvarlanır, ~1 s'de ayakta. Önerilen 'hibrit' yazılımla (yan eğim 50°'yi geçer geçmez toparlan): kafadan 12 yöne itmede devrilen 18 durumun 18'i kalktı; konseptin kendi ağırlık merkezi hesabında (+1.6 mm) 17/18, +3.5 mm'de 17/18, μ0.4'te 16/17. Konseptin kendi kuralı (60°'de 0.3 s bekle) bu kütle modelinde 16/18, ama konseptin ağırlık merkezinde yalnız 9/17, +3.5 mm'de 4/18: o kural tek başına güvenilmez. Sırtüstü/yüzüstü/ters düşüşte kalkamaz, yardım ister (0/3).",
+  "sensors": [
+   "BMI160 IMU",
+   "2 x TCRT5000 çene uçurum sensörü",
+   "2 x TTP223 dokunma (kafa, sırt)",
+   "INMP441 mikrofon"
+  ],
+  "voice": "MAX98357A + 32 mm hoparlör (cıvıltı/TTS); ses tanıma telefon veya PC sunucusu üzerinden",
+  "screens": "2 x GC9A01 1.28\" yuvarlak IPS 240x240",
+  "turn_rate_deg_s": 49.1,
+  "turn_note": "Ayakta 4 teker üstünde yerinde dönemez: ön tekerler serbest ama TPU lastikli olduğu için yana kaymaya direnir; konseptteki 'geriye yaslanıp dön' simde yalnız 8.7°/s dönüp 10.7 cm/s kayıyor (geniş yay). Çalışan yol: karnına oturup arka tekerlerle ters yönde kürek çekmek, 49.1°/s (μ0.4: 63.3°/s); karın PLA'sı masada sürtünür, pivot noktasına keçe/PTFE ped önerilir. Ön tekerlere sert PLA/PETG jant takılırsa geriye yaslanıp 4 teker üstünde 62.0°/s döner (6.8 cm/s kayma; arka kalça +5° sınırında).",
+  "runtime_note": "çalışma süreleri konseptin güç tablosundan (hesap), sim değil"
+ },
+ "sim_summary": {
+  "status": "done (MuJoCo 3.17, sim/)",
+  "engine": "MuJoCo 3.17, 1 ms step, implicitfast, elliptic cones; MJCF link frames = model.glb nodes (same origins, axes, zero; asserted by sim/verify_replay.py)",
+  "model": {
+   "mass_g": 300.9,
+   "com_mm": [
+    0.23,
+    4.49,
+    46.32
+   ],
+   "com_concept_estimate_mm_z": 47.9,
+   "body_g": 227.2,
+   "collision": "convex hulls of the real meshes (egg shell, 2 ears, 4 arm+boot); tyres = cylinders r15 x 6.8; body<->leg contact excluded (hull would fill the sockets) -> joint limits set from the arm-vs-shell sweep instead",
+   "servo": "MG90S: ±0.20 N·m, 600°/s torque-speed line, kp 2.9 N·m/rad, armature 5e-5",
+   "n20": "6 V 100 rpm, 0.10 N·m stall (conservative), brake = back-EMF damping + 0.006 N·m gearbox friction",
+   "friction": "PLA shell = desk μ (0.6 / 0.4); TPU tyres 0.9 at μ0.6, 0.4 at μ0.4 (worst case); tyre contact softened (TPU)"
+  },
+  "joint_limits_deg": {
+   "hip_fl": [
+    5,
+    82
+   ],
+   "hip_fr": [
+    5,
+    82
+   ],
+   "hip_rl": [
+    5,
+    118
+   ],
+   "hip_rr": [
+    5,
+    118
+   ]
+  },
+  "joint_limits_basis": {
+   "hip_fl": {
+    "clear_range_deg": [
+     4.0,
+     90.0
+    ],
+    "inside": true
+   },
+   "hip_rl": {
+    "clear_range_deg": [
+     3.0,
+     119.0
+    ],
+    "inside": true
+   },
+   "hip_fr": {
+    "clear_range_deg": [
+     4.0,
+     90.0
+    ],
+    "inside": true
+   },
+   "hip_rr": {
+    "clear_range_deg": [
+     3.0,
+     119.0
+    ],
+    "inside": true
+   }
+  },
+  "walk_speed_cm_s": 13.8,
+  "walk_speed_cm_s_mu04": 13.8,
+  "turn_rate_deg_s": 49.1,
+  "turn_comparison_deg_s": {
+   "belly_pivot_mu04": {
+    "yaw_deg_s": 63.3,
+    "drift_cm_s": 0.5
+   },
+   "concept_lean_back_spin_TPU_front": {
+    "yaw_deg_s": 8.7,
+    "drift_cm_s": 10.7
+   },
+   "concept_lean_back_spin_TPU_front_mu04": {
+    "yaw_deg_s": 13.6,
+    "drift_cm_s": 8.9
+   },
+   "stand_4wheel_spin_TPU_front": {
+    "yaw_deg_s": 7.3,
+    "drift_cm_s": 11.7
+   },
+   "lean_back_spin_if_front_wheels_hard_PLA_mu035": {
+    "yaw_deg_s": 62.0,
+    "drift_cm_s": 6.8
+   },
+   "arc_one_wheel_TPU_front": {
+    "yaw_deg_s": 6.4,
+    "drift_cm_s": 11.8
+   }
+  },
+  "recovery": "RECOMMENDED hybrid firmware (tuck the lower-side legs 80°/118° as soon as the side tilt passes 50°, fore/aft tilts use the concept rule, + paw-catch reflex): μ0.6 18/18 falls recovered at the sim CoM, 17/18 at the concept's own CoM (+1.6 mm), 17/18 at +3.5 mm; μ0.4 16/17 (17/17 at +1.6 mm). The concept's own rule (tilt > 60° for 0.3 s): 16/18 at the sim CoM but only 9/17 at the concept CoM and 4/18 at +3.5 mm (μ0.4: 14/16). Side drops ±15° pitch 6/6 in every configuration; back/face/upside-down 0/3 (asks for help). The fall_recover clip uses the hybrid firmware.",
+  "recovery_com_curve_mu06": {
+   "what": "[com_dz_mm, recovered, fell] for 24 head pushes at μ0.6 (com_dz = body CoM raised; +1.6 = concept estimate)",
+   "concept": [
+    [
+     0.0,
+     16,
+     18
+    ],
+    [
+     1.0,
+     12,
+     17
+    ],
+    [
+     1.6,
+     9,
+     17
+    ],
+    [
+     2.5,
+     10,
+     18
+    ],
+    [
+     3.5,
+     4,
+     18
+    ]
+   ],
+   "hybrid": [
+    [
+     0.0,
+     18,
+     18
+    ],
+    [
+     1.0,
+     16,
+     18
+    ],
+    [
+     1.6,
+     17,
+     18
+    ],
+    [
+     2.5,
+     17,
+     18
+    ],
+    [
+     3.5,
+     17,
+     18
+    ]
+   ]
+  },
+  "recovery_matrix": [
+   {
+    "mode": "concept",
+    "mu": 0.6,
+    "com_dz_mm": 0.0,
+    "catch_reflex": true,
+    "pushes": 24,
+    "pushes_no_fall_or_caught": 6,
+    "pushes_fell": 18,
+    "pushes_fell_recovered": 16,
+    "pushes_failed_dirs": [
+     [
+      270,
+      30
+     ],
+     [
+      270,
+      90
+     ]
+    ],
+    "side_drops_recovered": "6/6",
+    "back_face_upsidedown_drops_recovered": "0/3",
+    "t_recover_s_median": 0.9,
+    "peak_hip_torque_Nm": 0.2
+   },
+   {
+    "mode": "concept",
+    "mu": 0.6,
+    "com_dz_mm": 1.0,
+    "catch_reflex": true,
+    "pushes": 24,
+    "pushes_no_fall_or_caught": 7,
+    "pushes_fell": 17,
+    "pushes_fell_recovered": 12,
+    "pushes_failed_dirs": [
+     [
+      30,
+      30
+     ],
+     [
+      150,
+      30
+     ],
+     [
+      210,
+      30
+     ],
+     [
+      240,
+      90
+     ],
+     [
+      300,
+      90
+     ]
+    ],
+    "side_drops_recovered": "6/6",
+    "back_face_upsidedown_drops_recovered": "0/3",
+    "t_recover_s_median": 0.985,
+    "peak_hip_torque_Nm": 0.2
+   },
+   {
+    "mode": "concept",
+    "mu": 0.6,
+    "com_dz_mm": 1.6,
+    "catch_reflex": true,
+    "pushes": 24,
+    "pushes_no_fall_or_caught": 7,
+    "pushes_fell": 17,
+    "pushes_fell_recovered": 9,
+    "pushes_failed_dirs": [
+     [
+      30,
+      30
+     ],
+     [
+      150,
+      30
+     ],
+     [
+      180,
+      30
+     ],
+     [
+      210,
+      30
+     ],
+     [
+      240,
+      90
+     ],
+     [
+      270,
+      90
+     ],
+     [
+      300,
+      30
+     ],
+     [
+      300,
+      90
+     ]
+    ],
+    "side_drops_recovered": "6/6",
+    "back_face_upsidedown_drops_recovered": "0/3",
+    "t_recover_s_median": 1.0,
+    "peak_hip_torque_Nm": 0.2
+   },
+   {
+    "mode": "concept",
+    "mu": 0.6,
+    "com_dz_mm": 2.5,
+    "catch_reflex": true,
+    "pushes": 24,
+    "pushes_no_fall_or_caught": 6,
+    "pushes_fell": 18,
+    "pushes_fell_recovered": 10,
+    "pushes_failed_dirs": [
+     [
+      150,
+      90
+     ],
+     [
+      180,
+      30
+     ],
+     [
+      180,
+      90
+     ],
+     [
+      210,
+      30
+     ],
+     [
+      210,
+      90
+     ],
+     [
+      240,
+      90
+     ],
+     [
+      270,
+      90
+     ],
+     [
+      300,
+      90
+     ]
+    ],
+    "side_drops_recovered": "6/6",
+    "back_face_upsidedown_drops_recovered": "0/3",
+    "t_recover_s_median": 1.02,
+    "peak_hip_torque_Nm": 0.2
+   },
+   {
+    "mode": "concept",
+    "mu": 0.6,
+    "com_dz_mm": 3.5,
+    "catch_reflex": true,
+    "pushes": 24,
+    "pushes_no_fall_or_caught": 6,
+    "pushes_fell": 18,
+    "pushes_fell_recovered": 4,
+    "pushes_failed_dirs": [
+     [
+      0,
+      30
+     ],
+     [
+      0,
+      90
+     ],
+     [
+      30,
+      90
+     ],
+     [
+      150,
+      30
+     ],
+     [
+      150,
+      90
+     ],
+     [
+      180,
+      30
+     ],
+     [
+      180,
+      90
+     ],
+     [
+      210,
+      30
+     ],
+     [
+      210,
+      90
+     ],
+     [
+      240,
+      30
+     ],
+     [
+      240,
+      90
+     ],
+     [
+      300,
+      90
+     ],
+     [
+      330,
+      30
+     ],
+     [
+      330,
+      90
+     ]
+    ],
+    "side_drops_recovered": "6/6",
+    "back_face_upsidedown_drops_recovered": "0/3",
+    "t_recover_s_median": 0.87,
+    "peak_hip_torque_Nm": 0.2
+   },
+   {
+    "mode": "hybrid",
+    "mu": 0.6,
+    "com_dz_mm": 0.0,
+    "catch_reflex": true,
+    "pushes": 24,
+    "pushes_no_fall_or_caught": 6,
+    "pushes_fell": 18,
+    "pushes_fell_recovered": 18,
+    "pushes_failed_dirs": [],
+    "side_drops_recovered": "6/6",
+    "back_face_upsidedown_drops_recovered": "0/3",
+    "t_recover_s_median": 1.0,
+    "peak_hip_torque_Nm": 0.2
+   },
+   {
+    "mode": "hybrid",
+    "mu": 0.6,
+    "com_dz_mm": 1.0,
+    "catch_reflex": true,
+    "pushes": 24,
+    "pushes_no_fall_or_caught": 6,
+    "pushes_fell": 18,
+    "pushes_fell_recovered": 16,
+    "pushes_failed_dirs": [
+     [
+      270,
+      30
+     ],
+     [
+      270,
+      90
+     ]
+    ],
+    "side_drops_recovered": "6/6",
+    "back_face_upsidedown_drops_recovered": "0/3",
+    "t_recover_s_median": 1.0,
+    "peak_hip_torque_Nm": 0.2
+   },
+   {
+    "mode": "hybrid",
+    "mu": 0.6,
+    "com_dz_mm": 1.6,
+    "catch_reflex": true,
+    "pushes": 24,
+    "pushes_no_fall_or_caught": 6,
+    "pushes_fell": 18,
+    "pushes_fell_recovered": 17,
+    "pushes_failed_dirs": [
+     [
+      270,
+      90
+     ]
+    ],
+    "side_drops_recovered": "6/6",
+    "back_face_upsidedown_drops_recovered": "0/3",
+    "t_recover_s_median": 1.0,
+    "peak_hip_torque_Nm": 0.2
+   },
+   {
+    "mode": "hybrid",
+    "mu": 0.6,
+    "com_dz_mm": 2.5,
+    "catch_reflex": true,
+    "pushes": 24,
+    "pushes_no_fall_or_caught": 6,
+    "pushes_fell": 18,
+    "pushes_fell_recovered": 17,
+    "pushes_failed_dirs": [
+     [
+      270,
+      30
+     ]
+    ],
+    "side_drops_recovered": "6/6",
+    "back_face_upsidedown_drops_recovered": "0/3",
+    "t_recover_s_median": 1.0,
+    "peak_hip_torque_Nm": 0.2
+   },
+   {
+    "mode": "hybrid",
+    "mu": 0.6,
+    "com_dz_mm": 3.5,
+    "catch_reflex": true,
+    "pushes": 24,
+    "pushes_no_fall_or_caught": 6,
+    "pushes_fell": 18,
+    "pushes_fell_recovered": 17,
+    "pushes_failed_dirs": [
+     [
+      270,
+      90
+     ]
+    ],
+    "side_drops_recovered": "6/6",
+    "back_face_upsidedown_drops_recovered": "0/3",
+    "t_recover_s_median": 0.97,
+    "peak_hip_torque_Nm": 0.2
+   },
+   {
+    "mode": "concept",
+    "mu": 0.4,
+    "com_dz_mm": 0.0,
+    "catch_reflex": true,
+    "pushes": 24,
+    "pushes_no_fall_or_caught": 8,
+    "pushes_fell": 16,
+    "pushes_fell_recovered": 14,
+    "pushes_failed_dirs": [
+     [
+      240,
+      90
+     ],
+     [
+      300,
+      90
+     ]
+    ],
+    "side_drops_recovered": "6/6",
+    "back_face_upsidedown_drops_recovered": "0/3",
+    "t_recover_s_median": 0.885,
+    "peak_hip_torque_Nm": 0.2
+   },
+   {
+    "mode": "hybrid",
+    "mu": 0.4,
+    "com_dz_mm": 0.0,
+    "catch_reflex": true,
+    "pushes": 24,
+    "pushes_no_fall_or_caught": 7,
+    "pushes_fell": 17,
+    "pushes_fell_recovered": 16,
+    "pushes_failed_dirs": [
+     [
+      270,
+      30
+     ]
+    ],
+    "side_drops_recovered": "6/6",
+    "back_face_upsidedown_drops_recovered": "0/3",
+    "t_recover_s_median": 0.97,
+    "peak_hip_torque_Nm": 0.2
+   },
+   {
+    "mode": "hybrid",
+    "mu": 0.4,
+    "com_dz_mm": 1.6,
+    "catch_reflex": true,
+    "pushes": 24,
+    "pushes_no_fall_or_caught": 7,
+    "pushes_fell": 17,
+    "pushes_fell_recovered": 17,
+    "pushes_failed_dirs": [],
+    "side_drops_recovered": "6/6",
+    "back_face_upsidedown_drops_recovered": "0/3",
+    "t_recover_s_median": 1.0,
+    "peak_hip_torque_Nm": 0.2
+   },
+   {
+    "mode": "concept",
+    "mu": 0.6,
+    "com_dz_mm": 0.0,
+    "catch_reflex": false,
+    "pushes": 24,
+    "pushes_no_fall_or_caught": 0,
+    "pushes_fell": 24,
+    "pushes_fell_recovered": 16,
+    "pushes_failed_dirs": [
+     [
+      60,
+      30
+     ],
+     [
+      60,
+      90
+     ],
+     [
+      90,
+      30
+     ],
+     [
+      90,
+      90
+     ],
+     [
+      120,
+      30
+     ],
+     [
+      120,
+      90
+     ],
+     [
+      270,
+      30
+     ],
+     [
+      270,
+      90
+     ]
+    ],
+    "side_drops_recovered": "6/6",
+    "back_face_upsidedown_drops_recovered": "0/3",
+    "t_recover_s_median": 0.9,
+    "peak_hip_torque_Nm": 0.2
+   }
+  ],
+  "notes": [
+   "Every clip is a MuJoCo result (also idle/talk/happy/sleep): joint targets go to the simulated servos and the base pose is what the sim produced.",
+   "Fall tests: a 'finger' pushes at the top of the head at 30 or 90°/s tilt speed toward 12 directions and lets go at 40° (just past the 38° side tip angle). The finger is not shown in the viewer.",
+   "In dynamic side falls the egg does NOT stop on its side: it keeps rolling to ~100-105° (partly onto the back). The concept rule only works when its 0.3 s timer fires while the egg is still rolling, which is why it is so sensitive to the CoM height; the hybrid trigger tucks during the fall.",
+   "Without the paw-catch reflex, back pushes end on the back: 16/24 recovered (concept rule).",
+   "Joint limits come from a winding-number arm-vs-shell sweep (sim/check_arm_shell.py): front 5..82°, rear 5..118°. The concept's −5/−12° minima put the arm 1.6 mm / the N20 boot sleeve 4 mm into the shell; 122° grazed the cap. Inside the new limits the front and rear tyres can never touch.",
+   "Turning: with TPU on the free front wheels the robot can hardly turn on 4 wheels (skid steer, see turn_comparison). The turn clip uses a belly-pivot spin (sit, paddle); the rear tyres carry only ~10 % of the weight and chatter, so the real rate is uncertain, and the cream PLA belly slides on the desk at μ 0.6 (wear; the two M2 belly screws are 3-5 mm above the lowest point, a felt/PTFE dot at the pivot is recommended). Hard PLA/PETG front rims are the preferred fix (lean-back spin on 4 wheels).",
+   "Wave (happy): FR 40°, RL 8°, RR 65° (RL kept ≥ 5° for shell clearance); on 3 wheels the CoM stays 14.4 mm inside the support triangle (min over the wave, sim).",
+   "Servos touch the 0.20 N·m stall only for milliseconds (happy bounce, sitting down for the turn, back-fall rocking); never for long.",
+   "TPU tyres may sink up to ~1.3 mm into the floor in the sim during the sit-down/wave (soft tyre contact standing in for TPU compression).",
+   "Loop clips (idle, talk): the residual drift after one loop (≤1.6 mm, ≤0.02°) is spread linearly so the loop closes.",
+   "Replay check (sim/verify_replay.py: GLB forward kinematics with the rig.js convention; MJCF body positions/axes/ranges parsed and asserted equal to the GLB/manifest): every clip, every frame: lowest visible point -1.27 mm to +0.61 mm (no visible floating), tyres/hubs never inside the egg hull (0.0 mm), arm/boot sleeve never inside the shell skin (0.00 mm), front/rear tyre clearance ≥ 22.3 mm. Posecheck strips: stills/anim_*.png (anim_walk_follow = close follow camera, base wrapped every 30 cm so the grid stays under the robot)."
+  ],
+  "replay_check": {
+   "_mjcf_vs_glb": {
+    "checked": [
+     "leg_fl",
+     "leg_fr",
+     "leg_rl",
+     "leg_rr",
+     "wheel_fl",
+     "wheel_fr",
+     "wheel_rl",
+     "wheel_rr"
+    ],
+    "max_pos_err_mm": 0.0,
+    "max_axis_err": 0.0,
+    "range_ok": true,
+    "mass_sum_g": 300.9
+   },
+   "_arm_shell_clear_range_deg": {
+    "hip_fl": [
+     4.0,
+     90.0
+    ],
+    "hip_rl": [
+     3.0,
+     119.0
+    ],
+    "hip_fr": [
+     4.0,
+     90.0
+    ],
+    "hip_rr": [
+     3.0,
+     119.0
+    ]
+   },
+   "idle": {
+    "frames": 151,
+    "min_z_mm": -0.15,
+    "max_gap_mm": -0.12,
+    "frames_gap_over_1mm": 0,
+    "frames_below_minus_1p2mm": 0,
+    "tyre_hub_in_egg_hull_mm": 0.0,
+    "tyre_tyre_clearance_mm": 27.55,
+    "arm_in_shell_mm": 0.0,
+    "hip_range_deg": {
+     "hip_fl": [
+      17.63,
+      26.64
+     ],
+     "hip_fr": [
+      17.63,
+      26.64
+     ],
+     "hip_rl": [
+      17.56,
+      26.56
+     ],
+     "hip_rr": [
+      17.56,
+      26.56
+     ]
+    }
+   },
+   "walk": {
+    "frames": 210,
+    "min_z_mm": -0.16,
+    "max_gap_mm": -0.12,
+    "frames_gap_over_1mm": 0,
+    "frames_below_minus_1p2mm": 0,
+    "tyre_hub_in_egg_hull_mm": 0.0,
+    "tyre_tyre_clearance_mm": 32.61,
+    "arm_in_shell_mm": 0.0,
+    "hip_range_deg": {
+     "hip_fl": [
+      22.14,
+      22.26
+     ],
+     "hip_fr": [
+      22.14,
+      22.25
+     ],
+     "hip_rl": [
+      22.11,
+      22.34
+     ],
+     "hip_rr": [
+      22.11,
+      22.33
+     ]
+    }
+   },
+   "turn": {
+    "frames": 150,
+    "min_z_mm": -1.26,
+    "max_gap_mm": 0.08,
+    "frames_gap_over_1mm": 0,
+    "frames_below_minus_1p2mm": 1,
+    "tyre_hub_in_egg_hull_mm": 0.0,
+    "tyre_tyre_clearance_mm": 32.54,
+    "arm_in_shell_mm": 0.0,
+    "hip_range_deg": {
+     "hip_fl": [
+      22.05,
+      82.01
+     ],
+     "hip_fr": [
+      22.05,
+      82.0
+     ],
+     "hip_rl": [
+      22.05,
+      50.18
+     ],
+     "hip_rr": [
+      22.11,
+      49.95
+     ]
+    }
+   },
+   "talk": {
+    "frames": 151,
+    "min_z_mm": -0.18,
+    "max_gap_mm": -0.13,
+    "frames_gap_over_1mm": 0,
+    "frames_below_minus_1p2mm": 0,
+    "tyre_hub_in_egg_hull_mm": 0.0,
+    "tyre_tyre_clearance_mm": 28.38,
+    "arm_in_shell_mm": 0.0,
+    "hip_range_deg": {
+     "hip_fl": [
+      16.45,
+      27.75
+     ],
+     "hip_fr": [
+      15.05,
+      29.08
+     ],
+     "hip_rl": [
+      16.74,
+      27.43
+     ],
+     "hip_rr": [
+      17.77,
+      26.38
+     ]
+    }
+   },
+   "happy": {
+    "frames": 120,
+    "min_z_mm": -1.03,
+    "max_gap_mm": 0.1,
+    "frames_gap_over_1mm": 0,
+    "frames_below_minus_1p2mm": 0,
+    "tyre_hub_in_egg_hull_mm": 0.0,
+    "tyre_tyre_clearance_mm": 22.33,
+    "arm_in_shell_mm": 0.0,
+    "hip_range_deg": {
+     "hip_fl": [
+      13.09,
+      80.59
+     ],
+     "hip_fr": [
+      13.18,
+      40.6
+     ],
+     "hip_rl": [
+      7.91,
+      31.47
+     ],
+     "hip_rr": [
+      12.89,
+      65.31
+     ]
+    }
+   },
+   "fall_recover": {
+    "frames": 167,
+    "min_z_mm": -0.6,
+    "max_gap_mm": 0.61,
+    "frames_gap_over_1mm": 0,
+    "frames_below_minus_1p2mm": 0,
+    "tyre_hub_in_egg_hull_mm": 0.0,
+    "tyre_tyre_clearance_mm": 31.9,
+    "arm_in_shell_mm": 0.0,
+    "hip_range_deg": {
+     "hip_fl": [
+      21.94,
+      80.46
+     ],
+     "hip_fr": [
+      21.91,
+      22.37
+     ],
+     "hip_rl": [
+      21.02,
+      118.18
+     ],
+     "hip_rr": [
+      21.57,
+      22.8
+     ]
+    }
+   },
+   "sleep": {
+    "frames": 120,
+    "min_z_mm": -0.21,
+    "max_gap_mm": -0.0,
+    "frames_gap_over_1mm": 0,
+    "frames_below_minus_1p2mm": 0,
+    "tyre_hub_in_egg_hull_mm": 0.0,
+    "tyre_tyre_clearance_mm": 32.63,
+    "arm_in_shell_mm": 0.0,
+    "hip_range_deg": {
+     "hip_fl": [
+      22.15,
+      76.92
+     ],
+     "hip_fr": [
+      22.15,
+      76.92
+     ],
+     "hip_rl": [
+      22.14,
+      73.92
+     ],
+     "hip_rr": [
+      22.14,
+      73.92
+     ]
+    }
+   },
+   "fall_back_help": {
+    "frames": 165,
+    "min_z_mm": -1.27,
+    "max_gap_mm": 0.08,
+    "frames_gap_over_1mm": 0,
+    "frames_below_minus_1p2mm": 1,
+    "tyre_hub_in_egg_hull_mm": 0.0,
+    "tyre_tyre_clearance_mm": 32.21,
+    "arm_in_shell_mm": 0.0,
+    "hip_range_deg": {
+     "hip_fl": [
+      21.7,
+      62.03
+     ],
+     "hip_fr": [
+      21.7,
+      62.03
+     ],
+     "hip_rl": [
+      21.17,
+      61.96
+     ],
+     "hip_rr": [
+      21.26,
+      61.97
+     ]
+    }
+   }
+  }
+ },
+ "realism_notes_tr": [
+  "Renk: karamel parçalar Bambu Lab PLA Matte Caramel (katalog rengi #AE835B) varsayıldı; gerçekte konsept görselindeki parlak altın-turuncudan daha kahverengi, sütlü kahve tonundadır. Bu sahnenin ışığı renkleri açtığı için modeldeki albedo koyulaştırıldı (#745034): aydınlık yüzler swatch'tan biraz açık, gölgeler biraz koyu görünür. Türkiye'de bu rengin satıcısı doğrulanmadı; baskı stüdyosu başka marka açık kahve/latte PLA kullanırsa ton değişir. Gövde mat fildişi/krem PLA; saf beyaz değil.",
+  "Katman çizgileri: gövde ve kapak ayırma yüzü tablaya gelecek şekilde basılır; katmanlar yatayla ~23° eğiktir ve 0.12 mm'de yakından (30 cm altı) seçilir. Kollar ve tekerlek parçaları yan yatık basıldığı için çizgiler yanal yüzlere paraleldir.",
+  "Ek yerleri: kapak-gövde arasında 0.9 mm ayrım oluğu, vizörün çevresinde ~0.45 mm boşluk, kulaklarda yapıştırma çizgisi; tekerlekte göbek, TPU lastik ve kapak ayrı parçalardır.",
+  "Gözler: her biri 240x240 piksel GC9A01, Ø32.4 mm aktif alan (~7.4 piksel/mm). Kol mesafesinden pikseller seçilmez, 10 cm'den yakında ızgara görünür. Panel 16-bit RGB565 aldığı için iris gradyanında hafif bantlaşma olur. IPS siyahı tam siyah değildir: karanlıkta yuvarlak panel hafifçe gri parlar.",
+  "Siyah arka plan ekranı tamamen yok etmez: aydınlık odada aktif alan, cam yansıması ve IPS arka ışık sızması yüzünden parlak siyah vizörden biraz daha açık, koyu gri bir daire olarak seçilir (konseptteki 'panel vizörde kaybolur' iddiası iyimserdir).",
+  "Ekran camı vizör yüzeyinin ~4.4 mm altında: gözler hafif çukurda durur, yandan bakınca vizör kenarı gözün bir kısmını kapatır ve camın siyah kenar halkası (Ø32.4 -> Ø35.6) ince bir çizgi olarak görünür.",
+  "Parlak siyah vizör: FDM PETG kendiliğinden bu kadar parlak olmaz ve kavisli yüzeyde ütüleme işe yaramaz. Zımpara + 2K vernik gerekir (ya da reçine baskı, ~+150 TL). İşlem yapılmazsa yarı mat ve katman basamaklı görünür.",
+  "Görünen vidalar: her kalçada kol dış yüzünde M2 servo korna vidası (havşa içinde), karın altında 2 adet M2 havşa vida. Kapak mıknatıslıdır, vidası yoktur.",
+  "Kablolar: arka N20 motor kabloları kolun iç yüzündeki kanaldan kalça eksenine 4.6 mm kadar yaklaşır ve servo korna deliğinden (Ø12.6) gövdeye girer; kol dönerken kablo yalnızca eksen çevresinde döner/burulur, gövdede ~4 cm servis halkası vardır. Bu güzergah konseptte yoktu, burada eklendi.",
+  "Çene sensörleri: TCRT5000'in iki lensi (mavimsi verici, siyah alıcı) 11x6 mm yarıklardan görünür. Konseptteki 6.6 mm pencere sensörü sığdırmıyordu; yarık büyütüldü.",
+  "USB-C şarj soketi arkada, altta metal olarak görünür. Hoparlör ızgarasının arkasında siyah kumaş görünür.",
+  "Yanak LED'leri (WS2812B) 0.8 mm krem PLA'nın arkasındadır: kapalıyken görünmez, yanınca pembe ve bulanık bir leke olarak sızar (bu modelde yalnız x-ray'de görünür).",
+  "Patilerdeki toe-bean'ler 4 minik krem parçanın yapıştırılmasıyla olur; tek renk baskıda yalnızca kabartma olarak kalır.",
+  "Hareket: Fındık yürümez, arka tekerleriyle yuvarlanır (simde 13.8 cm/s). Bacaklar yalnız duruş, eğilme, el sallama ve kalkma için.",
+  "Hareket: TPU lastikli serbest ön tekerler yüzünden ayakta yerinde dönmesi çok zayıf (~7-9°/s, geniş yay). Dönmek için karnına oturup arka tekerleri ters çevirir (~49°/s); bu sırada krem karın masada sürtünür (pivot noktasına keçe/PTFE ped önerilir). Ön tekerlere sert plastik jant takmak dönmeyi düzeltir.",
+  "Hareket: yana düşünce kendini kaldırır, ama yalnız önerilen hibrit yazılımla güvenilir: simde 18/18, konseptin kendi ağırlık merkezinde 17/18. Konseptin kendi kuralı ağırlık merkezi birkaç mm yükselince çöküyor (16/18 -> 9/17 -> 4/18). Sırtüstü veya yüzüstü düşerse kalkamaz ve yardım ister."
+ ]
+}

@@ -1,0 +1,117 @@
+<mujoco model="tarcin_B">
+  <compiler angle="degree" meshdir="/tmp/claude-0/-home-user-tualyn/088f8e83-392a-5b19-ac2c-5c0005fbdef6/scratchpad/yeni/paket/B/sim/meshes"/>
+  <option timestep="0.0005" integrator="implicitfast" gravity="0 0 -9.81"/>
+  <size memory="20M"/>
+  <visual><global offwidth="1400" offheight="1050"/></visual>
+  <default>
+    <geom contype="3" conaffinity="1" condim="3" friction="0.3 0.005 0.0001" solref="0.004 1" solimp="0.9 0.95 0.001"/>
+    <joint damping="0.01918" armature="0.0004" limited="true"/>
+    <position kp="3.0" forcerange="-0.2 0.2" forcelimited="true"/>
+  </default>
+  <asset>
+    <mesh name="body" file="body.stl"/>
+    <mesh name="thigh_hr" file="thigh_hr.stl"/>
+    <mesh name="shin_hr" file="shin_hr.stl"/>
+    <mesh name="shin_hr_paw" file="shin_hr_paw.stl"/>
+    <mesh name="thigh_hl" file="thigh_hl.stl"/>
+    <mesh name="shin_hl" file="shin_hl.stl"/>
+    <mesh name="shin_hl_paw" file="shin_hl_paw.stl"/>
+    <mesh name="thigh_fr" file="thigh_fr.stl"/>
+    <mesh name="shin_fr" file="shin_fr.stl"/>
+    <mesh name="shin_fr_paw" file="shin_fr_paw.stl"/>
+    <mesh name="thigh_fl" file="thigh_fl.stl"/>
+    <mesh name="shin_fl" file="shin_fl.stl"/>
+    <mesh name="shin_fl_paw" file="shin_fl_paw.stl"/>
+    <mesh name="tail" file="tail.stl"/>
+    <mesh name="head" file="head.stl"/>
+    <mesh name="ear_l" file="ear_l.stl"/>
+    <mesh name="ear_r" file="ear_r.stl"/>
+  </asset>
+  <worldbody>
+    <light pos="0 -0.3 0.6" dir="0 0.4 -1"/>
+    <geom name="floor" type="plane" size="2 2 0.1" friction="0.6 0.005 0.0001" priority="1" contype="1" conaffinity="3" rgba="0.8 0.78 0.74 1"/>
+    <body name="body" pos="0 0 0.002">
+      <freejoint name="root"/>
+      <geom name="body_hull" type="mesh" mesh="body" mass="0.04080"/>
+      <geom type="box" pos="0 -0.008 0.0658459" size="0.0071 0.02525 0.0143" mass="0.03900" contype="0" conaffinity="0" group="3" rgba="0.2 0.5 1 0.4"/>
+      <geom type="box" pos="0 0.033 0.0695459" size="0.0061 0.015 0.0114" mass="0.01340" contype="0" conaffinity="0" group="3" rgba="0.2 0.5 1 0.4"/>
+      <geom type="box" pos="0 0.007 0.0642959" size="0.0137 0.027 0.01225" mass="0.01550" contype="0" conaffinity="0" group="3" rgba="0.2 0.5 1 0.4"/>
+      <geom type="box" pos="0.00245 -0.0180762 0.0685847" size="0.01095 0.0310762 0.0151113" mass="0.00385" contype="0" conaffinity="0" group="3" rgba="0.2 0.5 1 0.4"/>
+      <site name="imu" pos="0 0 0.06905"/>
+      <body name="head" pos="0 -0.032 0.0690459">
+        <joint name="neck_pan" axis="0 0 1" range="-40 40" damping="0.00550"/>
+        <geom name="head_hull" type="mesh" mesh="head" mass="0.04180"/>
+        <geom name="ear_l" type="mesh" mesh="ear_l" mass="0.003" contype="3" conaffinity="1"/>
+        <geom name="ear_r" type="mesh" mesh="ear_r" mass="0.003" contype="3" conaffinity="1"/>
+        <geom type="box" pos="0 -0.0264 0.038" size="0.0386 0.0026 0.019" mass="0.01500" contype="0" conaffinity="0" group="3" rgba="0.2 0.5 1 0.4"/>
+        <geom type="box" pos="0 -0.0055 0.0259" size="0.0043 0.01 0.0106" mass="0.00450" contype="0" conaffinity="0" group="3" rgba="0.2 0.5 1 0.4"/>
+        <geom type="box" pos="0 -0.00207678 0.043775" size="0.016 0.0134232 0.021525" mass="0.00915" contype="0" conaffinity="0" group="3" rgba="0.2 0.5 1 0.4"/>
+      </body>
+      <body name="tail" pos="0 0.048 0.0640459">
+        <joint name="tail" axis="0 1 0" range="-85 85"/>
+        <geom name="tail_hull" type="mesh" mesh="tail" mass="0.01410"/>
+      </body>
+      <body name="thigh_fl" pos="0 -0.032 0.0690459">
+        <joint name="hip_fl" axis="1 0 0" range="-20 128"/>
+        <geom name="thigh_fl_hull" type="mesh" mesh="thigh_fl" mass="0.01247"/>
+        <geom type="box" pos="0.0403 0 -0.02" size="0.015 0.0061 0.0259" mass="0.02680" contype="0" conaffinity="0" group="3" rgba="0.2 0.5 1 0.4"/>
+        <body name="shin_fl" pos="0 0 -0.04">
+          <joint name="knee_fl" axis="1 0 0" range="-140 25"/>
+          <geom name="shin_fl_hull" type="mesh" mesh="shin_fl" mass="0.00088"/>
+          <geom name="shin_fl_paw" type="mesh" mesh="shin_fl_paw" mass="0.00108" contype="2" conaffinity="2" rgba="0.1 0.1 0.1 1"/>
+        </body>
+      </body>
+      <body name="thigh_fr" pos="0 -0.032 0.0690459">
+        <joint name="hip_fr" axis="1 0 0" range="-20 128"/>
+        <geom name="thigh_fr_hull" type="mesh" mesh="thigh_fr" mass="0.01247"/>
+        <geom type="box" pos="-0.0403 0 -0.02" size="0.015 0.0061 0.0259" mass="0.02680" contype="0" conaffinity="0" group="3" rgba="0.2 0.5 1 0.4"/>
+        <body name="shin_fr" pos="0 0 -0.04">
+          <joint name="knee_fr" axis="1 0 0" range="-140 25"/>
+          <geom name="shin_fr_hull" type="mesh" mesh="shin_fr" mass="0.00088"/>
+          <geom name="shin_fr_paw" type="mesh" mesh="shin_fr_paw" mass="0.00108" contype="2" conaffinity="2" rgba="0.1 0.1 0.1 1"/>
+        </body>
+      </body>
+      <body name="thigh_hl" pos="0 0.032 0.0690459">
+        <joint name="hip_hl" axis="1 0 0" range="-50 130"/>
+        <geom name="thigh_hl_hull" type="mesh" mesh="thigh_hl" mass="0.01247"/>
+        <geom type="box" pos="0.0403 0 -0.02" size="0.015 0.0061 0.0259" mass="0.02680" contype="0" conaffinity="0" group="3" rgba="0.2 0.5 1 0.4"/>
+        <body name="shin_hl" pos="0 0 -0.04">
+          <joint name="knee_hl" axis="1 0 0" range="-25 140"/>
+          <geom name="shin_hl_hull" type="mesh" mesh="shin_hl" mass="0.00088"/>
+          <geom name="shin_hl_paw" type="mesh" mesh="shin_hl_paw" mass="0.00108" contype="2" conaffinity="2" rgba="0.1 0.1 0.1 1"/>
+        </body>
+      </body>
+      <body name="thigh_hr" pos="0 0.032 0.0690459">
+        <joint name="hip_hr" axis="1 0 0" range="-50 130"/>
+        <geom name="thigh_hr_hull" type="mesh" mesh="thigh_hr" mass="0.01247"/>
+        <geom type="box" pos="-0.0403 0 -0.02" size="0.015 0.0061 0.0259" mass="0.02680" contype="0" conaffinity="0" group="3" rgba="0.2 0.5 1 0.4"/>
+        <body name="shin_hr" pos="0 0 -0.04">
+          <joint name="knee_hr" axis="1 0 0" range="-25 140"/>
+          <geom name="shin_hr_hull" type="mesh" mesh="shin_hr" mass="0.00088"/>
+          <geom name="shin_hr_paw" type="mesh" mesh="shin_hr_paw" mass="0.00108" contype="2" conaffinity="2" rgba="0.1 0.1 0.1 1"/>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+  <contact>
+    <pair geom1="floor" geom2="shin_fl_paw" condim="3" friction="0.8999999999999999 0.8999999999999999 0.005 0.0001 0.0001" solref="0.004 1" solimp="0.9 0.95 0.001"/>
+    <pair geom1="floor" geom2="shin_fr_paw" condim="3" friction="0.8999999999999999 0.8999999999999999 0.005 0.0001 0.0001" solref="0.004 1" solimp="0.9 0.95 0.001"/>
+    <pair geom1="floor" geom2="shin_hl_paw" condim="3" friction="0.8999999999999999 0.8999999999999999 0.005 0.0001 0.0001" solref="0.004 1" solimp="0.9 0.95 0.001"/>
+    <pair geom1="floor" geom2="shin_hr_paw" condim="3" friction="0.8999999999999999 0.8999999999999999 0.005 0.0001 0.0001" solref="0.004 1" solimp="0.9 0.95 0.001"/>
+  </contact>
+  <actuator>
+    <position name="neck_pan" joint="neck_pan" kp="1.0" forcerange="-0.07 0.07" ctrlrange="-40 40"/>
+    <position name="tail" joint="tail" ctrlrange="-85 85"/>
+    <position name="hip_fl" joint="hip_fl" ctrlrange="-20 128"/>
+    <position name="knee_fl" joint="knee_fl" ctrlrange="-140 25"/>
+    <position name="hip_fr" joint="hip_fr" ctrlrange="-20 128"/>
+    <position name="knee_fr" joint="knee_fr" ctrlrange="-140 25"/>
+    <position name="hip_hl" joint="hip_hl" ctrlrange="-50 130"/>
+    <position name="knee_hl" joint="knee_hl" ctrlrange="-25 140"/>
+    <position name="hip_hr" joint="hip_hr" ctrlrange="-50 130"/>
+    <position name="knee_hr" joint="knee_hr" ctrlrange="-25 140"/>
+  </actuator>
+  <sensor>
+    <framequat name="imu_q" objtype="site" objname="imu"/>
+  </sensor>
+</mujoco>

@@ -1,0 +1,1470 @@
+[
+ {
+  "case": "nudge towards its left (+X)",
+  "mu": 0.5,
+  "strategy": "hybrid",
+  "push_N": 2.18,
+  "success": true,
+  "attempts": 1,
+  "fell": true,
+  "t_fall": 0.7700000000000006,
+  "t_up": 5.0900000000000345,
+  "final_tilt": 0.0,
+  "max_knee_Nm": 0.124,
+  "max_yaw_Nm": 0.037,
+  "max_pen_mm": 1.16,
+  "servo_at_clamp_s": 0.0,
+  "log": [
+   [
+    0.77,
+    "fold",
+    43.5
+   ],
+   [
+    2.37,
+    "assess",
+    78.9
+   ],
+   [
+    2.38,
+    "pushers",
+    [
+     "bl",
+     "fl"
+    ],
+    [
+     -0.0,
+     0.0
+    ],
+    0.0
+   ],
+   [
+    2.38,
+    "aim",
+    78.9
+   ],
+   [
+    2.74,
+    "push",
+    78.9
+   ],
+   [
+    3.62,
+    "rise",
+    21.5
+   ],
+   [
+    5.09,
+    "up",
+    0.5
+   ]
+  ]
+ },
+ {
+  "case": "shove towards its left (+X)",
+  "mu": 0.5,
+  "strategy": "hybrid",
+  "push_N": 3.49,
+  "success": true,
+  "attempts": 3,
+  "fell": true,
+  "t_fall": 0.7100000000000005,
+  "t_up": 12.149999999998705,
+  "final_tilt": 0.0,
+  "max_knee_Nm": 0.197,
+  "max_yaw_Nm": 0.2,
+  "max_pen_mm": 1.23,
+  "servo_at_clamp_s": 0.021,
+  "log": [
+   [
+    0.71,
+    "fold",
+    45.3
+   ],
+   [
+    1.61,
+    "assess",
+    120.1
+   ],
+   [
+    1.62,
+    "pushers",
+    [
+     "br",
+     "fr"
+    ],
+    [
+     -0.0,
+     0.0
+    ],
+    180.0
+   ],
+   [
+    1.62,
+    "aim",
+    120.1
+   ],
+   [
+    1.98,
+    "push",
+    120.0
+   ],
+   [
+    4.98,
+    "fold",
+    84.5
+   ],
+   [
+    5.86,
+    "assess",
+    134.2
+   ],
+   [
+    5.87,
+    "pushers",
+    [
+     "br",
+     "bl"
+    ],
+    [
+     -0.0,
+     72.0
+    ],
+    180.0
+   ],
+   [
+    5.87,
+    "aim",
+    134.2
+   ],
+   [
+    6.22,
+    "push",
+    129.2
+   ],
+   [
+    9.23,
+    "fold",
+    99.8
+   ],
+   [
+    10.27,
+    "assess",
+    96.4
+   ],
+   [
+    10.28,
+    "pushers",
+    [
+     "bl",
+     "br",
+     "fl"
+    ],
+    [
+     -20.0,
+     -20.0,
+     72.0
+    ],
+    90.0
+   ],
+   [
+    10.28,
+    "aim",
+    96.4
+   ],
+   [
+    10.64,
+    "push",
+    58.4
+   ],
+   [
+    10.75,
+    "rise",
+    20.2
+   ],
+   [
+    12.15,
+    "up",
+    0.4
+   ]
+  ]
+ },
+ {
+  "case": "nudge back-left",
+  "mu": 0.5,
+  "strategy": "hybrid",
+  "push_N": 3.04,
+  "success": true,
+  "attempts": 1,
+  "fell": true,
+  "t_fall": 0.7700000000000006,
+  "t_up": 4.959999999999991,
+  "final_tilt": 0.0,
+  "max_knee_Nm": 0.146,
+  "max_yaw_Nm": 0.034,
+  "max_pen_mm": 1.17,
+  "servo_at_clamp_s": 0.0,
+  "log": [
+   [
+    0.77,
+    "fold",
+    42.2
+   ],
+   [
+    2.24,
+    "assess",
+    78.9
+   ],
+   [
+    2.25,
+    "pushers",
+    [
+     "bl",
+     "fl"
+    ],
+    [
+     -0.0,
+     0.0
+    ],
+    0.0
+   ],
+   [
+    2.25,
+    "aim",
+    78.9
+   ],
+   [
+    2.61,
+    "push",
+    78.9
+   ],
+   [
+    3.49,
+    "rise",
+    21.5
+   ],
+   [
+    4.96,
+    "up",
+    0.5
+   ]
+  ]
+ },
+ {
+  "case": "shove back-left",
+  "mu": 0.5,
+  "strategy": "hybrid",
+  "push_N": 4.87,
+  "success": true,
+  "attempts": 1,
+  "fell": true,
+  "t_fall": 0.7100000000000005,
+  "t_up": 5.010000000000008,
+  "final_tilt": 0.0,
+  "max_knee_Nm": 0.2,
+  "max_yaw_Nm": 0.11,
+  "max_pen_mm": 1.41,
+  "servo_at_clamp_s": 0.04,
+  "log": [
+   [
+    0.71,
+    "fold",
+    46.6
+   ],
+   [
+    2.28,
+    "assess",
+    79.0
+   ],
+   [
+    2.29,
+    "pushers",
+    [
+     "br",
+     "fr"
+    ],
+    [
+     -0.0,
+     0.0
+    ],
+    180.0
+   ],
+   [
+    2.29,
+    "aim",
+    79.0
+   ],
+   [
+    2.65,
+    "push",
+    79.0
+   ],
+   [
+    3.54,
+    "rise",
+    20.9
+   ],
+   [
+    5.01,
+    "up",
+    0.4
+   ]
+  ]
+ },
+ {
+  "case": "nudge backwards",
+  "mu": 0.5,
+  "strategy": "hybrid",
+  "push_N": 2.93,
+  "success": true,
+  "attempts": 3,
+  "fell": true,
+  "t_fall": 0.7600000000000006,
+  "t_up": 12.329999999998606,
+  "final_tilt": 0.0,
+  "max_knee_Nm": 0.19,
+  "max_yaw_Nm": 0.2,
+  "max_pen_mm": 0.85,
+  "servo_at_clamp_s": 0.019,
+  "log": [
+   [
+    0.76,
+    "fold",
+    44.1
+   ],
+   [
+    2.27,
+    "assess",
+    130.8
+   ],
+   [
+    2.28,
+    "pushers",
+    [
+     "br",
+     "bl"
+    ],
+    [
+     -20.0,
+     -20.0
+    ],
+    90.0
+   ],
+   [
+    2.28,
+    "aim",
+    130.8
+   ],
+   [
+    2.64,
+    "push",
+    133.3
+   ],
+   [
+    5.64,
+    "fold",
+    101.8
+   ],
+   [
+    6.46,
+    "assess",
+    96.4
+   ],
+   [
+    6.47,
+    "pushers",
+    [
+     "bl",
+     "fl"
+    ],
+    [
+     -20.0,
+     72.0
+    ],
+    90.0
+   ],
+   [
+    6.47,
+    "aim",
+    96.4
+   ],
+   [
+    6.82,
+    "push",
+    123.2
+   ],
+   [
+    9.83,
+    "fold",
+    99.7
+   ],
+   [
+    10.44,
+    "assess",
+    96.3
+   ],
+   [
+    10.45,
+    "pushers",
+    [
+     "br",
+     "bl",
+     "fr"
+    ],
+    [
+     -20.0,
+     -20.0,
+     72.0
+    ],
+    90.0
+   ],
+   [
+    10.45,
+    "aim",
+    96.3
+   ],
+   [
+    10.81,
+    "push",
+    64.1
+   ],
+   [
+    10.94,
+    "rise",
+    20.4
+   ],
+   [
+    12.33,
+    "up",
+    0.4
+   ]
+  ]
+ },
+ {
+  "case": "shove backwards",
+  "mu": 0.5,
+  "strategy": "hybrid",
+  "push_N": 4.7,
+  "success": true,
+  "attempts": 0,
+  "fell": true,
+  "t_fall": 0.7000000000000005,
+  "t_up": 4.569999999999861,
+  "final_tilt": 0.0,
+  "max_knee_Nm": 0.12,
+  "max_yaw_Nm": 0.138,
+  "max_pen_mm": 1.37,
+  "servo_at_clamp_s": 0.0,
+  "log": [
+   [
+    0.7,
+    "fold",
+    40.8
+   ],
+   [
+    3.09,
+    "assess",
+    0.0
+   ],
+   [
+    3.1,
+    "rise",
+    0.0
+   ],
+   [
+    4.57,
+    "up",
+    0.1
+   ]
+  ]
+ },
+ {
+  "case": "nudge back-right",
+  "mu": 0.5,
+  "strategy": "hybrid",
+  "push_N": 3.1,
+  "success": true,
+  "attempts": 1,
+  "fell": true,
+  "t_fall": 0.7700000000000006,
+  "t_up": 5.040000000000018,
+  "final_tilt": 0.0,
+  "max_knee_Nm": 0.142,
+  "max_yaw_Nm": 0.034,
+  "max_pen_mm": 0.96,
+  "servo_at_clamp_s": 0.0,
+  "log": [
+   [
+    0.77,
+    "fold",
+    42.7
+   ],
+   [
+    2.31,
+    "assess",
+    79.0
+   ],
+   [
+    2.32,
+    "pushers",
+    [
+     "br",
+     "fr"
+    ],
+    [
+     -0.0,
+     0.0
+    ],
+    180.0
+   ],
+   [
+    2.32,
+    "aim",
+    79.0
+   ],
+   [
+    2.68,
+    "push",
+    79.0
+   ],
+   [
+    3.57,
+    "rise",
+    20.8
+   ],
+   [
+    5.04,
+    "up",
+    0.4
+   ]
+  ]
+ },
+ {
+  "case": "shove back-right",
+  "mu": 0.5,
+  "strategy": "hybrid",
+  "push_N": 4.95,
+  "success": true,
+  "attempts": 1,
+  "fell": true,
+  "t_fall": 0.7100000000000005,
+  "t_up": 4.899999999999971,
+  "final_tilt": 0.0,
+  "max_knee_Nm": 0.2,
+  "max_yaw_Nm": 0.084,
+  "max_pen_mm": 1.33,
+  "servo_at_clamp_s": 0.038,
+  "log": [
+   [
+    0.71,
+    "fold",
+    47.4
+   ],
+   [
+    2.18,
+    "assess",
+    78.9
+   ],
+   [
+    2.19,
+    "pushers",
+    [
+     "bl",
+     "fl"
+    ],
+    [
+     -0.0,
+     0.0
+    ],
+    0.0
+   ],
+   [
+    2.19,
+    "aim",
+    78.9
+   ],
+   [
+    2.55,
+    "push",
+    78.9
+   ],
+   [
+    3.43,
+    "rise",
+    21.5
+   ],
+   [
+    4.9,
+    "up",
+    0.5
+   ]
+  ]
+ },
+ {
+  "case": "nudge towards its right (-X)",
+  "mu": 0.5,
+  "strategy": "hybrid",
+  "push_N": 2.18,
+  "success": true,
+  "attempts": 1,
+  "fell": true,
+  "t_fall": 0.7700000000000006,
+  "t_up": 5.130000000000048,
+  "final_tilt": 0.0,
+  "max_knee_Nm": 0.125,
+  "max_yaw_Nm": 0.038,
+  "max_pen_mm": 0.59,
+  "servo_at_clamp_s": 0.0,
+  "log": [
+   [
+    0.77,
+    "fold",
+    42.6
+   ],
+   [
+    2.4,
+    "assess",
+    78.9
+   ],
+   [
+    2.41,
+    "pushers",
+    [
+     "br",
+     "fr"
+    ],
+    [
+     -0.0,
+     0.0
+    ],
+    180.0
+   ],
+   [
+    2.41,
+    "aim",
+    78.9
+   ],
+   [
+    2.77,
+    "push",
+    78.9
+   ],
+   [
+    3.66,
+    "rise",
+    20.9
+   ],
+   [
+    5.13,
+    "up",
+    0.4
+   ]
+  ]
+ },
+ {
+  "case": "shove towards its right (-X)",
+  "mu": 0.5,
+  "strategy": "hybrid",
+  "push_N": 3.49,
+  "success": true,
+  "attempts": 1,
+  "fell": true,
+  "t_fall": 0.7100000000000005,
+  "t_up": 4.899999999999971,
+  "final_tilt": 0.0,
+  "max_knee_Nm": 0.122,
+  "max_yaw_Nm": 0.035,
+  "max_pen_mm": 2.0,
+  "servo_at_clamp_s": 0.0,
+  "log": [
+   [
+    0.71,
+    "fold",
+    44.4
+   ],
+   [
+    2.18,
+    "assess",
+    78.9
+   ],
+   [
+    2.19,
+    "pushers",
+    [
+     "bl",
+     "fl"
+    ],
+    [
+     -0.0,
+     0.0
+    ],
+    0.0
+   ],
+   [
+    2.19,
+    "aim",
+    78.9
+   ],
+   [
+    2.55,
+    "push",
+    78.9
+   ],
+   [
+    3.43,
+    "rise",
+    21.6
+   ],
+   [
+    4.9,
+    "up",
+    0.5
+   ]
+  ]
+ },
+ {
+  "case": "nudge front-right",
+  "mu": 0.5,
+  "strategy": "hybrid",
+  "push_N": 3.1,
+  "success": true,
+  "attempts": 1,
+  "fell": true,
+  "t_fall": 0.7700000000000006,
+  "t_up": 5.020000000000011,
+  "final_tilt": 0.0,
+  "max_knee_Nm": 0.139,
+  "max_yaw_Nm": 0.036,
+  "max_pen_mm": 1.03,
+  "servo_at_clamp_s": 0.0,
+  "log": [
+   [
+    0.77,
+    "fold",
+    43.0
+   ],
+   [
+    2.29,
+    "assess",
+    78.9
+   ],
+   [
+    2.3,
+    "pushers",
+    [
+     "br",
+     "fr"
+    ],
+    [
+     -0.0,
+     0.0
+    ],
+    180.0
+   ],
+   [
+    2.3,
+    "aim",
+    78.9
+   ],
+   [
+    2.66,
+    "push",
+    79.0
+   ],
+   [
+    3.55,
+    "rise",
+    20.9
+   ],
+   [
+    5.02,
+    "up",
+    0.4
+   ]
+  ]
+ },
+ {
+  "case": "shove front-right",
+  "mu": 0.5,
+  "strategy": "hybrid",
+  "push_N": 4.95,
+  "success": true,
+  "attempts": 0,
+  "fell": true,
+  "t_fall": 0.7100000000000005,
+  "t_up": 4.129999999999714,
+  "final_tilt": 0.0,
+  "max_knee_Nm": 0.2,
+  "max_yaw_Nm": 0.065,
+  "max_pen_mm": 2.31,
+  "servo_at_clamp_s": 0.019,
+  "log": [
+   [
+    0.71,
+    "fold",
+    46.9
+   ],
+   [
+    2.65,
+    "assess",
+    0.0
+   ],
+   [
+    2.66,
+    "rise",
+    0.0
+   ],
+   [
+    4.13,
+    "up",
+    0.1
+   ]
+  ]
+ },
+ {
+  "case": "nudge forwards (face down)",
+  "mu": 0.5,
+  "strategy": "hybrid",
+  "push_N": 2.99,
+  "success": true,
+  "attempts": 1,
+  "fell": true,
+  "t_fall": 0.7500000000000006,
+  "t_up": 5.130000000000048,
+  "final_tilt": 0.0,
+  "max_knee_Nm": 0.125,
+  "max_yaw_Nm": 0.044,
+  "max_pen_mm": 1.01,
+  "servo_at_clamp_s": 0.0,
+  "log": [
+   [
+    0.75,
+    "fold",
+    40.5
+   ],
+   [
+    2.41,
+    "assess",
+    78.8
+   ],
+   [
+    2.42,
+    "pushers",
+    [
+     "bl",
+     "fl"
+    ],
+    [
+     -0.0,
+     0.0
+    ],
+    0.0
+   ],
+   [
+    2.42,
+    "aim",
+    78.8
+   ],
+   [
+    2.78,
+    "push",
+    78.9
+   ],
+   [
+    3.66,
+    "rise",
+    21.4
+   ],
+   [
+    5.13,
+    "up",
+    0.5
+   ]
+  ]
+ },
+ {
+  "case": "shove forwards (face down)",
+  "mu": 0.5,
+  "strategy": "hybrid",
+  "push_N": 4.78,
+  "success": true,
+  "attempts": 0,
+  "fell": true,
+  "t_fall": 0.7000000000000005,
+  "t_up": 4.349999999999787,
+  "final_tilt": 0.0,
+  "max_knee_Nm": 0.124,
+  "max_yaw_Nm": 0.119,
+  "max_pen_mm": 1.3,
+  "servo_at_clamp_s": 0.0,
+  "log": [
+   [
+    0.7,
+    "fold",
+    41.8
+   ],
+   [
+    2.87,
+    "assess",
+    0.0
+   ],
+   [
+    2.88,
+    "rise",
+    0.0
+   ],
+   [
+    4.35,
+    "up",
+    0.1
+   ]
+  ]
+ },
+ {
+  "case": "nudge front-left",
+  "mu": 0.5,
+  "strategy": "hybrid",
+  "push_N": 3.04,
+  "success": true,
+  "attempts": 1,
+  "fell": true,
+  "t_fall": 0.7700000000000006,
+  "t_up": 5.040000000000018,
+  "final_tilt": 0.0,
+  "max_knee_Nm": 0.151,
+  "max_yaw_Nm": 0.036,
+  "max_pen_mm": 1.09,
+  "servo_at_clamp_s": 0.0,
+  "log": [
+   [
+    0.77,
+    "fold",
+    42.7
+   ],
+   [
+    2.32,
+    "assess",
+    78.9
+   ],
+   [
+    2.33,
+    "pushers",
+    [
+     "bl",
+     "fl"
+    ],
+    [
+     -0.0,
+     0.0
+    ],
+    0.0
+   ],
+   [
+    2.33,
+    "aim",
+    78.9
+   ],
+   [
+    2.69,
+    "push",
+    78.9
+   ],
+   [
+    3.57,
+    "rise",
+    21.5
+   ],
+   [
+    5.04,
+    "up",
+    0.5
+   ]
+  ]
+ },
+ {
+  "case": "shove front-left",
+  "mu": 0.5,
+  "strategy": "hybrid",
+  "push_N": 4.87,
+  "success": true,
+  "attempts": 0,
+  "fell": true,
+  "t_fall": 0.7100000000000005,
+  "t_up": 3.949999999999676,
+  "final_tilt": 0.0,
+  "max_knee_Nm": 0.2,
+  "max_yaw_Nm": 0.2,
+  "max_pen_mm": 1.37,
+  "servo_at_clamp_s": 0.032,
+  "log": [
+   [
+    0.71,
+    "fold",
+    46.3
+   ],
+   [
+    2.47,
+    "assess",
+    0.0
+   ],
+   [
+    2.48,
+    "rise",
+    0.0
+   ],
+   [
+    3.95,
+    "up",
+    0.1
+   ]
+  ]
+ },
+ {
+  "case": "dropped upside down (2 cm)",
+  "mu": 0.5,
+  "strategy": "hybrid",
+  "push_N": null,
+  "success": true,
+  "attempts": 3,
+  "fell": true,
+  "t_fall": 0.0,
+  "t_up": 10.989999999999348,
+  "final_tilt": 0.0,
+  "max_knee_Nm": 0.193,
+  "max_yaw_Nm": 0.2,
+  "max_pen_mm": 0.61,
+  "servo_at_clamp_s": 0.017,
+  "log": [
+   [
+    0.0,
+    "fold",
+    176.4
+   ],
+   [
+    0.97,
+    "assess",
+    132.1
+   ],
+   [
+    0.98,
+    "pushers",
+    [
+     "fr",
+     "fl"
+    ],
+    [
+     -20.0,
+     -20.0
+    ],
+    -90.0
+   ],
+   [
+    0.98,
+    "aim",
+    132.1
+   ],
+   [
+    1.34,
+    "push",
+    134.2
+   ],
+   [
+    4.35,
+    "fold",
+    101.9
+   ],
+   [
+    5.14,
+    "assess",
+    96.6
+   ],
+   [
+    5.15,
+    "pushers",
+    [
+     "fr",
+     "br"
+    ],
+    [
+     -20.0,
+     72.0
+    ],
+    -90.0
+   ],
+   [
+    5.15,
+    "aim",
+    96.6
+   ],
+   [
+    5.5,
+    "push",
+    125.2
+   ],
+   [
+    8.5,
+    "fold",
+    99.7
+   ],
+   [
+    9.11,
+    "assess",
+    96.5
+   ],
+   [
+    9.12,
+    "pushers",
+    [
+     "fl",
+     "fr",
+     "bl"
+    ],
+    [
+     -20.0,
+     -20.0,
+     72.0
+    ],
+    -90.0
+   ],
+   [
+    9.12,
+    "aim",
+    96.5
+   ],
+   [
+    9.48,
+    "push",
+    56.6
+   ],
+   [
+    9.58,
+    "rise",
+    21.7
+   ],
+   [
+    10.99,
+    "up",
+    0.4
+   ]
+  ]
+ },
+ {
+  "case": "placed on its back, legs out",
+  "mu": 0.5,
+  "strategy": "hybrid",
+  "push_N": null,
+  "success": true,
+  "attempts": 3,
+  "fell": true,
+  "t_fall": 0.0,
+  "t_up": 10.799999999999454,
+  "final_tilt": 0.0,
+  "max_knee_Nm": 0.19,
+  "max_yaw_Nm": 0.2,
+  "max_pen_mm": 0.55,
+  "servo_at_clamp_s": 0.019,
+  "log": [
+   [
+    0.0,
+    "fold",
+    92.0
+   ],
+   [
+    0.76,
+    "assess",
+    130.8
+   ],
+   [
+    0.77,
+    "pushers",
+    [
+     "br",
+     "bl"
+    ],
+    [
+     -20.0,
+     -20.0
+    ],
+    90.0
+   ],
+   [
+    0.77,
+    "aim",
+    130.8
+   ],
+   [
+    1.13,
+    "push",
+    133.3
+   ],
+   [
+    4.14,
+    "fold",
+    101.8
+   ],
+   [
+    4.94,
+    "assess",
+    96.3
+   ],
+   [
+    4.95,
+    "pushers",
+    [
+     "bl",
+     "fl"
+    ],
+    [
+     -20.0,
+     72.0
+    ],
+    90.0
+   ],
+   [
+    4.95,
+    "aim",
+    96.3
+   ],
+   [
+    5.3,
+    "push",
+    122.6
+   ],
+   [
+    8.3,
+    "fold",
+    99.7
+   ],
+   [
+    8.91,
+    "assess",
+    96.3
+   ],
+   [
+    8.92,
+    "pushers",
+    [
+     "br",
+     "bl",
+     "fr"
+    ],
+    [
+     -20.0,
+     -20.0,
+     72.0
+    ],
+    90.0
+   ],
+   [
+    8.92,
+    "aim",
+    96.3
+   ],
+   [
+    9.28,
+    "push",
+    64.1
+   ],
+   [
+    9.41,
+    "rise",
+    20.4
+   ],
+   [
+    10.8,
+    "up",
+    0.4
+   ]
+  ]
+ },
+ {
+  "case": "placed face down, legs out",
+  "mu": 0.5,
+  "strategy": "hybrid",
+  "push_N": null,
+  "success": true,
+  "attempts": 3,
+  "fell": true,
+  "t_fall": 0.0,
+  "t_up": 10.719999999999498,
+  "final_tilt": 0.0,
+  "max_knee_Nm": 0.193,
+  "max_yaw_Nm": 0.2,
+  "max_pen_mm": 0.6,
+  "servo_at_clamp_s": 0.017,
+  "log": [
+   [
+    0.0,
+    "fold",
+    92.0
+   ],
+   [
+    0.76,
+    "assess",
+    132.0
+   ],
+   [
+    0.77,
+    "pushers",
+    [
+     "fr",
+     "fl"
+    ],
+    [
+     -20.0,
+     -20.0
+    ],
+    -90.1
+   ],
+   [
+    0.77,
+    "aim",
+    132.0
+   ],
+   [
+    1.13,
+    "push",
+    134.2
+   ],
+   [
+    4.14,
+    "fold",
+    101.9
+   ],
+   [
+    4.87,
+    "assess",
+    96.6
+   ],
+   [
+    4.88,
+    "pushers",
+    [
+     "fr",
+     "br"
+    ],
+    [
+     -20.0,
+     72.0
+    ],
+    -90.0
+   ],
+   [
+    4.88,
+    "aim",
+    96.6
+   ],
+   [
+    5.23,
+    "push",
+    125.1
+   ],
+   [
+    8.23,
+    "fold",
+    99.7
+   ],
+   [
+    8.84,
+    "assess",
+    96.5
+   ],
+   [
+    8.85,
+    "pushers",
+    [
+     "fl",
+     "fr",
+     "bl"
+    ],
+    [
+     -20.0,
+     -20.0,
+     72.0
+    ],
+    -90.0
+   ],
+   [
+    8.85,
+    "aim",
+    96.5
+   ],
+   [
+    9.21,
+    "push",
+    56.6
+   ],
+   [
+    9.31,
+    "rise",
+    21.7
+   ],
+   [
+    10.72,
+    "up",
+    0.4
+   ]
+  ]
+ },
+ {
+  "case": "placed on right side, legs out",
+  "mu": 0.5,
+  "strategy": "hybrid",
+  "push_N": null,
+  "success": true,
+  "attempts": 1,
+  "fell": true,
+  "t_fall": 0.0,
+  "t_up": 4.369999999999794,
+  "final_tilt": 0.0,
+  "max_knee_Nm": 0.147,
+  "max_yaw_Nm": 0.035,
+  "max_pen_mm": 0.31,
+  "servo_at_clamp_s": 0.0,
+  "log": [
+   [
+    0.0,
+    "fold",
+    95.0
+   ],
+   [
+    1.64,
+    "assess",
+    79.0
+   ],
+   [
+    1.65,
+    "pushers",
+    [
+     "br",
+     "fr"
+    ],
+    [
+     -0.0,
+     0.0
+    ],
+    180.0
+   ],
+   [
+    1.65,
+    "aim",
+    79.0
+   ],
+   [
+    2.01,
+    "push",
+    79.0
+   ],
+   [
+    2.9,
+    "rise",
+    20.8
+   ],
+   [
+    4.37,
+    "up",
+    0.4
+   ]
+  ]
+ }
+]

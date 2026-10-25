@@ -1,0 +1,303 @@
+{
+ "width": 1400,
+ "height": 1050,
+ "shots": [
+  {
+   "name": "rig_hero",
+   "azimuth": 30,
+   "elevation": 15
+  },
+  {
+   "name": "rig_front",
+   "azimuth": 0,
+   "elevation": 5
+  },
+  {
+   "name": "rig_side",
+   "azimuth": 90,
+   "elevation": 5
+  },
+  {
+   "name": "rig_back",
+   "azimuth": 200,
+   "elevation": 15
+  },
+  {
+   "name": "rig_top",
+   "azimuth": 0,
+   "elevation": 80
+  },
+  {
+   "name": "rig_macro_face",
+   "azimuth": 14,
+   "elevation": 6,
+   "distance": 0.2,
+   "target": [
+    -12,
+    -64,
+    107
+   ]
+  },
+  {
+   "name": "rig_macro_pixels",
+   "azimuth": 4,
+   "elevation": 2,
+   "distance": 0.07,
+   "target": [
+    -25,
+    -64,
+    112
+   ]
+  },
+  {
+   "name": "rig_macro_print",
+   "azimuth": 55,
+   "elevation": 12,
+   "distance": 0.16,
+   "target": [
+    24,
+    -30,
+    62
+   ]
+  },
+  {
+   "name": "rig_macro_belly",
+   "azimuth": 20,
+   "elevation": -35,
+   "distance": 0.3,
+   "target": [
+    0,
+    -10,
+    48
+   ]
+  },
+  {
+   "name": "rig_macro_back",
+   "azimuth": 160,
+   "elevation": 10,
+   "distance": 0.22,
+   "target": [
+    0,
+    -15,
+    105
+   ]
+  },
+  {
+   "name": "rig_xray",
+   "xray": true,
+   "azimuth": 30,
+   "elevation": 20
+  },
+  {
+   "name": "rig_xray_side",
+   "xray": true,
+   "azimuth": 90,
+   "elevation": 5
+  },
+  {
+   "name": "rig_face_happy",
+   "azimuth": 10,
+   "elevation": 8,
+   "distance": 0.45,
+   "target": [
+    0,
+    -50,
+    100
+   ],
+   "face": "happy",
+   "pose": {
+    "tail": 30,
+    "neck_pan": 8
+   }
+  },
+  {
+   "name": "rig_face_sad",
+   "azimuth": -10,
+   "elevation": 8,
+   "distance": 0.45,
+   "target": [
+    0,
+    -50,
+    100
+   ],
+   "face": "sad"
+  },
+  {
+   "name": "rig_face_surprised",
+   "azimuth": 0,
+   "elevation": 8,
+   "distance": 0.45,
+   "target": [
+    0,
+    -50,
+    100
+   ],
+   "face": "surprised"
+  },
+  {
+   "name": "rig_face_determined",
+   "azimuth": 10,
+   "elevation": 8,
+   "distance": 0.45,
+   "target": [
+    0,
+    -50,
+    100
+   ],
+   "face": "determined"
+  },
+  {
+   "name": "rig_face_sleepy",
+   "azimuth": 0,
+   "elevation": 8,
+   "distance": 0.45,
+   "target": [
+    0,
+    -50,
+    100
+   ],
+   "face": "sleepy"
+  },
+  {
+   "name": "rig_face_talk_b",
+   "azimuth": 0,
+   "elevation": 8,
+   "distance": 0.45,
+   "target": [
+    0,
+    -50,
+    100
+   ],
+   "face": "talk_b"
+  },
+  {
+   "name": "rig_lim_hips_max",
+   "azimuth": 90,
+   "elevation": 5,
+   "pose": {
+    "hip_fl": 128,
+    "hip_fr": 128,
+    "hip_hl": 130,
+    "hip_hr": 130
+   }
+  },
+  {
+   "name": "rig_lim_hips_min",
+   "azimuth": 90,
+   "elevation": 5,
+   "pose": {
+    "hip_fl": -20,
+    "hip_fr": -20,
+    "hip_hl": -50,
+    "hip_hr": -50
+   }
+  },
+  {
+   "name": "rig_lim_knees_fold",
+   "azimuth": 60,
+   "elevation": -10,
+   "pose": {
+    "knee_fl": -140,
+    "knee_fr": -140,
+    "knee_hl": 140,
+    "knee_hr": 140
+   }
+  },
+  {
+   "name": "rig_lim_knees_ext",
+   "azimuth": 90,
+   "elevation": 5,
+   "pose": {
+    "knee_fl": 25,
+    "knee_fr": 25,
+    "knee_hl": -25,
+    "knee_hr": -25
+   }
+  },
+  {
+   "name": "rig_lim_pan_tail_pos",
+   "azimuth": 30,
+   "elevation": 30,
+   "pose": {
+    "neck_pan": 40,
+    "tail": 85
+   },
+   "face": "happy"
+  },
+  {
+   "name": "rig_lim_pan_tail_neg",
+   "azimuth": 0,
+   "elevation": 75,
+   "pose": {
+    "neck_pan": -40,
+    "tail": -85
+   },
+   "face": "curious"
+  },
+  {
+   "name": "rig_idle_t05",
+   "anim": "idle",
+   "t": 0.5,
+   "azimuth": 90,
+   "elevation": 0
+  },
+  {
+   "name": "rig_idle_t15",
+   "anim": "idle",
+   "t": 1.5,
+   "azimuth": 90,
+   "elevation": 0
+  },
+  {
+   "name": "rig_lim_hip_pan_coupled",
+   "azimuth": -90,
+   "elevation": 8,
+   "pose": {
+    "neck_pan": 40,
+    "hip_fl": 114,
+    "hip_fr": 128,
+    "hip_hl": 130,
+    "hip_hr": 130
+   },
+   "face": "curious"
+  },
+  {
+   "name": "rig_macro_hipslot",
+   "azimuth": 40,
+   "elevation": -15,
+   "distance": 0.2,
+   "target": [
+    22,
+    -30,
+    62
+   ],
+   "pose": {
+    "hip_fl": 110,
+    "knee_fl": -60
+   }
+  },
+  {
+   "name": "rig_macro_hipslot_rest",
+   "azimuth": 40,
+   "elevation": -15,
+   "distance": 0.2,
+   "target": [
+    22,
+    -30,
+    62
+   ]
+  },
+  {
+   "name": "rig_xray_head",
+   "xray": true,
+   "azimuth": 120,
+   "elevation": 12,
+   "distance": 0.33,
+   "target": [
+    0,
+    -40,
+    105
+   ]
+  }
+ ]
+}

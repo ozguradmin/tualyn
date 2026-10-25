@@ -1,0 +1,31 @@
+{
+ "hip_f": [
+  -20,
+  128
+ ],
+ "hip_h": [
+  -50,
+  130
+ ],
+ "hip_f_vs_pan": {
+  "-40": 150,
+  "-35": 150,
+  "-30": 146,
+  "-25": 142,
+  "-20": 138,
+  "-15": 136,
+  "-10": 132,
+  "-5": 130,
+  "0": 128,
+  "5": 128,
+  "10": 124,
+  "15": 124,
+  "20": 122,
+  "25": 120,
+  "30": 118,
+  "35": 116,
+  "40": 114
+ },
+ "clearance_mm": 1.0,
+ "note": "hip_f_vs_pan: largest front-hip angle (deg) whose real visible leg meshes (pod, sock, lead stub, shin, paw; every knee angle) stay >= 1 mm from the head's visible meshes, for the +x leg (hip_fl) at each neck_pan; hip_fr uses -pan. From sim/hipsweep.py (2 deg hip steps). The joint range max (hip_f[1]) is the pan-0 value; firmware and sim clamp hip_f <= min(table(pan_now), table(pan_cmd))."
+}

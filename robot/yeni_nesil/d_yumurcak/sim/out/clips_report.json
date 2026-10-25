@@ -1,0 +1,294 @@
+{
+ "walk": {
+  "speed_cm_s": 4.51,
+  "distance_mm": 264.4,
+  "lateral_drift_mm": -6.6,
+  "heading_drift_deg": 0.4,
+  "gait": {
+   "f": 2.0,
+   "A": 24,
+   "c": 8,
+   "K0": 32,
+   "dK": 24,
+   "duty": 0.5
+  },
+  "max_tilt_deg": 6.71,
+  "max_servo_Nm": 0.157,
+  "max_head_Nm": 0.005,
+  "max_floor_pen_mm": 0.32,
+  "servo_at_clamp_s": 0.0
+ },
+ "turn": {
+  "turn_rate_deg_s": 59.8,
+  "total_turn_deg": 233.0,
+  "max_drift_mm": 5.7,
+  "direction": "to the robot's left (CCW from above)",
+  "gait": {
+   "f": 2.0,
+   "A": 20,
+   "c": 0,
+   "K0": 32,
+   "dK": 16,
+   "duty": 0.5
+  },
+  "max_tilt_deg": 4.16,
+  "max_servo_Nm": 0.148,
+  "max_head_Nm": 0.089,
+  "max_floor_pen_mm": 0.17,
+  "servo_at_clamp_s": 0.0
+ },
+ "idle": {
+  "max_tilt_deg": 0.75,
+  "max_servo_Nm": 0.045,
+  "max_head_Nm": 0.008,
+  "max_floor_pen_mm": 0.04,
+  "servo_at_clamp_s": 0.0,
+  "base_drift_mm": 1.4
+ },
+ "talk": {
+  "max_tilt_deg": 0.78,
+  "max_servo_Nm": 0.048,
+  "max_head_Nm": 0.021,
+  "max_floor_pen_mm": 0.03,
+  "servo_at_clamp_s": 0.0,
+  "base_drift_mm": 1.16
+ },
+ "happy": {
+  "max_tilt_deg": 6.37,
+  "max_servo_Nm": 0.134,
+  "max_head_Nm": 0.109,
+  "max_floor_pen_mm": 0.08,
+  "servo_at_clamp_s": 0.0,
+  "base_drift_mm": 1.97
+ },
+ "sleep": {
+  "max_tilt_deg": 0.11,
+  "max_servo_Nm": 0.034,
+  "max_head_Nm": 0.007,
+  "max_floor_pen_mm": 0.09,
+  "servo_at_clamp_s": 0.0,
+  "base_drift_mm": 5.93
+ },
+ "walk_mu0.4": {
+  "speed_cm_s": 4.36,
+  "distance_mm": 256.1,
+  "lateral_drift_mm": 1.9,
+  "heading_drift_deg": 3.0,
+  "gait": {
+   "f": 2.0,
+   "A": 24,
+   "c": 8,
+   "K0": 32,
+   "dK": 24,
+   "duty": 0.5
+  },
+  "max_tilt_deg": 6.71,
+  "max_servo_Nm": 0.143,
+  "max_head_Nm": 0.004,
+  "max_floor_pen_mm": 0.29,
+  "servo_at_clamp_s": 0.0
+ },
+ "turn_mu0.4": {
+  "turn_rate_deg_s": 64.0,
+  "total_turn_deg": 248.8,
+  "max_drift_mm": 10.9,
+  "direction": "to the robot's left (CCW from above)",
+  "gait": {
+   "f": 2.0,
+   "A": 20,
+   "c": 0,
+   "K0": 32,
+   "dK": 16,
+   "duty": 0.5
+  },
+  "max_tilt_deg": 4.02,
+  "max_servo_Nm": 0.137,
+  "max_head_Nm": 0.089,
+  "max_floor_pen_mm": 0.13,
+  "servo_at_clamp_s": 0.0
+ },
+ "fall_recover": {
+  "case": "nudge towards its right (-X)",
+  "push_N": 2.18,
+  "success": true,
+  "attempts": 1,
+  "t_fall": 0.77,
+  "t_up": 5.13,
+  "max_knee_Nm": 0.125,
+  "max_yaw_Nm": 0.03,
+  "max_pen_mm": 0.6,
+  "servo_at_clamp_s": 0.0,
+  "max_tilt_deg": 148.2,
+  "log": [
+   [
+    0.77,
+    "fold",
+    42.6
+   ],
+   [
+    2.4,
+    "assess",
+    78.9
+   ],
+   [
+    2.41,
+    "pushers",
+    [
+     "br",
+     "fr"
+    ],
+    [
+     -0.0,
+     0.0
+    ],
+    180.0
+   ],
+   [
+    2.41,
+    "aim",
+    78.9
+   ],
+   [
+    2.77,
+    "push",
+    78.9
+   ],
+   [
+    3.66,
+    "rise",
+    20.9
+   ],
+   [
+    5.13,
+    "up",
+    0.4
+   ]
+  ]
+ },
+ "fall_recover_back": {
+  "case": "nudge backwards",
+  "push_N": 2.93,
+  "success": true,
+  "attempts": 3,
+  "t_fall": 0.76,
+  "t_up": 12.08,
+  "max_knee_Nm": 0.191,
+  "max_yaw_Nm": 0.2,
+  "max_pen_mm": 0.78,
+  "servo_at_clamp_s": 0.023,
+  "max_tilt_deg": 153.2,
+  "log": [
+   [
+    0.76,
+    "fold",
+    44.1
+   ],
+   [
+    1.89,
+    "assess",
+    130.8
+   ],
+   [
+    1.9,
+    "pushers",
+    [
+     "br",
+     "bl"
+    ],
+    [
+     -20.0,
+     -20.0
+    ],
+    90.0
+   ],
+   [
+    1.9,
+    "aim",
+    130.8
+   ],
+   [
+    2.26,
+    "push",
+    133.3
+   ],
+   [
+    5.26,
+    "fold",
+    101.8
+   ],
+   [
+    6.15,
+    "assess",
+    96.4
+   ],
+   [
+    6.16,
+    "pushers",
+    [
+     "bl",
+     "fl"
+    ],
+    [
+     -20.0,
+     72.0
+    ],
+    90.0
+   ],
+   [
+    6.16,
+    "aim",
+    96.4
+   ],
+   [
+    6.51,
+    "push",
+    122.9
+   ],
+   [
+    9.52,
+    "fold",
+    99.7
+   ],
+   [
+    10.18,
+    "assess",
+    96.3
+   ],
+   [
+    10.19,
+    "pushers",
+    [
+     "br",
+     "bl",
+     "fr"
+    ],
+    [
+     -20.0,
+     -20.0,
+     72.0
+    ],
+    90.0
+   ],
+   [
+    10.19,
+    "aim",
+    96.3
+   ],
+   [
+    10.55,
+    "push",
+    69.8
+   ],
+   [
+    10.7,
+    "rise",
+    20.3
+   ],
+   [
+    12.08,
+    "up",
+    0.3
+   ]
+  ]
+ }
+}

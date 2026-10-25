@@ -1,0 +1,694 @@
+{
+ "idle": {
+  "physics": {
+   "max_penetration_mm": 0.176,
+   "worst_contact": [
+    "floor",
+    "tyre_fl"
+   ],
+   "frames_without_floor_contact": 0,
+   "min_sin_front_plus_sin_rear": 0.604
+  },
+  "loop_drift_removed": {
+   "x_mm": -0.0,
+   "y_mm": -0.014,
+   "yaw_deg": 0.0
+  },
+  "peak_hip_torque_Nm": {
+   "hip_fl": 0.019,
+   "hip_fr": 0.019,
+   "hip_rl": 0.02,
+   "hip_rr": 0.02,
+   "s_at_stall_(>=95%)": {
+    "hip_fl": 0.0,
+    "hip_fr": 0.0,
+    "hip_rl": 0.0,
+    "hip_rr": 0.0
+   }
+  },
+  "rear_wheels": "braked (DRV8833 slow decay)"
+ },
+ "talk": {
+  "physics": {
+   "max_penetration_mm": 0.236,
+   "worst_contact": [
+    "floor",
+    "tyre_fl"
+   ],
+   "frames_without_floor_contact": 0,
+   "min_sin_front_plus_sin_rear": 0.628
+  },
+  "loop_drift_removed": {
+   "x_mm": -0.001,
+   "y_mm": -1.626,
+   "yaw_deg": -0.008
+  },
+  "peak_hip_torque_Nm": {
+   "hip_fl": 0.079,
+   "hip_fr": 0.074,
+   "hip_rl": 0.052,
+   "hip_rr": 0.061,
+   "s_at_stall_(>=95%)": {
+    "hip_fl": 0.0,
+    "hip_fr": 0.0,
+    "hip_rl": 0.0,
+    "hip_rr": 0.0
+   }
+  },
+  "face_rate_s": "talk_a/talk_b every 0.17-0.20 s, in 3 phrases"
+ },
+ "happy": {
+  "physics": {
+   "max_penetration_mm": 1.058,
+   "worst_contact": [
+    "floor",
+    "tyre_fl"
+   ],
+   "frames_without_floor_contact": 0,
+   "min_sin_front_plus_sin_rear": 0.451
+  },
+  "peak_hip_torque_Nm": {
+   "hip_fl": 0.2,
+   "hip_fr": 0.195,
+   "hip_rl": 0.2,
+   "hip_rr": 0.2,
+   "s_at_stall_(>=95%)": {
+    "hip_fl": 0.036,
+    "hip_fr": 0.002,
+    "hip_rl": 0.006,
+    "hip_rr": 0.014
+   }
+  },
+  "wave_static_margin": {
+   "min_mm": 14.4,
+   "median_mm": 14.4,
+   "frames_tyre_fl_on_floor": 0,
+   "frames": 30
+  },
+  "content": "leans right/back (FR 40\u00b0, RL 8\u00b0, RR 65\u00b0), lifts and waves the front-left paw 59-81\u00b0 at 2.5 Hz on 3 wheels, then bounce + wheel wiggle"
+ },
+ "walk": {
+  "speed_cm_s": 13.8,
+  "speed_cm_s_mu04": 13.8,
+  "distance_mm": 723.6,
+  "stopping_distance_mm": 3.4,
+  "physics": {
+   "max_penetration_mm": 0.165,
+   "worst_contact": [
+    "floor",
+    "tyre_fl"
+   ],
+   "frames_without_floor_contact": 0,
+   "min_sin_front_plus_sin_rear": 0.753
+  },
+  "peak_hip_torque_Nm": {
+   "hip_fl": 0.013,
+   "hip_fr": 0.013,
+   "hip_rl": 0.024,
+   "hip_rr": 0.024,
+   "s_at_stall_(>=95%)": {
+    "hip_fl": 0.0,
+    "hip_fr": 0.0,
+    "hip_rl": 0.0,
+    "hip_rr": 0.0
+   }
+  },
+  "note": "N20 at the 80 % PWM cap (\u22486 V): no-load 100 rpm = 15.7 cm/s; sim includes gearbox friction and the N20 torque-speed line"
+ },
+ "turn": {
+  "yaw_rate_deg_s": 49.1,
+  "total_turn_deg": 154.7,
+  "end_offset_mm": [
+   -1.6,
+   -20.3
+  ],
+  "physics": {
+   "max_penetration_mm": 1.287,
+   "worst_contact": [
+    "floor",
+    "tyre_fl"
+   ],
+   "frames_without_floor_contact": 1,
+   "min_sin_front_plus_sin_rear": 0.751
+  },
+  "peak_hip_torque_Nm": {
+   "hip_fl": 0.2,
+   "hip_fr": 0.2,
+   "hip_rl": 0.106,
+   "hip_rr": 0.106,
+   "s_at_stall_(>=95%)": {
+    "hip_fl": 0.009,
+    "hip_fr": 0.009,
+    "hip_rl": 0.0,
+    "hip_rr": 0.0
+   }
+  },
+  "strategy": "sit on the round belly (front paws 82\u00b0, rear 50\u00b0) and paddle with the rear wheels in opposite directions; the egg is the pivot",
+  "comparison": {
+   "belly_pivot_mu04": {
+    "yaw_deg_s": 63.3,
+    "drift_cm_s": 0.5
+   },
+   "concept_lean_back_spin_TPU_front": {
+    "yaw_deg_s": 8.7,
+    "drift_cm_s": 10.7
+   },
+   "concept_lean_back_spin_TPU_front_mu04": {
+    "yaw_deg_s": 13.6,
+    "drift_cm_s": 8.9
+   },
+   "stand_4wheel_spin_TPU_front": {
+    "yaw_deg_s": 7.3,
+    "drift_cm_s": 11.7
+   },
+   "lean_back_spin_if_front_wheels_hard_PLA_mu035": {
+    "yaw_deg_s": 62.0,
+    "drift_cm_s": 6.8
+   },
+   "arc_one_wheel_TPU_front": {
+    "yaw_deg_s": 6.4,
+    "drift_cm_s": 11.8
+   }
+  },
+  "caveat": "in the belly pivot the rear tyres carry only ~10 % of the weight and chatter (in contact 15-30 % of the time); the real rate may differ"
+ },
+ "sleep": {
+  "physics": {
+   "max_penetration_mm": 0.204,
+   "worst_contact": [
+    "floor",
+    "tyre_rl"
+   ],
+   "frames_without_floor_contact": 0,
+   "min_sin_front_plus_sin_rear": 0.754
+  },
+  "belly_on_desk_at_end": true,
+  "peak_hip_torque_Nm": {
+   "hip_fl": 0.067,
+   "hip_fr": 0.067,
+   "hip_rl": 0.063,
+   "hip_rr": 0.064,
+   "s_at_stall_(>=95%)": {
+    "hip_fl": 0.0,
+    "hip_fr": 0.0,
+    "hip_rl": 0.0,
+    "hip_rr": 0.0
+   }
+  },
+  "note": "the egg settles on its belly; servos could then be detached (sitting idle \u2248 0.77 W in the concept power table)"
+ },
+ "fall_recover": {
+  "result": "recovered",
+  "landing_gravity_in_body": [
+   0.801,
+   0.012,
+   -0.599
+  ],
+  "t_from_tuck_to_standing_s": 1.0,
+  "events_frame": {
+   "push": 45,
+   "tuck": 70,
+   "rise": 85,
+   "done": 100
+  },
+  "firmware": "hybrid",
+  "catch_reflex": true,
+  "case": {
+   "kind": "push",
+   "dir_deg": 0,
+   "speed": 30
+  },
+  "peak_hip_torque_Nm": {
+   "hip_fl": 0.147,
+   "hip_fr": 0.02,
+   "hip_rl": 0.158,
+   "hip_rr": 0.065
+  },
+  "title": "finger push at the head toward its left side, tuck & roll with the recommended HYBRID trigger (tuck at 50\u00b0 side tilt)",
+  "success_matrix": [
+   {
+    "mode": "concept",
+    "mu": 0.6,
+    "com_dz_mm": 0.0,
+    "catch_reflex": true,
+    "pushes": 24,
+    "pushes_no_fall_or_caught": 6,
+    "pushes_fell": 18,
+    "pushes_fell_recovered": 16,
+    "pushes_failed_dirs": [
+     [
+      270,
+      30
+     ],
+     [
+      270,
+      90
+     ]
+    ],
+    "side_drops_recovered": "6/6",
+    "back_face_upsidedown_drops_recovered": "0/3",
+    "t_recover_s_median": 0.9,
+    "peak_hip_torque_Nm": 0.2
+   },
+   {
+    "mode": "concept",
+    "mu": 0.6,
+    "com_dz_mm": 1.0,
+    "catch_reflex": true,
+    "pushes": 24,
+    "pushes_no_fall_or_caught": 7,
+    "pushes_fell": 17,
+    "pushes_fell_recovered": 12,
+    "pushes_failed_dirs": [
+     [
+      30,
+      30
+     ],
+     [
+      150,
+      30
+     ],
+     [
+      210,
+      30
+     ],
+     [
+      240,
+      90
+     ],
+     [
+      300,
+      90
+     ]
+    ],
+    "side_drops_recovered": "6/6",
+    "back_face_upsidedown_drops_recovered": "0/3",
+    "t_recover_s_median": 0.985,
+    "peak_hip_torque_Nm": 0.2
+   },
+   {
+    "mode": "concept",
+    "mu": 0.6,
+    "com_dz_mm": 1.6,
+    "catch_reflex": true,
+    "pushes": 24,
+    "pushes_no_fall_or_caught": 7,
+    "pushes_fell": 17,
+    "pushes_fell_recovered": 9,
+    "pushes_failed_dirs": [
+     [
+      30,
+      30
+     ],
+     [
+      150,
+      30
+     ],
+     [
+      180,
+      30
+     ],
+     [
+      210,
+      30
+     ],
+     [
+      240,
+      90
+     ],
+     [
+      270,
+      90
+     ],
+     [
+      300,
+      30
+     ],
+     [
+      300,
+      90
+     ]
+    ],
+    "side_drops_recovered": "6/6",
+    "back_face_upsidedown_drops_recovered": "0/3",
+    "t_recover_s_median": 1.0,
+    "peak_hip_torque_Nm": 0.2
+   },
+   {
+    "mode": "concept",
+    "mu": 0.6,
+    "com_dz_mm": 2.5,
+    "catch_reflex": true,
+    "pushes": 24,
+    "pushes_no_fall_or_caught": 6,
+    "pushes_fell": 18,
+    "pushes_fell_recovered": 10,
+    "pushes_failed_dirs": [
+     [
+      150,
+      90
+     ],
+     [
+      180,
+      30
+     ],
+     [
+      180,
+      90
+     ],
+     [
+      210,
+      30
+     ],
+     [
+      210,
+      90
+     ],
+     [
+      240,
+      90
+     ],
+     [
+      270,
+      90
+     ],
+     [
+      300,
+      90
+     ]
+    ],
+    "side_drops_recovered": "6/6",
+    "back_face_upsidedown_drops_recovered": "0/3",
+    "t_recover_s_median": 1.02,
+    "peak_hip_torque_Nm": 0.2
+   },
+   {
+    "mode": "concept",
+    "mu": 0.6,
+    "com_dz_mm": 3.5,
+    "catch_reflex": true,
+    "pushes": 24,
+    "pushes_no_fall_or_caught": 6,
+    "pushes_fell": 18,
+    "pushes_fell_recovered": 4,
+    "pushes_failed_dirs": [
+     [
+      0,
+      30
+     ],
+     [
+      0,
+      90
+     ],
+     [
+      30,
+      90
+     ],
+     [
+      150,
+      30
+     ],
+     [
+      150,
+      90
+     ],
+     [
+      180,
+      30
+     ],
+     [
+      180,
+      90
+     ],
+     [
+      210,
+      30
+     ],
+     [
+      210,
+      90
+     ],
+     [
+      240,
+      30
+     ],
+     [
+      240,
+      90
+     ],
+     [
+      300,
+      90
+     ],
+     [
+      330,
+      30
+     ],
+     [
+      330,
+      90
+     ]
+    ],
+    "side_drops_recovered": "6/6",
+    "back_face_upsidedown_drops_recovered": "0/3",
+    "t_recover_s_median": 0.87,
+    "peak_hip_torque_Nm": 0.2
+   },
+   {
+    "mode": "hybrid",
+    "mu": 0.6,
+    "com_dz_mm": 0.0,
+    "catch_reflex": true,
+    "pushes": 24,
+    "pushes_no_fall_or_caught": 6,
+    "pushes_fell": 18,
+    "pushes_fell_recovered": 18,
+    "pushes_failed_dirs": [],
+    "side_drops_recovered": "6/6",
+    "back_face_upsidedown_drops_recovered": "0/3",
+    "t_recover_s_median": 1.0,
+    "peak_hip_torque_Nm": 0.2
+   },
+   {
+    "mode": "hybrid",
+    "mu": 0.6,
+    "com_dz_mm": 1.0,
+    "catch_reflex": true,
+    "pushes": 24,
+    "pushes_no_fall_or_caught": 6,
+    "pushes_fell": 18,
+    "pushes_fell_recovered": 16,
+    "pushes_failed_dirs": [
+     [
+      270,
+      30
+     ],
+     [
+      270,
+      90
+     ]
+    ],
+    "side_drops_recovered": "6/6",
+    "back_face_upsidedown_drops_recovered": "0/3",
+    "t_recover_s_median": 1.0,
+    "peak_hip_torque_Nm": 0.2
+   },
+   {
+    "mode": "hybrid",
+    "mu": 0.6,
+    "com_dz_mm": 1.6,
+    "catch_reflex": true,
+    "pushes": 24,
+    "pushes_no_fall_or_caught": 6,
+    "pushes_fell": 18,
+    "pushes_fell_recovered": 17,
+    "pushes_failed_dirs": [
+     [
+      270,
+      90
+     ]
+    ],
+    "side_drops_recovered": "6/6",
+    "back_face_upsidedown_drops_recovered": "0/3",
+    "t_recover_s_median": 1.0,
+    "peak_hip_torque_Nm": 0.2
+   },
+   {
+    "mode": "hybrid",
+    "mu": 0.6,
+    "com_dz_mm": 2.5,
+    "catch_reflex": true,
+    "pushes": 24,
+    "pushes_no_fall_or_caught": 6,
+    "pushes_fell": 18,
+    "pushes_fell_recovered": 17,
+    "pushes_failed_dirs": [
+     [
+      270,
+      30
+     ]
+    ],
+    "side_drops_recovered": "6/6",
+    "back_face_upsidedown_drops_recovered": "0/3",
+    "t_recover_s_median": 1.0,
+    "peak_hip_torque_Nm": 0.2
+   },
+   {
+    "mode": "hybrid",
+    "mu": 0.6,
+    "com_dz_mm": 3.5,
+    "catch_reflex": true,
+    "pushes": 24,
+    "pushes_no_fall_or_caught": 6,
+    "pushes_fell": 18,
+    "pushes_fell_recovered": 17,
+    "pushes_failed_dirs": [
+     [
+      270,
+      90
+     ]
+    ],
+    "side_drops_recovered": "6/6",
+    "back_face_upsidedown_drops_recovered": "0/3",
+    "t_recover_s_median": 0.97,
+    "peak_hip_torque_Nm": 0.2
+   },
+   {
+    "mode": "concept",
+    "mu": 0.4,
+    "com_dz_mm": 0.0,
+    "catch_reflex": true,
+    "pushes": 24,
+    "pushes_no_fall_or_caught": 8,
+    "pushes_fell": 16,
+    "pushes_fell_recovered": 14,
+    "pushes_failed_dirs": [
+     [
+      240,
+      90
+     ],
+     [
+      300,
+      90
+     ]
+    ],
+    "side_drops_recovered": "6/6",
+    "back_face_upsidedown_drops_recovered": "0/3",
+    "t_recover_s_median": 0.885,
+    "peak_hip_torque_Nm": 0.2
+   },
+   {
+    "mode": "hybrid",
+    "mu": 0.4,
+    "com_dz_mm": 0.0,
+    "catch_reflex": true,
+    "pushes": 24,
+    "pushes_no_fall_or_caught": 7,
+    "pushes_fell": 17,
+    "pushes_fell_recovered": 16,
+    "pushes_failed_dirs": [
+     [
+      270,
+      30
+     ]
+    ],
+    "side_drops_recovered": "6/6",
+    "back_face_upsidedown_drops_recovered": "0/3",
+    "t_recover_s_median": 0.97,
+    "peak_hip_torque_Nm": 0.2
+   },
+   {
+    "mode": "hybrid",
+    "mu": 0.4,
+    "com_dz_mm": 1.6,
+    "catch_reflex": true,
+    "pushes": 24,
+    "pushes_no_fall_or_caught": 7,
+    "pushes_fell": 17,
+    "pushes_fell_recovered": 17,
+    "pushes_failed_dirs": [],
+    "side_drops_recovered": "6/6",
+    "back_face_upsidedown_drops_recovered": "0/3",
+    "t_recover_s_median": 1.0,
+    "peak_hip_torque_Nm": 0.2
+   },
+   {
+    "mode": "concept",
+    "mu": 0.6,
+    "com_dz_mm": 0.0,
+    "catch_reflex": false,
+    "pushes": 24,
+    "pushes_no_fall_or_caught": 0,
+    "pushes_fell": 24,
+    "pushes_fell_recovered": 16,
+    "pushes_failed_dirs": [
+     [
+      60,
+      30
+     ],
+     [
+      60,
+      90
+     ],
+     [
+      90,
+      30
+     ],
+     [
+      90,
+      90
+     ],
+     [
+      120,
+      30
+     ],
+     [
+      120,
+      90
+     ],
+     [
+      270,
+      30
+     ],
+     [
+      270,
+      90
+     ]
+    ],
+    "side_drops_recovered": "6/6",
+    "back_face_upsidedown_drops_recovered": "0/3",
+    "t_recover_s_median": 0.9,
+    "peak_hip_torque_Nm": 0.2
+   }
+  ]
+ },
+ "fall_back_help": {
+  "result": "asks for help (cannot recover)",
+  "landing_gravity_in_body": [
+   0.001,
+   0.845,
+   0.535
+  ],
+  "t_from_tuck_to_standing_s": null,
+  "events_frame": {
+   "push": 45,
+   "catch": 49,
+   "help": 64
+  },
+  "firmware": "hybrid",
+  "catch_reflex": true,
+  "case": {
+   "kind": "push",
+   "dir_deg": 90,
+   "speed": 90,
+   "release": 75
+  },
+  "peak_hip_torque_Nm": {
+   "hip_fl": 0.135,
+   "hip_fr": 0.135,
+   "hip_rl": 0.2,
+   "hip_rr": 0.2
+  },
+  "title": "hard shove backward (held to 75\u00b0), the paw-catch reflex is not enough, lands on its back and asks for help"
+ }
+}

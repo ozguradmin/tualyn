@@ -1,0 +1,226 @@
+{
+ "mu": 0.6,
+ "mu_paw": 0.9,
+ "ears": "soft",
+ "success": "3/24",
+ "first_try_or_upright": "2/24",
+ "peak_tau": 0.2,
+ "cases": [
+  {
+   "roll": 90,
+   "pitch": 0,
+   "settled_up": -0.36,
+   "ok": false,
+   "attempts": -1,
+   "t": 17.88,
+   "peak_tau": 0.2
+  },
+  {
+   "roll": -90,
+   "pitch": 0,
+   "settled_up": -0.36,
+   "ok": false,
+   "attempts": -1,
+   "t": 17.88,
+   "peak_tau": 0.2
+  },
+  {
+   "roll": 180,
+   "pitch": 0,
+   "settled_up": -0.8,
+   "ok": false,
+   "attempts": -1,
+   "t": 17.88,
+   "peak_tau": 0.2
+  },
+  {
+   "roll": 135,
+   "pitch": 0,
+   "settled_up": -0.55,
+   "ok": false,
+   "attempts": -1,
+   "t": 17.88,
+   "peak_tau": 0.2
+  },
+  {
+   "roll": -135,
+   "pitch": 0,
+   "settled_up": -0.55,
+   "ok": false,
+   "attempts": -1,
+   "t": 17.88,
+   "peak_tau": 0.2
+  },
+  {
+   "roll": 90,
+   "pitch": 20,
+   "settled_up": -0.55,
+   "ok": false,
+   "attempts": -1,
+   "t": 17.88,
+   "peak_tau": 0.2
+  },
+  {
+   "roll": -90,
+   "pitch": -20,
+   "settled_up": -0.55,
+   "ok": false,
+   "attempts": -1,
+   "t": 17.88,
+   "peak_tau": 0.2
+  },
+  {
+   "roll": 180,
+   "pitch": -15,
+   "settled_up": -0.99,
+   "ok": false,
+   "attempts": -1,
+   "t": 17.88,
+   "peak_tau": 0.2
+  },
+  {
+   "roll": 180,
+   "pitch": 15,
+   "settled_up": -0.97,
+   "ok": false,
+   "attempts": -1,
+   "t": 17.88,
+   "peak_tau": 0.2
+  },
+  {
+   "roll": 45.0,
+   "pitch": 27.8,
+   "settled_up": -0.55,
+   "ok": false,
+   "attempts": -1,
+   "t": 17.88,
+   "peak_tau": 0.2
+  },
+  {
+   "roll": 99.2,
+   "pitch": -19.2,
+   "settled_up": -0.36,
+   "ok": false,
+   "attempts": -1,
+   "t": 17.88,
+   "peak_tau": 0.2
+  },
+  {
+   "roll": -71.9,
+   "pitch": 26.1,
+   "settled_up": 0.27,
+   "ok": true,
+   "attempts": 2,
+   "t": 9.54,
+   "peak_tau": 0.2
+  },
+  {
+   "roll": -178.1,
+   "pitch": 22.5,
+   "settled_up": -0.48,
+   "ok": false,
+   "attempts": -1,
+   "t": 17.88,
+   "peak_tau": 0.2
+  },
+  {
+   "roll": 106.9,
+   "pitch": -2.2,
+   "settled_up": -0.36,
+   "ok": false,
+   "attempts": -1,
+   "t": 17.88,
+   "peak_tau": 0.2
+  },
+  {
+   "roll": -70.9,
+   "pitch": -15.5,
+   "settled_up": -0.35,
+   "ok": false,
+   "attempts": -1,
+   "t": 17.88,
+   "peak_tau": 0.2
+  },
+  {
+   "roll": -88.2,
+   "pitch": -3.8,
+   "settled_up": -0.36,
+   "ok": false,
+   "attempts": -1,
+   "t": 17.88,
+   "peak_tau": 0.2
+  },
+  {
+   "roll": 1.6,
+   "pitch": 3.7,
+   "settled_up": 1.0,
+   "ok": true,
+   "attempts": 0,
+   "t": 1.2,
+   "peak_tau": 0.137
+  },
+  {
+   "roll": 178.4,
+   "pitch": 20.5,
+   "settled_up": -0.13,
+   "ok": false,
+   "attempts": -1,
+   "t": 17.88,
+   "peak_tau": 0.2
+  },
+  {
+   "roll": 44.0,
+   "pitch": 34.2,
+   "settled_up": -0.36,
+   "ok": false,
+   "attempts": -1,
+   "t": 17.88,
+   "peak_tau": 0.2
+  },
+  {
+   "roll": -102.5,
+   "pitch": -23.8,
+   "settled_up": -0.55,
+   "ok": false,
+   "attempts": -1,
+   "t": 17.88,
+   "peak_tau": 0.2
+  },
+  {
+   "roll": 40.5,
+   "pitch": -31.9,
+   "settled_up": -0.44,
+   "ok": false,
+   "attempts": -1,
+   "t": 17.88,
+   "peak_tau": 0.2
+  },
+  {
+   "roll": -167.2,
+   "pitch": 1.0,
+   "settled_up": -0.52,
+   "ok": false,
+   "attempts": -1,
+   "t": 17.88,
+   "peak_tau": 0.2
+  },
+  {
+   "roll": -12.2,
+   "pitch": 29.2,
+   "settled_up": 0.27,
+   "ok": true,
+   "attempts": 1,
+   "t": 5.37,
+   "peak_tau": 0.2
+  },
+  {
+   "roll": 46.5,
+   "pitch": 1.0,
+   "settled_up": 0.77,
+   "ok": false,
+   "attempts": -1,
+   "t": 17.88,
+   "peak_tau": 0.2
+  }
+ ]
+}

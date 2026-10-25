@@ -1,0 +1,131 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><style>html,body{margin:0;background:#fff}</style></head>
+<body>
+<script type="importmap">{"imports":{"three":"./three.module.js"}}</script>
+<script type="module">
+import * as THREE from 'three';
+import { RoomEnvironment } from './RoomEnvironment.js';
+import { STLLoader } from './STLLoader.js';
+import { GLTFLoader } from './GLTFLoader.js';
+import * as RL from './realism.js';
+
+const spec = await (await fetch('/scene.json')).json();
+const W = spec.width || 1600, H = spec.height || 1200;
+const r = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+r.setPixelRatio(1); r.setSize(W, H);
+r.shadowMap.enabled = true; r.shadowMap.type = THREE.PCFSoftShadowMap;
+r.toneMapping = THREE.ACESFilmicToneMapping; r.toneMappingExposure = spec.exposure ?? 1.0;
+r.outputColorSpace = THREE.SRGBColorSpace;
+document.body.appendChild(r.domElement);
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(spec.background || '#efece6');
+const pm = new THREE.PMREMGenerator(r);
+scene.environment = pm.fromScene(new RoomEnvironment(), 0.04).texture;
+scene.environmentIntensity = spec.envIntensity ?? 0.9;
+
+// model units are mm, Z up -> convert to Y up meters-ish (1 unit = 1 mm * 0.01)
+const root = new THREE.Group(); root.rotation.x = -Math.PI / 2; root.scale.setScalar(0.01); scene.add(root);
+const stl = new STLLoader(), gltf = new GLTFLoader(), texl = new THREE.TextureLoader();
+
+function planarUV(geo, axes, bbox) {
+  const pos = geo.attributes.position, uv = new Float32Array(pos.count * 2);
+  const [a, b] = axes; const min = bbox.min, max = bbox.max;
+  for (let i = 0; i < pos.count; i++) {
+    const p = [pos.getX(i), pos.getY(i), pos.getZ(i)];
+    const ia = 'xyz'.indexOf(a.replace('-', '')), ib = 'xyz'.indexOf(b.replace('-', ''));
+    const mn = [min.x, min.y, min.z], mx = [max.x, max.y, max.z];
+    let u = (p[ia] - mn[ia]) / (mx[ia] - mn[ia] || 1), v = (p[ib] - mn[ib]) / (mx[ib] - mn[ib] || 1);
+    if (a.startsWith('-')) u = 1 - u; if (b.startsWith('-')) v = 1 - v;
+    uv[2 * i] = u; uv[2 * i + 1] = v;
+  }
+  geo.setAttribute('uv', new THREE.BufferAttribute(uv, 2));
+}
+
+for (const p of spec.parts) {
+  let obj;
+  const matOpts = {
+    color: p.color || '#cccccc', roughness: p.roughness ?? 0.45, metalness: p.metalness ?? 0.0,
+    clearcoat: p.clearcoat ?? 0.0, clearcoatRoughness: p.clearcoatRoughness ?? 0.3,
+    sheen: p.sheen ?? 0.0, transmission: p.transmission ?? 0.0, thickness: p.thickness ?? 0.0,
+    ior: p.ior ?? 1.45, transparent: (p.opacity ?? 1) < 1, opacity: p.opacity ?? 1,
+    emissive: p.emissive || '#000000', emissiveIntensity: p.emissiveIntensity ?? 0,
+  };
+  if (p.image && p.material !== 'screen') {
+    const t = await texl.loadAsync('/' + p.image); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 8;
+    matOpts.map = t; matOpts.color = '#ffffff';
+    if (p.imageEmissive) { matOpts.emissiveMap = t; matOpts.emissive = '#ffffff'; matOpts.emissiveIntensity = p.imageEmissive; }
+  }
+  let mat;
+  if (p.material === 'print') mat = RL.printMaterial(THREE, { color: p.color, roughness: p.roughness, layer: p.layer, axis: p.layerAxis, layerStrength: p.layerStrength, clearcoat: p.clearcoat });
+  else if (p.material === 'tpu') mat = RL.tpuMaterial(THREE, { color: p.color, axis: p.layerAxis });
+  else if (p.material === 'petg') mat = RL.glossyPetgMaterial(THREE, { color: p.color, axis: p.layerAxis });
+  else if (p.material === 'acrylic') mat = RL.acrylicMaterial(THREE, { color: p.color, opacity: p.opacity });
+  else if (p.material === 'screen') {
+    const res = p.res || [240, 240];
+    const cv = document.createElement('canvas'); cv.width = res[0]; cv.height = res[1];
+    const ctx = cv.getContext('2d'); ctx.fillStyle = '#000'; ctx.fillRect(0, 0, cv.width, cv.height);
+    if (p.image) { const img = new Image(); img.src = '/' + p.image; await img.decode(); ctx.imageSmoothingEnabled = true; ctx.drawImage(img, 0, 0, cv.width, cv.height); }
+    mat = RL.screenMaterial(THREE, cv, { round: p.round, brightness: p.brightness, res });
+  }
+  else mat = new THREE.MeshPhysicalMaterial(matOpts);
+  if (p.file.endsWith('.stl')) {
+    const geo = await stl.loadAsync('/' + p.file);
+    const BGU = await import('./BufferGeometryUtils.js');
+    let g2 = geo;
+    if (p.smooth !== false) { g2 = BGU.toCreasedNormals(geo, (p.crease ?? 40) * Math.PI / 180); }
+    else g2.computeVertexNormals();
+    if (p.image || p.material === 'screen') { g2.computeBoundingBox(); planarUV(g2, p.uvAxes || ['x', 'z'], g2.boundingBox); }
+    obj = new THREE.Mesh(g2, mat);
+  } else {
+    const g = await gltf.loadAsync('/' + p.file); obj = g.scene;
+    obj.traverse(o => { if (o.isMesh && !p.keepMaterial) o.material = mat; });
+  }
+  obj.traverse(o => { if (o.isMesh) { o.castShadow = p.castShadow ?? true; o.receiveShadow = true; } });
+  if (p.position) obj.position.set(...p.position);
+  if (p.rotation) obj.rotation.set(...p.rotation.map(d => d * Math.PI / 180));
+  root.add(obj);
+}
+
+// bounds in world space
+const box = new THREE.Box3().setFromObject(root);
+const size = box.getSize(new THREE.Vector3()), center = box.getCenter(new THREE.Vector3());
+const radius = size.length() / 2;
+
+// ground (shadow catcher + subtle floor)
+const floorY = box.min.y;
+const floor = new THREE.Mesh(new THREE.PlaneGeometry(200, 200),
+  spec.floor === 'solid' ? new THREE.MeshStandardMaterial({ color: spec.floorColor || '#e9e5dd', roughness: 0.9 })
+                         : new THREE.ShadowMaterial({ opacity: spec.shadowOpacity ?? 0.22 }));
+floor.rotation.x = -Math.PI / 2; floor.position.y = floorY; floor.receiveShadow = true; scene.add(floor);
+
+const key = new THREE.DirectionalLight('#fff7ee', spec.keyIntensity ?? 2.2);
+key.position.set(center.x + radius * 2.2, center.y + radius * 4, center.z + radius * 2.6);
+key.target.position.copy(center); scene.add(key.target);
+key.castShadow = true; key.shadow.mapSize.set(4096, 4096); key.shadow.radius = spec.shadowSoftness ?? 6; key.shadow.blurSamples = 25;
+const sc = key.shadow.camera; sc.left = -radius * 2; sc.right = radius * 2; sc.top = radius * 2; sc.bottom = -radius * 2; sc.near = 0.01; sc.far = radius * 12;
+key.shadow.bias = -0.0004; key.shadow.normalBias = 0.01;
+scene.add(key);
+const rim = new THREE.DirectionalLight('#dfe9ff', spec.rimIntensity ?? 0.8); rim.position.set(center.x - radius * 3, center.y + radius * 2, center.z - radius * 3); scene.add(rim);
+scene.add(new THREE.HemisphereLight('#ffffff', '#d9d2c5', 0.25));
+
+const cam = new THREE.PerspectiveCamera(30, W / H, 0.01, 1000);
+window.renderView = (v) => {
+  cam.fov = v.fov ?? 28; cam.aspect = W / H; cam.updateProjectionMatrix();
+  const tgt = v.target ? new THREE.Vector3(v.target[0] * 0.01, v.target[2] * 0.01, -v.target[1] * 0.01) : center.clone();
+  if (v.targetOffsetY) tgt.y += v.targetOffsetY * 0.01;
+  if (v.pos) {
+    cam.position.set(v.pos[0] * 0.01, v.pos[2] * 0.01, -v.pos[1] * 0.01);
+  } else {
+    const az = (v.azimuth ?? 35) * Math.PI / 180, el = (v.elevation ?? 18) * Math.PI / 180;
+    const dist = (v.distance ?? 1.0) * radius / Math.sin((cam.fov * Math.PI / 180) / 2) * 1.05;
+    // azimuth 0 = looking from front (-Y in model coords = +Z in world), positive = from robot's right
+    cam.position.set(tgt.x + dist * Math.cos(el) * Math.sin(az), tgt.y + dist * Math.sin(el), tgt.z + dist * Math.cos(el) * Math.cos(az));
+  }
+  cam.lookAt(tgt);
+  r.render(scene, cam);
+  return true;
+};
+window.READY = true;
+</script>
+</body></html>

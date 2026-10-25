@@ -1,0 +1,20 @@
+{
+ "idle": {
+  "max_base_dev_mm": 0.44,
+  "max_tilt_dev_deg": 0.84,
+  "min_up": 1.0,
+  "drift_after_mm": 0.03,
+  "loops": 2,
+  "peak_tau": 0.043,
+  "mu": 0.6
+ },
+ "talk": {
+  "max_base_dev_mm": 0.51,
+  "max_tilt_dev_deg": 0.59,
+  "min_up": 0.999,
+  "drift_after_mm": 0.08,
+  "loops": 2,
+  "peak_tau": 0.071,
+  "mu": 0.6
+ }
+}

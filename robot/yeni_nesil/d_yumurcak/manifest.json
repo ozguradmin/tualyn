@@ -1,0 +1,452 @@
+{
+ "key": "D",
+ "name": "Yumurcak",
+ "subtitle_tr": "Yürüyen yumurta",
+ "accent": "#f2881c",
+ "tagline_tr": "Sallanır, düşer, kendi kalkar; sonra da kendinle gurur duyar.",
+ "glb": "model.glb",
+ "creaseDeg": 35,
+ "joints": {
+  "head": {
+   "node": "head",
+   "axis": [
+    0.0,
+    -0.2079,
+    0.9781
+   ],
+   "min": -60,
+   "max": 60,
+   "zero": 0,
+   "servo": "SG90 (9 g, plastik dişli)",
+   "note": "12° eğik eksen: +60° = sola bakış ~58° yaw + ~10° yan eğim + ~6° yukarı"
+  },
+  "yaw_fr": {
+   "node": "haunch_fr",
+   "axis": [
+    0,
+    0,
+    -1
+   ],
+   "min": -20,
+   "max": 85,
+   "zero": 0,
+   "servo": "MG90S",
+   "note": "kalça topu kendi dikey ekseninde döner; + = diz yumrusu dışa (yana) döner. -22° altında yumru gövdeye girer; diz > 70° iken yaw ≤ 72° (komşu topa çarpar)"
+  },
+  "knee_fr": {
+   "node": "paw_fr",
+   "axis": [
+    0,
+    1,
+    0
+   ],
+   "min": -15,
+   "max": 164,
+   "zero": 0,
+   "servo": "MG90S",
+   "note": "0 = pati dik aşağı, 30 = ayakta, 164 = tam katlanmış (yumurta modu); + = pati dışa/yukarı. Konseptteki 178° kabuğa 4 mm giriyor; 164° üstü yalnızca yaw ≥ +30° iken"
+  },
+  "yaw_fl": {
+   "node": "haunch_fl",
+   "axis": [
+    0,
+    0,
+    1
+   ],
+   "min": -20,
+   "max": 85,
+   "zero": 0,
+   "servo": "MG90S",
+   "note": "kalça topu kendi dikey ekseninde döner; + = diz yumrusu dışa (yana) döner. -22° altında yumru gövdeye girer; diz > 70° iken yaw ≤ 72° (komşu topa çarpar)"
+  },
+  "knee_fl": {
+   "node": "paw_fl",
+   "axis": [
+    0,
+    -1,
+    0
+   ],
+   "min": -15,
+   "max": 164,
+   "zero": 0,
+   "servo": "MG90S",
+   "note": "0 = pati dik aşağı, 30 = ayakta, 164 = tam katlanmış (yumurta modu); + = pati dışa/yukarı. Konseptteki 178° kabuğa 4 mm giriyor; 164° üstü yalnızca yaw ≥ +30° iken"
+  },
+  "yaw_br": {
+   "node": "haunch_br",
+   "axis": [
+    0,
+    0,
+    1
+   ],
+   "min": -20,
+   "max": 85,
+   "zero": 0,
+   "servo": "MG90S",
+   "note": "kalça topu kendi dikey ekseninde döner; + = diz yumrusu dışa (yana) döner. -22° altında yumru gövdeye girer; diz > 70° iken yaw ≤ 72° (komşu topa çarpar)"
+  },
+  "knee_br": {
+   "node": "paw_br",
+   "axis": [
+    0,
+    1,
+    0
+   ],
+   "min": -15,
+   "max": 164,
+   "zero": 0,
+   "servo": "MG90S",
+   "note": "0 = pati dik aşağı, 30 = ayakta, 164 = tam katlanmış (yumurta modu); + = pati dışa/yukarı. Konseptteki 178° kabuğa 4 mm giriyor; 164° üstü yalnızca yaw ≥ +30° iken"
+  },
+  "yaw_bl": {
+   "node": "haunch_bl",
+   "axis": [
+    0,
+    0,
+    -1
+   ],
+   "min": -20,
+   "max": 85,
+   "zero": 0,
+   "servo": "MG90S",
+   "note": "kalça topu kendi dikey ekseninde döner; + = diz yumrusu dışa (yana) döner. -22° altında yumru gövdeye girer; diz > 70° iken yaw ≤ 72° (komşu topa çarpar)"
+  },
+  "knee_bl": {
+   "node": "paw_bl",
+   "axis": [
+    0,
+    -1,
+    0
+   ],
+   "min": -15,
+   "max": 164,
+   "zero": 0,
+   "servo": "MG90S",
+   "note": "0 = pati dik aşağı, 30 = ayakta, 164 = tam katlanmış (yumurta modu); + = pati dışa/yukarı. Konseptteki 178° kabuğa 4 mm giriyor; 164° üstü yalnızca yaw ≥ +30° iken"
+  }
+ },
+ "materials": {
+  "shell": {
+   "type": "print",
+   "color": "#efe6d4",
+   "filament": "Elas PLA Krem / Fildişi (mat)",
+   "layer": 0.12,
+   "layerAxis": [
+    0.0,
+    -0.2079,
+    0.9781
+   ],
+   "note": "gövde kasesi ve kafa, eğik (12°) dikiş yüzeyi tablaya gelecek şekilde basılır; katmanlar eğik eksene dik"
+  },
+  "cap": {
+   "type": "print",
+   "color": "#f2881c",
+   "filament": "eSUN PLA+ Turuncu (Orange)",
+   "layer": 0.12,
+   "layerAxis": [
+    0.1908,
+    0.1196,
+    0.9743
+   ],
+   "note": "yumurta kabuğu şapka, kubbe yukarı basılır; 2 mıknatısla takılır"
+  },
+  "ball": {
+   "type": "print",
+   "color": "#f2881c",
+   "filament": "eSUN PLA+ Turuncu (Orange)",
+   "layer": 0.16,
+   "layerAxis": [
+    0,
+    0,
+    1
+   ],
+   "note": "kalça topu: ekvatordan iki yarım küre, ikisi de kubbe yukarı basılır"
+  },
+  "paw": {
+   "type": "print",
+   "color": "#f2881c",
+   "filament": "eSUN PLA+ Turuncu (Orange)",
+   "layer": 0.16,
+   "layerAxis": [
+    0,
+    1,
+    0
+   ],
+   "note": "pati yan yatırılarak basılır (katmanlar diz ekseni boyunca)"
+  },
+  "sole": {
+   "type": "tpu",
+   "color": "#202124",
+   "filament": "TPU 95A Siyah",
+   "layerAxis": [
+    0,
+    0,
+    1
+   ],
+   "note": "yapıştırılan taban"
+  },
+  "visor": {
+   "type": "acrylic",
+   "color": "#0d0e11",
+   "opacity": 0.3,
+   "note": "1 mm açık füme PETG levha (~%70 geçirgen; koyu görünüm arkadaki siyah göz cebinden gelir), basılı kalıp üzerinde vakumla şekillendirilir (parlaklık levhadan gelir). Yedek: 0.8 mm yarı saydam siyah PETG baskı (mat, katmanlı)"
+  },
+  "mask": {
+   "type": "print",
+   "color": "#131416",
+   "filament": "PLA Mat Siyah",
+   "layer": 0.16,
+   "layerAxis": [
+    0,
+    0,
+    1
+   ],
+   "layerStrength": 0.2,
+   "note": "vizör arkasındaki siyah göz cebi; ekran PCB kenarlarını gizler"
+  },
+  "lens": {
+   "type": "acrylic",
+   "color": "#050506",
+   "opacity": 0.85,
+   "note": "VL53L0X için IR geçiren siyah akrilik pencere (Ø6.8 mm)"
+  },
+  "screen_eyeL": {
+   "type": "screen",
+   "screen": "eyeL"
+  },
+  "screen_eyeR": {
+   "type": "screen",
+   "screen": "eyeR"
+  },
+  "screw": {
+   "type": "metal",
+   "color": "#a7abb1",
+   "roughness": 0.4,
+   "note": "M2 paslanmaz: 4 göbek altı havşa + 4 pati boynuz vidası"
+  },
+  "usb_metal": {
+   "type": "metal",
+   "color": "#c9ccd1",
+   "roughness": 0.3,
+   "note": "USB-C dişi soket (2S şarj kartı)"
+  },
+  "black": {
+   "type": "plastic",
+   "color": "#151517",
+   "roughness": 0.55,
+   "note": "USB-C dili, IC205 (SS12D00 sınıfı) sürgü anahtar"
+  },
+  "internal_servo": {
+   "type": "internal",
+   "color": "#3b82f6"
+  },
+  "internal_horn": {
+   "type": "internal",
+   "color": "#f2f2f2"
+  },
+  "internal_battery": {
+   "type": "internal",
+   "color": "#2fa35a"
+  },
+  "internal_frame": {
+   "type": "internal",
+   "color": "#bdbdbd"
+  },
+  "internal_pcb": {
+   "type": "internal",
+   "color": "#1f7a4a"
+  },
+  "internal_pcb_disp": {
+   "type": "internal",
+   "color": "#2a5bd7"
+  },
+  "internal_lcd": {
+   "type": "internal",
+   "color": "#18191b"
+  },
+  "internal_magnet": {
+   "type": "internal",
+   "color": "#9aa0a6"
+  }
+ },
+ "screens": {
+  "eyeL": {
+   "res": [
+    240,
+    240
+   ],
+   "round": true,
+   "panel": "GC9A01 1.28in IPS (Robotistan)",
+   "active_diam_mm": 32.4,
+   "glass_diam_mm": 35.5,
+   "brightness": 1.6,
+   "uv": "GLB'de gömülü: u = ekranın sağı (önden bakınca +X), v = yukarı",
+   "behind": "1 mm füme PETG vizörün ~3-5 mm arkasında, siyah göz cebinin içinde",
+   "side": "robotun SOL gözü (+X, önden bakınca sağda)"
+  },
+  "eyeR": {
+   "res": [
+    240,
+    240
+   ],
+   "round": true,
+   "panel": "GC9A01 1.28in IPS (Robotistan)",
+   "active_diam_mm": 32.4,
+   "glass_diam_mm": 35.5,
+   "brightness": 1.6,
+   "uv": "GLB'de gömülü: u = ekranın sağı (önden bakınca +X), v = yukarı",
+   "behind": "1 mm füme PETG vizörün ~3-5 mm arkasında, siyah göz cebinin içinde",
+   "side": "robotun SAĞ gözü (-X, önden bakınca solda)"
+  }
+ },
+ "faces": {
+  "neutral": {
+   "eyeL": "faces/neutral_L.png",
+   "eyeR": "faces/neutral_R.png"
+  },
+  "blink": {
+   "eyeL": "faces/blink_L.png",
+   "eyeR": "faces/blink_R.png"
+  },
+  "happy": {
+   "eyeL": "faces/happy_L.png",
+   "eyeR": "faces/happy_R.png"
+  },
+  "talk_a": {
+   "eyeL": "faces/talk_a_L.png",
+   "eyeR": "faces/talk_a_R.png"
+  },
+  "talk_b": {
+   "eyeL": "faces/talk_b_L.png",
+   "eyeR": "faces/talk_b_R.png"
+  },
+  "surprised": {
+   "eyeL": "faces/surprised_L.png",
+   "eyeR": "faces/surprised_R.png"
+  },
+  "sleepy": {
+   "eyeL": "faces/sleepy_L.png",
+   "eyeR": "faces/sleepy_R.png"
+  },
+  "asleep": {
+   "eyeL": "faces/asleep_L.png",
+   "eyeR": "faces/asleep_R.png"
+  },
+  "sad": {
+   "eyeL": "faces/sad_L.png",
+   "eyeR": "faces/sad_R.png"
+  },
+  "determined": {
+   "eyeL": "faces/determined_L.png",
+   "eyeR": "faces/determined_R.png"
+  },
+  "curious": {
+   "eyeL": "faces/curious_L.png",
+   "eyeR": "faces/curious_R.png"
+  }
+ },
+ "animations": {
+  "idle": "anim/idle.json",
+  "walk": "anim/walk.json",
+  "turn": "anim/turn.json",
+  "talk": "anim/talk.json",
+  "happy": "anim/happy.json",
+  "fall_recover": "anim/fall_recover.json",
+  "sleep": "anim/sleep.json",
+  "fall_recover_back": "anim/fall_recover_back.json"
+ },
+ "pose_rest": {
+  "head": 0,
+  "yaw_fr": 0,
+  "knee_fr": 30,
+  "yaw_fl": 0,
+  "knee_fl": 30,
+  "yaw_br": 0,
+  "knee_br": 30,
+  "yaw_bl": 0,
+  "knee_bl": 30
+ },
+ "frames_note": "mm, Z yukarı, robot -Y'ye bakar; body düğümü = yerde, yumurta merkezinin altında. Bacaklar: fl/fr/bl/br, robotun SOLU = +X.",
+ "specs": {
+  "dims_mm": [
+   107,
+   122,
+   137
+  ],
+  "mass_g": 346,
+  "servos": 9,
+  "servo_detail": "8 × MG90S (kalça yaw + diz) + 1 × SG90 (eğik eksenli kafa)",
+  "motors": 0,
+  "brain": "ESP32-S3-Zero/Mini (4 MB flash, 2 MB PSRAM, Wi-Fi)",
+  "screens": "2 × GC9A01 1.28\" yuvarlak 240×240 IPS",
+  "battery": "2 × Orion 14500 900 mAh Li-ion (~3C ≈ 2.7 A, IMR değil) + 2S 5 A BMS + 3 × MP1584",
+  "runtime_walk_min": 25,
+  "runtime_idle_h": 3.5,
+  "walk_speed_cm_s": 4.5,
+  "walk_speed_note": "MuJoCo ölçümü: 2 Hz çapraz tırıs, yaw ±24°, 4.51 cm/s (μ 0.6), 4.36 cm/s (μ 0.4); 7 s'de -7 mm yana kayma, servo tepe torku 0.157 N·m (MG90S 0.20). Konsept tahmini 4 cm/s idi.",
+  "self_righting": "MuJoCo, 20 düşme senaryosu (8 yönde hafif ve sert itme + ters/ sırt/ yüzüstü/ yan bırakma): 20/20 (μ 0.6), 20/20 (μ 0.5), 20/20 (μ 0.4). İlk denemede kalkan: 13/20 (μ 0.6), 15/20 (μ 0.5), 13/20 (μ 0.4); bunlar ~4-5 s. Sırt/yüzüstü düşmeler ve bazı itmeler ancak 'yan katlama' ile 3. denemede ~11-12.6 s (μ 0.6'da sol-arka sert itme de; μ 0.4'te iki ön-çapraz sert itme de 3. denemeye kalıyor). 'Yan katlama' konseptte yok, firmware'e eklenmesi gerekiyor; konseptin saf manevrası: 13/20.",
+  "sensors": [
+   "MPU6050 (GY-521) IMU",
+   "VL53L0X ToF uçurum sensörü (göbek penceresi)",
+   "kapasitif dokunma (şapka içi + göbek, bakır bant)"
+  ],
+  "voice": "Telefon/PC üzerinden (isteğe bağlı INMP441 + MAX98357A, +506 TL)",
+  "charge": "Arkada USB-C, 2S 0.55 A şarj kartı (Motorobit), ~2 saat dolum, yuva pozunda",
+  "turn_rate_deg_s": 60,
+  "dims_note": "Dinlenme pozunda (diz 30°, tabanlar Z=0) GLB'den ölçüldü: 107.1 × 122.2 × 137.0 mm. concept.md'deki 146 mm yanlıştı; konseptin kendi ayakta STL'leri de 137 mm'de bitiyor.",
+  "battery_note": "Kalkışta pil tarafında ~4 A tepe akım hücre değerini aşar: firmware servoları sırayla sürmeli; gerilim düşmesi ve ESP32 resetlenmesi (brown-out) olasıdır.",
+  "runtime_note": "25 dk yürüme ve 3.5 saat bekleme konseptin hesabıdır (yürürken ort. 11.8 W), ölçüm değildir.",
+  "power_switch": "Arkada, USB-C'nin altında küçük sürgü anahtar (IC205, SS12D00 sınıfı); sadece bir IRF4905 P-MOSFET'in kapısını sürer, pil akımı anahtardan geçmez."
+ },
+ "realism_notes_tr": [
+  "Krem gövde ve kafa 0.12 mm katmanla, eğik dikiş yüzeyi tablada basılır: yakından bakınca katman çizgileri eğik eksene dik halkalar halinde görünür; kubbenin tepesinde 'basamaklanma' olur.",
+  "Kafa ile gövde arasında 0.8 mm'lik eğik bir dikiş çizgisi her zaman görünür; kafa dönerken açılmaz çünkü dikiş yumurtanın küresel bölgesinde bir çemberdir. Arkasında gövdeden çıkan bir dudak var, içerisi görünmez.",
+  "Vizör 1 mm füme PETG levhanın vakumla şekillendirilmesiyle yapılır, parlaklığı levhadan gelir (baskı değil). Kenarında kafa kabuğuyla arasında ~0.4 mm yapıştırma boşluğu görünür. Vakum düzeneği yoksa yedek: 0.8 mm yarı saydam siyah PETG baskı; o zaman vizör mat ve katmanlı olur, gözler daha bulanık parlar.",
+  "Gözler gerçek GC9A01 panelleri: 240×240 piksel, 32.4 mm aktif daire, 35.5 mm cam. Yakından piksel ızgarası seçilir; aktif alanın çevresinde ~1.5 mm koyu cam halkası ve siyah göz cebi vardır. Siyah pikseller IPS olduğu için hafif mavimsi parlar.",
+  "Turuncu parçalar (şapka, kalça topları, patiler) ayrı basılır; tek renkli yazıcı yeterli, AMS gerekmez. Kalça toplarının ekvatorunda iki yarım kürenin birleşim çizgisi görünür.",
+  "Görünen vidalar: göbeğin altında 4 adet M2 havşa vida ve her patinin dış yüzünde boynuz vidası (M2, havşa cebinde). Şapka mıknatısla tutulur; diğer bağlantılar kalça topları ve kabuk içinde kalır.",
+  "Arkada USB-C soket ve onun altında küçük bir sürgü anahtar (IC205, SS12D00 sınıfı) görünür; anahtar bir IRF4905 P-MOSFET'i açıp kapar, akım taşımaz. Ön altta ToF sensörü için Ø6.8 mm siyah pencere vardır.",
+  "Kablolar dışarıda görünmez: diz servolarının kabloları topun üst cebinden gövdeye, kafa şeridi içi boş merkez direkten geçer.",
+  "Taban TPU 95A siyah, patilere yapıştırılır. Renkler mat PLA'dır; görsellerdeki parlak yansımalar sadece vizörde olmalıdır.",
+  "Pil: 2 × Orion 14500 900 mAh (IMR değil, ~3C ≈ 2.7 A). Kalkışta ~4 A tepe akım hücre değerini aşar; servolar sırayla sürülmeli, gerilim düşmesi/ESP32 resetlenmesi olabilir. 25 dk yürüme konseptin tahminidir (11.8 W), ölçülmedi.",
+  "MG90S'ler yürürken durma torkunun ~%80'ine yükleniyor (sim tepe 0.157 / 0.20 N·m): ısınma ve yüksek akım beklenmeli. Dizler 0-164°'nin tamamını kullanıyor; birçok MG90S ancak ~160-170° döner, montajdan önce her diz servosunun uç noktaları kalibre edilmeli.",
+  "Gerçek turuncu filament ekrandakinden daha koyu/doygun görünür; gözler gerçekte daha parlaktır (görüntüleyicinin ortak ışığı ve ton eşlemesi turuncuyu soluklaştırıyor)."
+ ],
+ "sim_summary": {
+  "engine": "MuJoCo 3.17, sim/yumurcak_mu0.6.xml, _mu0.5.xml & _mu0.4.xml (GLB ile birebir aynı link çerçeveleri), dt 1 ms, 345.6 g",
+  "servo_model": "8 × MG90S konum servosu ±0.20 N·m, SG90 kafa ±0.15 N·m, ~600°/s (sönüm), yazılım hız sınırı 300°/s (kalkışta 60-90°/s), diz/yaw bağlı sınırı (sim/limits_coupled.json)",
+  "walk_speed_cm_s": 4.51,
+  "walk_speed_mu0.4_cm_s": 4.36,
+  "turn_deg_s": 59.8,
+  "turn_mu0.4_deg_s": 64.0,
+  "recovery": "20/20 (μ 0.6), 20/20 (μ 0.5), 20/20 (μ 0.4); ilk denemede 13/20, 15/20, 13/20; en uzun kalkış 12.6 s. Sonuçlar: sim/out/fall_hybrid_mu0.6.json, _mu0.5.json, _mu0.4.json",
+  "recovery_concept_only": "13/20 (μ 0.6), 13/20 (μ 0.4): sırt/yüzüstü düşmelerde katlanmış pati uçları yumurtayı ~131° 'baş aşağı sırt üstü' konumda tutuyor",
+  "notes": "Yan düşmelerde konseptin manevrası (patiler katlanır, alttaki iki pati 164°→0° süpürür) aynen çalışıyor: ~5 s, diz torku ≤0.16 N·m. Sırt/yüzüstü düşmelerde gerçek yaw sınırı (-20° içe) patinin ileri/geri itmesini engelliyor; konseptteki ±85° iki yönlü yaw mümkün değil. Çözüm (firmware): başarısız denemeden sonra patileri 'yan katlama'ya (diz 150°, yaw 40°) alıp yeniden dene; 145-160°/33-47° aralığında da 7/7. Sert düşmelerde servolar çarpma anında toplam ≤0.05 s 0.20 N·m sınırına dayanıyor; çarpmada zemine ≤3.2 mm yumuşak temas batması (MuJoCo temas modeli). Klipler: walk/turn/fall_recover/fall_recover_back fizik sonucu; idle/talk/happy/sleep senaryolu servo hedefleri ama aynı simde oynatıldı (devrilme yok, eğim ≤6.4°).",
+  "recovery_first_try_exceptions": {
+   "mu0.6": [
+    "shove back-left",
+    "nudge backwards",
+    "nudge/shove forwards (face down)",
+    "dropped upside down",
+    "placed on its back",
+    "placed face down"
+   ],
+   "mu0.5": [
+    "shove towards its left (+X)",
+    "nudge backwards",
+    "dropped upside down",
+    "placed on its back",
+    "placed face down"
+   ],
+   "mu0.4": [
+    "nudge/shove backwards",
+    "shove front-right",
+    "shove front-left",
+    "dropped upside down",
+    "placed on its back",
+    "placed face down"
+   ]
+  },
+  "servo_load": "Yürüyüşte bacak servosu tepe torku 0.157 N·m = 0.20 N·m sınırının %78'i (konseptin kendi ≤%60 dinamik kuralının üstünde; konsept 0.07 tahmin etmişti). Zor kalkışlar 0.20 N·m sınırında."
+ }
+}

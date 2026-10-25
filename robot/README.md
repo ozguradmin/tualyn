@@ -30,7 +30,10 @@ robot/
 │   ├── BUTCE.md       bütçeye göre 5 kademe (görselli): sade, v1, göz, ses, öğrenen kol
 │   ├── HAZIR_ROBOTLAR.md  hazır robotlar (Microduck, Bittle, Loona...) ve Türkiye'ye gelmiş fiyatları
 │   ├── MINI.md        5-10 bin TL'ye masaüstü robot: Kıpır Mini 4 / Mini 2 / Küp
+│   ├── YENI_NESIL.md  Sesame'den daha tatlı dört masa robotu, jüri kararı ve gerçek maliyetler
 │   └── baglanti.svg   bağlantı şeması
+├── sunum/index.html   dört yeni robotu 3B görme, hareket ettirme, karşılaştırma (çift tıkla aç)
+├── yeni_nesil/        Tosbi, Tarçın, Fındık, Yumurcak: CAD, simülasyon, parça listesi, görseller
 ├── cad/
 │   ├── kipir.scad     parametrik OpenSCAD modeli (tek dosya, 10 parça)
 │   ├── stl/ 3mf/      baskıya hazır dosyalar
@@ -101,6 +104,10 @@ robot/
   HC-SR04 ölçümünü kumanda sayfasından kontrol et.
 
 ## Sonra ne?
+
+- **Masa robotu:** Kıpır v1'den küçük, yürüyen dört tasarım hazır. Karşılaştırmak için
+  `sunum/index.html` dosyasını tarayıcıda aç; özet ve jüri kararı
+  [docs/YENI_NESIL.md](docs/YENI_NESIL.md) içinde.
 
 - **v1.5:** Gece lambasının LED'lerini gövdeye, drone kamerasını (RTSP) ikinci göz olarak
   ekle; xiaozhi-esp32 ile telefonsuz sesli kafa.

@@ -1,0 +1,363 @@
+{
+ "GZ": 14.524251055270774,
+ "triangles": 194486,
+ "triangles_visible": 189068,
+ "meshes": {
+  "body__cap": [
+   25618,
+   25618
+  ],
+  "body__cream": [
+   18754,
+   18754
+  ],
+  "body__ear": [
+   35312,
+   7998
+  ],
+  "body__ear_inner": [
+   53740,
+   4000
+  ],
+  "body__internal_battery": [
+   280,
+   280
+  ],
+  "body__internal_chassis": [
+   350,
+   350
+  ],
+  "body__internal_lcd": [
+   280,
+   280
+  ],
+  "body__internal_led": [
+   24,
+   24
+  ],
+  "body__internal_magnet": [
+   560,
+   560
+  ],
+  "body__internal_metal": [
+   360,
+   360
+  ],
+  "body__internal_module": [
+   12,
+   12
+  ],
+  "body__internal_pcb": [
+   84,
+   84
+  ],
+  "body__internal_pcb_blue": [
+   304,
+   304
+  ],
+  "body__internal_pcb_esp": [
+   12,
+   12
+  ],
+  "body__internal_pcb_red": [
+   12,
+   12
+  ],
+  "body__internal_servo": [
+   1264,
+   1264
+  ],
+  "body__internal_speaker": [
+   284,
+   284
+  ],
+  "body__lcd_glass": [
+   3360,
+   3360
+  ],
+  "body__nose": [
+   29080,
+   3998
+  ],
+  "body__screen_eyeL": [
+   836,
+   836
+  ],
+  "body__screen_eyeR": [
+   836,
+   836
+  ],
+  "body__screw": [
+   424,
+   424
+  ],
+  "body__speaker_cloth": [
+   332,
+   332
+  ],
+  "body__tcrt_body": [
+   24,
+   24
+  ],
+  "body__tcrt_detector": [
+   1170,
+   1170
+  ],
+  "body__tcrt_emitter": [
+   1170,
+   1170
+  ],
+  "body__usb_metal": [
+   1890,
+   1890
+  ],
+  "body__usb_tongue": [
+   24,
+   24
+  ],
+  "body__visor": [
+   17474,
+   17474
+  ],
+  "leg_fr__arm": [
+   9312,
+   9312
+  ],
+  "leg_fr__internal_horn": [
+   128,
+   128
+  ],
+  "leg_fr__internal_shaft": [
+   140,
+   140
+  ],
+  "leg_fr__screw": [
+   1136,
+   1136
+  ],
+  "wheel_fr__beans": [
+   1904,
+   1904
+  ],
+  "wheel_fr__hub": [
+   672,
+   672
+  ],
+  "wheel_fr__hubcap": [
+   3860,
+   3860
+  ],
+  "wheel_fr__tyre": [
+   7728,
+   7728
+  ],
+  "leg_fl__arm": [
+   9312,
+   9312
+  ],
+  "leg_fl__internal_horn": [
+   128,
+   128
+  ],
+  "leg_fl__internal_shaft": [
+   140,
+   140
+  ],
+  "leg_fl__screw": [
+   1136,
+   1136
+  ],
+  "wheel_fl__beans": [
+   1904,
+   1904
+  ],
+  "wheel_fl__hub": [
+   672,
+   672
+  ],
+  "wheel_fl__hubcap": [
+   3860,
+   3860
+  ],
+  "wheel_fl__tyre": [
+   7728,
+   7728
+  ],
+  "leg_rr__arm": [
+   9668,
+   9668
+  ],
+  "leg_rr__internal_horn": [
+   128,
+   128
+  ],
+  "leg_rr__internal_motor": [
+   260,
+   260
+  ],
+  "leg_rr__internal_shaft": [
+   140,
+   140
+  ],
+  "leg_rr__screw": [
+   1136,
+   1136
+  ],
+  "leg_rr__wire_black": [
+   505,
+   505
+  ],
+  "leg_rr__wire_red": [
+   505,
+   505
+  ],
+  "wheel_rr__beans": [
+   1896,
+   1896
+  ],
+  "wheel_rr__hub": [
+   672,
+   672
+  ],
+  "wheel_rr__hubcap": [
+   3860,
+   3860
+  ],
+  "wheel_rr__tyre": [
+   7728,
+   7728
+  ],
+  "leg_rl__arm": [
+   9668,
+   9668
+  ],
+  "leg_rl__internal_horn": [
+   128,
+   128
+  ],
+  "leg_rl__internal_motor": [
+   260,
+   260
+  ],
+  "leg_rl__internal_shaft": [
+   140,
+   140
+  ],
+  "leg_rl__screw": [
+   1136,
+   1136
+  ],
+  "leg_rl__wire_black": [
+   507,
+   507
+  ],
+  "leg_rl__wire_red": [
+   507,
+   507
+  ],
+  "wheel_rl__beans": [
+   1888,
+   1888
+  ],
+  "wheel_rl__hub": [
+   672,
+   672
+  ],
+  "wheel_rl__hubcap": [
+   3860,
+   3860
+  ],
+  "wheel_rl__tyre": [
+   7728,
+   7728
+  ]
+ },
+ "frames": {
+  "body": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "leg_fr": [
+   -31.0,
+   -15.5,
+   46.524
+  ],
+  "wheel_fr": [
+   -6.8,
+   0.0,
+   -34.0
+  ],
+  "leg_fl": [
+   31.0,
+   -15.5,
+   46.524
+  ],
+  "wheel_fl": [
+   6.8,
+   0.0,
+   -34.0
+  ],
+  "leg_rr": [
+   -31.0,
+   21.5,
+   46.524
+  ],
+  "wheel_rr": [
+   -6.8,
+   0.0,
+   -34.0
+  ],
+  "leg_rl": [
+   31.0,
+   21.5,
+   46.524
+  ],
+  "wheel_rl": [
+   6.8,
+   0.0,
+   -34.0
+  ]
+ },
+ "screen_depth_mm": {
+  "-1": 4.443048206935782,
+  "1": 4.443048206935782
+ },
+ "eyes": [
+  [
+   [
+    -21.5,
+    -38.41061186703487,
+    46.0
+   ],
+   [
+    -0.3690370067540058,
+    -0.9293528684515627,
+    0.010720706455092975
+   ],
+   -1
+  ],
+  [
+   [
+    21.5,
+    -38.41061186703487,
+    46.0
+   ],
+   [
+    0.3690370067540058,
+    -0.9293528684515627,
+    0.010720706455092975
+   ],
+   1
+  ]
+ ],
+ "split_plane_normal": [
+  0.0,
+  0.386076968789243,
+  0.9224665707604314
+ ],
+ "split_heights": [
+  76.0,
+  40.0
+ ]
+}

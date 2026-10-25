@@ -1,0 +1,4 @@
+servo stall 0.14 N m: 14/14 recovered; fails []
+servo stall 0.1 N m: 14/14 recovered; fails []
+servo stall 0.07 N m: 14/14 recovered; fails []
+servo stall 0.05 N m: 14/14 recovered; fails []

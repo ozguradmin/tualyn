@@ -1,0 +1,10 @@
+{"width":1400,"height":1050,"shots":[
+ {"name":"rest_back","azimuth":150,"elevation":22,"distance":0.85},
+ {"name":"rest_top","azimuth":0,"elevation":88,"distance":0.85},
+ {"name":"macro_print","azimuth":-60,"elevation":20,"distance":0.2,"target":[-30,-26,60]},
+ {"name":"macro_pixels","azimuth":0,"elevation":15,"distance":0.07,"target":[0,-82,48]},
+ {"name":"lim_fwd","azimuth":-20,"elevation":60,"distance":0.85,"pose":{"hip_fl":14,"hip_fr":14,"hip_rl":20,"hip_rr":20}},
+ {"name":"lim_back","azimuth":-20,"elevation":60,"distance":0.85,"pose":{"hip_fl":-20,"hip_fr":-20,"hip_rl":-20,"hip_rr":-20}},
+ {"name":"lim_knee","azimuth":-35,"elevation":12,"distance":0.85,"pose":{"knee_fl":-90,"knee_fr":0,"knee_rl":90,"knee_rr":-45,"neck":40}},
+ {"name":"lim_neckdown","azimuth":-70,"elevation":8,"distance":0.6,"pose":{"neck":-40},"target":[0,-60,40]}
+]}

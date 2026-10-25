@@ -1,0 +1,62 @@
+{
+"width": 800,
+"height": 600,
+"shots": [
+{
+"azimuth": 65,
+"elevation": 10,
+"distance": 1.25,
+"name": "walk_follow_00",
+"anim": "walk",
+"t": 0.0
+},
+{
+"azimuth": 65,
+"elevation": 10,
+"distance": 1.25,
+"name": "walk_follow_01",
+"anim": "walk",
+"t": 0.8
+},
+{
+"azimuth": 65,
+"elevation": 10,
+"distance": 1.25,
+"name": "walk_follow_02",
+"anim": "walk",
+"t": 1.6
+},
+{
+"azimuth": 65,
+"elevation": 10,
+"distance": 1.25,
+"name": "walk_follow_03",
+"anim": "walk",
+"t": 3.0
+},
+{
+"azimuth": 65,
+"elevation": 10,
+"distance": 1.25,
+"name": "walk_follow_04",
+"anim": "walk",
+"t": 5.0
+},
+{
+"azimuth": 65,
+"elevation": 10,
+"distance": 1.25,
+"name": "walk_follow_05",
+"anim": "walk",
+"t": 6.2
+},
+{
+"azimuth": 65,
+"elevation": 10,
+"distance": 1.25,
+"name": "walk_follow_06",
+"anim": "walk",
+"t": 6.95
+}
+]
+}

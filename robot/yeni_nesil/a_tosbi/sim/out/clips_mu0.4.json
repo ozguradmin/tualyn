@@ -1,0 +1,207 @@
+{
+ "idle": {
+  "loop_drift_corrected_mm": 0.92,
+  "base_z_min_mm": -0.31,
+  "base_z_max_mm": 0.21,
+  "servo_torque_Nm": {
+   "hip": {
+    "peak": 0.013,
+    "mean": 0.0044,
+    "time_at_clamp_pct": 0.0
+   },
+   "knee": {
+    "peak": 0.039,
+    "mean": 0.0186,
+    "time_at_clamp_pct": 0.0
+   },
+   "neck": {
+    "peak": 0.012,
+    "mean": 0.0044,
+    "time_at_clamp_pct": 0.0
+   }
+  }
+ },
+ "talk": {
+  "loop_drift_corrected_mm": 1.6,
+  "base_z_min_mm": -0.04,
+  "base_z_max_mm": 0.0,
+  "mouth_flap_s": "0.17-0.23",
+  "servo_torque_Nm": {
+   "hip": {
+    "peak": 0.028,
+    "mean": 0.0094,
+    "time_at_clamp_pct": 0.0
+   },
+   "knee": {
+    "peak": 0.04,
+    "mean": 0.0189,
+    "time_at_clamp_pct": 0.0
+   },
+   "neck": {
+    "peak": 0.04,
+    "mean": 0.0117,
+    "time_at_clamp_pct": 0.0
+   }
+  }
+ },
+ "happy": {
+  "max_body_tilt_deg": 0.04,
+  "base_z_min_mm": -2.1,
+  "base_z_max_mm": 0.03,
+  "servo_torque_Nm": {
+   "hip": {
+    "peak": 0.101,
+    "mean": 0.0116,
+    "time_at_clamp_pct": 0.0
+   },
+   "knee": {
+    "peak": 0.2,
+    "mean": 0.0187,
+    "time_at_clamp_pct": 2.4
+   },
+   "neck": {
+    "peak": 0.072,
+    "mean": 0.0049,
+    "time_at_clamp_pct": 0.0
+   }
+  },
+  "note": "without the weight shift the sim nose-dives onto the head (calc.py: CoM 7.4 mm outside the 3-foot triangle)"
+ },
+ "sleep": {
+  "base_z_min_mm": -17.53,
+  "base_z_max_mm": -0.01,
+  "servo_torque_Nm": {
+   "hip": {
+    "peak": 0.018,
+    "mean": 0.0024,
+    "time_at_clamp_pct": 0.0
+   },
+   "knee": {
+    "peak": 0.05,
+    "mean": 0.0096,
+    "time_at_clamp_pct": 0.0
+   },
+   "neck": {
+    "peak": 0.034,
+    "mean": 0.0105,
+    "time_at_clamp_pct": 0.0
+   }
+  },
+  "rests_on": "belly dome + chin (head) on the desk, toes lifted (MuJoCo contacts at the last frame)"
+ },
+ "walk": {
+  "speed_cm_s": 5.13,
+  "path_cm": 27.2,
+  "steady_window_s": 5.3,
+  "lateral_drift_cm": 1.11,
+  "yaw_drift_deg": 0.8,
+  "servo_torque_Nm": {
+   "hip": {
+    "peak": 0.157,
+    "mean": 0.0339,
+    "time_at_clamp_pct": 0.0
+   },
+   "knee": {
+    "peak": 0.187,
+    "mean": 0.0263,
+    "time_at_clamp_pct": 0.0
+   },
+   "neck": {
+    "peak": 0.002,
+    "mean": 0.0008,
+    "time_at_clamp_pct": 0.0
+   }
+  },
+  "base_z_min_mm": -0.1,
+  "base_z_max_mm": 0.3
+ },
+ "walk_fast": {
+  "speed_cm_s": 7.57,
+  "servo_torque_Nm": {
+   "hip": {
+    "peak": 0.186,
+    "mean": 0.053,
+    "time_at_clamp_pct": 0.0
+   },
+   "knee": {
+    "peak": 0.2,
+    "mean": 0.0458,
+    "time_at_clamp_pct": 6.1
+   },
+   "neck": {
+    "peak": 0.003,
+    "mean": 0.0011,
+    "time_at_clamp_pct": 0.0
+   }
+  }
+ },
+ "turn": {
+  "yaw_rate_deg_s": 34.0,
+  "total_yaw_deg": 128.8,
+  "centre_drift_cm": 0.72,
+  "servo_torque_Nm": {
+   "hip": {
+    "peak": 0.105,
+    "mean": 0.0249,
+    "time_at_clamp_pct": 0.0
+   },
+   "knee": {
+    "peak": 0.193,
+    "mean": 0.027,
+    "time_at_clamp_pct": 0.0
+   },
+   "neck": {
+    "peak": 0.002,
+    "mean": 0.0009,
+    "time_at_clamp_pct": 0.0
+   }
+  },
+  "base_z_min_mm": -0.08,
+  "base_z_max_mm": 0.4
+ },
+ "fall_recover": {
+  "disturbance": "a hand lifts the shell edge (x=-41 mm) with up to 2.6 N and lets go at 70\u00b0 tilt",
+  "released_at_s": 1.919999999999844,
+  "modes": [
+   [
+    2.7,
+    "edge_kick"
+   ],
+   [
+    3.04,
+    "flip_through"
+   ],
+   [
+    3.46,
+    "stand"
+   ]
+  ],
+  "recovered": true,
+  "t_recovered_s": 2.96,
+  "t_react_to_stand_s": 0.88,
+  "final_face": "B (ters y\u00fcz)",
+  "base_z_min_mm": -0.02,
+  "base_z_max_mm": 89.58,
+  "walk_after_s": 1.2,
+  "base_drift_mm": 227.3,
+  "heading_change_deg": -160.4,
+  "joint_clamp_excess_deg": 0.0,
+  "servo_torque_Nm": {
+   "hip": {
+    "peak": 0.2,
+    "mean": 0.0091,
+    "time_at_clamp_pct": 0.9
+   },
+   "knee": {
+    "peak": 0.2,
+    "mean": 0.0203,
+    "time_at_clamp_pct": 4.8
+   },
+   "neck": {
+    "peak": 0.2,
+    "mean": 0.0041,
+    "time_at_clamp_pct": 0.8
+   }
+  }
+ }
+}

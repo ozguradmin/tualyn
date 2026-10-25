@@ -1,0 +1,112 @@
+<mujoco model="tosbi">
+  <compiler angle="radian" meshdir="meshes" autolimits="true"/>
+  <option timestep="0.001" integrator="implicitfast" gravity="0 0 -9.81"/>
+  <default>
+    <joint damping="0.01910" armature="0.0002" frictionloss="0.004" solreflimit="0.002 1" solimplimit="0.95 0.99 0.0005" margin="0.002"/>
+    <default class="servo"/>
+    <geom contype="1" conaffinity="1" condim="3" solref="0.004 1" solimp="0.9 0.95 0.001"/>
+    <default class="pla"><geom friction="0.6 0.005 0.0001" rgba="0.62 0.85 0.76 1"/></default>
+    <default class="tpu"><geom friction="0.9 0.005 0.0001" priority="1" rgba="0.93 0.36 0.30 1"/></default>
+    <position kp="3.0" forcerange="-0.2 0.2" forcelimited="true"/>
+  </default>
+  <asset>
+    <mesh name="body_0_shell_lip_switch" file="body_0_shell_lip_switch.stl"/>
+    <mesh name="body_1_tail" file="body_1_tail.stl"/>
+    <mesh name="leg_fl_0_egg" file="leg_fl_0_egg.stl"/>
+    <mesh name="leg_fl_1_arm" file="leg_fl_1_arm.stl"/>
+    <mesh name="leg_fr_0_egg" file="leg_fr_0_egg.stl"/>
+    <mesh name="leg_fr_1_arm" file="leg_fr_1_arm.stl"/>
+    <mesh name="leg_rl_0_egg" file="leg_rl_0_egg.stl"/>
+    <mesh name="leg_rl_1_arm" file="leg_rl_1_arm.stl"/>
+    <mesh name="leg_rr_0_egg" file="leg_rr_0_egg.stl"/>
+    <mesh name="leg_rr_1_arm" file="leg_rr_1_arm.stl"/>
+    <mesh name="foot_fl_0_boot_fl" file="foot_fl_0_boot_fl.stl"/>
+    <mesh name="foot_fl_1_toe_fl" file="foot_fl_1_toe_fl.stl"/>
+    <mesh name="foot_fr_0_boot_fr" file="foot_fr_0_boot_fr.stl"/>
+    <mesh name="foot_fr_1_toe_fr" file="foot_fr_1_toe_fr.stl"/>
+    <mesh name="foot_rl_0_boot_rl" file="foot_rl_0_boot_rl.stl"/>
+    <mesh name="foot_rl_1_toe_rl" file="foot_rl_1_toe_rl.stl"/>
+    <mesh name="foot_rr_0_boot_rr" file="foot_rr_0_boot_rr.stl"/>
+    <mesh name="foot_rr_1_toe_rr" file="foot_rr_1_toe_rr.stl"/>
+    <mesh name="head_0_head_bezel_visor" file="head_0_head_bezel_visor.stl"/>
+  </asset>
+  <worldbody>
+    <light pos="0 0 1" dir="0 0 -1"/>
+    <geom name="floor" type="plane" size="2 2 0.01" friction="0.6 0.005 0.0001" rgba="0.9 0.9 0.88 1"/>
+    <body name="body" pos="0 0 0">
+      <freejoint name="root"/>
+      <inertial pos="0.000589612 -0.00564773 0.0404443" mass="0.2208" fullinertia="0.000168778 0.00010054 0.000220412 -3.61525e-06 -1.54568e-06 2.72961e-06"/>
+      <geom name="body_0_shell_lip_switch" class="pla" type="mesh" mesh="body_0_shell_lip_switch"/>
+      <geom name="body_1_tail" class="pla" type="mesh" mesh="body_1_tail"/>
+      <site name="imu" pos="0 -0.02100 0.04405"/>
+      <body name="leg_fl" pos="0.0306596 -0.0257658 0.0424531">
+        <joint name="hip_fl" class="servo" axis="0 0 -1" range="-0.34907 0.24435"/>
+        <inertial pos="0.0177377 -0.0131087 4.425e-05" mass="0.0265" fullinertia="4.4202e-06 5.59064e-06 7.35143e-06 1.41086e-06 4.07266e-08 -2.97932e-08"/>
+        <geom name="leg_fl_0_egg" class="pla" type="mesh" mesh="leg_fl_0_egg"/>
+        <geom name="leg_fl_1_arm" class="pla" type="mesh" mesh="leg_fl_1_arm"/>
+        <body name="foot_fl" pos="0.027032 -0.018928 0">
+          <joint name="knee_fl" class="servo" axis="0.573576 0.819152 0" range="-1.57080 1.57080"/>
+          <inertial pos="0.0139764 -0.0100072 4.49672e-05" mass="0.0093" fullinertia="2.03548e-06 2.25924e-06 3.74509e-06 2.23975e-07 9.44568e-09 3.42902e-09"/>
+          <geom name="foot_fl_0_boot_fl" class="pla" type="mesh" mesh="foot_fl_0_boot_fl"/>
+          <geom name="foot_fl_1_toe_fl" class="tpu" type="mesh" mesh="foot_fl_1_toe_fl"/>
+        </body>
+      </body>
+      <body name="leg_fr" pos="-0.0306596 -0.0257658 0.0424531">
+        <joint name="hip_fr" class="servo" axis="0 0 1" range="-0.34907 0.24435"/>
+        <inertial pos="-0.0183476 -0.0122843 5.81101e-05" mass="0.0265" fullinertia="4.44689e-06 5.53151e-06 7.32373e-06 -1.40219e-06 -3.40588e-08 -4.33127e-08"/>
+        <geom name="leg_fr_0_egg" class="pla" type="mesh" mesh="leg_fr_0_egg"/>
+        <geom name="leg_fr_1_arm" class="pla" type="mesh" mesh="leg_fr_1_arm"/>
+        <body name="foot_fr" pos="-0.027032 -0.018928 0">
+          <joint name="knee_fr" class="servo" axis="0.573576 -0.819152 0" range="-1.57080 1.57080"/>
+          <inertial pos="-0.0141839 -0.0097109 4.49672e-05" mass="0.0093" fullinertia="2.0891e-06 2.20563e-06 3.74509e-06 -2.43489e-07 -8.39293e-12 -1.00488e-08"/>
+          <geom name="foot_fr_0_boot_fr" class="pla" type="mesh" mesh="foot_fr_0_boot_fr"/>
+          <geom name="foot_fr_1_toe_fr" class="tpu" type="mesh" mesh="foot_fr_1_toe_fr"/>
+        </body>
+      </body>
+      <body name="leg_rl" pos="0.0306596 0.0257658 0.0424531">
+        <joint name="hip_rl" class="servo" axis="0 0 -1" range="-0.34907 0.34907"/>
+        <inertial pos="0.0183476 0.0122843 5.81101e-05" mass="0.0265" fullinertia="4.44689e-06 5.53151e-06 7.32373e-06 -1.40219e-06 3.40588e-08 4.33127e-08"/>
+        <geom name="leg_rl_0_egg" class="pla" type="mesh" mesh="leg_rl_0_egg"/>
+        <geom name="leg_rl_1_arm" class="pla" type="mesh" mesh="leg_rl_1_arm"/>
+        <body name="foot_rl" pos="0.027032 0.018928 0">
+          <joint name="knee_rl" class="servo" axis="-0.573576 0.819152 0" range="-1.57080 1.57080"/>
+          <inertial pos="0.0141839 0.0097109 4.49672e-05" mass="0.0093" fullinertia="2.0891e-06 2.20563e-06 3.74509e-06 -2.43489e-07 8.39293e-12 1.00488e-08"/>
+          <geom name="foot_rl_0_boot_rl" class="pla" type="mesh" mesh="foot_rl_0_boot_rl"/>
+          <geom name="foot_rl_1_toe_rl" class="tpu" type="mesh" mesh="foot_rl_1_toe_rl"/>
+        </body>
+      </body>
+      <body name="leg_rr" pos="-0.0306596 0.0257658 0.0424531">
+        <joint name="hip_rr" class="servo" axis="0 0 1" range="-0.34907 0.34907"/>
+        <inertial pos="-0.0177339 0.0131224 5.74006e-05" mass="0.0265" fullinertia="4.41268e-06 5.58973e-06 7.34546e-06 1.40359e-06 -4.40783e-08 3.09308e-08"/>
+        <geom name="leg_rr_0_egg" class="pla" type="mesh" mesh="leg_rr_0_egg"/>
+        <geom name="leg_rr_1_arm" class="pla" type="mesh" mesh="leg_rr_1_arm"/>
+        <body name="foot_rr" pos="-0.027032 0.018928 0">
+          <joint name="knee_rr" class="servo" axis="-0.573576 -0.819152 0" range="-1.57080 1.57080"/>
+          <inertial pos="-0.0139764 0.0100072 4.49672e-05" mass="0.0093" fullinertia="2.03548e-06 2.25924e-06 3.74509e-06 2.23975e-07 -9.44568e-09 -3.42902e-09"/>
+          <geom name="foot_rr_0_boot_rr" class="pla" type="mesh" mesh="foot_rr_0_boot_rr"/>
+          <geom name="foot_rr_1_toe_rr" class="tpu" type="mesh" mesh="foot_rr_1_toe_rr"/>
+        </body>
+      </body>
+      <body name="head" pos="0 -0.069 0.0424531">
+        <joint name="neck" class="servo" axis="-1 0 0" range="-0.69813 0.69813"/>
+        <inertial pos="0.000137822 -0.00197135 0.000969933" mass="0.0393" fullinertia="1.46945e-05 2.2481e-05 1.71849e-05 1.23359e-07 4.53863e-08 -1.78046e-07"/>
+        <geom name="head_0_head_bezel_visor" class="pla" type="mesh" mesh="head_0_head_bezel_visor"/>
+      </body>
+    </body>
+  </worldbody>
+  <actuator>
+    <position name="hip_fl" joint="hip_fl" ctrlrange="-0.34907 0.24435"/>
+    <position name="hip_fr" joint="hip_fr" ctrlrange="-0.34907 0.24435"/>
+    <position name="hip_rl" joint="hip_rl" ctrlrange="-0.34907 0.34907"/>
+    <position name="hip_rr" joint="hip_rr" ctrlrange="-0.34907 0.34907"/>
+    <position name="knee_fl" joint="knee_fl" ctrlrange="-1.57080 1.57080"/>
+    <position name="knee_fr" joint="knee_fr" ctrlrange="-1.57080 1.57080"/>
+    <position name="knee_rl" joint="knee_rl" ctrlrange="-1.57080 1.57080"/>
+    <position name="knee_rr" joint="knee_rr" ctrlrange="-1.57080 1.57080"/>
+    <position name="neck" joint="neck" ctrlrange="-0.69813 0.69813"/>
+  </actuator>
+  <sensor>
+    <framequat name="imu_quat" objtype="site" objname="imu"/>
+    <accelerometer name="imu_acc" site="imu"/>
+  </sensor>
+</mujoco>
