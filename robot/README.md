@@ -35,6 +35,7 @@ robot/
 │   └── baglanti.svg   bağlantı şeması
 ├── sunum/index.html   dört yeni robotu 3B görme, hareket ettirme, karşılaştırma (çift tıkla aç)
 ├── yeni_nesil/        Tosbi, Tarçın, Fındık, Yumurcak: CAD, simülasyon, parça listesi, görseller
+├── tarcin_v2/         seçilen robot Tarçın'ın yapım sürümü: kararlar, klavye testi, sıradaki adımlar (DURUM.md)
 ├── cad/
 │   ├── kipir.scad     parametrik OpenSCAD modeli (tek dosya, 10 parça)
 │   ├── stl/ 3mf/      baskıya hazır dosyalar
@@ -110,6 +111,7 @@ robot/
   `sunum/index.html` dosyasını tarayıcıda aç; özet ve jüri kararı
   [docs/YENI_NESIL.md](docs/YENI_NESIL.md) içinde.
   Sesame ve StackChan'la karşılaştırma: [docs/SESAME_STACKCHAN.md](docs/SESAME_STACKCHAN.md).
+  Seçilen robot Tarçın; yapım sürümünün durumu: [tarcin_v2/DURUM.md](tarcin_v2/DURUM.md).
 
 - **v1.5:** Gece lambasının LED'lerini gövdeye, drone kamerasını (RTSP) ikinci göz olarak
   ekle; xiaozhi-esp32 ile telefonsuz sesli kafa.

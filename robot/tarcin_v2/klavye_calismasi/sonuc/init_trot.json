@@ -1,0 +1,4 @@
+[{"gait":"trot","a":0.0,"period":0.524,"duty":0.504,"stride":0.0204,"H":0.0053,"apex_f":0.5,"apex_h":0.5,"hh":1.0,"fy":0.0,"hy":0.0,"dz":-0.0014,"shift":0.00055,"kh":0.5,"hlim":0.008,"kc":0.0,"lev_kp":0.5,"lev_ki":1.5,"lev_lim":0.008,"dip":0.0},
+ {"gait":"trot","a":0.0,"period":0.45,"duty":0.5,"stride":0.02,"H":0.012,"apex_f":0.5,"apex_h":0.5,"hh":1.0,"fy":-0.012,"hy":0.012,"dz":0.004,"shift":0.0,"kh":0.5,"hlim":0.008,"kc":0.0,"lev_kp":0.5,"lev_ki":1.5,"lev_lim":0.008,"dip":0.0},
+ {"gait":"trot","a":0.0,"period":0.5,"duty":0.5,"stride":0.02,"H":0.015,"apex_f":0.5,"apex_h":0.5,"hh":1.0,"fy":-0.015,"hy":0.015,"dz":0.006,"shift":0.0,"kh":0.5,"hlim":0.008,"kc":0.0,"lev_kp":0.5,"lev_ki":1.5,"lev_lim":0.008,"dip":0.0},
+ {"gait":"trot","a":0.0,"period":0.45,"duty":0.5,"stride":0.02,"H":0.012,"apex_f":0.5,"apex_h":0.5,"hh":1.0,"fy":-0.012,"hy":0.012,"dz":0.004,"shift":0.0,"kh":0.8,"hlim":0.008,"kc":0.5,"lev_kp":0.2,"lev_ki":0.5,"lev_lim":0.008,"dip":0.0}]

@@ -1,0 +1,86 @@
+{
+ "BASE_mu0.6": {
+  "ok": 10,
+  "n": 10,
+  "v": 7.15,
+  "v_min": 6.26,
+  "fails": [],
+  "lat_abs_mean_mm": 31.4
+ },
+ "BASE_mu0.4": {
+  "ok": 10,
+  "n": 10,
+  "v": 7.66,
+  "v_min": 7.29,
+  "fails": [],
+  "lat_abs_mean_mm": 23.9
+ },
+ "RT_mu0.6": {
+  "ok": 9,
+  "n": 10,
+  "v": 4.88,
+  "v_min": 3.35,
+  "fails": [
+   "fell"
+  ],
+  "lat_abs_mean_mm": 33.7
+ },
+ "RT_mu0.4": {
+  "ok": 10,
+  "n": 10,
+  "v": 6.89,
+  "v_min": 6.13,
+  "fails": [],
+  "lat_abs_mean_mm": 21.1
+ },
+ "RT8_mu0.6": {
+  "ok": 9,
+  "n": 10,
+  "v": 3.45,
+  "v_min": 2.81,
+  "fails": [
+   "fell"
+  ],
+  "lat_abs_mean_mm": 46.8
+ },
+ "RT8_mu0.4": {
+  "ok": 10,
+  "n": 10,
+  "v": 5.46,
+  "v_min": 3.86,
+  "fails": [],
+  "lat_abs_mean_mm": 23.3
+ },
+ "WALK_mu0.6": {
+  "ok": 10,
+  "n": 10,
+  "v": 2.73,
+  "v_min": 2.46,
+  "fails": [],
+  "lat_abs_mean_mm": 25.3
+ },
+ "WALK_mu0.4": {
+  "ok": 10,
+  "n": 10,
+  "v": 2.47,
+  "v_min": 2.16,
+  "fails": [],
+  "lat_abs_mean_mm": 21.2
+ },
+ "MECH_mu0.6": {
+  "ok": 10,
+  "n": 10,
+  "v": 5.5,
+  "v_min": 5.46,
+  "fails": [],
+  "lat_abs_mean_mm": 22.6
+ },
+ "MECH_mu0.4": {
+  "ok": 10,
+  "n": 10,
+  "v": 5.5,
+  "v_min": 5.46,
+  "fails": [],
+  "lat_abs_mean_mm": 22.6
+ }
+}

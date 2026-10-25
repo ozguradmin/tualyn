@@ -1,0 +1,660 @@
+[
+{
+"spec": {
+"gait": "trot",
+"a": 0.0,
+"duty": 0.504,
+"stride": 0.0204,
+"shift": 0.00055,
+"kh": 0.8,
+"hlim": 0.008,
+"kc": 0.0,
+"lev_kp": 0.5,
+"lev_ki": 1.5,
+"lev_lim": 0.008,
+"H": 0.0053,
+"period": 0.52,
+"dz": -0.0014
+},
+"res": [
+{
+"kind": "flat",
+"mode": "flat",
+"mu": 0.6,
+"seed": 0,
+"result": "success",
+"prog": 251.4,
+"v": 5.85,
+"hsat": 0.014,
+"ksat": 0.036
+},
+{
+"kind": "flat",
+"mode": "flat",
+"mu": 0.4,
+"seed": 1,
+"result": "success",
+"prog": 251.4,
+"v": 5.85,
+"hsat": 0.014,
+"ksat": 0.036
+},
+{
+"kind": "flat",
+"mode": "flat",
+"mu": 0.6,
+"seed": 2,
+"result": "success",
+"prog": 251.0,
+"v": 5.84,
+"hsat": 0.014,
+"ksat": 0.036
+},
+{
+"kind": "K2",
+"mode": "rows",
+"mu": 0.4,
+"seed": 200,
+"result": "success",
+"prog": 250.5,
+"v": 4.36,
+"hsat": 0.178,
+"ksat": 0.109
+},
+{
+"kind": "K2",
+"mode": "rows",
+"mu": 0.3,
+"seed": 201,
+"result": "fell",
+"prog": 61.1,
+"v": 2.11,
+"hsat": 0.051,
+"ksat": 0.117
+},
+{
+"kind": "K2",
+"mode": "rows",
+"mu": 0.6,
+"seed": 202,
+"result": "success",
+"prog": 253.2,
+"v": 4.6,
+"hsat": 0.052,
+"ksat": 0.113
+},
+{
+"kind": "K2",
+"mode": "rows",
+"mu": 0.4,
+"seed": 203,
+"result": "fell",
+"prog": 69.0,
+"v": 2.3,
+"hsat": 0.062,
+"ksat": 0.125
+},
+{
+"kind": "K2",
+"mode": "diag",
+"mu": 0.4,
+"seed": 200,
+"result": "timeout",
+"prog": 206.7,
+"v": 1.44,
+"hsat": 0.119,
+"ksat": 0.118
+},
+{
+"kind": "K2",
+"mode": "diag",
+"mu": 0.3,
+"seed": 201,
+"result": "stuck_body",
+"prog": 26.1,
+"v": 0.44,
+"hsat": 0.065,
+"ksat": 0.127
+},
+{
+"kind": "K2",
+"mode": "diag",
+"mu": 0.6,
+"seed": 202,
+"result": "stuck_body",
+"prog": 27.8,
+"v": 0.86,
+"hsat": 0.064,
+"ksat": 0.122
+},
+{
+"kind": "K2",
+"mode": "diag",
+"mu": 0.4,
+"seed": 207,
+"result": "fell",
+"prog": 189.2,
+"v": 4.07,
+"hsat": 0.064,
+"ksat": 0.1
+},
+{
+"kind": "K1",
+"mode": "diag",
+"mu": 0.3,
+"seed": 204,
+"result": "success",
+"prog": 252.5,
+"v": 5.87,
+"hsat": 0.015,
+"ksat": 0.04
+},
+{
+"kind": "K1",
+"mode": "rows",
+"mu": 0.3,
+"seed": 205,
+"result": "success",
+"prog": 251.2,
+"v": 2.75,
+"hsat": 0.035,
+"ksat": 0.071
+}
+]
+},
+{
+"spec": {
+"gait": "trot",
+"a": 0.0,
+"duty": 0.504,
+"stride": 0.0204,
+"shift": 0.00055,
+"kh": 0.8,
+"hlim": 0.008,
+"kc": 0.0,
+"lev_kp": 0.5,
+"lev_ki": 1.5,
+"lev_lim": 0.008,
+"H": 0.0053,
+"period": 0.52,
+"fy": -0.016,
+"hy": 0.016,
+"dz": 0.0042
+},
+"res": [
+{
+"kind": "flat",
+"mode": "flat",
+"mu": 0.6,
+"seed": 0,
+"result": "success",
+"prog": 254.7,
+"v": 7.27,
+"hsat": 0.069,
+"ksat": 0.063
+},
+{
+"kind": "flat",
+"mode": "flat",
+"mu": 0.4,
+"seed": 1,
+"result": "success",
+"prog": 254.8,
+"v": 7.28,
+"hsat": 0.069,
+"ksat": 0.063
+},
+{
+"kind": "flat",
+"mode": "flat",
+"mu": 0.6,
+"seed": 2,
+"result": "success",
+"prog": 254.6,
+"v": 7.27,
+"hsat": 0.069,
+"ksat": 0.063
+},
+{
+"kind": "K2",
+"mode": "rows",
+"mu": 0.4,
+"seed": 200,
+"result": "success",
+"prog": 254.5,
+"v": 5.53,
+"hsat": 0.06,
+"ksat": 0.074
+},
+{
+"kind": "K2",
+"mode": "rows",
+"mu": 0.3,
+"seed": 201,
+"result": "stuck_body",
+"prog": 163.6,
+"v": 2.66,
+"hsat": 0.075,
+"ksat": 0.076
+},
+{
+"kind": "K2",
+"mode": "rows",
+"mu": 0.6,
+"seed": 202,
+"result": "stuck_body",
+"prog": 35.6,
+"v": 1.11,
+"hsat": 0.054,
+"ksat": 0.061
+},
+{
+"kind": "K2",
+"mode": "rows",
+"mu": 0.4,
+"seed": 203,
+"result": "success",
+"prog": 251.3,
+"v": 5.84,
+"hsat": 0.053,
+"ksat": 0.063
+},
+{
+"kind": "K2",
+"mode": "diag",
+"mu": 0.4,
+"seed": 200,
+"result": "stuck_body",
+"prog": -22.9,
+"v": -0.76,
+"hsat": 0.07,
+"ksat": 0.051
+},
+{
+"kind": "K2",
+"mode": "diag",
+"mu": 0.3,
+"seed": 201,
+"result": "fell",
+"prog": -36.7,
+"v": -2.94,
+"hsat": 0.11,
+"ksat": 0.103
+},
+{
+"kind": "K2",
+"mode": "diag",
+"mu": 0.6,
+"seed": 202,
+"result": "success",
+"prog": 252.6,
+"v": 3.63,
+"hsat": 0.053,
+"ksat": 0.055
+},
+{
+"kind": "K2",
+"mode": "diag",
+"mu": 0.4,
+"seed": 207,
+"result": "fell",
+"prog": 215.7,
+"v": 4.03,
+"hsat": 0.096,
+"ksat": 0.061
+},
+{
+"kind": "K1",
+"mode": "diag",
+"mu": 0.3,
+"seed": 204,
+"result": "success",
+"prog": 251.3,
+"v": 6.79,
+"hsat": 0.023,
+"ksat": 0.025
+},
+{
+"kind": "K1",
+"mode": "rows",
+"mu": 0.3,
+"seed": 205,
+"result": "success",
+"prog": 250.9,
+"v": 6.69,
+"hsat": 0.026,
+"ksat": 0.039
+}
+]
+},
+{
+"spec": {
+"gait": "trot",
+"a": 0.0,
+"duty": 0.504,
+"stride": 0.0204,
+"shift": 0.00055,
+"kh": 0.8,
+"hlim": 0.008,
+"kc": 0.0,
+"lev_kp": 0.5,
+"lev_ki": 1.5,
+"lev_lim": 0.008,
+"H": 0.008,
+"period": 0.52,
+"fy": -0.016,
+"hy": 0.016,
+"dz": 0.0042
+},
+"res": [
+{
+"kind": "flat",
+"mode": "flat",
+"mu": 0.6,
+"seed": 0,
+"result": "success",
+"prog": 256.0,
+"v": 8.13,
+"hsat": 0.026,
+"ksat": 0.049
+},
+{
+"kind": "flat",
+"mode": "flat",
+"mu": 0.4,
+"seed": 1,
+"result": "success",
+"prog": 255.9,
+"v": 8.12,
+"hsat": 0.026,
+"ksat": 0.049
+},
+{
+"kind": "flat",
+"mode": "flat",
+"mu": 0.6,
+"seed": 2,
+"result": "success",
+"prog": 255.5,
+"v": 8.11,
+"hsat": 0.026,
+"ksat": 0.049
+},
+{
+"kind": "K2",
+"mode": "rows",
+"mu": 0.4,
+"seed": 200,
+"result": "success",
+"prog": 251.7,
+"v": 6.21,
+"hsat": 0.074,
+"ksat": 0.108
+},
+{
+"kind": "K2",
+"mode": "rows",
+"mu": 0.3,
+"seed": 201,
+"result": "stuck_body",
+"prog": 164.0,
+"v": 2.47,
+"hsat": 0.104,
+"ksat": 0.116
+},
+{
+"kind": "K2",
+"mode": "rows",
+"mu": 0.6,
+"seed": 202,
+"result": "fell",
+"prog": 58.9,
+"v": 3.1,
+"hsat": 0.072,
+"ksat": 0.105
+},
+{
+"kind": "K2",
+"mode": "rows",
+"mu": 0.4,
+"seed": 203,
+"result": "stuck_body",
+"prog": 110.2,
+"v": 1.95,
+"hsat": 0.093,
+"ksat": 0.13
+},
+{
+"kind": "K2",
+"mode": "diag",
+"mu": 0.4,
+"seed": 200,
+"result": "stuck_body",
+"prog": 191.6,
+"v": 1.65,
+"hsat": 0.079,
+"ksat": 0.104
+},
+{
+"kind": "K2",
+"mode": "diag",
+"mu": 0.3,
+"seed": 201,
+"result": "fell",
+"prog": -42.5,
+"v": -5.67,
+"hsat": 0.121,
+"ksat": 0.134
+},
+{
+"kind": "K2",
+"mode": "diag",
+"mu": 0.6,
+"seed": 202,
+"result": "success",
+"prog": 250.3,
+"v": 3.32,
+"hsat": 0.055,
+"ksat": 0.081
+},
+{
+"kind": "K2",
+"mode": "diag",
+"mu": 0.4,
+"seed": 207,
+"result": "success",
+"prog": 250.9,
+"v": 5.4,
+"hsat": 0.071,
+"ksat": 0.1
+},
+{
+"kind": "K1",
+"mode": "diag",
+"mu": 0.3,
+"seed": 204,
+"result": "success",
+"prog": 252.2,
+"v": 6.82,
+"hsat": 0.032,
+"ksat": 0.065
+},
+{
+"kind": "K1",
+"mode": "rows",
+"mu": 0.3,
+"seed": 205,
+"result": "success",
+"prog": 255.7,
+"v": 7.41,
+"hsat": 0.02,
+"ksat": 0.041
+}
+]
+},
+{
+"spec": {
+"gait": "trot",
+"a": 0.0,
+"duty": 0.504,
+"stride": 0.0204,
+"shift": 0.00055,
+"kh": 0.8,
+"hlim": 0.008,
+"kc": 0.0,
+"lev_kp": 0.5,
+"lev_ki": 1.5,
+"lev_lim": 0.008,
+"H": 0.011,
+"period": 0.52,
+"fy": -0.016,
+"hy": 0.016,
+"dz": 0.0042
+},
+"res": [
+{
+"kind": "flat",
+"mode": "flat",
+"mu": 0.6,
+"seed": 0,
+"result": "success",
+"prog": 250.2,
+"v": 6.41,
+"hsat": 0.053,
+"ksat": 0.126
+},
+{
+"kind": "flat",
+"mode": "flat",
+"mu": 0.4,
+"seed": 1,
+"result": "success",
+"prog": 250.8,
+"v": 6.43,
+"hsat": 0.053,
+"ksat": 0.126
+},
+{
+"kind": "flat",
+"mode": "flat",
+"mu": 0.6,
+"seed": 2,
+"result": "success",
+"prog": 251.2,
+"v": 6.44,
+"hsat": 0.053,
+"ksat": 0.126
+},
+{
+"kind": "K2",
+"mode": "rows",
+"mu": 0.4,
+"seed": 200,
+"result": "stuck_body",
+"prog": 161.6,
+"v": 3.11,
+"hsat": 0.099,
+"ksat": 0.18
+},
+{
+"kind": "K2",
+"mode": "rows",
+"mu": 0.3,
+"seed": 201,
+"result": "stuck_body",
+"prog": 126.9,
+"v": 2.46,
+"hsat": 0.116,
+"ksat": 0.182
+},
+{
+"kind": "K2",
+"mode": "rows",
+"mu": 0.6,
+"seed": 202,
+"result": "fell",
+"prog": 109.2,
+"v": 3.7,
+"hsat": 0.116,
+"ksat": 0.187
+},
+{
+"kind": "K2",
+"mode": "rows",
+"mu": 0.4,
+"seed": 203,
+"result": "stuck_body",
+"prog": 165.6,
+"v": 2.93,
+"hsat": 0.11,
+"ksat": 0.191
+},
+{
+"kind": "K2",
+"mode": "diag",
+"mu": 0.4,
+"seed": 200,
+"result": "stuck_body",
+"prog": 110.8,
+"v": 1.38,
+"hsat": 0.093,
+"ksat": 0.189
+},
+{
+"kind": "K2",
+"mode": "diag",
+"mu": 0.3,
+"seed": 201,
+"result": "stuck_body",
+"prog": -19.4,
+"v": -0.65,
+"hsat": 0.078,
+"ksat": 0.174
+},
+{
+"kind": "K2",
+"mode": "diag",
+"mu": 0.6,
+"seed": 202,
+"result": "success",
+"prog": 251.4,
+"v": 2.78,
+"hsat": 0.072,
+"ksat": 0.161
+},
+{
+"kind": "K2",
+"mode": "diag",
+"mu": 0.4,
+"seed": 207,
+"result": "success",
+"prog": 251.1,
+"v": 5.23,
+"hsat": 0.063,
+"ksat": 0.14
+},
+{
+"kind": "K1",
+"mode": "diag",
+"mu": 0.3,
+"seed": 204,
+"result": "success",
+"prog": 253.2,
+"v": 7.34,
+"hsat": 0.041,
+"ksat": 0.099
+},
+{
+"kind": "K1",
+"mode": "rows",
+"mu": 0.3,
+"seed": 205,
+"result": "success",
+"prog": 250.6,
+"v": 5.9,
+"hsat": 0.038,
+"ksat": 0.108
+}
+]
+}
+]

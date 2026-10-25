@@ -1,0 +1,314 @@
+[
+ {
+  "cfg": "BASE (package trot)",
+  "terrain": "flat",
+  "torque": {
+   "hip_st": {
+    "med": 0.031,
+    "p95": 0.115,
+    "sat": 0.0
+   },
+   "hip_sw": {
+    "med": 0.046,
+    "p95": 0.128,
+    "sat": 0.0
+   },
+   "knee_st": {
+    "med": 0.031,
+    "p95": 0.136,
+    "sat": 0.022
+   },
+   "knee_sw": {
+    "med": 0.07,
+    "p95": 0.2,
+    "sat": 0.105
+   }
+  }
+ },
+ {
+  "cfg": "BASE (package trot)",
+  "terrain": "K1",
+  "torque": {
+   "hip_st": {
+    "med": 0.029,
+    "p95": 0.132,
+    "sat": 0.009
+   },
+   "hip_sw": {
+    "med": 0.049,
+    "p95": 0.14,
+    "sat": 0.027
+   },
+   "knee_st": {
+    "med": 0.041,
+    "p95": 0.194,
+    "sat": 0.049
+   },
+   "knee_sw": {
+    "med": 0.071,
+    "p95": 0.2,
+    "sat": 0.146
+   }
+  }
+ },
+ {
+  "cfg": "BASE (package trot)",
+  "terrain": "K2",
+  "torque": {
+   "hip_st": {
+    "med": 0.057,
+    "p95": 0.2,
+    "sat": 0.1
+   },
+   "hip_sw": {
+    "med": 0.082,
+    "p95": 0.2,
+    "sat": 0.109
+   },
+   "knee_st": {
+    "med": 0.049,
+    "p95": 0.2,
+    "sat": 0.132
+   },
+   "knee_sw": {
+    "med": 0.09,
+    "p95": 0.2,
+    "sat": 0.253
+   }
+  }
+ },
+ {
+  "cfg": "RT (spread trot, stock)",
+  "terrain": "flat",
+  "torque": {
+   "hip_st": {
+    "med": 0.052,
+    "p95": 0.154,
+    "sat": 0.022
+   },
+   "hip_sw": {
+    "med": 0.045,
+    "p95": 0.149,
+    "sat": 0.022
+   },
+   "knee_st": {
+    "med": 0.038,
+    "p95": 0.129,
+    "sat": 0.024
+   },
+   "knee_sw": {
+    "med": 0.059,
+    "p95": 0.198,
+    "sat": 0.051
+   }
+  }
+ },
+ {
+  "cfg": "RT (spread trot, stock)",
+  "terrain": "K1",
+  "torque": {
+   "hip_st": {
+    "med": 0.051,
+    "p95": 0.2,
+    "sat": 0.06
+   },
+   "hip_sw": {
+    "med": 0.05,
+    "p95": 0.2,
+    "sat": 0.061
+   },
+   "knee_st": {
+    "med": 0.042,
+    "p95": 0.2,
+    "sat": 0.063
+   },
+   "knee_sw": {
+    "med": 0.061,
+    "p95": 0.2,
+    "sat": 0.102
+   }
+  }
+ },
+ {
+  "cfg": "RT (spread trot, stock)",
+  "terrain": "K2",
+  "torque": {
+   "hip_st": {
+    "med": 0.053,
+    "p95": 0.184,
+    "sat": 0.044
+   },
+   "hip_sw": {
+    "med": 0.052,
+    "p95": 0.189,
+    "sat": 0.047
+   },
+   "knee_st": {
+    "med": 0.043,
+    "p95": 0.2,
+    "sat": 0.071
+   },
+   "knee_sw": {
+    "med": 0.069,
+    "p95": 0.2,
+    "sat": 0.096
+   }
+  }
+ },
+ {
+  "cfg": "WALK (stock)",
+  "terrain": "flat",
+  "torque": {
+   "hip_st": {
+    "med": 0.048,
+    "p95": 0.131,
+    "sat": 0.018
+   },
+   "hip_sw": {
+    "med": 0.048,
+    "p95": 0.145,
+    "sat": 0.019
+   },
+   "knee_st": {
+    "med": 0.026,
+    "p95": 0.136,
+    "sat": 0.032
+   },
+   "knee_sw": {
+    "med": 0.176,
+    "p95": 0.2,
+    "sat": 0.42
+   }
+  }
+ },
+ {
+  "cfg": "WALK (stock)",
+  "terrain": "K1",
+  "torque": {
+   "hip_st": {
+    "med": 0.049,
+    "p95": 0.137,
+    "sat": 0.014
+   },
+   "hip_sw": {
+    "med": 0.06,
+    "p95": 0.192,
+    "sat": 0.047
+   },
+   "knee_st": {
+    "med": 0.026,
+    "p95": 0.13,
+    "sat": 0.028
+   },
+   "knee_sw": {
+    "med": 0.181,
+    "p95": 0.2,
+    "sat": 0.449
+   }
+  }
+ },
+ {
+  "cfg": "WALK (stock)",
+  "terrain": "K2",
+  "torque": {
+   "hip_st": {
+    "med": 0.049,
+    "p95": 0.182,
+    "sat": 0.045
+   },
+   "hip_sw": {
+    "med": 0.053,
+    "p95": 0.194,
+    "sat": 0.05
+   },
+   "knee_st": {
+    "med": 0.025,
+    "p95": 0.168,
+    "sat": 0.037
+   },
+   "knee_sw": {
+    "med": 0.182,
+    "p95": 0.2,
+    "sat": 0.477
+   }
+  }
+ },
+ {
+  "cfg": "MECH (wide track + ski paws, spread trot 8 mm)",
+  "terrain": "flat",
+  "torque": {
+   "hip_st": {
+    "med": 0.051,
+    "p95": 0.2,
+    "sat": 0.052
+   },
+   "hip_sw": {
+    "med": 0.046,
+    "p95": 0.199,
+    "sat": 0.052
+   },
+   "knee_st": {
+    "med": 0.046,
+    "p95": 0.2,
+    "sat": 0.054
+   },
+   "knee_sw": {
+    "med": 0.08,
+    "p95": 0.2,
+    "sat": 0.134
+   }
+  }
+ },
+ {
+  "cfg": "MECH (wide track + ski paws, spread trot 8 mm)",
+  "terrain": "K1",
+  "torque": {
+   "hip_st": {
+    "med": 0.059,
+    "p95": 0.2,
+    "sat": 0.091
+   },
+   "hip_sw": {
+    "med": 0.063,
+    "p95": 0.2,
+    "sat": 0.114
+   },
+   "knee_st": {
+    "med": 0.051,
+    "p95": 0.2,
+    "sat": 0.099
+   },
+   "knee_sw": {
+    "med": 0.083,
+    "p95": 0.2,
+    "sat": 0.185
+   }
+  }
+ },
+ {
+  "cfg": "MECH (wide track + ski paws, spread trot 8 mm)",
+  "terrain": "K2",
+  "torque": {
+   "hip_st": {
+    "med": 0.034,
+    "p95": 0.173,
+    "sat": 0.031
+   },
+   "hip_sw": {
+    "med": 0.043,
+    "p95": 0.2,
+    "sat": 0.139
+   },
+   "knee_st": {
+    "med": 0.041,
+    "p95": 0.2,
+    "sat": 0.079
+   },
+   "knee_sw": {
+    "med": 0.085,
+    "p95": 0.2,
+    "sat": 0.274
+   }
+  }
+ }
+]
