@@ -2,9 +2,12 @@
 """Build the Kıpır viewer.
 
 Outputs:
-  dist/index.html            page with the JS bundle inlined; assets fetched from dist/pkg/ (artifact, http server)
+  dist/index.html            page with the JS bundle inlined; assets fetched from dist/pkg/ (http server)
   dist/pkg/...               catalog.json + one folder per robot (manifest, model.glb, faces, anim, bom)
   dist/kipir_tek_dosya.html  fully self-contained offline version (assets embedded as base64)
+  dist_art/artifact.html     fragment for the Artifact host, with dist_art/pkg/ as its supporting files.
+                             Artifacts serve no .glb and their CSP blocks fetches of data:/blob: URLs, so each
+                             model ships as model.glb.b64.txt (base64 text) and rig.js decodes it.
 
 Usage: python3 build.py --pkg KEY=/path/to/package [--pkg ...] [--jury jury.json] [--tr tr_overlay.json] [--no-offline]
 
@@ -12,10 +15,56 @@ Usage: python3 build.py --pkg KEY=/path/to/package [--pkg ...] [--jury jury.json
 (BOM part and shop names, print summary, lean variant, simulation notes). It is merged into
 catalog.json under "tr"; the packages themselves are never edited.
 """
-import argparse, base64, json, os, re, shutil, subprocess, sys
+import argparse, base64, json, os, re, shutil, struct, subprocess, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 DIST = os.path.join(HERE, "dist")
+DIST_ART = os.path.join(HERE, "dist_art")
+
+
+def strip_glb_images(path):
+    """Drop embedded images and texture references from a GLB in place.
+
+    rig.js replaces every mesh material, so these images are never shown, but GLTFLoader would still load
+    each one through a blob: URL, which the Artifact CSP blocks."""
+    b = open(path, "rb").read()
+    magic, ver, _ = struct.unpack_from("<4sII", b, 0)
+    assert magic == b"glTF" and ver == 2, path
+    jlen, jtype = struct.unpack_from("<II", b, 12)
+    assert jtype == 0x4E4F534A, path
+    js = json.loads(b[20:20 + jlen])
+    if not js.get("images") and not js.get("textures"):
+        return
+    for k in ("images", "textures", "samplers"):
+        js.pop(k, None)
+    for m in js.get("materials", []):
+        for d in (m, m.get("pbrMetallicRoughness", {})):
+            for k in [k for k in d if k.endswith("Texture")]:
+                del d[k]
+    jb = json.dumps(js, separators=(",", ":")).encode()
+    jb += b" " * (-len(jb) % 4)
+    rest = b[20 + jlen:]
+    out = struct.pack("<4sII", b"glTF", 2, 12 + 8 + len(jb) + len(rest)) + struct.pack("<II", len(jb), 0x4E4F534A) + jb + rest
+    open(path, "wb").write(out)
+
+
+def write_artifact(page):
+    """dist_art/: the Artifact fragment plus a copy of dist/pkg with each GLB as base64 text."""
+    if os.path.exists(DIST_ART):
+        shutil.rmtree(DIST_ART)
+    shutil.copytree(os.path.join(DIST, "pkg"), os.path.join(DIST_ART, "pkg"))
+    open(os.path.join(DIST_ART, "artifact.html"), "w").write(page)       # fragment: the Artifact host adds the skeleton
+    for key in os.listdir(os.path.join(DIST_ART, "pkg")):
+        d = os.path.join(DIST_ART, "pkg", key)
+        if not os.path.isdir(d):
+            continue
+        mp = os.path.join(d, "manifest.json")
+        man = json.load(open(mp))
+        glb = os.path.join(d, man["glb"])
+        open(glb + ".b64.txt", "w").write(base64.b64encode(open(glb, "rb").read()).decode())
+        os.remove(glb)
+        man["glb"] += ".b64.txt"
+        json.dump(man, open(mp, "w"), ensure_ascii=False, indent=1)
 
 
 def copy_pkg(key, src):
@@ -36,6 +85,8 @@ def copy_pkg(key, src):
         d = os.path.join(dst, rel)
         os.makedirs(os.path.dirname(d), exist_ok=True)
         shutil.copyfile(s, d)
+        if rel == man["glb"]:
+            strip_glb_images(d)
         out.append(f"pkg/{key}/{rel}")
     return out
 
@@ -79,8 +130,8 @@ def main():
     tpl = open(os.path.join(HERE, "src", "template.html")).read()
     page = tpl.replace("<!--BUNDLE-->", "<script>" + bundle + "</script>")
     head = "<!doctype html><html lang=\"tr\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1,viewport-fit=cover\"></head><body>"
-    open(os.path.join(DIST, "artifact.html"), "w").write(page)          # fragment: the Artifact host adds the skeleton
     open(os.path.join(DIST, "index.html"), "w").write(head + page + "</body></html>")
+    write_artifact(page)
     os.remove(os.path.join(DIST, "bundle.js"))
 
     if not a.no_offline:
@@ -95,6 +146,8 @@ def main():
             print(f"{f}: {os.path.getsize(p)/1e6:.2f} MB")
     tot = sum(os.path.getsize(os.path.join(dp, f)) for dp, _, fs in os.walk(os.path.join(DIST, "pkg")) for f in fs)
     print(f"pkg/: {tot/1e6:.2f} MB, {len(assets)} files")
+    tot = sum(os.path.getsize(os.path.join(dp, f)) for dp, _, fs in os.walk(DIST_ART) for f in fs)
+    print(f"dist_art/: {tot/1e6:.2f} MB")
 
 
 if __name__ == "__main__":

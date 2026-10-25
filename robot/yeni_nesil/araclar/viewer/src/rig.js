@@ -14,9 +14,22 @@
 import * as RL from './realism.js';
 import { toCreasedNormals } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
 
+// The Artifact page serves no .glb files and its CSP blocks fetches of data:/blob: URLs, so its build ships
+// the GLB as base64 text ("model.glb.b64.txt"); decode it here and hand GLTFLoader the bytes directly.
+async function loadModel(GLTFLoader, src) {
+  const loader = new GLTFLoader();
+  if (!/\.b64\.txt$/.test(src)) return loader.loadAsync(src);
+  const res = await fetch(src);
+  if (!res.ok) throw new Error(`${src}: HTTP ${res.status}`);
+  const bin = atob((await res.text()).trim());
+  const u8 = new Uint8Array(bin.length);
+  for (let i = 0; i < bin.length; i++) u8[i] = bin.charCodeAt(i);
+  return loader.parseAsync(u8.buffer, '');
+}
+
 export async function loadRobot(THREE, GLTFLoader, baseUrl, manifest, opts = {}) {
   const url = opts.resolve ? (p) => opts.resolve(p) : (p) => baseUrl.replace(/\/?$/, '/') + p;
-  const gltf = await new GLTFLoader().loadAsync(url(manifest.glb));
+  const gltf = await loadModel(GLTFLoader, url(manifest.glb));
   const root = gltf.scene;                                   // mm, Z up
   const zup = new THREE.Group(); zup.add(root);
   const object = new THREE.Group(); object.add(zup);         // Y up, metres
