@@ -31,6 +31,7 @@ robot/
 │   ├── HAZIR_ROBOTLAR.md  hazır robotlar (Microduck, Bittle, Loona...) ve Türkiye'ye gelmiş fiyatları
 │   ├── MINI.md        5-10 bin TL'ye masaüstü robot: Kıpır Mini 4 / Mini 2 / Küp
 │   ├── YENI_NESIL.md  Sesame'den daha tatlı dört masa robotu, jüri kararı ve gerçek maliyetler
+│   ├── SESAME_STACKCHAN.md  Sesame ve StackChan ile karşılaştırma, Türkiye'de gerçek fiyatları, Sesame+
 │   └── baglanti.svg   bağlantı şeması
 ├── sunum/index.html   dört yeni robotu 3B görme, hareket ettirme, karşılaştırma (çift tıkla aç)
 ├── yeni_nesil/        Tosbi, Tarçın, Fındık, Yumurcak: CAD, simülasyon, parça listesi, görseller
@@ -108,6 +109,7 @@ robot/
 - **Masa robotu:** Kıpır v1'den küçük, yürüyen dört tasarım hazır. Karşılaştırmak için
   `sunum/index.html` dosyasını tarayıcıda aç; özet ve jüri kararı
   [docs/YENI_NESIL.md](docs/YENI_NESIL.md) içinde.
+  Sesame ve StackChan'la karşılaştırma: [docs/SESAME_STACKCHAN.md](docs/SESAME_STACKCHAN.md).
 
 - **v1.5:** Gece lambasının LED'lerini gövdeye, drone kamerasını (RTSP) ikinci göz olarak
   ekle; xiaozhi-esp32 ile telefonsuz sesli kafa.

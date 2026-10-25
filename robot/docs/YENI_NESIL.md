@@ -94,6 +94,9 @@ Yürümesi şart değilse en ucuz ve en kolay kurulanı Fındık.
 - **Zayıf yanları:** en pahalısı. İki kart ve 10 servoyla kurulumu en zor olanı. Pil
   zorlandığında kalkma başarısı düşüyor.
 
+Sesame (olduğu gibi ve geliştirilmiş hâli) ve StackChan'la aynı ölçütlerle karşılaştırma:
+[SESAME_STACKCHAN.md](SESAME_STACKCHAN.md). Sonuç değişmedi: yürümesi şartsa Yumurcak.
+
 ## Gerçekte görselden farklı olacaklar
 
 - **Renkler:** gerçek baskıda turuncular görseldekinden daha canlı ve doygun çıkar.
