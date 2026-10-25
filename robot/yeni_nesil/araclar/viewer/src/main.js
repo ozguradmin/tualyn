@@ -376,15 +376,17 @@ let toastT = 0;
 function toast(msg) {
   let t = document.getElementById('toast');
   if (!t) { t = document.createElement('div'); t.id = 'toast'; t.setAttribute('role', 'status'); document.getElementById('stage').append(t); }
+  t.style.top = $('#top').offsetHeight + 8 + 'px';   // under the top bar, never over the chips it points to
   t.textContent = msg; t.hidden = false; clearTimeout(toastT); toastT = setTimeout(() => { t.hidden = true; }, 3200);
   announce(msg);
 }
 function activeRobots() { return selected ? robots.filter((r) => r.key === selected) : robots; }
 function toIdle(r) { r.rig.setBase(null); r.rig.setPose(r.man.pose_rest || {}); r.anim = { name: 'idle', t: 0, playing: true }; }
 function updateVisibility() {
-  // while the selected robot walks, turns or falls, its neighbours step out of the way (falls drift into them)
+  // while the selected robot walks, turns or falls, its neighbours step out of the way (falls drift into them), and in every
+  // preset but 3/4: the side camera sits behind the robots on the right, and on a portrait phone the front row hides the back row
   const s = selected && robots.find((x) => x.key === selected);
-  const solo = s && MOVES.has(s.anim.name);
+  const solo = s && (MOVES.has(s.anim.name) || lastView !== 'v34');
   robots.forEach((o) => { o.rig.object.visible = !solo || o === s; });
   phone.visible = coin.visible = !selected;   // scale references belong to the side-by-side view
 }
@@ -455,7 +457,7 @@ function playAnim(k, which) {
   if (sel && before && robotCenter(sel, new THREE.Vector3()).distanceTo(before) > 0.005) viewPreset(lastView);
   else if (sel && MOVES.has(k)) startFollow(sel); else followCam = false;
   // all four walking: the camera follows the group's centroid and fits its current spread (see groupFrame)
-  if (!selected && k === 'walk') { wideWalk = true; fly = null; userMoved = false; }
+  if (!selected && k === 'walk') { wideWalk = true; userMoved = false; }   // let a pending overview fly finish: groupFrame keeps the camera's direction
   else if (!selected && wideWalk) { wideWalk = false; frameAll(); }
   announce(`${animName(k)} oynatılıyor`);
 }
@@ -530,7 +532,7 @@ function facing(r) {
 }
 const SKIN = new Set(['print', 'tpu', 'petg', 'plastic']);
 function viewPreset(id, instant = false) {
-  followCam = false; userMoved = false; lastView = id;
+  followCam = false; userMoved = false; lastView = id; updateVisibility();
   const r = selected ? robots.find((x) => x.key === selected) : null;
   if (!r) { frameAll(instant); return; }
   presetFor(r, id, instant);
@@ -679,11 +681,23 @@ function renderPanel() {
   const body = $('#pbody'); body.setAttribute('aria-labelledby', 'tab-' + tab);
   body.innerHTML = r ? robotTab(r) : overviewTab(); body.scrollTop = 0;
   body.querySelectorAll('.card[data-key]').forEach((c) => {
-    c.onclick = () => select(c.dataset.key);
-    c.onkeydown = (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); select(c.dataset.key); } };
+    c.onclick = () => focusCard(c.dataset.key);
+    c.onkeydown = (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); focusCard(c.dataset.key); } };
   });
 }
 
+// tools_tl_if_needed starts at 0 for a family that already owns them; when buying, the floor is an iron + multimeter
+// (cheapest verified pair: Motorobit 60 W iron 242.40 + Direnc DT830D 191.79 TL)
+const MIN_TOOL_KIT_TL = 434;
+function toolsRange(b) {
+  const t = b?.tools_tl_if_needed; if (!Array.isArray(t)) return null;
+  return [t[0] > 0 ? t[0] : (b.tools_min_kit_tl ?? MIN_TOOL_KIT_TL), t[1]];
+}
+// phones: the 3D view is above the panel, so bring it back into view after picking a card
+function focusCard(key) {
+  select(key);
+  if (matchMedia('(max-width: 900px)').matches) stage.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+}
 function costOf(r) { const t = r.bom?.total_tl || r.man.specs?.total_tl; return Array.isArray(t) ? t : null; }
 function juryFor(k) { return catalog.jury?.ranking?.find((x) => x.key === k); }
 // Jury's estimate adds the risk of current discounts ending on top of the parts-list total.
@@ -706,7 +720,7 @@ function overviewTab() {
     <dt>Düşerse</dt><dd>${esc(TR(r).recovery_tr || short(trn(noPaths(sim.recovery_short || s.self_righting_short || s.self_righting || '–')), 110))}</dd>
     <dt>Gerçek maliyet</dt><dd><b class="num">${c ? fmtTL(c[0]) + ' – ' + fmtTL(c[1]) : '–'}</b></dd></dl></div>`;
   }
-  const tools = robots.map((r) => r.bom?.tools_tl_if_needed).filter(Array.isArray);
+  const tools = robots.map((r) => toolsRange(r.bom)).filter(Boolean);
   const tl = tools.length ? `Havya ve multimetre yoksa robota göre ${fmtTL(Math.min(...tools.map((t) => t[0])))}–${fmtTL(Math.max(...tools.map((t) => t[1])))} ekle. ` : '';
   h += `<p class="muted">Maliyetler: Türkiye'de stokta parçalar, KDV dahil, ${esc(catalog.prices_checked || 'Ekim 2026')} fiyatları; 3D baskı ve kargo dahil. ${tl}Bir karta tıkla: o robota odaklanır.</p>`;
   return h;
@@ -751,7 +765,7 @@ function robotTab(r) {
     }
     if (b.shipping_tl) h += `<p>Kargo: <span class="num">${fmtTL(b.shipping_tl[0])} – ${fmtTL(b.shipping_tl[1])}</span></p>`;
     if (b.lean_variant) h += `<h3>Sade sürüm</h3><p class="num">${fmtTL(b.lean_variant.total_tl?.[0])} – ${fmtTL(b.lean_variant.total_tl?.[1])}</p>${T.lean_tr || b.lean_variant.what_tr ? `<p>${esc(T.lean_tr || b.lean_variant.what_tr)}</p>` : ''}`;
-    if (b.tools_tl_if_needed) h += `<p class="muted">Havya ve multimetre yoksa: ${fmtTL(b.tools_tl_if_needed[0])} – ${fmtTL(b.tools_tl_if_needed[1])}</p>`;
+    const tr = toolsRange(b); if (tr) h += `<p class="muted">Havya ve multimetre yoksa: ${fmtTL(tr[0])} – ${fmtTL(tr[1])}</p>`;
     return h;
   }
   if (tab === 'gercek') {

@@ -195,13 +195,27 @@ export async function loadRobot(THREE, GLTFLoader, baseUrl, manifest, opts = {})
     return { done: !a.loop && x >= n - 1, frame: i };
   }
 
+  // one see-through copy per material, cloned without userData: a screen's CanvasTexture there would be serialised to PNG
+  const xcache = new Map();
+  function xrayOf(src) {
+    let x = xcache.get(src);
+    if (!x) {
+      const ud = src.userData; src.userData = {};
+      x = src.clone(); src.userData = ud;
+      x.userData = { matKey: ud.matKey, def: ud.def };
+      x.transparent = true; x.opacity = 0.18; x.depthWrite = false;
+      xcache.set(src, x);
+    }
+    return x;
+  }
   function setXray(on) {
     for (const o of meshes) {
       const def = o.material.userData.def || {};
       if (internal.includes(o)) { o.visible = on; continue; }
+      if (def.type === 'screen') continue;   // screens stay lit and opaque
       if (on) {
-        if (!o.userData.xmat) { o.userData.xmat = o.material.clone(); o.userData.xmat.transparent = true; o.userData.xmat.opacity = 0.18; o.userData.xmat.depthWrite = false; }
-        if (def.type !== 'screen') o.material = o.userData.xmat;
+        if (!o.userData.xmat) o.userData.xmat = xrayOf(o.material);
+        o.material = o.userData.xmat;
       } else if (o.userData.xmat) o.material = matCache[def && o.userData.xmat.userData.matKey] || o.material;
     }
     if (!on) for (const o of meshes) { const key = o.userData.xmat?.userData?.matKey; if (key && matCache[key]) o.material = matCache[key]; }

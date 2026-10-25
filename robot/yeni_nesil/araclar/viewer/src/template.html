@@ -52,7 +52,7 @@ button{font:inherit;color:inherit}
 .btn.primary{background:var(--accent);color:var(--accent-fg);border-color:var(--accent)}
 .btn[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
 .btn.soft{opacity:.55}
-#toast{position:absolute;left:50%;transform:translateX(-50%);top:70px;z-index:6;max-width:min(520px,calc(100% - 32px));background:var(--fg);color:var(--bg);border-radius:12px;padding:10px 14px;font-weight:700;font-size:13px;box-shadow:var(--shadow)}
+#toast{position:absolute;left:50%;transform:translateX(-50%);top:70px;pointer-events:none;z-index:6;max-width:min(520px,calc(100% - 32px));background:var(--fg);color:var(--bg);border-radius:12px;padding:10px 14px;font-weight:700;font-size:13px;box-shadow:var(--shadow)}
 .btn:disabled{opacity:.45;cursor:not-allowed}
 .btn[hidden]{display:none}
 #timeline{display:flex;gap:10px;align-items:center;width:100%;background:var(--chip);backdrop-filter:blur(6px);border:1px solid var(--line);border-radius:12px;padding:6px 10px}
@@ -131,7 +131,9 @@ a{color:var(--accent)}
   #panel{border-left:none;border-top:1px solid var(--line);height:auto;overflow:visible;padding-left:max(0px,env(safe-area-inset-left,0px))}
   #pbody{overflow:visible}
   #hint{display:none}
-  #tl-label{min-width:0;flex:0 1 auto;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:11px}
+  /* the label gets its own line so the scrub slider keeps the full width */
+  #timeline{flex-wrap:wrap;row-gap:2px}
+  #tl-label{min-width:0;order:3;flex:1 1 100%;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:11px}
 }
 /* phone in landscape: side panel again, the canvas takes what the two-line dock leaves */
 @media (max-width: 900px) and (max-height: 500px) and (orientation: landscape){
@@ -142,6 +144,7 @@ a{color:var(--accent)}
   .brand{display:none}
   #dock{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:6px;padding:6px 10px 6px var(--gl)}
   #timeline,#note{grid-column:1/-1}
+  #timeline{flex-wrap:nowrap} #tl-label{order:0;flex:0 1 auto;text-align:right}
   #panel{border-top:none;border-left:1px solid var(--line);height:100%;overflow:hidden;min-height:0}
   #pbody{overflow:auto}
 }
