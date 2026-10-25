@@ -64,6 +64,7 @@ def write_artifact(page):
         open(glb + ".b64.txt", "w").write(base64.b64encode(open(glb, "rb").read()).decode())
         os.remove(glb)
         man["glb"] += ".b64.txt"
+        man["glb_bytes"] = os.path.getsize(glb + ".b64.txt")      # for the loading percentage
         json.dump(man, open(mp, "w"), ensure_ascii=False, indent=1)
 
 
@@ -129,7 +130,10 @@ def main():
     bundle = open(os.path.join(DIST, "bundle.js")).read().replace("</script", "<\\/script")
     tpl = open(os.path.join(HERE, "src", "template.html")).read()
     page = tpl.replace("<!--BUNDLE-->", "<script>" + bundle + "</script>")
-    head = "<!doctype html><html lang=\"tr\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1,viewport-fit=cover\"></head><body>"
+    # same skeleton the Artifact host wraps the fragment in, so every build lays out alike (safe areas padded on :root)
+    head = ("<!doctype html><html lang=\"tr\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1,viewport-fit=cover\">"
+            "<style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}"
+            "body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style></head><body>")
     open(os.path.join(DIST, "index.html"), "w").write(head + page + "</body></html>")
     write_artifact(page)
     os.remove(os.path.join(DIST, "bundle.js"))

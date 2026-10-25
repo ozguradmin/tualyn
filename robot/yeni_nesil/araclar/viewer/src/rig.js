@@ -16,12 +16,27 @@ import { toCreasedNormals } from 'three/examples/jsm/utils/BufferGeometryUtils.j
 
 // The Artifact page serves no .glb files and its CSP blocks fetches of data:/blob: URLs, so its build ships
 // the GLB as base64 text ("model.glb.b64.txt"); decode it here and hand GLTFLoader the bytes directly.
-async function loadModel(GLTFLoader, src) {
+// onBytes(n) reports download progress for these large files.
+async function loadModel(GLTFLoader, src, onBytes) {
   const loader = new GLTFLoader();
   if (!/\.b64\.txt$/.test(src)) return loader.loadAsync(src);
   const res = await fetch(src);
   if (!res.ok) throw new Error(`${src}: HTTP ${res.status}`);
-  const bin = atob((await res.text()).trim());
+  let text;
+  if (onBytes && res.body) {
+    const reader = res.body.getReader(), parts = [];
+    let n = 0;
+    for (;;) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      parts.push(value); n += value.length; onBytes(value.length);
+    }
+    const all = new Uint8Array(n);
+    let o = 0;
+    for (const p of parts) { all.set(p, o); o += p.length; }
+    text = new TextDecoder().decode(all);
+  } else text = await res.text();
+  const bin = atob(text.trim());
   const u8 = new Uint8Array(bin.length);
   for (let i = 0; i < bin.length; i++) u8[i] = bin.charCodeAt(i);
   return loader.parseAsync(u8.buffer, '');
@@ -29,7 +44,20 @@ async function loadModel(GLTFLoader, src) {
 
 export async function loadRobot(THREE, GLTFLoader, baseUrl, manifest, opts = {}) {
   const url = opts.resolve ? (p) => opts.resolve(p) : (p) => baseUrl.replace(/\/?$/, '/') + p;
-  const gltf = await loadModel(GLTFLoader, url(manifest.glb));
+  // model, face images and animations are independent downloads: start them all now, await each where it is used
+  const modelP = loadModel(GLTFLoader, url(manifest.glb), opts.onBytes);
+  const facesP = Promise.all(Object.entries(manifest.faces || {}).map(async ([expr, def]) => {
+    const out = {};
+    await Promise.all(Object.entries(def).map(async ([scr, file]) => {
+      const im = new Image(); im.src = url(file); await im.decode(); out[scr] = im;
+    }));
+    return [expr, out];
+  }));
+  facesP.catch(() => {});   // if the model fails first, its error is the one reported
+  const animsP = Promise.all(Object.entries(manifest.animations || {}).map(async ([k, f]) => {
+    try { return [k, await (await fetch(url(f))).json()]; } catch (e) { console.warn('anim load failed', k, e); return null; }
+  }));
+  const gltf = await modelP;
   const root = gltf.scene;                                   // mm, Z up
   const zup = new THREE.Group(); zup.add(root);
   const object = new THREE.Group(); object.add(zup);         // Y up, metres
@@ -126,17 +154,8 @@ export async function loadRobot(THREE, GLTFLoader, baseUrl, manifest, opts = {})
   }
 
   // ---------- faces ----------
-  const faceImgs = {};
-  async function loadFace(expr) {
-    if (faceImgs[expr]) return faceImgs[expr];
-    const def = (manifest.faces || {})[expr]; if (!def) return null;
-    const out = {};
-    for (const [scr, file] of Object.entries(def)) {
-      const im = new Image(); im.src = url(file); await im.decode(); out[scr] = im;
-    }
-    return (faceImgs[expr] = out);
-  }
-  for (const k of Object.keys(manifest.faces || {})) await loadFace(k);
+  const faceImgs = Object.fromEntries(await facesP);
+  async function loadFace(expr) { return faceImgs[expr] || null; }
   let currentFace = null;
   function setFace(expr) {
     const f = faceImgs[expr]; if (!f || expr === currentFace) return;
@@ -151,9 +170,7 @@ export async function loadRobot(THREE, GLTFLoader, baseUrl, manifest, opts = {})
 
   // ---------- animations ----------
   const anims = {};
-  for (const [k, f] of Object.entries(manifest.animations || {})) {
-    try { anims[k] = await (await fetch(url(f))).json(); } catch (e) { console.warn('anim load failed', k, e); }
-  }
+  for (const e of await animsP) if (e) anims[e[0]] = e[1];   // manifest order
   function applyFrame(a, t) {
     // t in seconds; linear interpolation of joints and base, step for faces
     const fps = a.fps || 30, n = a.frames || (a.joints ? Object.values(a.joints)[0].length : (a.base?.length || 1));

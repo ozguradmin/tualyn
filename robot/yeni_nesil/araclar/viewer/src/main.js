@@ -28,7 +28,10 @@ const coarse = matchMedia('(pointer: coarse)').matches;   // phones/tablets: lig
 const store = { get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }, set(k, v) { try { localStorage.setItem(k, v); } catch (e) { /* private mode */ } } };
 
 // ---------- three ----------
-const renderer = new THREE.WebGLRenderer({ canvas, antialias: !coarse || devicePixelRatio < 2, preserveDrawingBuffer: false });
+const renderer = (() => {
+  try { return new THREE.WebGLRenderer({ canvas, antialias: !coarse || devicePixelRatio < 2, preserveDrawingBuffer: false }); }
+  catch (e) { $('#loading').textContent = 'Bu tarayıcıda 3B görünüm (WebGL) açılamadı. Donanım hızlandırmayı açıp sayfayı yenile.'; throw e; }
+})();
 renderer.setPixelRatio(Math.min(devicePixelRatio, coarse ? 1.5 : 2));
 renderer.shadowMap.enabled = true; renderer.shadowMap.type = coarse ? THREE.PCFShadowMap : THREE.PCFSoftShadowMap;
 renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.outputColorSpace = THREE.SRGBColorSpace;
@@ -144,11 +147,18 @@ const noPaths = (t) => String(t ?? '').replace(/\s*\([^()]*\b(?:sim|stills|anim)
 // ---------- load ----------
 async function boot() {
   catalog = await getJSON('pkg/catalog.json');
-  for (const entry of catalog.robots) {
+  // load every robot at once; one at a time costs ~130 sequential round trips on a phone
+  const mans = await Promise.all(catalog.robots.map((e) => getJSON(`pkg/${e.key}/manifest.json`)));
+  // the models are ~90 % of the data: show their download as a percentage (glb_bytes is set by the Artifact build)
+  const total = mans.reduce((s, m) => s + (m.glb_bytes || 0), 0);
+  let got = 0;
+  const onBytes = total ? (n) => { got += n; $('#loading').textContent = `Robotlar yükleniyor… %${Math.min(99, Math.floor((got / total) * 100))}`; } : null;
+  const loaded = await Promise.all(catalog.robots.map((entry, i) => {
     const base = `pkg/${entry.key}/`;
-    const man = await getJSON(base + 'manifest.json');
-    let bom = null; try { bom = await getJSON(base + 'bom.json'); } catch (e) { /* optional */ }
-    const rig = await loadRobot(THREE, GLTFLoader, base, man, { resolve: (p) => R(base + p) });
+    return Promise.all([getJSON(base + 'bom.json').catch(() => null), loadRobot(THREE, GLTFLoader, base, mans[i], { resolve: (p) => R(base + p), onBytes })]);
+  }));
+  for (const [i, entry] of catalog.robots.entries()) {
+    const man = mans[i], [bom, rig] = loaded[i];
     // shadows only where they read: shells cast, shells and desk receive (screens, visors and internals skip both)
     rig.meshes.forEach((m) => {
       const t = m.material.userData.def?.type, shell = ['print', 'tpu', 'petg', 'plastic', 'rubber'].includes(t);
