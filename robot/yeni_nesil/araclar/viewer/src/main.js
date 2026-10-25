@@ -676,6 +676,8 @@ function renderPanel() {
 
 function costOf(r) { const t = r.bom?.total_tl || r.man.specs?.total_tl; return Array.isArray(t) ? t : null; }
 function juryFor(k) { return catalog.jury?.ranking?.find((x) => x.key === k); }
+// Jury's estimate adds the risk of current discounts ending on top of the parts-list total.
+function realCost(r) { const t = juryFor(r.key)?.real_cost_tl; return Array.isArray(t) ? t : costOf(r); }
 const TR = (r) => catalog.tr?.[r.key] || {};
 const speedOf = (r) => r.man.sim_summary?.walk_speed_cm_s ?? r.man.specs?.walk_speed_cm_s;
 const wheeled = (r) => (r.man.specs?.motors || 0) > 0;
@@ -686,13 +688,13 @@ function overviewTab() {
   let h = '';
   if (catalog.jury?.recommendation_tr) h += `<div class="total" style="display:block"><span class="muted">Jürinin önerisi</span><p style="margin:6px 0 0">${esc(catalog.jury.recommendation_tr)}</p></div>`;
   for (const r of robots) {
-    const s = r.man.specs || {}, sim = r.man.sim_summary || {}, c = costOf(r), j = juryFor(r.key);
+    const s = r.man.specs || {}, sim = r.man.sim_summary || {}, c = realCost(r), j = juryFor(r.key);
     const v = speedOf(r);
     h += `<div class="card" data-key="${esc(r.key)}" role="button" tabindex="0" aria-label="${esc(r.man.name)} robotuna odaklan"><div class="ch"><span class="dot" style="background:${esc(r.man.accent || '#888')}"></span><b>${esc(r.man.name)}</b><span class="muted">${esc(r.man.subtitle_tr || '')}</span>${j?.rank ? `<span class="pill good" style="margin-left:auto">${j.rank}. sıra · ${fmt(j.score_total)}/10</span>` : ''}</div>
     <dl class="kv sm"><dt>Boyut</dt><dd class="num">${dimsTxt(s.dims_mm)} mm · ${s.mass_g ?? '–'} g</dd>
     <dt>Hareket</dt><dd>${s.servos ?? '–'} servo${s.motors ? ' + ' + s.motors + ' motor' : ''}${v ? ` · <span class="num">${fmt(v)} cm/s</span>${wheeled(r) ? ' (tekerlekle)' : ''}` : ''}</dd>
     <dt>Düşerse</dt><dd>${esc(TR(r).recovery_tr || short(trn(noPaths(sim.recovery_short || s.self_righting_short || s.self_righting || '–')), 110))}</dd>
-    <dt>Maliyet</dt><dd><b class="num">${c ? fmtTL(c[0]) + ' – ' + fmtTL(c[1]) : '–'}</b></dd></dl></div>`;
+    <dt>Gerçek maliyet</dt><dd><b class="num">${c ? fmtTL(c[0]) + ' – ' + fmtTL(c[1]) : '–'}</b></dd></dl></div>`;
   }
   const tools = robots.map((r) => r.bom?.tools_tl_if_needed).filter(Array.isArray);
   const tl = tools.length ? `Havya ve multimetre yoksa robota göre ${fmtTL(Math.min(...tools.map((t) => t[0])))}–${fmtTL(Math.max(...tools.map((t) => t[1])))} ekle. ` : '';
@@ -717,13 +719,15 @@ function robotTab(r) {
     const rec = trn(noPaths(T.recovery_tr || sim.recovery || ''));
     const notes = (T.notes_tr || (Array.isArray(sim.notes) ? sim.notes : sim.notes ? [sim.notes] : [])).map((n) => trn(noPaths(n))).filter((n) => n && !/^(Kaynaklar|Sources)\b/i.test(n) && n.length > 12);
     if (rec || notes.length) h += `<h3>Fizik simülasyonu (MuJoCo)</h3><p>${esc(short(rec, 420))}</p>${rec.length > 420 || notes.length ? `<details><summary class="muted">Simülasyonun tüm ayrıntıları</summary>${rec.length > 420 ? `<p class="muted">${esc(rec)}</p>` : ''}${notes.length ? `<ul class="notes muted">${notes.map((n) => `<li>${esc(n)}</li>`).join('')}</ul>` : ''}</details>` : ''}`;
-    const c = costOf(r); if (c) h += `<div class="total"><span>Gerçek toplam</span><b class="num">${fmtTL(c[0])} – ${fmtTL(c[1])}</b></div>`;
+    const c = realCost(r); if (c) h += `<div class="total"><span>Gerçek maliyet</span><b class="num">${fmtTL(c[0])} – ${fmtTL(c[1])}</b></div>`;
     return h;
   }
   if (tab === 'maliyet') {
     const b = r.bom; if (!b) return '<p>Parça listesi henüz yok.</p>';
     const shops = catalog.tr?.shops || {}, parts = T.items || {};
-    let h = `<div class="total"><span>Gerçek toplam (baskı + kargo dahil)</span><b class="num">${fmtTL(b.total_tl?.[0])} – ${fmtTL(b.total_tl?.[1])}</b></div>`;
+    const rc = juryFor(r.key)?.real_cost_tl;
+    let h = rc ? `<div class="total"><span>Gerçek maliyet (indirimler biterse diye pay dahil)</span><b class="num">${fmtTL(rc[0])} – ${fmtTL(rc[1])}</b></div>` : '';
+    h += `<div class="total"><span>Parça listesi toplamı (baskı + kargo dahil)</span><b class="num">${fmtTL(b.total_tl?.[0])} – ${fmtTL(b.total_tl?.[1])}</b></div>`;
     h += '<div class="tblwrap"><table><thead><tr><th>Parça</th><th class="r">Adet</th><th class="r">Tutar</th><th>Mağaza</th></tr></thead><tbody>';
     for (const it of b.items || []) {
       const shop = shops[it.shop] ?? it.shop;
